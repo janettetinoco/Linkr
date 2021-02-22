@@ -1,2 +1,0 @@
-# Linkr
-MERN Project
