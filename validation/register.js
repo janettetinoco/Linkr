@@ -4,12 +4,10 @@ const validName = require('./valid-name')
 
 module.exports = function validateRegisterInput(data) {
     let errors = {};
-    // debugger 
     if (data.recruiterStatus === 'true') {
         data.recruiterStatus = true;
     } else {
-        debugger
-        data.recruiterStatus = false ;
+        data.recruiterStatus = false;
         debugger
 
     }
@@ -21,13 +19,8 @@ module.exports = function validateRegisterInput(data) {
     data.name = validName(data.name) ? data.name : "";
 
     if (!Validator.isAlpha(data.name.split(' ').join(''))) {
-        // debugger
         errors.name = "You must provide a full name";
     }
-
-    // if (Validator.isEmpty(data.handle)) {
-    //     errors.handle = "Handle field is required";
-    // }
 
     if (Validator.isEmpty(data.email)) {
         errors.email = "Email field is required";
