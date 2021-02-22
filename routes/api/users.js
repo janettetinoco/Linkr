@@ -30,7 +30,7 @@ router.post('/register', (req, res) => {
           password: req.body.password,
           business: req.body.business,
           industry: req.body.industry,
-          recruiterStatus: req.body.reqruiterStatus,
+          recruiterStatus: req.body.recruiterStatus,
           city: req.body.city
         })
 

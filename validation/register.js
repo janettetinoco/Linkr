@@ -4,13 +4,7 @@ const validName = require('./valid-name')
 
 module.exports = function validateRegisterInput(data) {
     let errors = {};
-    if (data.recruiterStatus === 'true') {
-        data.recruiterStatus = true;
-    } else {
-        data.recruiterStatus = false;
-        debugger
-
-    }
+    
 
     data.email = validText(data.email) ? data.email : "";
     data.password = validText(data.password) ? data.password : "";
