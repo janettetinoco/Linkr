@@ -4,15 +4,25 @@ const validName = require('./valid-name')
 
 module.exports = function validateRegisterInput(data) {
     let errors = {};
+    if (data.recruiterStatus === 'true') {
+        data.recruiterStatus = true;
+    } else {
+        data.recruiterStatus = false;
+        debugger
+
+    }
 
     data.email = validText(data.email) ? data.email : "";
     data.password = validText(data.password) ? data.password : "";
     data.password2 = validText(data.password2) ? data.password2 : "";
     data.industry = validText(data.industry) ? data.industry : "";
     data.name = validName(data.name) ? data.name : "";
-    data.city = validName(data.city) ? data.city : "";
 
-    if (!Validator.isAlpha(data.name)) {
+
+    data.city = validText(data.city) ? data.city : "";
+
+
+    if (!Validator.isAlpha(data.name.split(' ').join(''))) {
         errors.name = "You must provide a full name";
     }
 
@@ -32,6 +42,11 @@ module.exports = function validateRegisterInput(data) {
         errors.password = "Password must be between 2 to 30 characters long";
     }
 
+
+    // if (!Validator.equals(data.password, data.password2)) {
+    //     errors.password2 = "Passwords must match";
+    // }
+
     if (Validator.isEmpty(data.city)) {
         errors.city = "City field is required";
     }
@@ -39,6 +54,7 @@ module.exports = function validateRegisterInput(data) {
     if (Validator.isEmpty(data.industry)) {
         errors.industry = "Industry field is required";
     }
+
 
 
     if (Validator.isEmpty(data.recruiterStatus)) {
