@@ -25,6 +25,10 @@ const UserSchema = new Schema({
         type: Boolean,
         required: true
     },
+    city: {
+        type: String,
+        required: true
+    },
     date: {
         type: Date,
         default: Date.now
