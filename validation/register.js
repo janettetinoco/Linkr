@@ -4,23 +4,32 @@ const validName = require('./valid-name')
 
 module.exports = function validateRegisterInput(data) {
     let errors = {};
+    // debugger 
+    if (data.recruiterStatus === 'true') {
+        data.recruiterStatus = true;
+    } else {
+        debugger
+        data.recruiterStatus = false ;
+        debugger
+
+    }
 
     data.email = validText(data.email) ? data.email : "";
     data.password = validText(data.password) ? data.password : "";
     data.password2 = validText(data.password2) ? data.password2 : "";
     data.industry = validText(data.industry) ? data.industry : "";
-    data.name = validName(data.name) ? data.name : "2";
+    data.name = validName(data.name) ? data.name : "";
 
-    if (!Validator.isAlpha(data.name)) {
+    if (!Validator.isAlpha(data.name.split(' ').join(''))) {
+        // debugger
         errors.name = "You must provide a full name";
     }
 
-    if (Validator.isEmpty(data.handle)) {
-        errors.handle = "Handle field is required";
-    }
+    // if (Validator.isEmpty(data.handle)) {
+    //     errors.handle = "Handle field is required";
+    // }
 
     if (Validator.isEmpty(data.email)) {
-        debugger
         errors.email = "Email field is required";
     }
 
@@ -36,9 +45,9 @@ module.exports = function validateRegisterInput(data) {
         errors.password = "Password must be between 2 to 30 characters long";
     }
 
-    if (!Validator.equals(data.password, data.password2)) {
-        errors.password2 = "Passwords must match";
-    }
+    // if (!Validator.equals(data.password, data.password2)) {
+    //     errors.password2 = "Passwords must match";
+    // }
 
     // if (!Validator.isEmtpy(data.password2)) {
     //     errors.password2 = "Second Password field is required"
