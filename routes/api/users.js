@@ -72,7 +72,7 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
 })
 
 
-=======
+
 
 router.post('/login', (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
