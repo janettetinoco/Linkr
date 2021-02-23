@@ -7,11 +7,10 @@ export default function(state = initialState, action) {
   let nextState = Object.assign({}, state);
 
   switch (action.type) {
-    case RECEIVE_USERS: 
-      Object.values(action.users.key).forEach( user=>{
-        nextState[user.id] = user; 
-      });
-      return nextState;
+    case RECEIVE_USERS:  
+      
+      console.log("WE IN HERE");
+      return action.users;
     default:
       return state;
   }
