@@ -115,4 +115,14 @@ router.post('/login', (req, res) => {
 })
 
 
+router.get('/city/:city', (req, res) => {
+  // console.log(req)
+  User.find({city: req.params.city})
+    .sort({ date: -1 })
+    .then(users => res.json(users))
+    .catch( err => 
+      res.status(404).json({ nousersfound: 'No users found in this city'})
+    );
+});
+
 module.exports = router;
