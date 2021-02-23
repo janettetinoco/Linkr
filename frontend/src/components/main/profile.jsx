@@ -8,7 +8,9 @@ class Profile extends React.Component{
   }
 
   componentDidMount(){
+    // get all users in the database in the current users city. 
 
+    // this.props.getUsersByCity(this.props.me.city);
   }
 
   render(){

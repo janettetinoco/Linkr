@@ -1,4 +1,5 @@
 import {connect} from 'react-redux'; 
+import { getUsersByCity } from '../../util/user_util';
 import Profile from './profile';
 
 const mSTP = state =>{
@@ -10,7 +11,7 @@ const mSTP = state =>{
 const mDTP = dispatch =>{
 
   return({
-    
+    getUsersByCity: city=>getUsersByCity(city)
   })
 }
 
