@@ -114,4 +114,14 @@ router.post('/login', (req, res) => {
 })
 
 
+router.get('/:filter/:value', (req, res) => {
+  console.log(req)
+  User.find({[req.params.filter]: req.params.value})
+    .sort({ date: -1 })
+    .then(users => res.json(users))
+    .catch( err => 
+      res.status(404).json({ nousersfound: 'No users found in this city'})
+    );
+});
+
 module.exports = router;
