@@ -11,10 +11,9 @@ module.exports = function validateRegisterInput(data) {
     data.password2 = validText(data.password2) ? data.password2 : "";
     data.industry = validText(data.industry) ? data.industry : "";
     data.name = validName(data.name) ? data.name : "";
-
-
     data.city = validText(data.city) ? data.city : "";
 
+    console.log(data.recruiterStatus)
 
     if (!Validator.isAlpha(data.name.split(' ').join(''))) {
         errors.name = "You must provide a full name";
@@ -49,10 +48,8 @@ module.exports = function validateRegisterInput(data) {
         errors.industry = "Industry field is required";
     }
 
-
-
     if (Validator.isEmpty(data.recruiterStatus)) {
-        errors.recruiterstatus = "Recruiter field is required";
+        errors.recruiterStatus = "Recruiter field is required";
     }
 
     return {
