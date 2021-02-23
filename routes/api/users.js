@@ -58,6 +58,21 @@ router.post('/register', (req, res) => {
     })
 })
 
+//AuthRoute
+router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
+  res.json({
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.password,
+    business: req.body.business,
+    industry: req.body.industry,
+    recruiterStatus: req.body.reqruiterStatus,
+    city: req.body.city
+  });
+})
+
+
+=======
 
 router.post('/login', (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
@@ -98,7 +113,6 @@ router.post('/login', (req, res) => {
         })
     })
 })
-
 
 
 module.exports = router;
