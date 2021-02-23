@@ -4,7 +4,7 @@ import Profile from './profile';
 
 const mSTP = state =>{
   return({
-
+    usersToDisplay: state.users
   })
 }
 

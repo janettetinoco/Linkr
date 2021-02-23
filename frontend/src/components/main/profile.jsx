@@ -5,11 +5,12 @@ class Profile extends React.Component{
   constructor(props){
     super(props);
 
+    this.props.filterUsersBy('city', 'San Francisco');
   }
 
   componentDidMount(){
     // get all users in the database in the current users city. 
-    // this.props.filterUsersBy()
+    console.log(this.props.usersToDisplay);
   }
 
   render(){
