@@ -5,14 +5,18 @@ class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: '',
       email: '',
-      handle: '',
       password: '',
-      password2: '',
+      business: '',
+      industry: '',
+      recruiterStatus: '',
+      city: '',
       errors: {}
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleButton = this.handleButton.bind(this);
     this.clearedErrors = false;
   }
 
@@ -32,15 +36,9 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let user = {
-      email: this.state.email,
-      handle: this.state.handle,
-      password: this.state.password,
-      password2: this.state.password2
-    };
-
-    this.props.signup(user, this.props.history); 
-  }
+    const user = Object.assign({}, this.state);
+    this.props.signup(user, this.props.history)
+  };
 
   renderErrors() {
     return(
@@ -54,42 +52,67 @@ class SignupForm extends React.Component {
     );
   }
 
+  handleButton(bool){
+    return ((e) => {
+      e.preventDefault();
+      this.setState({ recruiterStatus: bool })
+    })  
+  }
+  
+
   render() {
     return (
-      <div className="signup-form-container">
+      <div>
         <form onSubmit={this.handleSubmit}>
-          <div className="signup-form">
-            <br/>
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                placeholder="Email"
-              />
-            <br/>
-              <input type="text"
-                value={this.state.handle}
-                onChange={this.update('handle')}
-                placeholder="Handle"
-              />
-            <br/>
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                placeholder="Password"
-              />
-            <br/>
-              <input type="password"
-                value={this.state.password2}
-                onChange={this.update('password2')}
-                placeholder="Confirm Password"
-              />
-            <br/>
-            <input type="submit" value="Submit" />
+          <div>
             {this.renderErrors()}
+            <input
+              type="text"
+              placeholder="Full Name"
+              value={this.state.name}
+              onChange={this.update('name')}
+            />
+            <input
+              type="text"
+              placeholder="Email"
+              value={this.state.email}
+              onChange={this.update('email')}
+            />
+            <input
+              type="text"
+              placeholder="Password"
+              value={this.state.password}
+              onChange={this.update('password')}
+            />
+            <input
+              type="text"
+              placeholder="Company"
+              value={this.state.business}
+              onChange={this.update('business')}
+            />
+            <input
+              type="text"
+              placeholder="Industry"
+              value={this.state.industry}
+              onChange={this.update('industry')}
+            />
+            <div>
+              <h1>Are you a recruiter?</h1>
+              <button onClick={this.handleButton('true')}>Yes</button>
+              <button onClick={this.handleButton('false')}>No</button>
+            </div>
+            <input
+              type="text"
+              placeholder="City"
+              value={this.state.city}
+              onChange={this.update('city')}
+            />
           </div>
+          <input type="submit" value="Sign Up" />
         </form>
       </div>
-    );
+
+    )
   }
 }
 

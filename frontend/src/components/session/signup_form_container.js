@@ -19,3 +19,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(SignupForm);
+
