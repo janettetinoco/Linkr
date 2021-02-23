@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'; 
-import { populateNearByUsers } from '../../actions/user_actions';
+import { filterUsersBy } from '../../actions/user_actions';
 import Profile from './profile';
 
 const mSTP = state =>{
@@ -9,9 +9,8 @@ const mSTP = state =>{
 }
 
 const mDTP = dispatch =>{
-
   return({
-    getUsersByCity: city=>populateNearByUsers(city)
+    filterUsersBy: (filter, value)=>filterUsersBy(filter, value)
   })
 }
 
