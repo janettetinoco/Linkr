@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'; 
-import { getUsersByCity } from '../../util/user_util';
+import { getUsersByCity } from '../../util/user_api_util';
 import Profile from './profile';
 
 const mSTP = state =>{
