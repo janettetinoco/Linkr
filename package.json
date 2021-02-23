@@ -15,7 +15,6 @@
     "type": "git",
     "url": "git+https://github.com/janettetinoco/Linkr.git"
   },
-  "proxy": "http://localhost:5000",
   "author": "",
   "license": "ISC",
   "bugs": {
