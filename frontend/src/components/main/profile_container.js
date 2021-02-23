@@ -10,7 +10,7 @@ const mSTP = state =>{
 
 const mDTP = dispatch =>{
   return({
-    filterUsersBy: (filter, value)=>filterUsersBy(filter, value)
+    filterUsersBy: (filter, value)=>dispatch(filterUsersBy(filter, value))
   })
 }
 
