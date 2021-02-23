@@ -18,8 +18,8 @@ export const receiveErrors = errors =>({
 
 //the goal is to find all near by users that live in the same city as
 //the current user..
-export const populateNearByUsers = filter => value => dispatch => (
-    APIUtil.getUsersByCity(filter, value).then((users) => (
+export const filterUsersBy = filter => value => dispatch => (
+    APIUtil.filterUsersBy(filter, value).then((users) => (
         dispatch(receiveUsers(users))
     ), err => (
         dispatch(receiveErrors(err.response.data))
