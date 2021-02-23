@@ -115,9 +115,9 @@ router.post('/login', (req, res) => {
 })
 
 
-router.get('/city/:city', (req, res) => {
-  // console.log(req)
-  User.find({city: req.params.city})
+router.get('/:filter/:value', (req, res) => {
+  console.log(req)
+  User.find({[req.params.filter]: req.params.value})
     .sort({ date: -1 })
     .then(users => res.json(users))
     .catch( err => 
