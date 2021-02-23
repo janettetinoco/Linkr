@@ -9,8 +9,10 @@ export default function(state = initialState, action) {
   switch (action.type) {
     case RECEIVE_USERS:  
       
-      console.log("WE IN HERE");
-      return action.users;
+      Object.values(action.users.data).forEach( user=>{
+        nextState[user._id] = user; 
+      });
+      return nextState;
     default:
       return state;
   }
