@@ -13,8 +13,6 @@ module.exports = function validateRegisterInput(data) {
     data.name = validName(data.name) ? data.name : "";
     data.city = validText(data.city) ? data.city : "";
 
-    console.log(data.recruiterStatus)
-
     if (!Validator.isAlpha(data.name.split(' ').join(''))) {
         errors.name = "You must provide a full name";
     }
