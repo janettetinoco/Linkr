@@ -5,7 +5,6 @@ import Modal from './modal';
 import { closeModal } from '../../actions/modal_actions';
 
 const mSTP = state => {
-    debugger
     return {
         modal: state.modal
     }
