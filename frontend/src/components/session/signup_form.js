@@ -58,12 +58,16 @@ class SignupForm extends React.Component {
       this.setState({ recruiterStatus: bool })
     })  
   }
+
+  componentDidMount() {
+    this.props.resetErrors()
+  }
   
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="something">
+        <form className="something_else" onSubmit={this.handleSubmit}>
           <div>
             {this.renderErrors()}
             <input

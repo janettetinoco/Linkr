@@ -36,7 +36,6 @@ export const filterUsersBy = (filter,value) => dispatch => {
 export const getSelf = (myId) => dispatch => {
 
   return APIUtil.getCurrentUser(myId).then( (self) =>{
-    console.log(self);
     dispatch(receiveSelf(self));
   },
     err => (
