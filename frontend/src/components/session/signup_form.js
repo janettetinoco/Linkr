@@ -62,8 +62,8 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="something">
+        <form className="something_else" onSubmit={this.handleSubmit}>
           <div>
             {this.renderErrors()}
             <input
