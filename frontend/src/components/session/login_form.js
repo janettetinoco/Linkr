@@ -32,6 +32,10 @@ class LoginForm extends React.Component {
     });
   }
 
+  componentDidMount(){
+    this.props.resetErrors()
+  }
+
   // Handle form submission
   handleSubmit(e) {
     e.preventDefault();
