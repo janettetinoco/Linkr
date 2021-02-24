@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { openModal } from '../../actions/modal_actions'
 // import './navbar.css'
 
 class NavBar extends React.Component {
@@ -27,10 +28,11 @@ class NavBar extends React.Component {
         );
       } else {
         return (
-            <div>
-                <Link to={'/signup'}>Signup</Link>
-                <Link to={'/login'}>Login</Link>
-            </div>
+          <nav className="login-signup">
+            <button className="signup-button" onClick={() => this.props.openModal('signup')}>Sign up</button>
+          &nbsp;
+            <button className="signin-button" onClick={() => this.props.openModal('login')}>Sign In</button>
+          </nav>
         );
       }
   }
@@ -38,7 +40,7 @@ class NavBar extends React.Component {
   render() {
       return (
         <div>
-            <h1>Chirper</h1>
+            <h1>Linkr</h1>
             { this.getLinks() }
         </div>
       );
