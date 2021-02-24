@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'; 
-import { filterUsersBy } from '../../actions/user_actions';
+import { filterUsersBy, getSelf } from '../../actions/user_actions';
 import MainPage from './main_page';
 
 const mSTP = state =>{
@@ -11,6 +11,7 @@ const mSTP = state =>{
 
 const mDTP = dispatch =>{
   return({
+    getSelf: ()=>dispatch(getSelf()),
     filterUsersBy: (filter, value)=>dispatch(filterUsersBy(filter, value))
   })
 }

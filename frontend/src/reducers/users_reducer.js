@@ -1,4 +1,5 @@
-import { RECEIVE_USERS } from '../actions/user_actions';
+
+import { RECEIVE_SELF, RECEIVE_USERS } from '../actions/user_actions';
 
 const initialState = {};
 
@@ -12,6 +13,9 @@ const users = function(state = initialState, action) {
       Object.values(action.users.data).forEach( user=>{
         nextState[user._id] = user; 
       });
+      return nextState;
+    case RECEIVE_SELF:
+      nextState[action.self.id] = action.self;
       return nextState;
     default:
       return state;
