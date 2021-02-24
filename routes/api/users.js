@@ -132,4 +132,10 @@ router.get('/self/:myId', (req, res) => {
     );
 });
 
+router.get('/connected', (req,res) => {
+  req.query
+  // User.find({id: req.query.id}).then(user.connected)
+  debugger
+})
+
 module.exports = router;
