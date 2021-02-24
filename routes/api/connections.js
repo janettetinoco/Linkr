@@ -16,10 +16,9 @@ router.get('/connected', (req, res) => {
 
 
 router.post('/create', (req, res) => {
-  debugger
   let currUser_id = req.body.id1
   let nextUser_id = req.body.id2
-  User.find({_id: currUser_id })
+  let currUSer = User.findOne({_id: currUser_id })
   debugger
   console.log(req);
   // User.find({id: req.query.id}).connection.connected
