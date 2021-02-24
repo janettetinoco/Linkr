@@ -13,8 +13,10 @@ const connectionSchema = new Schema({
   }
 });
 
-const connectionTable = mongoose.model('connections', UserSchema);
-module.exports = connectionTable;
+// const connectionTable = mongoose.model('connections', connectionSchema);
+// module.exports = connectionTable;
+
+module.exports = connectionSchema
 
 
 // the GOAL ->>

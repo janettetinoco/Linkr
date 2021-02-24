@@ -132,5 +132,4 @@ router.get('/self/:myId', (req, res) => {
     );
 });
 
-
 module.exports = router;

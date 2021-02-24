@@ -11,6 +11,6 @@ export const getCurrentUser = (myId) => {
 };
 
 
-export const getConnected = (user) => {
-  return axios.get('/api/users/connected', user)
-}
+// export const getConnected = (user) => {
+//   return axios.get('/api/users/connected', user)
+// }
