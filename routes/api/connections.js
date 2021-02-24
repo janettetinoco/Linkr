@@ -14,12 +14,15 @@ router.get('/connected', (req, res) => {
   // debugger
 })
 
+router.get('/blocked')
+
 
 router.post('/create', (req, res) => {
   let currUser_id = req.body.id1
   let nextUser_id = req.body.id2
 
   User.findOne({_id: currUser_id }).then(user => {
+    
     let connection = new Connection({connected: [nextUser_id], pending: [], blocked: []})
     user.connection = connection;
     user.save()
