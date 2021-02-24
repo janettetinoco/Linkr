@@ -4,7 +4,8 @@ import MainPage from './main_page';
 
 const mSTP = state =>{
   return({
-    usersToDisplay: state.users,
+    usersToDisplay: Object.values(state.users),
+    self: state.users[state.session.user.id],
     myId: state.session.user.id
   })
 }

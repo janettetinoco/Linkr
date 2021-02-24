@@ -16,11 +16,17 @@ class Profile extends React.Component{
       <div id="profile">
         <div id="header">
           <div id="img">
-            
+            <hr/>
+            I<br />
+            &emsp;M<br />
+            &emsp;&emsp;A<br />
+            &emsp;&emsp;&emsp;G<br />
+            &emsp;&emsp;&emsp;&emsp;E<br />
+            <hr/>
           </div>
-          <h1>Name</h1>
-          <span>Age</span>
-          <span>City</span>
+          <h1>{this.props.user.name}</h1>
+          <span>{this.props.user.city}</span>
+          <span></span>
         </div>
         <div id="body">
           <div id="stats">
