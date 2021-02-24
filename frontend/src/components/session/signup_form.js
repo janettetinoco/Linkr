@@ -58,6 +58,10 @@ class SignupForm extends React.Component {
       this.setState({ recruiterStatus: bool })
     })  
   }
+
+  componentDidMount() {
+    this.props.resetErrors()
+  }
   
 
   render() {

@@ -6,6 +6,7 @@ export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN";
+export const RESET_ERRORS = "RESET_ERRORS";
 
 // We'll dispatch this when our user signs in
 export const receiveCurrentUser = currentUser => ({
@@ -29,6 +30,10 @@ export const logoutUser = () => ({
     type: RECEIVE_USER_LOGOUT
 });
 
+export const resetErrors = () => ({
+    type: RESET_ERRORS
+})
+
 // Upon signup, dispatch the approporiate action depending on which type of response we receieve from the backend
 export const signup = user => dispatch => (
     APIUtil.signup(user).then(() => (
@@ -40,10 +45,8 @@ export const signup = user => dispatch => (
 
 // Upon login, set the session token and dispatch the current user. Dispatch errors on failure.
 export const login = user => dispatch => {
-    console.log(user)
     return(
         APIUtil.login(user).then(res => {
-            console.log(res)
             const { token } = res.data;
             localStorage.setItem('jwtToken', token);
             APIUtil.setAuthToken(token);
