@@ -43,3 +43,9 @@ export const getSelf = (myId) => dispatch => {
         dispatch(receiveErrors(err.response.data))
     ))
 }
+
+export const getConnected = (user) => dispatch => {
+    return APIUtil.getConnected(user)
+        .then(connectedUsers => dispatch(receiveUsers(connectedUsers))) 
+        .catch(err => dispatch(receiveErrors(err.response.data)))
+}

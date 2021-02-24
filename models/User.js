@@ -32,7 +32,17 @@ const UserSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+    connected: {
+        type: Array
+    },
+    pending: {
+        type: Array
+    },
+    blocked: {
+        type: Array
     }
+
 })
 
 const User = mongoose.model('users', UserSchema);

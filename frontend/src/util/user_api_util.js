@@ -9,3 +9,8 @@ export const filterUsersBy = (filter, value) => {
 export const getCurrentUser = (myId) => {
   return axios.get(`api/users/self/${myId}`)
 };
+
+
+export const getConnected = (user) => {
+  return axios.get('/api/users/connected', user)
+}
