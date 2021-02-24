@@ -14,7 +14,6 @@ router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 //Registering a user
 router.post('/register', (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
-  console.log(errors)
   if (!isValid) {
     return res.status(400).json(errors);
   }
@@ -113,13 +112,23 @@ router.post('/login', (req, res) => {
 })
 
 
-router.get('/:filter/:value', (req, res) => {
-  console.log(req)
+router.get('/query/:filter/:value', (req, res) => {
   User.find({[req.params.filter]: req.params.value})
     .sort({ date: -1 })
     .then(users => res.json(users))
     .catch( err => 
       res.status(404).json({ nousersfound: 'No users found in this city'})
+    );
+});
+
+router.get('/self/:myId', (req, res) => {
+  User.findOne({_id: req.params.myId})
+    .then(self => {
+      return res.json(self)
+    })
+    .catch( err => {
+      res.status(404).json({ nousersfound: 'No users found in this city'})
+    }
     );
 });
 
