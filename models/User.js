@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 // import connectionTable from './Connection.js'
-const Connection = require('./Connection')
+const Connection = require('./Connection').schema
 
 const UserSchema = new Schema({
     name: {
@@ -35,7 +35,7 @@ const UserSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    connection: [Connection]
+    connection: Connection
 })
 
 const User = mongoose.model('users', UserSchema);

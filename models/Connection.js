@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const connectionSchema = new Schema({
+const ConnectionSchema = new Schema({
   connected: { 
     type: Array
    },
@@ -13,35 +13,6 @@ const connectionSchema = new Schema({
   }
 });
 
-// const connectionTable = mongoose.model('connections', connectionSchema);
-// module.exports = connectionTable;
+const Connection = mongoose.model('connections', ConnectionSchema);
+module.exports = Connection
 
-module.exports = connectionSchema
-
-
-// the GOAL ->>
-//connected: { 
-//   alexeyId: [jonathanId, janetterId], 
-//   michaelId: [], 
-// }
-
-// const ConnectionsSchema = new Schema({
-//     userId: {
-//         type: Schema.Types.ObjectId,
-//         ref: 'users'
-//     },
-//     blocked: [{
-//         type: Schema.Types.ObjectId,
-//         ref: 'users'
-//     }],
-//     pending: [{
-//         type: Schema.Types.ObjectId,
-//         ref: 'users'
-//     }],
-//     confirmed: [{
-//         type: Schema.Types.ObjectId,
-//         ref: 'users'
-//     }]
-// , {
-//     timestamps: true
-// }); 
