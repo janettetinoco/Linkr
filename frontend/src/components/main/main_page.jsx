@@ -6,9 +6,9 @@ class MainPage extends React.Component {
   constructor(props){
     super(props);
 
-    this.props.getSelf();
+
     // this.props.filterUsersBy('city', 'San Francisco');
-    console.log(this.props.usersToDisplay); 
+    this.props.getSelf(this.props.myId); 
   }
   componentDidUpdate(){
     if(!this.props.usersToDisplay){

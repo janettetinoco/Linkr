@@ -11,7 +11,7 @@ const mSTP = state =>{
 
 const mDTP = dispatch =>{
   return({
-    getSelf: ()=>dispatch(getSelf()),
+    getSelf: (myId)=>dispatch(getSelf(myId)),
     filterUsersBy: (filter, value)=>dispatch(filterUsersBy(filter, value))
   })
 }

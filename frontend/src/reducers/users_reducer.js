@@ -9,13 +9,13 @@ const users = function(state = initialState, action) {
 
   switch (action.type) {
     case RECEIVE_USERS:  
-      
+
       Object.values(action.users.data).forEach( user=>{
         nextState[user._id] = user; 
       });
       return nextState;
     case RECEIVE_SELF:
-      nextState[action.self.id] = action.self;
+      nextState[action.self.data._id] = action.self.data;
       return nextState;
     default:
       return state;
