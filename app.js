@@ -27,6 +27,7 @@ app.use(bodyParser.json());
 
 app.get("/", (req, res) => res.send("This is the new Linkr"));
 app.use("/api/users", users);
+app.use("/api/connections", connections);
 
 
 const port = process.env.PORT || 5000;
