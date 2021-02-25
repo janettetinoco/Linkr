@@ -12,8 +12,8 @@ router.get('/connected', (req, res) => {
     .then((user) => {
       if (user[0]._doc.connection) {
         let arr = [];
-        user = user[0]._doc.connection;
-        user.connected.forEach(connection => {arr.push(connection)})
+        user = user[0]._doc.connection.connected;
+        user.forEach(connection => {arr.push(connection)})
         return res.json(arr); 
       } else {
         return res.json(['No connections yet'])
@@ -21,8 +21,19 @@ router.get('/connected', (req, res) => {
     })
 })
 
-// router.get('/blocked'), 
-
+router.get('/blocked', (req, res) => {
+  User.find({ _id: req.query.id })
+    .then((user) => {
+      if (user[0]._doc.connection) {
+        let arr = [];
+        user = user[0]._doc.connection.blocked;
+        user.forEach(connection => { arr.push(connection) })
+        return res.json(arr);
+      } else {
+        return res.json(['No blocks yet'])
+      }
+    })
+})
 
 
 router.post('/create', (req, res) => {
