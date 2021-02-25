@@ -1,5 +1,6 @@
 
 import { RECEIVE_SELF, RECEIVE_USERS, REMOVE_USER_FROM_STATE } from '../actions/user_actions';
+import {RECEIVE_USER_LOGOUT} from '../actions/session_actions'; 
 
 const initialState = {};
 
@@ -20,6 +21,8 @@ const users = function(state = initialState, action) {
     case REMOVE_USER_FROM_STATE:
       delete nextState[action.userId];
     return nextState;
+    case RECEIVE_USER_LOGOUT: 
+      return initialState;
     default:
       return state;
   }

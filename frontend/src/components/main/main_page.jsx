@@ -13,6 +13,7 @@ class MainPage extends React.Component {
   }
 
   componentWillMount(){
+    this.setState({usersToDisplay: []});
     this.props.getSelf(this.props.myId)
       .then( ()=> this.props.filterUsersBy('city', this.props.self.city))
       .then( ()=> this.setState({usersToDisplay: this.props.usersToDisplay})); 
@@ -22,10 +23,8 @@ class MainPage extends React.Component {
   nextProfile(){
     let array = this.state.usersToDisplay.slice(1);
     this.setState({usersToDisplay: array});
-
   }
   render() {
-  
     let nextProfile = '';
     if(this.state.usersToDisplay.length>0){
       nextProfile=this.state.usersToDisplay[0];
