@@ -19,7 +19,7 @@ router.post('/register', (req, res) => {
     return res.status(400).json(errors);
   }
 
-  User.findOne({ email: req.body.email })
+  User.findOne({ email: req.body.email.toLowerCase() })
     .then(user => {
       if (user) {
         errors.email = 'Email already exists';
@@ -27,9 +27,8 @@ router.post('/register', (req, res) => {
       } else {
         const newUser = new User({
           name: req.body.name,
-          email: req.body.email,
+          email: req.body.email.toLowerCase(),
           password: req.body.password,
-          business: req.body.business,
           industry: req.body.industry,
           recruiterStatus: req.body.recruiterStatus,
           city: req.body.city
@@ -64,7 +63,6 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
     name: req.body.name,
     email: req.body.email,
     password: req.body.password,
-    business: req.body.business,
     industry: req.body.industry,
     recruiterStatus: req.body.reqruiterStatus,
     city: req.body.city
@@ -80,7 +78,7 @@ router.post('/login', (req, res) => {
     return res.status(400).json(errors);
   }
 
-  const email = req.body.email;
+  const email = req.body.email.toLowerCase();
   const password = req.body.password;
   User.findOne({email})
     .then(user => {
