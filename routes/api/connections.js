@@ -8,13 +8,13 @@ const Connection = require("../../models/Connection");
 
 
 router.get('/connected', (req, res) => {
-  // req.query - id
-  // User.find({id: req.query.id}).connection.connected
-  //    .then((connectedUsers) => res.json(connectedUsers))
-  // debugger
+  User.find({_id: req.query.id})
+    .then((user) => {
+      console.log(user)
+    })
 })
+// router.get('/blocked'), 
 
-router.get('/blocked')
 
 
 router.post('/create', (req, res) => {
