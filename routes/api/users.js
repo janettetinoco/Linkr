@@ -142,9 +142,13 @@ router.get('/alluser', (req, res) => {
 
 //route to -> run seeds!
 //use console`s browser on localhost:3000 & axios this route...
+
+// User.drop();                     //looks like not allowed to drop
+// res.json('Dropping the DB');
+
 router.get('/seed', (req, res) => {
   doSeeds()
-  res.json('Seeding successful!')
+  res.json('Seeding successful!');
 })
 
 module.exports = router;
