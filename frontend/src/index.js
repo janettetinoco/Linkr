@@ -16,6 +16,8 @@ import { setAuthToken } from './util/session_api_util';
 
 // We have not created this action yet, but will do so in the next step
 import { logout } from './actions/session_actions';
+import { createConnection } from './actions/connection_actions';
+import { connectUser, getConnected } from './util/connections_api_util';
 
 window.axios = axios;
 
@@ -52,5 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
 
   window.getState = store.getState();
+  window.dispatch = store.dispatch;
+  window.getConnected = getConnected; 
+  window.createConnection = createConnection; 
+  window.connectUser = connectUser;
   ReactDOM.render(<Root store={store} />, root);
 });
