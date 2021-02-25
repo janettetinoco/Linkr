@@ -15,7 +15,12 @@ class MainPage extends React.Component {
   componentWillMount(){
     this.setState({usersToDisplay: []});
     this.props.getSelf(this.props.myId)
-      .then( ()=> this.props.filterUsersBy('city', this.props.self.city))
+      .then( ()=> {
+        this.props.getConnections(this.props.myId);
+        this.props.getBlocks(this.props.myId);
+        this.props.getPendings(this.props.myId);
+        this.props.filterUsersBy('city', this.props.self.city);
+      })
       .then( ()=> this.setState({usersToDisplay: this.props.usersToDisplay})); 
   }
 
@@ -35,6 +40,7 @@ class MainPage extends React.Component {
           let array = this.state.usersToDisplay.slice(1); 
           this.props.removeUserFromState(remove._id); 
           this.setState({usersToDisplay: array})
+          // this.props.createConnection(this.props.myId, remove._id, "add");
           alert("CONNECT"); 
         }
       }

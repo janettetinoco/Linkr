@@ -1,4 +1,5 @@
 import {connect} from 'react-redux'; 
+import { getBlocked, getConnected, getPending } from '../../actions/connection_actions';
 import { filterUsersBy, getSelf, removeUserFromState } from '../../actions/user_actions';
 import MainPage from './main_page';
 
@@ -12,9 +13,12 @@ const mSTP = state =>{
 
 const mDTP = dispatch =>{
   return({
-    getSelf: (myId)=>dispatch(getSelf(myId)),
+    getSelf: (selfId)=>dispatch(getSelf(selfId)),
     filterUsersBy: (filter, value)=>dispatch(filterUsersBy(filter, value)), 
-    removeUserFromState: (userId)=> dispatch(removeUserFromState(userId))
+    removeUserFromState: (selfId)=> dispatch(removeUserFromState(selfId)),
+    getConnections: (selfId) => dispatch(getConnected(selfId)),
+    getBlocks: (selfId) => dispatch(getBlocked(selfId)),
+    getPendings: (selfId) => dispatch(getPending(selfId))
   })
 }
 

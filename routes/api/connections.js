@@ -50,11 +50,14 @@ router.get('/pending', (req, res) => {
 })
 
 
+
+
 router.post('/create', (req, res) => {
   let currUser_id = req.body.id1
   let nextUser_id = req.body.id2
   
   let status = req.body.status
+
   if (status === "add") {
     //check if nextU has me in pending
     User.findOne({ _id: nextUser_id }).then(user => {
