@@ -15,15 +15,15 @@ class LoginForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
   }
 
-  // Once the user has been authenticated, redirect to the Tweets page
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.currentUser === true) {
-      this.props.history.push('/');
-    }
+  // // Once the user has been authenticated, redirect to the Tweets page
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.currentUser === true) {
+  //     this.props.history.push('/');
+  //   }
 
-    // Set or clear errors
-    this.setState({errors: nextProps.errors})
-  }
+  //   // Set or clear errors
+  //   this.setState({errors: nextProps.errors})
+  // }
 
   // Handle field updates (called in the render method)
   update(field) {
@@ -47,7 +47,7 @@ class LoginForm extends React.Component {
       if(this.props.loggedIn){
         this.props.closeModal();
       }
-    }); 
+    }).then(()=>this.props.history.push('/') ); 
   }
 
   // Render the session errors if there are any
