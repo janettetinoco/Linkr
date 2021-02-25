@@ -7,6 +7,8 @@ const connections = require("./routes/api/connections");
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const path = require('path');
+const image = require('./routes/api/image');
+
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('frontend/build'));
@@ -29,6 +31,8 @@ app.use(bodyParser.json());
 app.get("/", (req, res) => res.send("This is the new Linkr"));
 app.use("/api/users", users);
 app.use("/api/connections", connections);
+app.use('/api/image', image);
+
 
 
 const port = process.env.PORT || 5000;

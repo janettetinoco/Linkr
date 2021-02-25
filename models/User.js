@@ -4,6 +4,10 @@ const Schema = mongoose.Schema;
 const Connection = require('./Connection').schema
 
 const UserSchema = new Schema({
+    avatar: {
+        type: String,
+        required: true
+    },
     name: {
         type: String,
         required: true
