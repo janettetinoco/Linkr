@@ -1,5 +1,356 @@
+let users = [
+  { "name": "Jonathan Diaz", "email": "jonathan@j.com", "password": "123456", "business": "KingApe", "industry": "Ape Industries", "recruiterStatus": false, "city": "New Jersey" },
+  { "name": "Cindy Vega", "email": "casindy@c.com", "password": "123456", "business": "App Academy", "industry": "Software Engineering", "recruiterStatus": false, "city": "Sacramento" },
+  
+  ]
+
+
+ ---- usefull DB methods for inserted dummy data (without hashed password)
+1. db.users.insertMany([
+  ])
+
+2. db.users.insert(  
+  )
+
+
+
+
+
+{ "name": "George Washington", "email": "georgew@w.com", "password": "123456", "business": "Natural Resources", "industry": "Wood Chopping", "recruiterStatus": true, "city": "San Francisco" },
+
+
+{
+  "name": "Michelle Obama",
+  "email": "michelle@usa.com",
+  "password": "$2a$10$0OyFSB2SRMK/yMUVOBT6SegiA1Fu5QP28xIctcssCdrIARUm2MmWy",
+  "business": "woo",
+  "industry": "usa",
+  "recruiterStatus": false,
+  "city": "New York",
+  "date": {
+    "$date": "2021-02-24T22:04:44.757Z"
+  },
+  "__v": 0
+}
+
 {
   "_id": {
-    
+    "$oid": "6036cc71267fa31229148434"
+  },
+  "name": "Thomas Jefferson",
+  "email": "pres@usa.com",
+  "password": "$2a$10$cYOM9bDHEIQeAvUUxUpmFu2bdX9Bu.23W55e3pBeWk6WuMPfRRqbO",
+  "business": "old",
+  "industry": "super old",
+  "recruiterStatus": false,
+  "city": "Los Angeles",
+  "date": {
+    "$date": "2021-02-24T22:00:17.783Z"
+  },
+  "__v": 0
+}
+
+
+{
+  "_id": {
+    "$oid": "6036cb202a1cd9117c121766"
+  },
+  "name": "martha stewart",
+  "email": "old@lady.com",
+  "password": "$2a$10$AhibAH06kqNXucDcJ.umn.8loYooEuo.h.yITfeu/sOhpYYhqtZTK",
+  "business": "cook",
+  "industry": "house",
+  "recruiterStatus": false,
+  "city": "Los Angeles",
+  "date": {
+    "$date": "2021-02-24T21:54:40.868Z"
+  },
+  "__v": 0
+}
+
+
+{
+  "_id": {
+    "$oid": "6036c871f3fef8694df2905f"
+  },
+  "name": "Erick Guzi",
+  "email": "erick.guzi@email.com",
+  "password": "$2a$10$QHx9HmldyeQKjaK.yov7ue0hGNy698GhAVZXcUEmP7fVcTyCrNm0q",
+  "business": "glang",
+  "industry": "glang",
+  "recruiterStatus": true,
+  "city": "jona",
+  "date": {
+    "$date": "2021-02-24T21:43:13.218Z"
+  },
+  "__v": 0
+}
+
+
+{
+  "_id": {
+    "$oid": "6036c81ae32b2a479d2ae587"
+  },
+  "name": "Charlie Smith",
+  "email": "charlie@ch.com",
+  "password": "$2a$10$NKFgPvm2n.Yq8vM5Wcsh4u5LsOI10RNFvmowwNmFR2WkKckPbDj/O",
+  "business": "SpaceX",
+  "industry": "Space Exploration",
+  "recruiterStatus": true,
+  "city": "Los Gatos",
+  "date": {
+    "$date": "2021-02-24T21:41:46.734Z"
+  },
+  "connection": [],
+  "__v": 0
+}
+
+
+{
+  "_id": {
+    "$oid": "6036c68081623745a3fd5190"
+  },
+  "name": "Charlie Smith",
+  "email": "charlie@c.com",
+  "password": "$2a$10$SboJlhg8Dtg5S9l1BSkbT.EFpH637KKxqZyVT4RatLdjKPh.CzVeK",
+  "business": "SpaceX",
+  "industry": "Space Exploration",
+  "recruiterStatus": false,
+  "city": "Los Gatos",
+  "date": {
+    "$date": "2021-02-24T21:34:56.060Z"
+  },
+  "connection": {
+    "connected": [
+      "60342925df705d6617711b58"
+    ],
+    "pending": [],
+    "blocked": [],
+    "_id": {
+      "$oid": "6037510348314235a6dc872f"
+    }
+  },
+  "__v": 0
+}
+
+{
+  "_id": {
+    "$oid": "60355d82d87bd249ad168030"
+  },
+  "name": "Janette Tinoco",
+  "email": "janette@janette.com",
+  "password": "$2a$10$sGE7Ca5r9eFWBhn2WDRpxe8pi4bYTOClJpLwfllFLjvnCgVnj1G9a",
+  "industry": "Dev",
+  "recruiterStatus": false,
+  "city": "Los Angeles",
+  "date": {
+    "$date": "2021-02-23T19:54:42.279Z"
+  },
+  "__v": 0
+}
+
+
+{
+  "_id": {
+    "$oid": "603555ff96ce9d696151d623"
+  },
+  "name": "George Kluni",
+  "email": "george@g.com",
+  "password": "$2a$10$HGixDXnHxBIn7spjSRfTY.JiePzbtF2Oo.ssJVCTb32pIa9KdxpOe",
+  "business": "Genesis",
+  "industry": "Biotech",
+  "recruiterStatus": false,
+  "city": "San Francisco",
+  "date": {
+    "$date": "2021-02-23T19:22:39.162Z"
+  },
+  "__v": 0
+}
+
+
+{
+  "_id": {
+    "$oid": "6035375958a08f3a7ef6b4d1"
+  },
+  "name": "Peter Parker",
+  "email": "peter@p.com",
+  "password": "$2a$10$.A.VRpGuytlJUvS7HAdg7OfiH0Wq/EcwGZERhfpU3e54kvVXjNulG",
+  "business": "Minerals",
+  "industry": "Charcoal Mining",
+  "recruiterStatus": false,
+  "city": "San Francisco",
+  "date": {
+    "$date": "2021-02-23T17:11:53.037Z"
+  },
+  "__v": 11,
+  "connection": {
+    "connected": [
+      "60342925df705d6617711b58",
+      "6035375958a08f3a7ef6b4d1",
+      "6035375958a08f3a7ef6b4d1",
+      "6035375958a08f3a7ef6b4d1",
+      "6035375958a08f3a7ef6b4d1",
+      "6035375958a08f3a7ef6b4d1",
+      "6035375958a08f3a7ef6b4d1"
+    ],
+    "pending": [
+      "603555ff96ce9d696151d623",
+      "6035375958a08f3a7ef6b4d1"
+    ],
+    "blocked": [],
+    "_id": {
+      "$oid": "603734beb124fb5a79ed8596"
+    }
+  }
+}
+
+
+{
+  "_id": {
+    "$oid": "6034b167c67377fe7db22157"
+  },
+  "name": "Janette Tinoco",
+  "email": "janette@email.com",
+  "password": "$2a$10$DftrKjseH3qI5uGInMhO9OPJozPL3/Z4rskQHJ6HwPJ.Ah.BaOzvS",
+  "business": "aA",
+  "industry": "Software Engineering",
+  "recruiterStatus": false,
+  "city": "Los Angeles",
+  "date": {
+    "$date": "2021-02-23T07:40:23.870Z"
+  },
+  "__v": 3,
+  "connection": {
+    "connected": [
+      "60342afc474cf5699fbd3eb3",
+      "6034b167c67377fe7db22157",
+      "6034b167c67377fe7db22157"
+    ],
+    "pending": [
+      "60342afc474cf5699fbd3eb3"
+    ],
+    "blocked": [],
+    "_id": {
+      "$oid": "60371572a4f38e434da13940"
+    }
+  }
+}
+
+{
+  "_id": {
+    "$oid": "603461366528e3b4c7090c20"
+  },
+  "name": "James k",
+  "email": "james@j.com",
+  "password": "$2a$10$468ebug1ZXYGCxprZs/vy.p5hKsjR9KwhEReKgp8W6yd9YzCPzWHK",
+  "business": "Government",
+  "industry": "Political Science",
+  "recruiterStatus": false,
+  "city": "'NY'",
+  "date": {
+    "$date": "2021-02-23T01:58:14.460Z"
+  },
+  "__v": 2,
+  "connection": {
+    "connected": [
+      "60342925df705d6617711b58",
+      "60342925df705d6617711b58"
+    ],
+    "pending": [],
+    "blocked": [
+      "60342925df705d6617711b58"
+    ],
+    "_id": {
+      "$oid": "6037315b64e35c5705205d44"
+    }
+  }
+}
+
+{
+  "_id": {
+    "$oid": "603433d92d0251793671380c"
+  },
+  "name": "Mark Verizen",
+  "email": "mark@m.com",
+  "password": "$2a$10$vTXmRjUFjLpY5IXYbccVB.tWevZSEEw7efQgBEx1TdAYX8FS9.kgK",
+  "business": "Google",
+  "industry": "'Software Developer'",
+  "recruiterStatus": false,
+  "city": "New York",
+  "date": {
+    "$date": "2021-02-22T22:44:41.118Z"
+  },
+  "__v": 0
+}
+
+{
+  "_id": {
+    "$oid": "60342afc474cf5699fbd3eb3"
+  },
+  "name": "Ashley Smith",
+  "email": "ashley@a.com",
+  "password": "$2a$10$l8npWhqIlK4EfZbxQay/ROFIFTPYhVv2BtzgPr639/54BE/QRLF3u",
+  "business": "aA",
+  "industry": "'Software Engineering'",
+  "recruiterStatus": true,
+  "city": "San Francisco",
+  "date": {
+    "$date": "2021-02-22T22:06:52.774Z"
+  },
+  "__v": 6,
+  "connection": {
+    "connected": [
+      "603433d92d0251793671380c",
+      "60342925df705d6617711b58"
+    ],
+    "pending": [],
+    "blocked": [],
+    "_id": {
+      "$oid": "603718e306d7904412583458"
+    }
+  }
+}
+
+
+{
+  "_id": {
+    "$oid": "60342925df705d6617711b58"
+  },
+  "name": "Alexey Sergeev",
+  "email": "alexey@a.com",
+  "password": "$2a$10$KZS.3ItzkLkdF90pO8rk6.UyN3cL4Q2tgSr5RFFJdGjBmBQr8btFq",
+  "business": "aA",
+  "industry": "'Software Engineering'",
+  "recruiterStatus": false,
+  "city": "San Francisco",
+  "date": {
+    "$date": "2021-02-22T21:59:01.223Z"
+  },
+  "__v": 19,
+  "connection": {
+    "connected": [
+      "6035587179ce4647ac5892d0",
+      "60342925df705d6617711b58",
+      "60342925df705d6617711b58",
+      "6035375958a08f3a7ef6b4d1",
+      "603461366528e3b4c7090c20",
+      "6036c68081623745a3fd5190"
+    ],
+    "pending": [
+      "6036c68081623745a3fd5190",
+      "6036c68081623745a3fd5190",
+      "6036d9b92fa3dd19abdbcc3a",
+      "6036d1d43f311115881afc9d",
+      "603555ff96ce9d696151d623",
+      "60342afc474cf5699fbd3eb3"
+    ],
+    "blocked": [
+      "6036d68ced42e817e7c4c1c3",
+      "6036d2a7e5919515b619e75b",
+      "6036ceafa2748e132d9b5379"
+    ],
+    "_id": {
+      "$oid": "6036e06e6a303a706583cd31"
+    }
   }
 }
