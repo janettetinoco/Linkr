@@ -20,7 +20,6 @@ class SignupForm extends React.Component {
     this.clearedErrors = false;
   }
 
-
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -106,13 +105,19 @@ class SignupForm extends React.Component {
               value={this.state.city}
               onChange={this.update('city')}
             />
-            <div>
-              <h1>Are you a recruiter?</h1>
-              <button onClick={this.handleButton('true')}>Yes</button>
-              <button onClick={this.handleButton('false')}>No</button>
-            </div>
+            <footer className="session-footer">
+              <div>
+                <h1>Are you a recruiter?</h1>
+                <button className="recruiter-button" onClick={this.handleButton('true')}>Yes</button>
+                <button className="recruiter-button" onClick={this.handleButton('false')}>No</button>
+              </div>
+              <input 
+                className="session-submit"
+                type="submit"
+                value="Create Account"
+              />
+            </footer>
           </div>
-          <input type="submit" value="Sign Up" />
         </form>
       </div>
 
