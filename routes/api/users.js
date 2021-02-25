@@ -7,7 +7,7 @@ const keys = require('../../config/keys');
 const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
-const doSeeds = require('../../seed_users')
+const doSeeds = require('../../seed/seed_users') //import seed file & run in browser`s console using axios
 
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
@@ -133,12 +133,15 @@ router.get('/self/:myId', (req, res) => {
     );
 });
 
+//show all the users
 router.get('/alluser', (req, res) => {
   User.find()
     .then(users => res.json(users))
 })
 
 
+//route to -> run seeds!
+//user console`s browser & axios this route...
 router.get('/seed', (req, res) => {
   doSeeds()
   res.json('Seeding successful!')
