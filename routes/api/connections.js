@@ -83,6 +83,15 @@ router.post('/create', (req, res) => {
         user.save();
       }
     })
+  } else if (status === 'unblock'){
+    debugger
+    User.findOne({ _id: currUser_id }).then(user => {
+      debugger
+      let idx = user.connection.blocked.indexOf(nextUser_id);
+      user.connection.blocked.splice(idx, 1);
+      debugger
+      user.save();
+    })
   }
 })
 module.exports = router
