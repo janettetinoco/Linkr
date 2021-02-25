@@ -141,7 +141,7 @@ router.get('/alluser', (req, res) => {
 
 
 //route to -> run seeds!
-//user console`s browser & axios this route...
+//use console`s browser on localhost:3000 & axios this route...
 router.get('/seed', (req, res) => {
   doSeeds()
   res.json('Seeding successful!')
