@@ -132,4 +132,9 @@ router.get('/self/:myId', (req, res) => {
     );
 });
 
+router.get('/alluser', (req, res) => {
+  User.find()
+    .then(users => res.json(users))
+})
+
 module.exports = router;
