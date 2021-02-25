@@ -7,6 +7,7 @@ const keys = require('../../config/keys');
 const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
+const doSeeds = require('../../seed/seed_users') //import seed file & run in browser`s console using axios
 
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
@@ -18,7 +19,7 @@ router.post('/register', (req, res) => {
     return res.status(400).json(errors);
   }
 
-  User.findOne({ email: req.body.email })
+  User.findOne({ email: req.body.email.toLowerCase() })
     .then(user => {
       if (user) {
         errors.email = 'Email already exists';
@@ -26,9 +27,8 @@ router.post('/register', (req, res) => {
       } else {
         const newUser = new User({
           name: req.body.name,
-          email: req.body.email,
+          email: req.body.email.toLowerCase(),
           password: req.body.password,
-          business: req.body.business,
           industry: req.body.industry,
           recruiterStatus: req.body.recruiterStatus,
           city: req.body.city
@@ -63,7 +63,6 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
     name: req.body.name,
     email: req.body.email,
     password: req.body.password,
-    business: req.body.business,
     industry: req.body.industry,
     recruiterStatus: req.body.reqruiterStatus,
     city: req.body.city
@@ -79,7 +78,7 @@ router.post('/login', (req, res) => {
     return res.status(400).json(errors);
   }
 
-  const email = req.body.email;
+  const email = req.body.email.toLowerCase();
   const password = req.body.password;
   User.findOne({email})
     .then(user => {
@@ -132,9 +131,22 @@ router.get('/self/:myId', (req, res) => {
     );
 });
 
+//show all the users
 router.get('/alluser', (req, res) => {
   User.find()
     .then(users => res.json(users))
+})
+
+
+//route to -> run seeds!
+//use console`s browser on localhost:3000 & axios this route...
+
+// User.drop();                     //looks like not allowed to drop
+// res.json('Dropping the DB');
+
+router.get('/seed', (req, res) => {
+  doSeeds()
+  res.json('Seeding successful!');
 })
 
 module.exports = router;

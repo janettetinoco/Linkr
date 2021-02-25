@@ -50,27 +50,76 @@ router.get('/pending', (req, res) => {
 })
 
 
+
+
 router.post('/create', (req, res) => {
   let currUser_id = req.body.id1
   let nextUser_id = req.body.id2
+  
   let status = req.body.status
+
   if (status === "add") {
-    User.findOne({ _id: currUser_id }).then(user => {
+    //check if nextU has me in pending
+    User.findOne({ _id: nextUser_id }).then(user => {
+      //check if nextU has connections instantiated
       if (user.connection) {
+        //if yes -> check their pending list if I am there
         let pending = user.connection.pending
-        if (pending.includes(nextUser_id)) {
-          let index = pending.indexOf(nextUser_id);
-          pending.splice(index, 1);
-          user.connection.connected.push(nextUser_id);
+        if (pending.includes(currUser_id)) {
+          let index = pending.indexOf(currUser_id);
+          pending.splice(index, 1); //remove me from pending
+          user.connection.connected.push(currUser_id);
           user.save()
+          //then find me and add nextU to my connected list
+          User.findOne({ _id: currUser_id }).then(user => {
+            //if my connections are instantiated
+            if (user.connection) { 
+              user.connection.connected.push(nextUser_id)
+              user.save()
+              return res.json('connect')
+              //if not -> create new connection & add nextU to my connected list
+            } else {
+              let connection = new Connection({ connected: [nextUser_id], pending: [], blocked: [] })
+              user.connection = connection;
+              user.save();
+              return res.json('connect')
+            }
+          })
+          //if im not in their pending list, find me & add nextU to my pending
         } else {
-          pending.push(nextUser_id);
-          user.save()
+          User.findOne({ _id: currUser_id }).then(user => { 
+            //check if i have connection instantiated
+            if (user.connection){
+              let pending = user.connection.pending
+              pending.push(nextUser_id);
+              user.save()
+              return res.json('pending')
+              //if not 
+            } else {
+              let connection = new Connection({ connected: [], pending: [nextUser_id], blocked: [] })
+              user.connection = connection;
+              user.save();
+              return res.json('pending')
+            }
+          })
         }
+        // if nextU has no connections instantiated find me
       } else {
-        let connection = new Connection({ connected: [], pending: [nextUser_id], blocked: [] })
-        user.connection = connection;
-        user.save();
+        User.findOne({ _id: currUser_id }).then(user => { 
+            //check if i have connection instantiated
+            if (user.connection){
+              let pending = user.connection.pending
+              pending.push(nextUser_id);
+              user.save()
+              return res.json('pending')
+              //if not 
+            } else {
+              let connection = new Connection({ connected: [], pending: [nextUser_id], blocked: [] })
+              user.connection = connection;
+              user.save();
+              return res.json('pending')
+            }
+          })
       }
     })
   } else if (status === "block") {
@@ -78,10 +127,12 @@ router.post('/create', (req, res) => {
       if (user.connection) {
         user.connection.blocked.push(nextUser_id);
         user.save()
+        return res.json('block')
       } else {
         let connection = new Connection({ connected: [], pending: [], blocked: [nextUser_id] })
         user.connection = connection;
         user.save();
+        return res.json('block')
       }
     })
   } else if (status === 'unblock'){
@@ -89,6 +140,7 @@ router.post('/create', (req, res) => {
       let idx = user.connection.blocked.indexOf(nextUser_id);
       user.connection.blocked.splice(idx, 1);
       user.save();
+      return res.json('unblock')
     })
   }
 })
