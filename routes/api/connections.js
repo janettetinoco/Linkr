@@ -51,7 +51,6 @@ router.get('/pending', (req, res) => {
 
 
 router.post('/create', (req, res) => {
-  debugger
   let currUser_id = req.body.id1
   let nextUser_id = req.body.id2
   let status = req.body.status
@@ -63,20 +62,22 @@ router.post('/create', (req, res) => {
           let index = pending.indexOf(nextUser_id);
           pending.splice(index, 1);
           user.connection.connected.push(nextUser_id);
+          user.save()
         } else {
           pending.push(nextUser_id);
+          user.save()
         }
       } else {
         let connection = new Connection({ connected: [], pending: [nextUser_id], blocked: [] })
         user.connection = connection;
         user.save();
       }
-
     })
   } else if (status === "block") {
     User.findOne({ _id: currUser_id }).then(user => {
       if (user.connection) {
         user.connection.blocked.push(nextUser_id);
+        user.save()
       } else {
         let connection = new Connection({ connected: [], pending: [], blocked: [nextUser_id] })
         user.connection = connection;
@@ -84,12 +85,9 @@ router.post('/create', (req, res) => {
       }
     })
   } else if (status === 'unblock'){
-    debugger
     User.findOne({ _id: currUser_id }).then(user => {
-      debugger
       let idx = user.connection.blocked.indexOf(nextUser_id);
       user.connection.blocked.splice(idx, 1);
-      debugger
       user.save();
     })
   }
