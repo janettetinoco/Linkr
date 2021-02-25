@@ -6,57 +6,65 @@ class MainPage extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      usersToDisplay: []
+      usersToDisplay: [],
+      loadingData: true,
     }
     this.swipe = this.swipe.bind(this); 
-    this.nextProfile = this.nextProfile.bind(this);
   }
 
+  componentDidUpdate(){
+    if(this.state.loadingData){
+      this.props.getSelf(this.props.myId);
+      console.log("comp did update", this.props.usersToDisplay)
+      this.setState({loadingData: false, usersToDisplay: this.props.usersToDisplay});
+    }
+  }
+  componentDidMount(){
+    this.props.getSelf(this.props.myId);
+    if(this.state.loadingData){
+      this.props.getSelf(this.props.myId);
+      console.log("comp did update", this.props.usersToDisplay)
+      this.setState({loadingData: false, usersToDisplay: this.props.usersToDisplay});
+    }
+    if(this.props.self){
+
+      this.props.filterUsersBy('city', this.props.self.city);
+    }
+  }
   componentWillMount(){
     this.setState({usersToDisplay: []});
-    this.props.getSelf(this.props.myId)
+    this.props.getSelf(this.props.myId).then( ()=>{
+      if(this.props.self){ 
+        this.props.filterUsersBy('city', this.props.self.city) 
+      }
+    })
+    
       .then( ()=> {
         this.props.getConnections(this.props.myId);
         this.props.getBlocks(this.props.myId);
         this.props.getPendings(this.props.myId);
-        this.props.filterUsersBy('city', this.props.self.city);
       })
       .then( ()=> this.setState({usersToDisplay: this.props.usersToDisplay})); 
   }
 
-
-  nextProfile(){
-    let array = this.state.usersToDisplay.slice(1);
-    this.setState({usersToDisplay: array});
-  }
   swipe(filter){
-    if(filter === 'right'){
-      return (e)=> {
-        e.preventDefault();
-        //connect or add to pending  
-        if(this.state.usersToDisplay.length>0){
-          console.log("swipe"); 
-          let remove = this.state.usersToDisplay[0]; 
-          let array = this.state.usersToDisplay.slice(1); 
-          this.props.removeUserFromState(remove._id); 
-          this.setState({usersToDisplay: array})
-          // this.props.createConnection(this.props.myId, remove._id, "add");
-          alert("CONNECT"); 
-        }
-      }
-    }
+    let status; 
     if(filter ==='left'){
-      return (e)=>{
-        //block 
-        e.preventDefault(); 
-        if(this.state.usersToDisplay.length>0){
-          console.log("swipe"); 
-          let remove = this.state.usersToDisplay[0]; 
-          let array = this.state.usersToDisplay.slice(1); 
-          this.props.removeUserFromState(remove._id); 
-          this.setState({usersToDisplay: array})
-          alert("BLOCK"); 
-        }
+      status = "block"; 
+    }
+    if(filter === 'right'){
+      status ="add";
+    }
+
+    return (e)=> {
+      // e.preventDefault();
+      //connect or add to pending  
+      if(this.state.usersToDisplay.length>0){
+        let remove = this.state.usersToDisplay[0]; 
+        let array = this.state.usersToDisplay.slice(1); 
+        this.props.removeUserFromState(remove._id); 
+        this.setState({usersToDisplay: array})
+        this.props.createConnection(this.props.myId, remove._id, status);
       }
     }
   }
