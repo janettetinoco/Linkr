@@ -16,12 +16,21 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    business: {
+    occupation: {
         type: String
     },
     industry: {
         type: String,
         required: true
+    },
+    education: {
+        type: Array
+    },
+    linkedIn: {
+        type: String
+    },
+    image_url: {
+        type: String
     },
     recruiterStatus: {
         type: Boolean,
