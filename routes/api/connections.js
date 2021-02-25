@@ -10,9 +10,17 @@ const Connection = require("../../models/Connection");
 router.get('/connected', (req, res) => {
   User.find({_id: req.query.id})
     .then((user) => {
-      console.log(user)
+      if (user[0]._doc.connection) {
+        let arr = [];
+        user = user[0]._doc.connection;
+        user.connected.forEach(connection => {arr.push(connection)})
+        return res.json(arr); 
+      } else {
+        return res.json(['No connections yet'])
+      }
     })
 })
+
 // router.get('/blocked'), 
 
 
@@ -22,7 +30,7 @@ router.post('/create', (req, res) => {
   let nextUser_id = req.body.id2
 
   User.findOne({_id: currUser_id }).then(user => {
-    
+
     let connection = new Connection({connected: [nextUser_id], pending: [], blocked: []})
     user.connection = connection;
     user.save()
