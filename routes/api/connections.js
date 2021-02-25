@@ -49,35 +49,40 @@ router.get('/pending', (req, res) => {
     })
 })
 
-//req: id1, id2, status:(add/block)
+
 router.post('/create', (req, res) => {
+  debugger
   let currUser_id = req.body.id1
   let nextUser_id = req.body.id2
-  if(status === "add"){
+  let status = req.body.status
+  if (status === "add") {
     User.findOne({ _id: currUser_id }).then(user => {
-      if(user.connection){//if falsey
+      if (user.connection) {
         let pending = user.connection.pending
-        if(pending.includes(nextUser_id)){
+        if (pending.includes(nextUser_id)) {
           let index = pending.indexOf(nextUser_id);
           pending.splice(index, 1);
           user.connection.connected.push(nextUser_id);
-        }else{
-            //then add to pending
+        } else {
+          pending.push(nextUser_id);
         }
-
-      }else{
-        let connection = new Connection({ connected: [nextUser_id], pending: [], blocked: [] })
+      } else {
+        let connection = new Connection({ connected: [], pending: [nextUser_id], blocked: [] })
         user.connection = connection;
-        user.save()
-
+        user.save();
       }
-      
-      console.log(user)
+
     })
-
-  }else if(status === "block"){
-
+  } else if (status === "block") {
+    User.findOne({ _id: currUser_id }).then(user => {
+      if (user.connection) {
+        user.connection.blocked.push(nextUser_id);
+      } else {
+        let connection = new Connection({ connected: [], pending: [], blocked: [nextUser_id] })
+        user.connection = connection;
+        user.save();
+      }
+    })
   }
 })
-
 module.exports = router
