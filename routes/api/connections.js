@@ -73,11 +73,13 @@ router.post('/create', (req, res) => {
             if (user.connection) { 
               user.connection.connected.push(nextUser_id)
               user.save()
+              return res.json('connect')
               //if not -> create new connection & add nextU to my connected list
             } else {
               let connection = new Connection({ connected: [nextUser_id], pending: [], blocked: [] })
               user.connection = connection;
               user.save();
+              return res.json('connect')
             }
           })
           //if im not in their pending list, find me & add nextU to my pending
@@ -88,11 +90,13 @@ router.post('/create', (req, res) => {
               let pending = user.connection.pending
               pending.push(nextUser_id);
               user.save()
+              return res.json('pending')
               //if not 
             } else {
               let connection = new Connection({ connected: [], pending: [nextUser_id], blocked: [] })
               user.connection = connection;
               user.save();
+              return res.json('pending')
             }
           })
         }
@@ -104,11 +108,13 @@ router.post('/create', (req, res) => {
               let pending = user.connection.pending
               pending.push(nextUser_id);
               user.save()
+              return res.json('pending')
               //if not 
             } else {
               let connection = new Connection({ connected: [], pending: [nextUser_id], blocked: [] })
               user.connection = connection;
               user.save();
+              return res.json('pending')
             }
           })
       }
@@ -118,10 +124,12 @@ router.post('/create', (req, res) => {
       if (user.connection) {
         user.connection.blocked.push(nextUser_id);
         user.save()
+        return res.json('block')
       } else {
         let connection = new Connection({ connected: [], pending: [], blocked: [nextUser_id] })
         user.connection = connection;
         user.save();
+        return res.json('block')
       }
     })
   } else if (status === 'unblock'){
@@ -129,6 +137,7 @@ router.post('/create', (req, res) => {
       let idx = user.connection.blocked.indexOf(nextUser_id);
       user.connection.blocked.splice(idx, 1);
       user.save();
+      return res.json('unblock')
     })
   }
 })
