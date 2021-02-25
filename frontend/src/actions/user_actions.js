@@ -4,6 +4,8 @@ import * as APIUtil from '../util/user_api_util';
 export const RECEIVE_USERS = 'RECEIVE_USERS'; 
 export const RECEIVE_USERS_ERRORS='RECEIVE_USERS_ERRORS'; 
 export const RECEIVE_SELF = 'RECEIVE_SELF';
+export const REMOVE_USER_FROM_STATE = 'REMOVE_USER_FROM_STATE'; 
+
 
 export const receiveUsers = users => ({
     type: RECEIVE_USERS,
@@ -20,6 +22,16 @@ export const receiveErrors = errors =>({
   errors
 })
 
+export const removeUserState = userId => ({
+  type: REMOVE_USER_FROM_STATE,
+  userId
+})
+
+//when the user is swiped. it should be removed from the bank of users 
+//to display to our  current user. remove from state 
+export const removeUserFromState = (userId) => dispatch => {
+  return dispatch(removeUserState(userId));
+}
 
 //the goal is to find all near by users that live in the same city as
 //the current user..

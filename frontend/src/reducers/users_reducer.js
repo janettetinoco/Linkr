@@ -1,5 +1,5 @@
 
-import { RECEIVE_SELF, RECEIVE_USERS } from '../actions/user_actions';
+import { RECEIVE_SELF, RECEIVE_USERS, REMOVE_USER_FROM_STATE } from '../actions/user_actions';
 
 const initialState = {};
 
@@ -17,6 +17,9 @@ const users = function(state = initialState, action) {
     case RECEIVE_SELF:
       nextState[action.self.data._id] = action.self.data;
       return nextState;
+    case REMOVE_USER_FROM_STATE:
+      delete nextState[action.userId];
+    return nextState;
     default:
       return state;
   }
