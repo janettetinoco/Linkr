@@ -55,12 +55,21 @@ router.post('/create', (req, res) => {
   let nextUser_id = req.body.id2
   if(status === "add"){
     User.findOne({ _id: currUser_id }).then(user => {
-      if(user.connection){
+      if(user.connection){//if falsey
+        let pending = user.connection.pending
+        if(pending.includes(nextUser_id)){
+          let index = pending.indexOf(nextUser_id);
+          pending.splice(index, 1);
+          user.connection.connected.push(nextUser_id);
+        }else{
+            //then add to pending
+        }
 
       }else{
         let connection = new Connection({ connected: [nextUser_id], pending: [], blocked: [] })
         user.connection = connection;
         user.save()
+
       }
       
       console.log(user)
