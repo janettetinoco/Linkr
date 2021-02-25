@@ -14,7 +14,7 @@ const mDTP = dispatch =>{
   return({
     getSelf: (myId)=>dispatch(getSelf(myId)),
     filterUsersBy: (filter, value)=>dispatch(filterUsersBy(filter, value)), 
-    removeUserFromState: (userId)=> removeUserFromState(userId)
+    removeUserFromState: (userId)=> dispatch(removeUserFromState(userId))
   })
 }
 

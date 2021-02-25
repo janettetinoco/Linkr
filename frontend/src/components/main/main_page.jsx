@@ -8,7 +8,7 @@ class MainPage extends React.Component {
     this.state = {
       usersToDisplay: []
     }
-  
+    this.swipe = this.swipe.bind(this); 
     this.nextProfile = this.nextProfile.bind(this);
   }
 
@@ -24,6 +24,36 @@ class MainPage extends React.Component {
     let array = this.state.usersToDisplay.slice(1);
     this.setState({usersToDisplay: array});
   }
+  swipe(filter){
+    if(filter === 'right'){
+      return (e)=> {
+        e.preventDefault();
+        //connect or add to pending  
+        if(this.state.usersToDisplay.length>0){
+          console.log("swipe"); 
+          let remove = this.state.usersToDisplay[0]; 
+          let array = this.state.usersToDisplay.slice(1); 
+          this.props.removeUserFromState(remove._id); 
+          this.setState({usersToDisplay: array})
+          alert("CONNECT"); 
+        }
+      }
+    }
+    if(filter ==='left'){
+      return (e)=>{
+        //block 
+        e.preventDefault(); 
+        if(this.state.usersToDisplay.length>0){
+          console.log("swipe"); 
+          let remove = this.state.usersToDisplay[0]; 
+          let array = this.state.usersToDisplay.slice(1); 
+          this.props.removeUserFromState(remove._id); 
+          this.setState({usersToDisplay: array})
+          alert("BLOCK"); 
+        }
+      }
+    }
+  }
   render() {
     let nextProfile = '';
     if(this.state.usersToDisplay.length>0){
@@ -32,7 +62,12 @@ class MainPage extends React.Component {
     return (
       <div id="main-page">
           <ProfileContainer user={nextProfile}/>
-          <button onClick={this.nextProfile}>Next</button>
+          {/* <button onClick={this.nextProfile}>Next</button> */}
+          <div id="swipe">
+            <button onClick={this.swipe('left')}>left</button>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <button onClick={this.swipe('right')}>right</button>
+          </div>
       </div>
     );
   }
