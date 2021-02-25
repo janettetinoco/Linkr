@@ -8,7 +8,7 @@ module.exports = function validateRegisterInput(data) {
 
     data.email = validText(data.email) ? data.email : "";
     data.password = validText(data.password) ? data.password : "";
-    data.password2 = validText(data.password2) ? data.password2 : "";
+    // data.password2 = validText(data.password2) ? data.password2 : "";
     data.industry = validText(data.industry) ? data.industry : "";
     data.name = validName(data.name) ? data.name : "";
     data.city = validText(data.city) ? data.city : "";

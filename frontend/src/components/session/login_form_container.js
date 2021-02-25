@@ -5,14 +5,15 @@ import LoginForm from './login_form';
 
 const mapStateToProps = (state) => {
   return {
-    errors: state.errors.session
+    errors: state.errors.session,
+    loggedIn: state.session.isAuthenticated
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     login: user => dispatch(login(user)),
-    closeModal: () => dispatch(closeModal),
+    closeModal: () => dispatch(closeModal()),
     resetErrors: () => dispatch(resetErrors())
   }
 }
