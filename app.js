@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
+const connections = require("./routes/api/connections");
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const path = require('path');
@@ -27,6 +28,7 @@ app.use(bodyParser.json());
 
 app.get("/", (req, res) => res.send("This is the new Linkr"));
 app.use("/api/users", users);
+app.use("/api/connections", connections);
 
 
 const port = process.env.PORT || 5000;

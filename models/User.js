@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+// import connectionTable from './Connection.js'
+const Connection = require('./Connection').schema
 
 const UserSchema = new Schema({
     name: {
@@ -14,12 +16,21 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    business: {
+    occupation: {
         type: String
     },
     industry: {
         type: String,
         required: true
+    },
+    education: {
+        type: Array
+    },
+    linkedIn: {
+        type: String
+    },
+    image_url: {
+        type: String
     },
     recruiterStatus: {
         type: Boolean,
@@ -32,7 +43,8 @@ const UserSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
-    }
+    },
+    connection: Connection
 })
 
 const User = mongoose.model('users', UserSchema);
