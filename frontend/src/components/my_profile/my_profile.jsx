@@ -15,16 +15,14 @@ class MyProfile extends React.Component{
       return null;
     }
     return(
-      <div id="profile" >
-        <button onClick={this.props.handleEditButton}>Edit Profile</button>
-        <div id="header">
-          <div id="img">
-            <img src={this.props.self.imageUrl} />
-            <hr/>
+      <div class="myProfile" >
+        <div id="profile-main-info">
+          <div className="image-container">
+            <img id="profile-img" src={this.props.self.imageUrl} />
           </div>
-          Name
-          <h1>{this.props.self.name}</h1>
-          <span>{this.props.self.city}</span>
+          <h1 id="user-name">{this.props.self.name}</h1>
+          <h1 id="user-location"><img src="https://img.icons8.com/cotton/64/000000/worldwide-location--v2.png" />{this.props.self.city}</h1>
+          <button onClick={this.props.handleEditButton}><img src="https://img.icons8.com/ultraviolet/40/000000/edit.png" />Edit Profile</button>
           <span></span>
         </div>
         <div id="body">
@@ -46,11 +44,13 @@ class MyProfile extends React.Component{
             </div>
           </div>
           <div id="about-me">
+            <h1>About Me</h1>
             {this.props.self.aboutMe}
           </div>
 
-          <div id="linkedIn">
-            {this.props.self.linkedIn ? <Link to={this.props.self.linkedIn}>linkedIn</Link> : ""}
+          <div >
+            Links
+            {this.props.self.linkedIn ? <Link to={this.props.self.linkedIn}><img id="linkedIn" src="https://img.icons8.com/color/48/000000/linkedin.png" /></Link> : ""}
           </div>
         </div>
       </div>
