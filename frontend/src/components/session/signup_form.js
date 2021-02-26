@@ -48,10 +48,7 @@ class SignupForm extends React.Component {
     if(this.state.imageFile){
       const image = new FormData();
       image.append('image', this.state.imageFile);
-      let bool = false
-      if (this.state.recruiterStatus === "true") {
-        bool = true
-      }
+
       this.props.uploadImage(image).then((res) => {
         let user = {
           name: this.state.name,
@@ -59,7 +56,7 @@ class SignupForm extends React.Component {
           password: this.state.password,
           business: this.state.business,
           industry: this.state.industry,
-          recruiterStatus: bool,
+          recruiterStatus: this.state.recruiterStatus,
           city: this.state.city,
           imageUrl: res.image.data.imageUrl
         }
