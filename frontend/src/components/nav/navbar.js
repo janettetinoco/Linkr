@@ -25,7 +25,9 @@ class NavBar extends React.Component {
               </div>
               <div className='float-right'>
                 <div>
+                  <Link className="nav-links" to={'/'}>Home</Link>
                   <Link className="nav-links" to={'/profile'}>Profile</Link>
+                  <Link className="nav-links" to={'/profile/connections'}>Connections</Link>
                   <button className="btn-bg logout" onClick={this.logoutUser}>Logout</button>
                 </div>
               </div>
