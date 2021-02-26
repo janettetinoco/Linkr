@@ -48,25 +48,16 @@
     text-align: center;
 }
 
+.recruiter-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .recruiter-button {
-    background-color: $linkr-orange;
-    color: $lightest-gray;
     margin-top: 5px;
     margin-right: 10px;
     border-radius: 20px;
     width: 40px;
-    height: 27px;
-    text-align: center;
-    border: 1px solid $light-gray;
-}
-
-.session-submit {
-    background-color: $linkr-orange;
-    color: $lightest-gray;
-    margin-top: 5px;
-    margin-right: 10px;
-    border-radius: 20px;
-    width: 160px;
     height: 27px;
     text-align: center;
 }
@@ -76,23 +67,62 @@
     filter: brightness(70%);
 }
 
+.session-submit {
+    background-color: $darker-linkr-orange;
+    color: $lightest-gray;
+    margin-top: 5px;
+    margin-right: 10px;
+    border-radius: 20px;
+    width: 160px;
+    height: 27px;
+    text-align: center;
+}
+
+
 .session-submit:hover {
     cursor: pointer;
     filter: brightness(70%);
 }
 
+.choose-file {
+    font-size: 1.7vh;
+    font-family: $railway;
+    text-align: center;
+    background-color: $darker-linkr-blue;
+    border-radius: 20px;
+    color: white;
+    width: 110px;
+    height: 27px;
+    padding-top: 5px;
+    position: relative;
+    input[type="file"]{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+}
+
+.choose-file:hover {
+    cursor: pointer;
+    filter: brightness(70%);
+}
+
 .city-industry-container {
+    font-size: 1.4vh;
     display: flex;
     justify-content: space-evenly;
     margin-top: 7px;
     height: 100px;
     text-align: center;
-    // border: 1px solid $light-gray;
 }
 
 .city-industry-icon {
     width: 100%;
 }
+
 
 .city-industry-icon:hover {
     cursor: pointer;
