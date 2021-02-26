@@ -5,12 +5,13 @@ class Connections extends React.Component{
     super(props);
 
     this.state={
-      connections: this.props.connections
+      connectionsAsUsers: this.props.connectionsAsUsers
     }
   }
   
   componentWillMount(){
     this.props.getConnections(this.props.myId); 
+    this.props.getConnectionsAsUsers(this.props.myId); 
   }
   componentDidMount(){
     this.forceUpdate();
@@ -20,9 +21,9 @@ class Connections extends React.Component{
   render(){
     let connectionList = <h2>You have no connections</h2>; 
 
-    if(this.state.connections){
-      connectionList = this.state.connections.map( (connection, i) => {
-            console.log(connection);
+    if(this.state.connectionsAsUsers){
+      connectionList = this.state.connectionsAsUsers.map( (connection, i) => {
+
             return(
 
             <li className="connection-summary" key={i}>
