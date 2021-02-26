@@ -69,8 +69,8 @@ export const getUser = (myId) => dispatch => {
 
 export const getConnections = (myId) => dispatch => {
 
-  return APIUtil.getConnections(myId).then( (self) =>{
-    dispatch(receiveSelf(self));
+  return APIUtil.getConnections(myId).then( (users) =>{
+    dispatch(receiveUsers(users));
   },
     err => (
         dispatch(receiveErrors(err.response.data))

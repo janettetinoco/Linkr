@@ -144,18 +144,10 @@ router.get('/connections', (req, res) => {
     .then((user) => {
       if (user.connection) {
         let arr = [];
+        let con = [];
         user = user.connection.connected;
         user.forEach(connection => {arr.push(connection)})
-        console.log(arr); 
-        connectedUsers = arr.map( id=>{
-          return User.find({_id: id}).then( (user)=> {
-            return user;
-            // connectedUsers.push(user)
-          }).then( (res)=>c.push(res))
-        })
-        console.log("connected users", connectedUsers); 
-        console.log("connected users cc", c); 
-        return res.json(connectedUsers); 
+        User.find({_id: {$in: arr}}).then( (users)=> res.json(users));
       } else {
         return res.json(['No connections yet'])
       }
