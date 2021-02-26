@@ -18,31 +18,33 @@ class NavBar extends React.Component {
   getLinks() {
       if (this.props.loggedIn) {
         return (
-            <div>
-                <Link to={'/profile'}>Profile</Link>
-                <button onClick={this.logoutUser}>Logout</button>
+          <div className='splash-container'>
+            <div className='nav-bar'>
+              <div className='float-left'>
+                <h1>Linkr</h1>
+              </div>
+              <div className='float-right'>
+                <div>
+                  <Link to={'/profile'}>Profile</Link>
+                  <button onClick={this.logoutUser}>Logout</button>
+                </div>
+              </div>
             </div>
+          </div>
         );
       } else {
         return (
-          <nav className="login-signup">
-            <button className="btn-sm" onClick={() => this.props.openModal('signup')}>Join us</button>
-          &nbsp;
-            <button className="btn-bg" onClick={() => this.props.openModal('login')}>Sign In</button>
-          </nav>
-        );
-      }
-  }
-
-  render() {
-      return (
-        <div className='splash-container'>
+          <div className='splash-container'>
           <div className='nav-bar'>
             <div className='float-left'>
               <h1>Linkr</h1>
             </div>
             <div className='float-right'>
-              { this.getLinks() }
+              <nav className="login-signup">
+                <button className="btn-sm" onClick={() => this.props.openModal('signup')}>Join us</button>
+              &nbsp;
+                <button className="btn-bg" onClick={() => this.props.openModal('login')}>Sign In</button>
+              </nav>
             </div>
           </div>
           <div className='hero'>
@@ -57,6 +59,15 @@ class NavBar extends React.Component {
             </h1>
           </div>
         </div>
+        );
+      }
+  }
+
+  render() {
+      return (
+            <div>
+              { this.getLinks() }
+            </div>
       );
   }
 }
