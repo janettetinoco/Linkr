@@ -39,7 +39,6 @@ class Connections extends React.Component{
         <h1> Your Connections </h1>
         <ul id="connections-list">
             {connectionList}
-
         </ul>
       </div>
     )
