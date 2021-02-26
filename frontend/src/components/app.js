@@ -14,8 +14,8 @@ import Modal from './modal/modal_container';
 const App = () => (
   <div>
     <header>
-      <NavBarContainer />
       <Modal />
+      <NavBarContainer />
     </header>
     <Switch>
         <ProtectedRoute exact path="/" component={MainPageContainer} />
