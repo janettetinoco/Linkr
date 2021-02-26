@@ -11,7 +11,7 @@ router.post('/uploadImage', (req, res) => {
         if (err) {
             return res.status(422).json({ errors: err.message });
         }
-        return res.json({ 'imageUrl': req.file.location, 'postId': req.body.postId, 'fileName': req.file.originalname });
+        return res.json({ 'imageUrl': req.file.location, 'fileName': req.file.originalname });
     })
 });
 

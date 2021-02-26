@@ -1,9 +1,19 @@
-
 import {connect} from 'react-redux'; 
+import MyProfile from './my_profile';
+import {getSelf} from '../../actions/user_actions'
 
-//mstp 
-//    self: state.users[state.session.user.id],
+const mSTP = state => {
+    return({
+        self: state.users[state.session.user.id],
+        myId: state.session.user.id
 
+    })
+}
 
-//mdtp
+const mDTP = dispatch => {
+    return ({
+        getSelf: (selfId) => dispatch(getSelf(selfId))
+    })
+}
 
+export default connect(mSTP, mDTP)(MyProfile)

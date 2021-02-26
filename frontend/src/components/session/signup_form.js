@@ -45,17 +45,6 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // this.props.signup(user)
-    //   .then(res => {
-    //     debugger
-    //     let file = this.state.imageFile;
-    //     if(file){
-    //       const image = new FormData();
-    //       image.append('image', file);
-    //       this.props.uploadImage(image)
-    //     }
-      
-    // })
     if(this.state.imageFile){
       const image = new FormData();
       image.append('image', this.state.imageFile);
@@ -70,7 +59,6 @@ class SignupForm extends React.Component {
           city: this.state.city,
           imageUrl: res.image.data.imageUrl
         }
-        debugger
         this.props.signup(user)
           .then(() => this.props.login(user))
           .then(this.props.closeModal)
