@@ -29,7 +29,7 @@ const UserSchema = new Schema({
     linkedIn: {
         type: String
     },
-    image_url: {
+    imageUrl: {
         type: String
     },
     recruiterStatus: {

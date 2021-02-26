@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom';
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);
+    this.fileInput = React.createRef();
+
     this.state = {
       name: '',
       email: '',
@@ -12,12 +14,27 @@ class SignupForm extends React.Component {
       industry: '',
       recruiterStatus: '',
       city: '',
+      imageFile: null,
+      imageUrl: null,
       errors: {}
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this); 
     this.handleButton = this.handleButton.bind(this);
     this.clearedErrors = false;
+    this.handleFile = this.handleFile.bind(this);
+  }
+
+  handleFile(e) {
+    e.preventDefault();
+    const file = e.currentTarget.files[0]
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({ imageFile: file, imageUrl: fileReader.result })
+    }
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   }
 
   update(field) {
@@ -28,9 +45,40 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.signup(user).then(()=>this.props.login(user))
-    .then(this.props.closeModal).then(()=>this.props.history.push('/'));
+    // this.props.signup(user)
+    //   .then(res => {
+    //     debugger
+    //     let file = this.state.imageFile;
+    //     if(file){
+    //       const image = new FormData();
+    //       image.append('image', file);
+    //       this.props.uploadImage(image)
+    //     }
+      
+    // })
+    if(this.state.imageFile){
+      const image = new FormData();
+      image.append('image', this.state.imageFile);
+      this.props.uploadImage(image).then((res) => {
+        let user = {
+          name: this.state.name,
+          email: this.state.email,
+          password: this.state.password,
+          business: this.state.business,
+          industry: this.state.industry,
+          recruiterStatus: this.state.recruiterStatus,
+          city: this.state.city,
+          imageUrl: res.image.data.imageUrl
+        }
+        debugger
+        this.props.signup(user)
+          .then(() => this.props.login(user))
+          .then(this.props.closeModal)
+          .then(() => this.props.history.push('/'));
+      })
+    }
+
+   
   };
 
   renderErrors() {
@@ -58,11 +106,14 @@ class SignupForm extends React.Component {
   
 
   render() {
+    const preview = this.state.imageUrl ? <img src={this.state.imageUrl} /> : null;
     return (
       <div>
         <form className="signup-form" onSubmit={this.handleSubmit}>
           <div>
             {this.renderErrors()}
+            {this.state.imageUrl ? <span className="image-preview">{preview}</span> :
+            <input type="file" onChange={this.handleFile}/>}
             <input
               className="signup-input"
               type="text"

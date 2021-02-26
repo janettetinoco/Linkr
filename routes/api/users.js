@@ -31,7 +31,8 @@ router.post('/register', (req, res) => {
           password: req.body.password,
           industry: req.body.industry,
           recruiterStatus: req.body.recruiterStatus,
-          city: req.body.city
+          city: req.body.city,
+          imageUrl: req.body.imageUrl
         })
 
         bcrypt.genSalt(10, (err, salt) => {
