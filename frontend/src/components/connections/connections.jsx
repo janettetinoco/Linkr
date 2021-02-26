@@ -24,10 +24,12 @@ class Connections extends React.Component{
       connectionList = this.state.connections.map( (connection, i) => {
             console.log(connection);
             return(
-              <li className="connection-summary" key={i}>
-            <img src={connection.imageUrl} />
-            <span id="connection-name"> {connection.name} </span>
-          </li>
+
+            <li className="connection-summary" key={i}>
+              <img className="user-icon" src={connection.imageUrl} />
+              <div className="connection-details"> {connection.name} </div>
+              <div className="connection-details">{connection.name}</div>
+            </li>
           )
           })
     }
@@ -39,7 +41,6 @@ class Connections extends React.Component{
         <h1> Your Connections </h1>
         <ul id="connections-list">
             {connectionList}
-
         </ul>
       </div>
     )
@@ -48,3 +49,5 @@ class Connections extends React.Component{
 }
 
 export default Connections; 
+
+// [img] Michael noble  student
