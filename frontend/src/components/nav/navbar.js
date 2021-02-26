@@ -26,9 +26,9 @@ class NavBar extends React.Component {
       } else {
         return (
           <nav className="login-signup">
-            <button className="signup-button" onClick={() => this.props.openModal('signup')}>Sign up</button>
+            <button className="btn-sm" onClick={() => this.props.openModal('signup')}>Join us</button>
           &nbsp;
-            <button className="signin-button" onClick={() => this.props.openModal('login')}>Sign In</button>
+            <button className="btn-bg" onClick={() => this.props.openModal('login')}>Sign In</button>
           </nav>
         );
       }
@@ -36,9 +36,26 @@ class NavBar extends React.Component {
 
   render() {
       return (
-        <div>
-            <h1>Linkr</h1>
-            { this.getLinks() }
+        <div className='splash-container'>
+          <div className='nav-bar'>
+            <div className='float-left'>
+              <h1>Linkr</h1>
+            </div>
+            <div className='float-right'>
+              { this.getLinks() }
+            </div>
+          </div>
+          <div className='hero'>
+            <h1 className='splash-text'>
+              Welcome to your professional community. 
+            </h1>
+            <img className='hero-img' src='https://static-exp1.licdn.com/sc/h/dxf91zhqd2z6b0bwg85ktm5s4' />
+          </div>
+          <div className='hero2'>
+            <h1 className='splash-text2'>
+              Connect with people in any industry. 
+            </h1>
+          </div>
         </div>
       );
   }
