@@ -4,10 +4,6 @@ const Schema = mongoose.Schema;
 const Connection = require('./Connection').schema
 
 const UserSchema = new Schema({
-    avatar: {
-        type: String,
-        required: true
-    },
     name: {
         type: String,
         required: true
@@ -33,7 +29,7 @@ const UserSchema = new Schema({
     linkedIn: {
         type: String
     },
-    image_url: {
+    imageUrl: {
         type: String
     },
     recruiterStatus: {

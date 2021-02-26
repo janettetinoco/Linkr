@@ -45,29 +45,40 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let user = {
-      name: this.state.name,
-      email: this.state.email,
-      password: this.state.password,
-      business: this.state.business,
-      industry: this.state.industry,
-      recruiterStatus: this.state.recruiterStatus,
-      city: this.state.city,
-      image: this.state.imageUrl
-    }
-    this.props.signup(user)
-      .then(res => {
-        let file = this.state.imageFile;
-        if(file){
-          const image = new FormData();
-          image.append('image', file);
-          this.props.uploadImage(image)
-        }
+    // this.props.signup(user)
+    //   .then(res => {
+    //     debugger
+    //     let file = this.state.imageFile;
+    //     if(file){
+    //       const image = new FormData();
+    //       image.append('image', file);
+    //       this.props.uploadImage(image)
+    //     }
       
-    })
-    .then(()=>this.props.login(user))
-    .then(this.props.closeModal)
-    .then(()=>this.props.history.push('/'));
+    // })
+    if(this.state.imageFile){
+      const image = new FormData();
+      image.append('image', this.state.imageFile);
+      this.props.uploadImage(image).then((res) => {
+        let user = {
+          name: this.state.name,
+          email: this.state.email,
+          password: this.state.password,
+          business: this.state.business,
+          industry: this.state.industry,
+          recruiterStatus: this.state.recruiterStatus,
+          city: this.state.city,
+          imageUrl: res.image.data.imageUrl
+        }
+        debugger
+        this.props.signup(user)
+          .then(() => this.props.login(user))
+          .then(this.props.closeModal)
+          .then(() => this.props.history.push('/'));
+      })
+    }
+
+   
   };
 
   renderErrors() {
