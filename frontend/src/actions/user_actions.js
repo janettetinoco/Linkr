@@ -47,7 +47,17 @@ export const filterUsersBy = (filter,value) => dispatch => {
 //get the profile of the currently logged in user 
 export const getSelf = (myId) => dispatch => {
 
-  return APIUtil.getCurrentUser(myId).then( (self) =>{
+  return APIUtil.getUser(myId).then( (self) =>{
+    dispatch(receiveSelf(self));
+  },
+    err => (
+        dispatch(receiveErrors(err.response.data))
+    ))
+}
+//get the profile of the currently logged in user 
+export const getUser = (myId) => dispatch => {
+
+  return APIUtil.getUser(myId).then( (self) =>{
     dispatch(receiveSelf(self));
   },
     err => (
