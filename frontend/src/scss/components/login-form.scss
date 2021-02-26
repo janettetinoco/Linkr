@@ -1,0 +1,37 @@
+.login-form {
+    height: 170px;
+    width: 100%;
+    color: $linkr-orange;
+    background-color: $lightest-gray;
+    font-family: $railway;
+    border: 1px solid $light-gray;
+    border-radius: 7px;
+    padding: 5%;
+}
+
+.login-input {
+    font-size: 17px;
+    font-family: $railway;
+    text-indent: 10px;
+    height: 30px;
+    width: 100%;
+    z-index: 3;
+    border: 1px solid $light-gray;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.login-submit {
+    background-color: $darker-linkr-orange;
+    color: $lightest-gray;
+    margin-right: 10px;
+    border-radius: 20px;
+    width: 100%;
+    height: 27px;
+    text-align: center;
+}
+
+.login-submit:hover {
+    cursor: pointer;
+    filter: brightness(70%);
+}
