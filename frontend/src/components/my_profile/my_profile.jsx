@@ -6,10 +6,11 @@ class MyProfile extends React.Component{
   }
 
   render(){
+    return (
       <div id="profile">
         <div id="header">
           <div id="img">
-            {/* <img src={this.props.user.image_url} /> */}
+            <img src={this.props.user.image_url} />
             <hr/>
             I<br />
             &emsp;M<br />
@@ -50,5 +51,6 @@ class MyProfile extends React.Component{
           </div>
         </div>
       </div>
+  )
   }
 }

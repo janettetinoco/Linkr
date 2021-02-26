@@ -1,18 +1,17 @@
 import {connect} from 'react-redux';
-import {completeProfile, resetErrors} from '../../actions/profile_actions'; 
+import {completeProfile} from '../../actions/profile_actions'; 
 import CompleteProfile from './complete_profile'; 
 const mSTP = state => {
   return ({
-    errors: state.errors.profile
+    myId: state.session.user.id
   })
 }
 
 const mDTP = dispatch => {
   return ({
-    resetErrors: () => dispatch(resetErrors()),
-    completeProfile: (profile)=> dispatch(completeProfile())
+    completeProfile: (profile)=> dispatch(completeProfile(profile))
 
   })
 }
-
-export default connect(mSTP, mDTP)(CompleteProfile);
+const CompleteProfileContainer = connect(mSTP, mDTP)(CompleteProfile);
+export default CompleteProfileContainer; 
