@@ -16,9 +16,9 @@ class Profile extends React.Component{
     }
     return(
       <div className="profile">
-        <div id="header">
-          <div id="img">
-            <img src={this.props.user.imageUrl} />
+        <div id="profile-main-info">
+          <div className="image-container">
+            <img id="profile-img"src={this.props.user.imageUrl} />
           </div>
           name
           <h1>{this.props.user.name}</h1>

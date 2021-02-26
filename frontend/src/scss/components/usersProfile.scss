@@ -1,24 +1,19 @@
-.Profile{
+#main-page{
+    background: linear-gradient(to bottom, #dc6240 0%, #ffffff 99%);
     display: flex;
     flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-    font-family: $railway;
-
-    #profile-header{
-        width: 100%;
-        height: 30px;
+    .profile{
         display: flex;
-        justify-content: flex-end;
-       
-       
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+        font-family: $railway;
 
-    }
-    #profile-main-info{
+     #profile-main-info{
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: rgb(117, 151, 202);
+        background-color:transparent;
         padding: 40px 0px 15px 0px;
         button{
             display: flex;
@@ -37,18 +32,19 @@
         }
 
         .image-container{
-            width: 30vw;
+            width:30vw;
             #profile-img{
-                height:450px;
-                width:auto;
-                border-radius: 20px;
-                border: 7px solid white;
+                max-width: 30vw;
+                max-height: 30vw;
+                object-fit: cover;
+                border-radius: 50%;
+                border: .4vw solid white;
             }
         }
 
         #user-name{
             margin-bottom: 5px;
-            font-size: 50px;
+            font-size: 6vw;
             font-family: $railway;
             color: lightgray;
         }
@@ -65,7 +61,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background: linear-gradient(to bottom, rgb(117, 151, 202) 0%, #ffffff 99%);
+        // background: linear-gradient(to bottom, #dc624079 25%, #ffffff 99%);
 
         #stats{
             .details{
@@ -88,4 +84,5 @@
         }
     }
 
+}
 }
