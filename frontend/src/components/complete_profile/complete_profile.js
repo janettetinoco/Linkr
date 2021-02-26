@@ -7,8 +7,10 @@ class CompleteProfile extends React.Component{
       occupation: '',
       education: '',
       aboutMe: '',
-      linkedIn: '', 
+      linkedIn: '',
+      id: this.props.myId 
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
@@ -20,35 +22,16 @@ class CompleteProfile extends React.Component{
   handleSubmit(e) {
     e.preventDefault();
   
-    this.props.completeProfile(user)
-      .then(() => this.props.history.push('/'));
-  };
-
-  renderErrors() {
-    return(
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.state.errors[error]}
-          </li>
-        ))}
-      </ul>
-    );
-  }
-
-  componentDidMount() {
-    this.props.resetErrors()
-  }
-  
+    this.props.completeProfile(this.state)
+      .then(() => this.props.history.push('/profile'));
+  };  
 
   render(){
     return(
       <div id="complete-profile-form">
         <form className="complete-profile-form" onSubmit={this.handleSubmit}>
           <div>
-            {this.renderErrors()}
 
-            <input type="file" onChange={this.handleFile}/>}
             <input
               className="complete-profile-input"
               type="text"
@@ -64,9 +47,8 @@ class CompleteProfile extends React.Component{
               value={this.state.education}
               onChange={this.update('education')}
             />
-            <input
+            <textarea
               className="complete-profile-input"
-              type="text"
               placeholder="About me"
               value={this.state.business}
               onChange={this.update('aboutMe')}
@@ -93,3 +75,4 @@ class CompleteProfile extends React.Component{
     )
   }
 }
+export default CompleteProfile;
