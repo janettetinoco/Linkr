@@ -10,6 +10,9 @@ export const getUser = (myId) => {
   return axios.get(`api/users/self/${myId}`)
 };
 
+export const getConnections = (selfId) =>{
+  return axios.get('/api/users/connections', {params: {id: selfId}})
+}
 
 export const completeProfile = (data) => {
   //example of data to HAVE the fields.
