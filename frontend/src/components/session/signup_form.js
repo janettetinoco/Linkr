@@ -135,7 +135,7 @@ class SignupForm extends React.Component {
               <div className="city-industry-icon">{this.state.city === '' ? "City" : this.state.city}
                 <ul className="cit-ind-dropdown">
                   <li 
-                    onClick= {()=>this.setState({city: "San Francisico"})}
+                    onClick= {()=>this.setState({city: "San Francisco"})}
                     className="list-item"
                   >San Francisco</li>
                   <li 

@@ -4,6 +4,7 @@
     width: 100vw;
     height: 100vh;
     font-family: $railway;
+    background: linear-gradient(to bottom, rgb(117, 151, 202) 60%, #ffffff 99%);
 
     #profile-header{
         width: 100%;
@@ -18,7 +19,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: rgb(117, 151, 202);
+        // background-color: rgb(117, 151, 202);
         padding: 40px 0px 15px 0px;
         button{
             display: flex;
@@ -67,18 +68,45 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background: linear-gradient(to bottom, rgb(117, 151, 202) 0%, #ffffff 99%);
+        // background: linear-gradient(to bottom, rgb(117, 151, 202) 0%, #ffffff 99%);
 
-        #stats{
+        // #stats{
+        //     .details{
+        //         font-size: 14px;
+        //         padding: 4px;
+        //         display: flex;
+        //         flex-direction: column;
+        //         justify-content: center;
+        //         p{
+        //             font-size: 15px;
+        //             text-align: center;
+        //         }
+
+        //     }
+        // }
+
+         #stats{
             .details{
-                font-size: 14px;
-                padding: 4px;
+                font-size: 18px;
+                width:20vw;
+                padding: 7px;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                text-align: center;
+                align-items: center;
                 p{
+                    width:100%;
                     font-size: 15px;
                     text-align: center;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    border-bottom: 1px solid $dark-gray;
+                    img{
+                        height:30px;
+                        width:30px;
+                    }
                 }
 
             }
@@ -88,6 +116,10 @@
             height:20px;
             width:20px;
         }
+        .links-conatiner{
+            margin-top: 10px;
+        }
     }
+
 
 }
