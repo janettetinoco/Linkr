@@ -3,6 +3,31 @@
     display: flex;
     flex-direction: column;
     // padding-top: .3vh;
+
+    #swipe{
+        display:flex;
+        justify-content: space-between;
+           position:fixed;
+            bottom: 10px;
+            left:5px;
+            right:5px;
+        button{
+            height:5vh;
+            width: 9vw;
+            border: 1px solid $linkr-blue;
+            border-radius: 20px;
+            background-color: #73c3ff8a;
+            text-align: center;
+            font-family: $railway;
+            color:$dark-gray;
+        }
+        button:hover{
+            background-color: $linkr-blue;
+            color: white;
+        }
+
+    }
+
     .profile{
         display: flex;
         flex-direction: column;
@@ -69,12 +94,16 @@
         #stats{
             .details{
                 font-size: 18px;
+                width:20vw;
                 padding: 7px;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 text-align: center;
+                align-items: center;
+                margin-bottom: 5px;
                 p{
+                    width:100%;
                     font-size: 15px;
                     text-align: center;
                     display: flex;
@@ -93,6 +122,13 @@
         img#linkedIn{
             height:20px;
             width:20px;
+            text-align: center;
+        }
+        .links-conatiner{
+            margin-top: 10px;
+            p{
+                border-bottom: 1px solid $dark-gray;
+            }
         }
     }
 

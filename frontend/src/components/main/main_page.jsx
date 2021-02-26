@@ -111,7 +111,6 @@ class MainPage extends React.Component {
           <ProfileContainer user={nextProfile}/>
           <div id="swipe">
             <button onClick={this.swipe('left')}>left</button>
-            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
             <button onClick={this.swipe('right')}>right</button>
           </div>
       </div>
