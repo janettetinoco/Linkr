@@ -1,26 +1,30 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 class MyProfile extends React.Component{
-  constructor(props){
-    super(props);
+
+  handleEditButton(){
+  }
+
+  componentDidMount(){
+    this.props.getSelf(this.props.myId)
   }
 
   render(){
-      <div id="profile">
+    if(!this.props.self){
+      return null;
+    }
+    return(
+      <div id="profile" >
+        <button onClick={this.props.handleEditButton}>Edit Profile</button>
         <div id="header">
           <div id="img">
-            {/* <img src={this.props.user.image_url} /> */}
-            <hr/>
-            I<br />
-            &emsp;M<br />
-            &emsp;&emsp;A<br />
-            &emsp;&emsp;&emsp;G<br />
-            &emsp;&emsp;&emsp;&emsp;E<br />
+            <img src={this.props.self.imageUrl} />
             <hr/>
           </div>
-          name
-          <h1>{this.props.user.name}</h1>
-          <span>{this.props.user.city}</span>
+          Name
+          <h1>{this.props.self.name}</h1>
+          <span>{this.props.self.city}</span>
           <span></span>
         </div>
         <div id="body">
@@ -28,27 +32,29 @@ class MyProfile extends React.Component{
 
             <div className="details">
               <p>Education</p>
-              
+              {this.props.self.education}
             </div>
 
             <div className="details">
               <p>Occupation</p>
-              {this.props.user.occupation}
+              {this.props.self.occupation}
             </div>
 
             <div className="details">
               <p>Industry</p>
-              {this.props.user.industry}
+              {this.props.self.industry}
             </div>
           </div>
           <div id="about-me">
-            {this.props.user.aboutMe}
+            {this.props.self.aboutMe}
           </div>
 
           <div id="linkedIn">
-            <Link to={this.props.user.linkedIn}>linkedIn</Link>
+            {this.props.self.linkedIn ? <Link to={this.props.self.linkedIn}>linkedIn</Link> : ""}
           </div>
         </div>
       </div>
-  }
+    )}
 }
+
+export default MyProfile;
