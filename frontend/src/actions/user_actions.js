@@ -27,6 +27,8 @@ export const removeUserState = userId => ({
   userId
 })
 
+
+
 //when the user is swiped. it should be removed from the bank of users 
 //to display to our  current user. remove from state 
 export const removeUserFromState = (userId) => dispatch => {
@@ -59,6 +61,16 @@ export const getUser = (myId) => dispatch => {
 
   return APIUtil.getUser(myId).then( (self) =>{
     dispatch(receiveSelf(self));
+  },
+    err => (
+        dispatch(receiveErrors(err.response.data))
+    ))
+}
+
+export const getConnections = (myId) => dispatch => {
+
+  return APIUtil.getConnections(myId).then( (users) =>{
+    dispatch(receiveUsers(users));
   },
     err => (
         dispatch(receiveErrors(err.response.data))
