@@ -102,7 +102,6 @@ class SignupForm extends React.Component {
   render() {
     const preview = this.state.imageUrl ? <img src={this.state.imageUrl} /> : null;
     return (
-      <div>
         <form className="signup-form" onSubmit={this.handleSubmit}>
           <div>
             {this.renderErrors()}
@@ -202,8 +201,6 @@ class SignupForm extends React.Component {
             </footer>
           </div>
         </form>
-      </div>
-
     )
   }
 }
