@@ -8,9 +8,12 @@ class Connections extends React.Component{
       connectionsAsUsers: this.props.connectionsAsUsers
     }
   }
-  
+  componentWillUpdate(){
+
+  }
   componentWillMount(){
     this.props.getConnections(this.props.myId); 
+    this.props.getConnectionsAsUsers(this.props.myId); 
     this.props.getConnectionsAsUsers(this.props.myId); 
   }
   componentDidMount(){
@@ -53,8 +56,8 @@ class Connections extends React.Component{
     return(
       <div id="connections-page">
 
-        <h1> Your Connections </h1>
         <table id="connections-table">
+        <h1> Your Connections </h1>
           {connectionListTable}
       </table>
         {/* <ul id="connections-list">
