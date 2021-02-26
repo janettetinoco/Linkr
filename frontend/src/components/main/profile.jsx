@@ -14,8 +14,6 @@ class Profile extends React.Component{
         NO MORE USERS TO DISPLAY
       </div>
     }
-
-    console.log(this.props.user);
     return(
       <div id="profile">
         <div id="header">

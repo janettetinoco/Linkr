@@ -3,7 +3,6 @@ import * as APIutil from '../util/user_api_util';
 
 export const usersToDisplay = (state) => {
   let allUsersInCity = Object.values(state.users);
-  console.log(state)
   let connections = []; 
   if (state.connections) connections = state.connections;
   let pendings = []; 
@@ -27,6 +26,5 @@ export const getUsersForConnections = state => {
     })
   }
   )
-  console.log(connections)
   return connections;
 }

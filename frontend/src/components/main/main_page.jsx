@@ -21,22 +21,18 @@ class MainPage extends React.Component {
   }
   componentWillUpdate(){
     if(this.state.loadingData){
-      console.log("comp will update");
       this.loadingUsers();
       this.setState({loadingData: false, usersToDisplay: this.props.usersToDisplay})
     }
 
   }
   componentWillMount(){
-    // this.loadingUsers();
-    console.log("comp will mount")
     this.setState({usersToDisplay: this.props.usersToDisplay});
   }
   // componentDidMount(){
   //   this.props.getSelf(this.props.myId);
   //   if(this.state.loadingData){
   //     this.props.getSelf(this.props.myId);
-  //     console.log("comp did update", this.props.usersToDisplay)
   //     this.setState({loadingData: false, usersToDisplay: this.props.usersToDisplay});
   //   }
   //   if(this.props.self){
@@ -63,8 +59,10 @@ class MainPage extends React.Component {
   loadingUsers(){
     this.props.getSelf(this.props.myId)
     .then ( ()=>{
-      console.log("filter by city");
-      this.props.filterUsersBy('city', this.props.self.city)
+      if(this.props.self){
+
+        this.props.filterUsersBy('city', this.props.self.city)
+      }
     })
     .then ( ()=> {
       // this.props.filterUsersBy('city', this.props.self.city)
