@@ -20,35 +20,37 @@ class Profile extends React.Component{
           <div className="image-container">
             <img id="profile-img"src={this.props.user.imageUrl} />
           </div>
-          name
-          <h1>{this.props.user.name}</h1>
-          <span>{this.props.user.city}</span>
+          <h1 id="user-name">{this.props.user.name}</h1>
+          <h1 id="user-location"><img src="https://img.icons8.com/cotton/64/000000/worldwide-location--v2.png" />{this.props.user.city}</h1>
           <span></span>
         </div>
         <div id="body">
           <div id="stats">
 
             <div className="details">
-              <p>Education</p>
+              <p><img src="https://img.icons8.com/cotton/64/000000/graduation-cap--v2.png" />Education</p>
               {this.props.user.education}
             </div>
 
             <div className="details">
-              <p>Occupation</p>
+              <p><img src="https://img.icons8.com/cotton/64/000000/briefcase--v1.png" />Occupation</p>
               {this.props.user.occupation}
             </div>
 
             <div className="details">
-              <p>Industry</p>
+              <p><img src="https://img.icons8.com/cotton/64/000000/company.png" />Industry</p>
               {this.props.user.industry}
             </div>
-          </div>
-          <div id="about-me">
-            {this.props.user.aboutMe}
+            <div className="details">
+              <p><img src="https://img.icons8.com/cotton/64/000000/name--v2.png" />About Me</p>
+              {this.props.user.aboutMe}
+            </div>
           </div>
 
-          <div id="linkedIn">
-            <Link to={this.props.user.linkedIn}>linkedIn</Link>
+          <div id="details">
+            {/* <Link to={this.props.user.linkedIn}>linkedIn</Link> */}
+            <p>Links</p>
+            {this.props.user.linkedIn ? <Link to={this.props.user.linkedIn}><img id="linkedIn" src="https://img.icons8.com/color/48/000000/linkedin.png" /></Link> : ""}
           </div>
         </div>
       </div>
