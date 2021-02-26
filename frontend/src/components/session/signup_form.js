@@ -12,7 +12,7 @@ class SignupForm extends React.Component {
       password: '',
       business: '',
       industry: '',
-      recruiterStatus: '',
+      recruiterStatus: "false",
       city: '',
       imageFile: null,
       imageUrl: null,
@@ -20,7 +20,7 @@ class SignupForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this); 
-    this.handleButton = this.handleButton.bind(this);
+    this.onRecruiterChange = this.onRecruiterChange.bind(this);
     this.clearedErrors = false;
     this.handleFile = this.handleFile.bind(this);
   }
@@ -48,6 +48,7 @@ class SignupForm extends React.Component {
     if(this.state.imageFile){
       const image = new FormData();
       image.append('image', this.state.imageFile);
+
       this.props.uploadImage(image).then((res) => {
         let user = {
           name: this.state.name,
@@ -88,6 +89,11 @@ class SignupForm extends React.Component {
     })  
   }
 
+  onRecruiterChange(e) {
+    this.setState({ recruiterStatus: e.currentTarget.value});
+  }
+  
+
   componentDidMount() {
     this.props.resetErrors()
   }
@@ -101,7 +107,10 @@ class SignupForm extends React.Component {
           <div>
             {this.renderErrors()}
             {this.state.imageUrl ? <span className="image-preview">{preview}</span> :
-            <input type="file" onChange={this.handleFile}/>}
+            <div className="choose-file">Choose File
+              <input type="file" onChange={this.handleFile}/>
+            </div>
+            }
             <input
               className="signup-input"
               type="text"
@@ -123,32 +132,67 @@ class SignupForm extends React.Component {
               value={this.state.password}
               onChange={this.update('password')}
             />
-            <input
-              className="signup-input"
-              type="text"
-              placeholder="Company"
-              value={this.state.business}
-              onChange={this.update('business')}
-            />
-            <input
-              className="signup-input"
-              type="text"
-              placeholder="Industry"
-              value={this.state.industry}
-              onChange={this.update('industry')}
-            />
-            <input
-              className="signup-input"
-              type="text"
-              placeholder="City"
-              value={this.state.city}
-              onChange={this.update('city')}
-            />
+            <div className="city-industry-container">
+              <div className="city-industry-icon">{this.state.city === '' ? "City" : this.state.city}
+                <ul className="cit-ind-dropdown">
+                  <li 
+                    onClick= {()=>this.setState({city: "San Francisico"})}
+                    className="list-item"
+                  >San Francisco</li>
+                  <li 
+                    onClick= {()=>this.setState({city: "Dallas"})}
+                    className="list-item"
+                  >Dallas</li>
+                  <li 
+                    onClick= {()=>this.setState({city: "New York"})}
+                    className="list-item"
+                  >New York</li>
+                </ul>
+              </div>
+              <div className="city-industry-icon">{this.state.industry === '' ? "Industry" : this.state.industry}
+                <ul className="cit-ind-dropdown">
+                  <li 
+                    onClick={()=>this.setState({industry: "Software Engineering"})}
+                    className="list-item"
+                    >Software Engineering</li>
+                  <li 
+                    onClick={()=>this.setState({industry: "Wood Chopping"})}
+                    className="list-item"
+                    >Wood Chopping</li>
+                  <li 
+                    onClick={()=>this.setState({industry: "Political Science"})}
+                    className="list-item"
+                    >Political Science</li>
+                  <li 
+                    onClick={()=>this.setState({industry: "Biotech"})}
+                    className="list-item"
+                    >Biotech</li>
+                  <li 
+                    onClick={()=>this.setState({industry: "Space Exploration"})}
+                    className="list-item"
+                    >Space Exploration</li>
+                </ul>
+              </div>
+            </div>
             <footer className="session-footer">
-              <div>
-                <h1>Are you a recruiter?</h1>
-                <button className="recruiter-button" onClick={this.handleButton('true')}>Yes</button>
-                <button className="recruiter-button" onClick={this.handleButton('false')}>No</button>
+              <h1>Are you a recruiter?</h1>
+              <div className="recruiter-container">
+                <div className="recruiter-button">
+                  <input 
+                    type="radio"
+                    value="true"
+                    checked={this.state.recruiterStatus === "true"}
+                    onChange={this.onRecruiterChange}
+                  />Yes
+                </div>
+                <div className="recruiter-button">
+                  <input 
+                    type="radio"
+                    value="false"
+                    checked={this.state.recruiterStatus === "false"}
+                    onChange={this.onRecruiterChange}
+                  />No
+                </div>
               </div>
               <input 
                 className="session-submit"
