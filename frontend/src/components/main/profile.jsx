@@ -10,7 +10,7 @@ class Profile extends React.Component{
   }
   render(){
     if(!this.props.user){
-      return <div>
+      return <div id="no-more-users">
         NO MORE USERS TO DISPLAY
       </div>
     }
