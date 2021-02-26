@@ -8,7 +8,7 @@ const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 const doSeeds = require('../../seed/seed_users') //import seed file & run in browser`s console using axios
-
+const doFilledSeeds = require('../../seed/seed_complete_users')
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
@@ -142,13 +142,17 @@ router.get('/allUsers', (req, res) => {
 //route to -> run seeds!
 //use console`s browser on localhost:3000 & axios this route...
 
-// User.drop();                     //looks like not allowed to drop
-// res.json('Dropping the DB');
-
 router.get('/seed', (req, res) => {
   doSeeds()
   res.json('Seeding successful!');
 })
+
+//filled seeds
+router.get('/filledSeed', (req, res) => {
+  doFilledSeeds()
+  res.json('Mode: Complete-Profile Seeding... Success!');
+})
+
 
 
 router.patch('/completeProfile', (req, res) => {
