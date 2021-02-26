@@ -8,6 +8,7 @@
     z-index: 11;
     
     .modal-child {
+        font-size: 1.7vh;
         background-color: $linkr-blue;
         padding: 15px;
         position: absolute;
@@ -15,7 +16,6 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        height: 365px;
         width: 350px;
         display: flex;
         justify-content: center;
@@ -69,4 +69,50 @@
     width: 160px;
     height: 27px;
     text-align: center;
+}
+
+.recruiter-button:hover {
+    cursor: pointer;
+    filter: brightness(70%);
+}
+
+.session-submit:hover {
+    cursor: pointer;
+    filter: brightness(70%);
+}
+
+.city-industry-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 7px;
+    height: 100px;
+    text-align: center;
+    // border: 1px solid $light-gray;
+}
+
+.city-industry-icon {
+    width: 100%;
+}
+
+.city-industry-icon:hover {
+    cursor: pointer;
+    display: block;
+    padding-bottom: inherit;
+    border: 1px solid $light-gray;
+
+    .cit-ind-dropdown {
+        display: block;
+        font-size: 1.2vh;
+        color: $darker-linkr-blue;
+        text-align: left;
+        padding-left: 4px;
+
+        .list-item:hover {
+            background-color: $light-gray;
+        }
+    }
+}
+
+.cit-ind-dropdown {
+    display: none;
 }

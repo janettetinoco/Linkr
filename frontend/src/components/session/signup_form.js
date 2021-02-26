@@ -135,27 +135,24 @@ class SignupForm extends React.Component {
               value={this.state.password}
               onChange={this.update('password')}
             />
-            <input
-              className="signup-input"
-              type="text"
-              placeholder="Company"
-              value={this.state.business}
-              onChange={this.update('business')}
-            />
-            <input
-              className="signup-input"
-              type="text"
-              placeholder="Industry"
-              value={this.state.industry}
-              onChange={this.update('industry')}
-            />
-            <input
-              className="signup-input"
-              type="text"
-              placeholder="City"
-              value={this.state.city}
-              onChange={this.update('city')}
-            />
+            <div className="city-industry-container">
+              <div className="city-industry-icon">City
+                <ul className="cit-ind-dropdown">
+                  <li className="list-item">San Francisco</li>
+                  <li className="list-item">Dallas</li>
+                  <li className="list-item">New York</li>
+                </ul>
+              </div>
+              <div className="city-industry-icon">Industry
+                <ul className="cit-ind-dropdown">
+                  <li className="list-item">Software Engineering</li>
+                  <li className="list-item">Wood Chopping</li>
+                  <li className="list-item">Political Science</li>
+                  <li className="list-item">Biotech</li>
+                  <li className="list-item">Space Exploration</li>
+                </ul>
+              </div>
+            </div>
             <footer className="session-footer">
               <div>
                 <h1>Are you a recruiter?</h1>
