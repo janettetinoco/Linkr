@@ -14,26 +14,13 @@ class Profile extends React.Component{
         NO MORE USERS TO DISPLAY
       </div>
     }
-    if(this.props.user.education){
-      return <ul>
-                {this.props.user.education.map( school=>{
-                  return <li>{school}</li>
-                })}
-              </ul>
-    }
+
     console.log(this.props.user);
     return(
       <div id="profile">
         <div id="header">
           <div id="img">
-            {/* <img src={this.props.user.image_url} /> */}
-            <hr/>
-            I<br />
-            &emsp;M<br />
-            &emsp;&emsp;A<br />
-            &emsp;&emsp;&emsp;G<br />
-            &emsp;&emsp;&emsp;&emsp;E<br />
-            <hr/>
+            <img src={this.props.user.imageUrl} />
           </div>
           name
           <h1>{this.props.user.name}</h1>
@@ -45,7 +32,7 @@ class Profile extends React.Component{
 
             <div className="details">
               <p>Education</p>
-              
+              {this.props.user.education}
             </div>
 
             <div className="details">
