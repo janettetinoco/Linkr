@@ -41,10 +41,13 @@
   display: block;
   .btn-sm {
     color: $dark-gray;
-    font-weight: 7000;
+    font-weight: 700;
     padding: 6px 12px;
     transition: background-color 0.5s;
+    transition: color 0.5s;
     font-family: sans-serif;
+    font-size: 20px;
+    border: 1px solid transparent;
   }
   .btn-bg {
     padding: 6px 12px;
@@ -52,16 +55,19 @@
     background-color: $lightest-gray;
     border-radius: 25px;
     transition: background-color 0.5s;
-    transition: color 0.5s;
+    font-family: $railway;
+    font-size: 20px;
 
   }
   
   .btn-sm:hover {
     background-color: $light-gray;
-    color: $dark-gray;
+    color: $linkr-orange;
     border-radius: 3px;
     height: fit-content;
     width: fit-content;
+    border-radius: 25px;
+    // border: 1px solid transparent;
   }
 
   .btn-bg:hover{

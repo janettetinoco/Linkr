@@ -8,7 +8,7 @@ function doFilledSeeds() {
     { "name": "Alexey Sergeev", "email": "alexeys@as.com", "password": "123456", "industry": "Space Exploration", 
       "recruiterStatus": false, "city": "San Francisco", "imageUrl": "https://linkr-dev.s3-us-west-1.amazonaws.com/alexey_sergeev.jpg", "occupation": "SWE at SpaceX", "aboutMe": "Hello, I am looking for new friends.", "education": "SUSU", "linkedIn": "http://linkedIn.com/some_random_id" },
     { "name": "Jonathan Diaz", "email": "jonathand@jd.com", "password": "123456", "industry": "Ape Industries", 
-      "recruiterStatus": false, "city": "San Francisco", "imageUrl": "https://linkr-dev.s3-us-west-1.amazonaws.com/1614311962756-jonathan-diaz.jpg", "occupation": "CEO at Ape Industries", "aboutMe": "Hello, how are you?", "education": "ASU", "linkedIn": "http://linkedIn.com/some_random_id" },
+      "recruiterStatus": false, "city": "San Francisco", "imageUrl": "https://linkr-dev.s3-us-west-1.amazonaws.com/jonathan-diazjpeg.jpg", "occupation": "CEO at Ape Industries", "aboutMe": "Hello, how are you?", "education": "ASU", "linkedIn": "http://linkedIn.com/some_random_id" },
     { "name": "Janette Tinoco", "email": "janettet@jt.com", "password": "123456", "industry": "Software Engineering", 
       "recruiterStatus": false, "city": "San Francisco", "imageUrl": "https://linkr-dev.s3-us-west-1.amazonaws.com/janette-tinoco.JPG", "occupation": "SWE at Google", "aboutMe": "Hello, tell me a joke.", "education": "SFSU", "linkedIn": "http://linkedIn.com/some_random_id" },
     { "name": "Micheal Noble", "email": "michaeln@mn.com", "password": "123456", "industry": "Software Engineering", 
