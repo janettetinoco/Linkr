@@ -45,14 +45,13 @@ class Profile extends React.Component{
               <p><img src="https://img.icons8.com/cotton/64/000000/name--v2.png" />About Me</p>
               {this.props.user.aboutMe}
             </div>
-          </div>
-
-          <div id="details">
-            {/* <Link to={this.props.user.linkedIn}>linkedIn</Link> */}
-            <p>Links</p>
-            {this.props.user.linkedIn ? <Link to={this.props.user.linkedIn}><img id="linkedIn" src="https://img.icons8.com/color/48/000000/linkedin.png" /></Link> : ""}
+            <div className="details">
+              <p><img src="https://img.icons8.com/cotton/64/000000/external-link.png" />Links</p>
+              {this.props.user.linkedIn ? <Link to={this.props.user.linkedIn}><img id="linkedIn" src="https://img.icons8.com/color/48/000000/linkedin.png" /></Link> : ""}
+            </div>
           </div>
         </div>
+
       </div>
     )
   }
