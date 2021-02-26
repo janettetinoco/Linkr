@@ -65,9 +65,8 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
         <form className="login-form" onSubmit={this.handleSubmit}>
-          <div>Welcome Back to Linkr!
+          <div>Welcome back to Linkr
               <input 
                 className="login-input"
                 type="text"
@@ -92,7 +91,6 @@ class LoginForm extends React.Component {
             {this.renderErrors()}
           </div>
         </form>
-      </div>
     );
   }
 }
