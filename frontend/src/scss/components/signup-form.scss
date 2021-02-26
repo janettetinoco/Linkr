@@ -1,0 +1,123 @@
+.signup-form {
+    color: $linkr-orange;
+    background-color: $lightest-gray;
+    font-family: $railway;
+    border: 1px solid $light-gray;
+    border-radius: 7px;
+    padding: 5%;
+}
+
+.signup-input {
+    font-size: 17px;
+    font-family: $railway;
+    text-indent: 10px;
+    width: 100%;
+    height: 30px;
+    z-index: 3;
+    border: 1px solid $light-gray;
+    margin: 4px;
+    border-radius: 20px;
+}
+
+.session-footer {
+    text-align: center;
+}
+
+.recruiter-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.recruiter-button {
+    margin-top: 5px;
+    margin-right: 10px;
+    border-radius: 20px;
+    width: 40px;
+    height: 27px;
+    text-align: center;
+}
+
+.recruiter-button:hover {
+    cursor: pointer;
+    filter: brightness(70%);
+}
+
+.session-submit {
+    background-color: $darker-linkr-orange;
+    color: $lightest-gray;
+    margin-top: 5px;
+    margin-right: 10px;
+    border-radius: 20px;
+    width: 160px;
+    height: 27px;
+    text-align: center;
+}
+
+
+.session-submit:hover {
+    cursor: pointer;
+    filter: brightness(70%);
+}
+
+.choose-file {
+    font-size: 1.7vh;
+    font-family: $railway;
+    text-align: center;
+    background-color: $darker-linkr-blue;
+    border-radius: 20px;
+    color: white;
+    width: 110px;
+    height: 27px;
+    padding-top: 5px;
+    position: relative;
+    input[type="file"]{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+}
+
+.choose-file:hover {
+    cursor: pointer;
+    filter: brightness(70%);
+}
+
+.city-industry-container {
+    font-size: 1.4vh;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 7px;
+    height: 100px;
+    text-align: center;
+}
+
+.city-industry-icon {
+    width: 100%;
+}
+
+
+.city-industry-icon:hover {
+    cursor: pointer;
+    display: block;
+    padding-bottom: inherit;
+    border: 1px solid $light-gray;
+
+    .cit-ind-dropdown {
+        display: block;
+        font-size: 1.2vh;
+        color: $darker-linkr-blue;
+        text-align: left;
+        padding-left: 4px;
+
+        .list-item:hover {
+            background-color: $light-gray;
+        }
+    }
+}
+
+.cit-ind-dropdown {
+    display: none;
+}
