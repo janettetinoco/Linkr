@@ -1,0 +1,20 @@
+
+#connections-page{
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  img{
+    object-fit: contain;
+    max-height: 20vw;
+  }
+}
+.connections-row{
+
+  border-top: 1px solid $linkr-blue;
+  width: 90vw;
+}
+
+#connections-table{
+  margin-top: 10vw; 
+  width: 70vw;
+}
