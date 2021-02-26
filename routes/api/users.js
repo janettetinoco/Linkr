@@ -138,6 +138,30 @@ router.get('/allUsers', (req, res) => {
     .then(users => res.json(users))
 })
 
+router.get('/connections', (req, res) => {
+  let connectedUsers, c = []; 
+  User.findOne({_id: req.query.id})
+    .then((user) => {
+      if (user.connection) {
+        let arr = [];
+        user = user.connection.connected;
+        user.forEach(connection => {arr.push(connection)})
+        console.log(arr); 
+        connectedUsers = arr.map( id=>{
+          return User.find({_id: id}).then( (user)=> {
+            return user;
+            // connectedUsers.push(user)
+          }).then( (res)=>c.push(res))
+        })
+        console.log("connected users", connectedUsers); 
+        console.log("connected users cc", c); 
+        return res.json(connectedUsers); 
+      } else {
+        return res.json(['No connections yet'])
+      }
+    })
+})
+
 
 //route to -> run seeds!
 //use console`s browser on localhost:3000 & axios this route...
