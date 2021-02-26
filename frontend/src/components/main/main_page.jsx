@@ -103,6 +103,7 @@ class MainPage extends React.Component {
     }
   }
   render(){
+
     let nextProfile = '';
     if(this.state.usersToDisplay.length>0){
       nextProfile=this.state.usersToDisplay[0];

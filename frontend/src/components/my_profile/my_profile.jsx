@@ -1,28 +1,11 @@
 import React from 'react';
-import {Link} from 'react-router-dom'; 
 
-class Profile extends React.Component{
-
+class MyProfile extends React.Component{
   constructor(props){
     super(props);
-    this.state=this.props.user;
-    console.log(this.props.user);
   }
+
   render(){
-    if(!this.props.user){
-      return <div id="no-more-users">
-        NO MORE USERS TO DISPLAY
-      </div>
-    }
-    if(this.props.user.education){
-      return <ul>
-                {this.props.user.education.map( school=>{
-                  return <li>{school}</li>
-                })}
-              </ul>
-    }
-    console.log(this.props.user);
-    return(
       <div id="profile">
         <div id="header">
           <div id="img">
@@ -67,8 +50,5 @@ class Profile extends React.Component{
           </div>
         </div>
       </div>
-    )
   }
 }
-
-export default Profile;
