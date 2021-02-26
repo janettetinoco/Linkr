@@ -15,7 +15,7 @@ class Profile extends React.Component{
       </div>
     }
     return(
-      <div id="profile">
+      <div className="profile">
         <div id="header">
           <div id="img">
             <img src={this.props.user.imageUrl} />
