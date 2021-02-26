@@ -8,7 +8,7 @@ const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 const doSeeds = require('../../seed/seed_users') //import seed file & run in browser`s console using axios
-
+const doFilledSeeds = require('../../seed/seed_complete_users')
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
@@ -117,7 +117,7 @@ router.get('/query/:filter/:value', (req, res) => {
     .sort({ date: -1 })
     .then(users => res.json(users))
     .catch( err => 
-      res.status(404).json({ nousersfound: 'No users found in this city'})
+      res.status(404).json({ nousersfound: 'No users found'})
     );
 });
 
@@ -127,13 +127,13 @@ router.get('/self/:myId', (req, res) => {
       return res.json(self)
     })
     .catch( err => {
-      res.status(404).json({ nousersfound: 'No users found in this city'})
+      res.status(404).json({ nousersfound: 'No users found'})
     }
     );
 });
 
 //show all the users
-router.get('/alluser', (req, res) => {
+router.get('/allUsers', (req, res) => {
   User.find()
     .then(users => res.json(users))
 })
@@ -142,12 +142,60 @@ router.get('/alluser', (req, res) => {
 //route to -> run seeds!
 //use console`s browser on localhost:3000 & axios this route...
 
-// User.drop();                     //looks like not allowed to drop
-// res.json('Dropping the DB');
-
 router.get('/seed', (req, res) => {
   doSeeds()
   res.json('Seeding successful!');
 })
+
+//filled seeds
+router.get('/filledSeed', (req, res) => {
+  doFilledSeeds()
+  res.json('Mode: Complete-Profile Seeding... Success!');
+})
+
+
+
+router.patch('/completeProfile', (req, res) => {
+  let id = req.body.id
+  let occupation = req.body.occupation
+  let education = req.body.education
+  let aboutMe = req.body.aboutMe
+  let linkedIn = req.body.linkedIn
+  let image_url = req.body.image_url
+  
+  User.findByIdAndUpdate(id, 
+    {
+      occupation: occupation,
+      education: education,
+      aboutMe: aboutMe,
+      linkedIn: linkedIn,
+      image_url: image_url,
+    },
+    { 
+      new: true 
+    },
+    function(err, response) {
+      if (err) {
+        console.log("we hit an error" + err);
+        return res.json({
+          message: "Database Update Failure"
+        });
+      }
+      return res.send(response);
+    }
+  );
+})
+
+//----------------------potentail route edit
+//// name: name,
+      // email: email,
+      // industry: industry,
+      // let recruiterStatus = req.body.recruiterStatus
+  // let city = req.body.city
+  // let name = req.body.name
+  // let email = req.body.email
+  // let industry = req.body.industry
+  // recruiterStatus: recruiterStatus,
+        // city: city
 
 module.exports = router;

@@ -24,7 +24,10 @@ const UserSchema = new Schema({
         required: true
     },
     education: {
-        type: Array
+        type: String
+    },
+    aboutMe: {
+        type:  String
     },
     linkedIn: {
         type: String

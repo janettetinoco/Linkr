@@ -1,4 +1,5 @@
 
+import * as APIutil from '../util/user_api_util';
 
 export const usersToDisplay = (state) => {
   let allUsersInCity = Object.values(state.users);
@@ -15,4 +16,17 @@ export const usersToDisplay = (state) => {
   })
   console.log("display these users", display); 
   return display; 
+}
+
+export const getUsersForConnections = state => {
+  if(!state.connections) return [];
+  let connections = [];
+  state.connections.forEach( userId => {
+    APIutil.getUser(userId).then( (user) => {
+      connections.push(user.data);
+    })
+  }
+  )
+  console.log(connections)
+  return connections;
 }
