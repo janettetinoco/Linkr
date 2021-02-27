@@ -148,9 +148,7 @@ router.get('/connections', (req, res) => {
         user = user.connection.connected;
         user.forEach(connection => {arr.push(connection)})
         User.find({_id: {$in: arr}}).then( (users)=> res.json(users));
-      } else {
-        return res.json(['No connections yet'])
-      }
+      } 
     })
 })
 

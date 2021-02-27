@@ -10,6 +10,7 @@ export const receiveConnections = (connections) => ({
   connections
 });
 
+
 export const receiveBlocks = (blocks) => ({
   type: RECEIVE_BLOCKS,
   blocks

@@ -1,5 +1,5 @@
 
-import { RECEIVE_SELF, RECEIVE_USERS, REMOVE_USER_FROM_STATE } from '../actions/user_actions';
+import { RECEIVE_SELF, RECEIVE_USERS, REMOVE_USER_FROM_STATE, CLEAR_USERS } from '../actions/user_actions';
 import {RECEIVE_USER_LOGOUT} from '../actions/session_actions'; 
 import {RECEIVE_BLOCKS, RECEIVE_PENDINGS, RECEIVE_CONNECTIONS} from '../actions/connection_actions';
 
@@ -39,6 +39,8 @@ const users = function(state = initialState, action) {
         delete nextState[user._id]
       });
       return nextState;
+    case CLEAR_USERS: 
+      return {};
     default:
       return state;
   }
