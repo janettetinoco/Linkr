@@ -22,6 +22,8 @@ function doSeeds() {
     { "name": "Alexey Sergeev", "email": "alexeys@a.com", "password": "123456", "industry": "Software Engineering", "recruiterStatus": false, "city": "San Francisco" },
   ]
   
+
+  
   
   //bcrypt the password & save to DB
   let newUser;
