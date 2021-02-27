@@ -10,6 +10,7 @@ import MainPageContainer from './main/main_page_container';
 import ConnectionsContainer from './connections/connections_container';
 import "../App.scss";
 import Modal from './modal/modal_container';
+import FriendDetailContainer from './connections/friend_detail_container';
 
 const App = () => (
   <div>
@@ -17,13 +18,15 @@ const App = () => (
       <Modal />
       <NavBarContainer />
     </header>
+        <ProtectedRoute path="/profile/connections/:friendId" component={FriendDetailContainer} />
     <Switch>
         <ProtectedRoute exact path="/" component={MainPageContainer} />
         <ProtectedRoute exact path="/profile" component={MyProfileContainer} />
         {/* <ProtectedRoute exact path="/profile" component={MyProfileContainer} /> */}
 
         <ProtectedRoute exact path="/profile/edit" component={CompleteProfileContainer} />
-        <ProtectedRoute exact path="/profile/connections" component={ConnectionsContainer} />
+        <ProtectedRoute path="/profile/connections" component={ConnectionsContainer} />
+
 
     </Switch>
   </div>

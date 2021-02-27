@@ -1,4 +1,7 @@
 import React from 'react';
+import {Route} from 'react-router-dom';
+import FriendDetailContainer from './friend_detail_container'; 
+import FriendIndexItem from './friend_index_item'; 
 
 class Connections extends React.Component{
   constructor(props){
@@ -49,9 +52,17 @@ class Connections extends React.Component{
    
     
     return(
-      <div id="connections-page">
+      <div id="connection-div">
+      <section className="connections">
+        
+        <Route path="profile/connections/:friendId" component={FriendDetailContainer} />
+        <ul id="friend-index">
+          {this.props.friends.map( (friend, i)=>{
+            return <FriendIndexItem key={i} friend={friend} />
+          })}
+        </ul>
 
-        <table id="connections-table">
+        {/* <table id="connections-table">
         <h1> Your Connections </h1>
           {connectionListTable}
       </table>
@@ -59,6 +70,7 @@ class Connections extends React.Component{
             {connectionList}
         </ul> */}
 
+      </section>
       </div>
     )
 

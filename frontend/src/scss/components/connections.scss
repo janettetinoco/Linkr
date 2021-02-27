@@ -1,20 +1,127 @@
 
-#connections-page{
+.connections{
+  transform: translateY(4vw);
   display: flex;
-  flex-direction: column;
-  width: 80vw;
-  img{
-    object-fit: contain;
-    max-height: 20vw;
+  flex-direction: row-reverse;
+  align-self: center;
+  padding: 0;
+  height: 100%; 
+  background-color:inherit;
+  
+  > ul{
+    width: 300px;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: scroll;
+    border: 6px solid black;
+    border-radius: 20px;
+    margin-left: 40px;
+
+    > li {
+      a {
+        display: block;
+      }
+
+      &:active {
+        background-color: grey;
+      }
+    }
   }
 }
-.connections-row{
 
-  border-top: 1px solid $linkr-blue;
-  width: 90vw;
+#friend-index{
+    margin-top: 100px;
+}
+.friend-index-item {
+  align-self: center; 
+  padding: 5px 10px;
+  border-bottom: 1px solid grey;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: lightgrey;
+  }
+
+  img {
+    width: 5vw;
+    margin: 0 10px;
+    vertical-align: middle;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+
+    &:active {
+      background-color: $linkr-blue;
+    }
+  }
 }
 
-#connections-table{
-  margin-top: 10vw; 
-  width: 70vw;
+.friend-index-item:first-of-type{
+  border-top: 1px solid grey;
+}
+
+.friend-detail {
+  transform:translateY(6vw);
+  width: 30%;
+  height: 40vw;
+  display: flex;
+  flex-direction: column;
+  position:absolute;
+  align-items: center;
+  flex: 1;
+  padding: 0 auto;
+  border-radius: 40px;
+  border: 1vw solid rgba(0, 0, 0, 0.274);
+  margin: 0;
+  overflow: scroll;
+  background-color: $linkr-blue-transparent;
+
+  figure {
+    display: flex; 
+    flex-direction: row;
+    align-content: center;
+    border: .5vw solid $darker-linkr-blue;
+    border-radius: 8px;
+    // width: 40%;
+    width: 60%;
+    height: 50%;
+    padding: .5%;
+    max-height: 400px;
+    background: $linkr-blue; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(
+      315deg,
+      $linkr-blue,
+      $linkr-blue-less-transparent
+    ); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(
+      315deg,
+      $linkr-blue,
+      $linkr-blue-less-transparent
+    ); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(
+      315deg,
+      $linkr-blue,
+      $linkr-blue-less-transparent
+    ); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(135deg, $linkr-blue, $linkr-blue-less-transparent); /* Standard syntax */
+
+    img {
+      object-fit:contain;
+      
+      border-radius: 50%;
+      max-width: 90%;
+    }
+  }
+
+  ul {
+    text-align: center;
+
+    li {
+      font-size: 20px;
+      padding: 10px 0;
+      color: black;
+    }
+  }
 }
