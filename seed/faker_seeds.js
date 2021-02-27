@@ -26,20 +26,29 @@ for (i = 0; i < 20; i++){
   user.password = '123456'
 
   //create industry
-  let industry = ["Space Exploration", "Biotech", "Software Engineering", "Political Science", "Minerals"]
+  let industry = ["Space Exploration", "Biotech", "Software Engineering", 
+    "Political Science", "Minerals"]
   user.industry = industry[Math.floor(Math.random() * industry.length)]
 
   //create occupation
-  // let occupation = ["CTO", "CEO", "HR", "Accountant", "Engineer", "SWE", "QA"]
-  // user.occupation = occupation[Math.floor(Math.random() * occupation.length)]
-  // user.job = faker.name.jobArea()
-  user.occupation = faker.name.jobType()
+  let occupation = ["CTO", "CEO", "HR", "Accountant", "Engineer", "SWE", "QA",
+    "Assistant", "Agent", "Coordinator", "Developer"]
+  user.occupation = occupation[Math.floor(Math.random() * occupation.length)]
 
   //create city
   let city = ["New York", "San Francisco", "Dallas"]
   user.city = city[Math.floor(Math.random() * city.length)]
 
+  //create education
+  let education = ["Davis", "SUSU", "FSU", "ASU", "SFSU", "UCLA", "Cal Poly", 
+    "CSUS", "FGCU", "Georgia Tech", "Hopkins", "JSU", "LA Tech", "Madison"]
+  user.education = education[Math.floor(Math.random() * education.length)]
 
+  //linkedIN
+  user.linkedIn = 'http://linkedIn.com/some_random_id';
+
+  //aboutMe
+  let aboutMe = ["Hello, I am looking for new friends.", "Hello, how are you?"]
 
   arr.push(user)
 }
