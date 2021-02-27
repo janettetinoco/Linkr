@@ -13,8 +13,8 @@ function doSeeding() {
   for (i = 0; i < 20; i++){
     let user = {}
 
-    let firstName = faker.name.firstName(); // Rowan Nikolaus
-    let lastName = faker.name.lastName(); // Rowan Nikolaus
+    let firstName = faker.name.firstName(); 
+    let lastName = faker.name.lastName(); 
     let fullName = firstName + " " + lastName
     user.name = fullName;
     
@@ -29,26 +29,25 @@ function doSeeding() {
       } 
     
     })
-    //create password
+    //password
     user.password = '123456'
 
-    //create industry
+    //industry
     let industry = ["Space Exploration", "Biotech", "Software Engineering", 
       "Political Science", "Minerals"]
     user.industry = industry[Math.floor(Math.random() * industry.length)]
 
-    //create occupation
-    // user.jobtitle = faker.name.jobTitle()
+    //occupation
     let occupation = ["CTO", "CEO", "HR", "Accountant", "Engineer", "SWE", "QA",
       "Assistant", "Agent", "Coordinator", "Developer","Backend Developer", "Full Stack",
       "Frontend Developer"]
     user.occupation = occupation[Math.floor(Math.random() * occupation.length)]
 
-    //create city
+    //city
     let city = ["New York", "San Francisco", "Dallas"]
     user.city = city[Math.floor(Math.random() * city.length)]
 
-    //create education
+    //education
     let education = ["Davis", "SUSU", "FSU", "ASU", "SFSU", "UCLA", "Cal Poly", 
       "CSUS", "FGCU", "Georgia Tech", "Hopkins", "JSU", "LA Tech", "Madison"]
     user.education = education[Math.floor(Math.random() * education.length)]
@@ -100,12 +99,6 @@ function doSeeding() {
 
 
     //gender check and insert photo url
-
-    // detect(user.name.split(" ")[0]).then(function (gender) {
-    //   console.log(gender)
-    // });
-    
-
     if (getGenderInfo(user.name.split(" ")[0]).male === true ) {
       if (maleArr.length) {
         let image = maleArr[Math.floor(Math.random() * maleArr.length)]
@@ -128,7 +121,7 @@ function doSeeding() {
         }
       }
     }
-  }
+  };
 
 
   
@@ -143,8 +136,8 @@ function doSeeding() {
           newUser.save()
         })
       })
-  })
-  
+  }); 
+
 }
 
 
