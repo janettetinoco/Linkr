@@ -5,7 +5,8 @@ export const RECEIVE_USERS = 'RECEIVE_USERS';
 export const RECEIVE_USERS_ERRORS='RECEIVE_USERS_ERRORS'; 
 export const RECEIVE_SELF = 'RECEIVE_SELF';
 export const REMOVE_USER_FROM_STATE = 'REMOVE_USER_FROM_STATE'; 
-
+export const CLEAR_USERS = "CLEAR_USERS"; 
+export const RECEIVE_FRIENDS = "RECEIVE_FRIENDS"; 
 
 export const receiveUsers = users => ({
     type: RECEIVE_USERS,
@@ -25,6 +26,15 @@ export const receiveErrors = errors =>({
 export const removeUserState = userId => ({
   type: REMOVE_USER_FROM_STATE,
   userId
+})
+
+export const receiveUsersAsConnections = (friends) =>({
+  type: RECEIVE_FRIENDS,
+  friends
+})
+
+export const clearUsers = () => ({
+  type: CLEAR_USERS
 })
 
 
@@ -70,7 +80,7 @@ export const getUser = (myId) => dispatch => {
 export const getConnections = (myId) => dispatch => {
 
   return APIUtil.getConnections(myId).then( (users) =>{
-    dispatch(receiveUsers(users));
+    dispatch(receiveUsersAsConnections(users));
   },
     err => (
         dispatch(receiveErrors(err.response.data))
