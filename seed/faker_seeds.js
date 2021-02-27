@@ -1,7 +1,10 @@
 const faker = require('faker')
 const detect = require('detect-gender');
+const getGenderInfo =  require('@nelsonomuto/gender-info');
+
 
 let arr = []
+let usedPics = [];
 
 for (i = 0; i < 20; i++){
   let user = {}
@@ -91,14 +94,57 @@ for (i = 0; i < 20; i++){
     "https://linkr-dev.s3-us-west-1.amazonaws.com/man8.jpg]",
   ]
 
-  detect(user.name[0]).then(function (gender) {
-    console.log(gender)
-  });
 
+  //gender check and insert photo url
 
-  arr.push(user)
+  // detect(user.name.split(" ")[0]).then(function (gender) {
+  //   console.log(gender)
+  // });
+  
+
+  if (getGenderInfo(user.name.split(" ")[0]).male === true ) {
+    if (maleArr.length) {
+      let image = maleArr[Math.floor(Math.random() * maleArr.length)]
+      if (!usedPics.includes(image)){
+        usedPics.push(image);
+        let idx = maleArr.indexOf(image)
+        maleArr.splice(idx, 1)
+        user.imageUrl = image
+        arr.push(user)
+      }
+    } 
+  } else {
+    if (femaleArr.length) {
+      let image = femaleArr[Math.floor(Math.random() * femaleArr.length)]
+      if (!usedPics.includes(image)){
+        let idx = femaleArr.indexOf(image)
+        femaleArr.splice(idx, 1)
+        user.imageUrl = image
+        arr.push(user)
+      }
+    }
+  }
 }
 
-console.log(arr)
+
+function doSeeding() {
+  
+  //bcrypt the password & save to DB
+  let newUser;
+  arr.forEach(user => {  
+      bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(user.password, salt, (err, hash) => {
+          if (err) throw err;
+          newUser = new User(user);
+          newUser.password = hash;
+          newUser.save()
+        })
+      })
+  })
+}
+
+
+module.exports = doSeeding;
+
 
 
