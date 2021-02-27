@@ -7,8 +7,8 @@ const keys = require('../../config/keys');
 const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
-const doSeeds = require('../../seed/seed_users') //import seed file & run in browser`s console using axios
 const doFilledSeeds = require('../../seed/seed_complete_users')
+const doSeeding = require('../../seed/faker_seeds')
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
@@ -152,12 +152,27 @@ router.get('/connections', (req, res) => {
     })
 })
 
+//async Function  === to router above
+// router.get('/connections', async (req, res) => {
+//   let ListConnectedUsers = [];
+
+//   let user = await User.findOne({_id: req.query.id})
+//   if (user.connection) {
+//     for (let i = 0; i < user.connection.connected.length; i++) {
+//       let connectedUser = await User.findOne({_id: user.connection.connected[i]})
+//       ListConnectedUsers.push(connectedUser);
+//     }
+//   }
+//   res.json(ListConnectedUsers)
+// })
+
 
 //route to -> run seeds!
 //use console`s browser on localhost:3000 & axios this route...
 
 router.get('/seed', (req, res) => {
-  doSeeds()
+  doFilledSeeds()
+  doSeeding()
   res.json('Seeding successful!');
 })
 
