@@ -10,7 +10,7 @@ function doSeeding() {
   let arr = []
   let usedPics = [];
 
-  for (i = 0; i < 20; i++){
+  for (i = 0; i < 22; i++){
     let user = {}
 
     let firstName = faker.name.firstName(); 
