@@ -56,7 +56,7 @@ class NavBar extends React.Component {
               Welcome to the world of easy professional networking.
             </h1>
           </div>
-              <img className='hero-img' src={splashimg}/>
+            <img className='hero-img' src="https://p7.hiclipart.com/preview/386/56/999/team-service-business-project-consultant-continuous-improvement.jpg"/>
           <div className='hero2'>
             <h1 className='splash-text2'>
               Easily connect with people in any industry with just a swipe 
