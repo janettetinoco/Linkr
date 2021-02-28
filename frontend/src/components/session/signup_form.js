@@ -16,7 +16,7 @@ class SignupForm extends React.Component {
       city: '',
       imageFile: null,
       imageUrl: null,
-      errors: {}
+      // errors: {}
     };
 
     this.handleSubmit = this.handleSubmit.bind(this); 
@@ -73,9 +73,9 @@ class SignupForm extends React.Component {
   renderErrors() {
     return(
       <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
+        {Object.keys(this.props.errors).map((error, i) => (
           <li key={`error-${i}`}>
-            {this.state.errors[error]}
+            {this.props.errors[error]}
           </li>
         ))}
       </ul>
@@ -176,22 +176,16 @@ class SignupForm extends React.Component {
             <footer className="session-footer">
               <h1>Are you a recruiter?</h1>
               <div className="recruiter-container">
-                <div className="recruiter-button">
-                  <input 
-                    type="radio"
-                    value="true"
-                    checked={this.state.recruiterStatus === "true"}
-                    onChange={this.onRecruiterChange}
-                  />Yes
-                </div>
-                <div className="recruiter-button">
-                  <input 
-                    type="radio"
-                    value="false"
-                    checked={this.state.recruiterStatus === "false"}
-                    onChange={this.onRecruiterChange}
-                  />No
-                </div>
+                <button
+                  className="recruiter-button"
+                  value="true"
+                  onClick={()=>this.setState({recruiterStatus: "true"})}
+                >Yes</button>
+                <button
+                  className="recruiter-button"
+                  value="false"
+                  onClick={()=>this.setState({recruiterStatus: "true"})}
+                >No</button>
               </div>
               <input 
                 className="session-submit"
@@ -206,3 +200,21 @@ class SignupForm extends React.Component {
 }
 
 export default withRouter(SignupForm);
+
+
+{/* <div className="recruiter-button">
+                  <input 
+                    type="radio"
+                    value="true"
+                    checked={this.state.recruiterStatus === "true"}
+                    onChange={this.onRecruiterChange}
+                  />Yes
+                </div>
+                <div className="recruiter-button">
+                  <input 
+                    type="radio"
+                    value="false"
+                    checked={this.state.recruiterStatus === "false"}
+                    onChange={this.onRecruiterChange}
+                  />No
+                </div> */}

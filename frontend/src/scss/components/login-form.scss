@@ -1,5 +1,4 @@
 .login-form {
-    height: 170px;
     width: 100%;
     color: $linkr-orange;
     background-color: $lightest-gray;
@@ -9,6 +8,21 @@
     padding: 5%;
 }
 
+.header-container {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2.2vh;
+    margin-bottom: 20px;;
+}
+
+// .errors-container {
+//     height: 60px;
+//     width: 100%;
+//     color: red;
+//     text-align: center;
+//     line-height: 30px;
+// }
+
 .login-input {
     font-size: 17px;
     font-family: $railway;
@@ -17,6 +31,18 @@
     width: 100%;
     z-index: 3;
     border: 1px solid $light-gray;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.login-input-error {
+    font-size: 17px;
+    font-family: $railway;
+    text-indent: 10px;
+    height: 30px;
+    width: 100%;
+    z-index: 3;
+    border: 1px solid red;
     border-radius: 20px;
     margin-bottom: 20px;
 }
