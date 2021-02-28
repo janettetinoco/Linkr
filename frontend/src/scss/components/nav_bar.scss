@@ -3,7 +3,6 @@
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  // background: linear-gradient(to bottom,  $linkr-blue-transparent, #bb5e20ea 99%);
   z-index: -3;
   background-size: cover;
  }
@@ -26,6 +25,7 @@
  }
 
 .nav-bar{
+  background: transparent;
    position: relative;
    display: flex;
    justify-content: space-between;
