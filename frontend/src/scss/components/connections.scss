@@ -10,8 +10,9 @@
   width: 100vw;
   background-color: inherit;
   position: absolute;
-  background-size: 2.00px 6.00px;
-  background-image: linear-gradient(180deg, #ffffff 90%, #ffff00 25%, #0000ff 25%, #0000ff 50%, #ffff00 50%, #ffff00 75%, #0000ff 75%, #0000ff 100%);
+
+  // background-image: linear-gradient(180deg, #ffffff 90%, #0000ff 50%, #ffff00 50%, #ffff00 75%,#ffffff 90%, #0000ff 75%, #0000ff 100%, #ffffff 100%);
+  // background-size: 2.00px 6.00px;
 
 }
 .nav-bar{
@@ -25,26 +26,25 @@
   width: 90vw;
   border: 10px solid $linkr-blue;
   border-radius: 10px;
-// -webkit-box-shadow: 5px 5px 15px 5px #FF8080, -9px 5px 15px 5px #FFE488, -7px -5px 15px 5px $linkr-blue, 12px -5px 15px 5px #80C7FF, 12px 10px 15px 7px #E488FF, -10px 10px 15px 7px #FF616B, -10px -7px 27px 1px #8E5CFF, 1px 5px 0px 16px rgba(255,6,6,0); 
-box-shadow: 5px 0px 15px 5px $linkr-orange, -9px 5px 15px 5px #628cff, -7px -5px 15px 5px $linkr-blue, 12px -5px 15px 5px #80C7FF, 12px 10px 15px 7px #88a4ff, -10px 10px 15px 7px #9061ff, -10px -7px 27px 1px #936cec, 1px 5px 0px 16px rgba(255, 0, 0, 0.048);
+
+-webkit-box-shadow: 0px 0px 7px 3px rgba(0,0,255,0.41), 0px 0px 7px 3px rgba(255,255,0,0.39), 0px 0px 7px 3px rgba(255,255,0,0.39); 
+box-shadow: 0px 0px 7px 3px rgba(0,0,255,0.41), 0px 0px 7px 3px rgba(255,255,0,0.39), 0px 0px 7px 3px rgba(255,255,0,0.39);
 }
 .connections{
-  background-image: url("../../background_images/salar_walkout.png");
+  background-image: url("../../background_images/salar_cotton_candy.png");
   background-size: cover;
   // transform: translateY(5vw);
   // margin-top: 10vh;
   display: flex;
   flex-direction: row-reverse;
-  // align-self: center;
   padding: 0;
   height: 83vh; 
   background-color:inherit;
   
   > ul{
-    width:25vw;
+    width: auto;
     height: 75vh;
     box-sizing: border-box;
-    overflow: scroll;
     border: 6px solid black;
     border-radius: 20px;
 
@@ -62,10 +62,11 @@ box-shadow: 5px 0px 15px 5px $linkr-orange, -9px 5px 15px 5px #628cff, -7px -5px
 
 #friend-index{
     transform: translateY(3vw);
-    margin-right: 1.5vw;
+    margin-right: 6vw;
+    overflow-y:scroll;
 }
 .friend-index-item span{
-  
+
 }
 .friend-index-item {
   align-self: center; 
@@ -98,57 +99,11 @@ box-shadow: 5px 0px 15px 5px $linkr-orange, -9px 5px 15px 5px #628cff, -7px -5px
 
 .friend-detail {
   z-index: 3;
-  transform:translateY(9vw);
-  margin-left: 6vw;
+  transform:translateY(8.4vw);
+  margin-left: 5.5vw;
   width: 30%;
   height: 75vh;
-  display: flex;
-  flex-direction: column;
   position:absolute;
-  align-items: center;
-  flex: 1;
-  padding: 0 auto;
-  border-radius: 40px;
-  border: 1vw solid rgba(0, 0, 0, 0.274);
-  overflow: scroll;
-  background-color: $linkr-blue;
-  
-  figure {
-    display: flex; 
-    flex-direction: row;
-    align-content: center;
-    border: .5vw solid $darker-linkr-blue;
-    border-radius: 8px;
-    // width: 40%;
-    width: 60%;
-    height: 50%;
-    padding: .5%;
-    max-height: 400px;
-    background: $linkr-blue; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(
-      315deg,
-      $linkr-blue,
-      $linkr-blue-less-transparent
-    ); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(
-      315deg,
-      $linkr-blue,
-      $linkr-blue-less-transparent
-    ); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(
-      315deg,
-      $linkr-blue,
-      $linkr-blue-less-transparent
-    ); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(135deg, $linkr-blue, $linkr-blue-less-transparent); /* Standard syntax */
-
-    img {
-      object-fit:contain;
-      
-      border-radius: 50%;
-      max-width: 90%;
-    }
-  }
 
   ul {
     text-align: center;
@@ -159,4 +114,95 @@ box-shadow: 5px 0px 15px 5px $linkr-orange, -9px 5px 15px 5px #628cff, -7px -5px
       color: black;
     }
   }
+}
+
+
+.friend-container{
+      width:fit-content;
+
+}
+
+.friend-card{
+  -webkit-box-shadow: -1px 1px 3px 4px rgba(37,92,122,0.62), 1px 2px 3px 5px rgba(67,122,152,0.62), 0px 5px 0px 7px rgba(198,147,177,0.79), inset 0px 0px 11px 1px rgba(192,186,148,0.76), inset 0px 0px 8px 1px rgba(192,186,148,0.76); 
+box-shadow: -1px 1px 3px 4px rgba(37,92,122,0.62), 1px 2px 3px 5px rgba(67,122,152,0.62), 0px 5px 0px 7px rgba(198,147,177,0.79), inset 0px 0px 11px 1px rgba(192,186,148,0.76), inset 0px 0px 8px 1px rgba(192,186,148,0.76);
+    text-align: center;
+    font-family: $railway;
+    background: linear-gradient(to bottom, #397090, #daa7c5 93%);
+    border: 1px;
+    border-radius: 50px;  
+    width: 100%;
+    margin-left: 10vw;
+    max-height: 83vh;
+    max-width: 40vw;
+    width: 27vw;
+    height: 76vh;
+    overflow: hidden;
+}
+
+.friend-image-container{
+    width: 12vw;
+    height: 12vw;
+    display: flex;
+    margin: auto;
+    padding-top: 1vw;
+    align-items: center;
+    img{
+      display: block;
+      // margin-right: auto;
+      // margin-left: auto;
+      // width: 100%;
+      height: 100%;
+      object-fit:cover;
+      object-position:right;
+        border: 1px solid gold;
+        border-radius: 75px;
+        padding: 4px;
+        border-color: rgb(194, 173, 64);
+        border-radius: 97px;
+        background-size: cover;
+        background-color: rgb(30, 144, 255);
+        border: outset rgb(255, 0, 0);
+    }
+}
+
+
+
+.friend-user-info{
+    display: flex;
+    justify-content: space-between;
+    color: $linkr-blue;
+
+
+    .friend-user-icon{
+        width: 2vw;
+        height: 2vw;
+        display: flex;
+        justify-content: center;
+        padding-right: 20px;
+    }
+}
+
+.friend-user-info.loc{
+     display: flex;
+    justify-content: center;
+}
+
+.friend-user-details{
+    margin: 15px;
+    color: orange;
+    h2{
+        font-size: .9vw;
+    }
+}
+
+.friend-links{
+    display: flex;
+    justify-content: center;
+    h2{
+        font-size: 1vw;
+    }
+}
+
+.friend-links.img{
+    width: 25px;
 }
