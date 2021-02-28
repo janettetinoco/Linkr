@@ -66,6 +66,12 @@ class NavBar extends React.Component {
   }
 
   render() {
+     //add animation to brand
+    let brand = document.getElementsByClassName('float-left')
+    if (brand.length){
+      brand[0].classList.remove('anime')
+    }
+
     return (
       <div className='nav-wrap'>
         { this.getLinks() }
