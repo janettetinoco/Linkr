@@ -5,6 +5,16 @@ class MyProfile extends React.Component{
   constructor(props){
     super(props)
     this.handleEditButton =this.handleEditButton.bind(this)
+    this.update = this.update.bind(this)
+    this.state = {
+      name: '',
+      city: '',
+      education: '',
+      occupation: '',
+      linkedIn: '',
+      aboutMe: '',
+      industry: '',
+    }
   }
 
   handleEditButton(){
@@ -16,9 +26,21 @@ class MyProfile extends React.Component{
     }
   }
 
+  update(field) {
+    // debugger
+    return e => this.setState({ [field]: e.currentTarget.value })
+  }
+
   componentDidMount(){
     this.props.getSelf(this.props.myId)
   }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.submitDesk(this.state)
+    
+  }
+  
 
   render(){
     if(!this.props.self){
@@ -30,6 +52,7 @@ class MyProfile extends React.Component{
     if (profile.length){
       brand[0].classList.add('anime')
     }
+
 
     return(
    
@@ -75,7 +98,6 @@ class MyProfile extends React.Component{
               </div>
             </div>
             <div className='flip-card-back'>
-              <h1>Update Profile</h1>
               <div className='image-container'>
                 <img id='img-main' src={this.props.self.imageUrl} />
                 <div className='edit-b'>
@@ -83,13 +105,16 @@ class MyProfile extends React.Component{
                   <h1>Go back</h1>
                 </div>
               </div>
-              <input type="text" value={this.props.self.name} />
-              <input type="text" value={this.props.self.city} />
-              <input type="text" value={this.props.self.education} />
-              <input type="text" value={this.props.self.occupation} />
-              <input type="text" value={this.props.self.industry} />
-              <input type="text" value={this.props.self.aboutMe} />
-              <input type="text" value={this.props.self.linkedIn}/>
+                <form onSubmit={this.handleSubmit}>
+                  <input type="text" placeholder={this.props.self.name} onChange={this.update('name')}/>
+                  <input type="text" placeholder={this.props.self.city} onChange={this.update('city')}/>
+                  <input type="text" placeholder={this.props.self.education} onChange={this.update('education')}/>
+                  <input type="text" placeholder={this.props.self.occupation} onChange={this.update('occupation')}/>
+                  <input type="text" placeholder={this.props.self.industry} onChange={this.update('industry')}/>
+                  <input type="text" placeholder={this.props.self.aboutMe} onChange={this.update('aboutMe')}/>
+                  <input type="text" placeholder={this.props.self.linkedIn} onChange={this.update('linkedId')}/>
+                  <button><h1>Update Profile</h1></button>
+                </form>
             </div>
           </div>
         </div>
