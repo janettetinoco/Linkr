@@ -1,7 +1,6 @@
 import { urlencoded } from 'body-parser';
 import React from 'react';
 import { Link } from 'react-router-dom'
-import splashimg from '../../scss/components/pngegg.png';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -56,10 +55,10 @@ class NavBar extends React.Component {
               Welcome to the world of easy professional networking.
             </h1>
           </div>
-            <img className='hero-img' src="https://p7.hiclipart.com/preview/386/56/999/team-service-business-project-consultant-continuous-improvement.jpg"/>
+            <img className='hero-img' src="http://www.metroplexwealth.com/wp-content/uploads/2019/11/young-professional-wealth-building-in-your-20s-metroplex-wealth-southlake-texas.png"/>
           <div className='hero2'>
             <h1 className='splash-text2'>
-              Easily connect with people in any industry with just a swipe 
+              Connect with people in any industry with just a simple swipe 
             </h1>
           </div>
         </div>

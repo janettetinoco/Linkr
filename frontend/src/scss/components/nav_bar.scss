@@ -4,7 +4,6 @@
   width: 100vw;
   height: 100vh;
   // background: linear-gradient(to bottom,  $linkr-blue-transparent, #bb5e20ea 99%);
-  background: url('teahub.io-blue-and-orange-wallpaper-1008004.png');
   z-index: -3;
   background-size: cover;
  }
@@ -17,6 +16,12 @@
   position:absolute;
   height:100vh;
   width:100vw;
+   background:
+  linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  ),
+  url('iStock-1145350457.jpg');
   
  }
 
@@ -72,7 +77,7 @@
   
   .btn-sm:hover {
     background-color: $light-gray;
-    color: $linkr-orange;
+    color: rgb(230, 144, 32);
     border-radius: 3px;
     height: fit-content;
     width: fit-content;
@@ -89,13 +94,15 @@
     position: absolute;
     margin-top: 13vh;
     font-family: "Paytone One", sans-serif;
-    width: 58%;
-    line-height: 4.3vw;
-    font-size: 4.3vw;
-    color: #209cee;
+    width: 45%;
+    line-height: 5.0vw;
+    font-size: 4.1vw;
+    color: #B2D6F9;
+    right: 3vw;
     z-index: 5;
     padding-left: 2.3vw;
     text-shadow: 0 0 3px #cf9269;
+    text-align:right;
 }
 
 
@@ -103,22 +110,21 @@
 .hero-img{
   bottom: 0;
   z-index: 0;
-  width:100vw;
+  width:45vw;
   position: absolute;
   opacity: 94%;
 }
 
 .splash-text2{
-     margin-top: 32vh;
+    margin-top: 59vh;
     position: absolute;
-    font-family: "Paytone One", sans-serif;
-    width: 47%;
+    font-family: "Questrial", sans-serif;
+    width: 41%;
     padding-bottom: 4vw;
     line-height: 3.3vw;
-    font-size: 3.2vw;
-    color: #d5783a;
-    right: 0px;
-    text-shadow: 2px 1px 4px white;
+    font-size: 2.7vw;
+    color: #e2e2e2;
+    right: 13vw;
 }
 
 .nav-links{
