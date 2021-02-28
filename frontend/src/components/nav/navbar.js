@@ -53,7 +53,7 @@ class NavBar extends React.Component {
           </div>
           <div className='hero'>
             <h1 className='splash-text'>
-              Welcome to your professional community. 
+              Welcome to the world of easy professional networking.
             </h1>
           </div>
               <img className='hero-img' src={splashimg}/>
