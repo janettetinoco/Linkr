@@ -138,9 +138,9 @@
     justify-content: center;
     align-items: center;
     display: flex;
-    background-image: url('../../pics/prof-background.jpg');
+    background-image: url('../../pics/space1.jpg');
     background-size: cover;
-
+    background-position: 50%;
 }
 
 .profile-container{
@@ -154,16 +154,19 @@
     background: linear-gradient(to bottom,  navy, rgb(167, 27, 27) 99%);
     border: 1px;
     border-radius: 50px;  
-    height: 630px;
+    overflow: auto;
+    overflow-wrap: break-word;
+    box-shadow: 0px 1px 10px 5px red;
 }
 
 .image-container{
+    padding-top: 15px;
     width: 200px;
-    height: 200px;
+    height: 225px;
     display: flex;
     margin: auto;
     align-items: center;
-    img{
+    #img-main{
         border: 1px solid gold;
         border-radius: 75px;
         padding: 4px;
@@ -171,23 +174,31 @@
         border-radius: 97px;
         border: 3px solid;
         background-size: cover;
-        margin: 5p;
+        margin-left: 15px;
         background-color: rgb(30, 144, 255);
         border: outset rgb(255, 0, 0);
+        min-width: 175px;
+        max-width: 200px;
+        min-height: 170px;
+        max-height: 200px;
+        object-fit: cover;
     }
 }
 
 .edit-b{
-font-family: $railway;
-  font-size: 15px;
-  text-align: center;
-  color: $linkr-blue;
+    font-family: $railway;
+    font-size: 15px;
+    text-align: center;
+    color: rgb(255, 215, 0);
     margin-top: -100px;
-  margin-left: 10px;
-  img{
-      height: 20px;
-  width: 20px;
-  }
+    margin-left: 10px;
+}
+#img-main, #edit{
+    height: 30px;
+    width: 30px;
+    background-color: rgb(139, 0, 0);
+    border: 1px solid rgb(255, 215, 0);
+    border-radius: 15px;
 }
 
 
@@ -209,6 +220,7 @@ font-family: $railway;
 .user-info.loc{
      display: flex;
     justify-content: center;
+    color: brown;
 }
 
 .user-details{
@@ -222,11 +234,44 @@ font-family: $railway;
 .links{
     display: flex;
     justify-content: center;
+    color: gold;
     h2{
-        font-size: 20px;
+        font-size: 18px;
     }
 }
 
 .links.img{
     width: 25px;
+}
+
+.user-details-name{
+    font-size: 35px;
+    color: orange;
+
+    
+}
+
+.anime{
+    animation-name: animation;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;    
+    animation-play-state: running;
+}
+
+
+@-webkit-keyframes animation {
+    0%     {color:red;}
+    25.0%  {color: $linkr-blue;}
+    50.0%  {color:rgb(255, 215, 0)}
+    75.0%  {color: purple;}
+    100.0% {color:red;}
+}
+
+@keyframes animation {
+    0%     {color:red;}
+    25.0%  {color:$linkr-blue;}
+    50.0%  {color:rgb(255, 215, 0)}
+    75.0%  {color: purple;}
+    100.0% {color:red;}
 }
