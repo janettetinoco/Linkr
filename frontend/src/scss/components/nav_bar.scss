@@ -1,26 +1,19 @@
  #root{
   width: 100vw;
   height: 100vh;
-  background: url('papers.co-sf92-blue-gray-gradation-blur-34-iphone6-plus-wallpaper.jpg')no-repeat center center fixed;
-  // background: linear-gradient(to bottom,  $linkr-blue-transparent, #ffffff00 99%);
-  opacity: 75%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background: linear-gradient(to bottom,  $linkr-blue-transparent, #bb5e20ea 99%);
+
+  z-index: -2;
  }
  
  .splash-container {
   top: 0;
   right: 0;
-  right: 0;
   left: 0;
   display: block;
-  display: block;
   position:absolute;
-  height:auto;
-  margin-left: 50px;
-  margin-right: 50px;
+  height:100vh;
+  width:100vw;
   
  }
 
@@ -29,18 +22,20 @@
    display: flex;
    justify-content: space-between;
    padding: 12px 16px;
+   z-index: 6;
 }
 
 .float-left {
   float: left;
-  color: $linkr-blue;
+  color: aliceblue;
   background-color: transparent; 
-  font-size: large;
+  font-size: 20px;
   width: 130px;
   height: 50px;
   display: flex;h1{
-    font-family: $railway;
-    font-style: bold;
+  font-family: $railway;
+  font-style: bold;
+  font-weight: 7;
   }
 }
 
@@ -98,12 +93,11 @@
 
 
 .hero-img{
-  bottom: -25vw;
-  z-index: -1;
-  width: 45vw;
+  bottom: 0;
+  z-index: 0;
+  width:100vw;
   position: absolute;
-  opacity: 50%;
-  right:-5vw;
+  opacity: 60%;
 }
 
 .splash-text2{
@@ -113,7 +107,8 @@
   padding-bottom: 4vw;
   line-height: 3.3vw;
   font-size: 2.2vw;
-  color:rgb(174, 194, 230);
+  color:rgb(158, 86, 39);
+  z-index: 17;
 }
 
 .nav-links{
@@ -140,4 +135,9 @@
 
 .btn-bg.logout:hover{
   background-color: $linkr-orange;
+}
+
+.hero,.hero2{
+  padding-left: 20px;
+  opacity: 100%;
 }

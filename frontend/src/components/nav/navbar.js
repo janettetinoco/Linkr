@@ -1,5 +1,7 @@
+import { urlencoded } from 'body-parser';
 import React from 'react';
 import { Link } from 'react-router-dom'
+import splashimg from '../../scss/components/pngegg.png';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -39,7 +41,7 @@ class NavBar extends React.Component {
           <div className='splash-container'>
           <div className='nav-bar'>
             <div className='float-left'>
-              <h1>Linkr</h1>
+                <h1><img src="faviconL.ico"/>Linkr</h1>
             </div>
             <div className='float-right'>
               <nav className="login-signup">
@@ -53,11 +55,11 @@ class NavBar extends React.Component {
             <h1 className='splash-text'>
               Welcome to your professional community. 
             </h1>
-            <img className='hero-img' src='https://static-exp1.licdn.com/sc/h/dxf91zhqd2z6b0bwg85ktm5s4' />
           </div>
+              <img className='hero-img' src={splashimg}/>
           <div className='hero2'>
             <h1 className='splash-text2'>
-              Connect with people in any industry. 
+              Easily connect with people in any industry with just a swipe 
             </h1>
           </div>
         </div>
