@@ -1,20 +1,27 @@
  #root{
+  display: flex;
+  flex-direction: column;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(to bottom,  $linkr-blue-transparent, #ffffff00 99%);
+  // background: linear-gradient(to bottom,  $linkr-blue-transparent, #bb5e20ea 99%);
+  z-index: -3;
+  background-size: cover;
  }
  
  .splash-container {
   top: 0;
   right: 0;
-  right: 0;
   left: 0;
   display: block;
-  display: block;
   position:absolute;
-  height:auto;
-  margin-left: 50px;
-  margin-right: 50px;
+  height:100vh;
+  width:100vw;
+   background:
+  linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  ),
+  url('iStock-1145350457.jpg');
   
  }
 
@@ -23,16 +30,23 @@
    display: flex;
    justify-content: space-between;
    padding: 12px 16px;
+   z-index: 1;
 }
 
 .float-left {
   float: left;
-  color: $linkr-blue;
+  color: aliceblue;
   background-color: transparent; 
-  font-size: large;
+  font-size: 20px;
   width: 130px;
   height: 50px;
   display: flex;
+  h1{
+  font-family: $railway;
+  font-style: bold;
+  font-weight: 7;
+  color:#209cee;
+  }
 }
 
 
@@ -55,14 +69,15 @@
     background-color: $lightest-gray;
     border-radius: 25px;
     transition: background-color 0.5s;
-    font-family: $railway;
+    font-family: sans-serif;
+    font-weight: 700;
     font-size: 20px;
 
   }
   
   .btn-sm:hover {
     background-color: $light-gray;
-    color: $linkr-orange;
+    color: rgb(230, 144, 32);
     border-radius: 3px;
     height: fit-content;
     width: fit-content;
@@ -76,34 +91,40 @@
 }
 
 .splash-text{
-  margin-top: 5vw;
-  font-family: $railway;
-  width: 55%;
-  padding-bottom: 6vw;
-  line-height: 4.3vw;
-  font-size: 3.3vw;
-  color: $linkr-blue;
+    position: absolute;
+    margin-top: 13vh;
+    font-family: "Paytone One", sans-serif;
+    width: 45%;
+    line-height: 5.0vw;
+    font-size: 4.1vw;
+    color: #B2D6F9;
+    right: 3vw;
+    z-index: 5;
+    padding-left: 2.3vw;
+    text-shadow: 0 0 3px #cf9269;
+    text-align:right;
 }
 
 
 
 .hero-img{
-  bottom: -25vw;
-  z-index: -1;
-  width: 45vw;
-  height: 45vw;
+  bottom: 0;
+  z-index: 0;
+  width:45vw;
   position: absolute;
-  right: -5vw;
+  opacity: 94%;
 }
 
 .splash-text2{
-  margin-top: 4vw;
-  font-family: "Raleway", sans-serif;
-  width: 40%;
-  padding-bottom: 4vw;
-  line-height: 3.3vw;
-  font-size: 2.2vw;
-  color: $linkr-blue;
+    margin-top: 59vh;
+    position: absolute;
+    font-family: "Questrial", sans-serif;
+    width: 41%;
+    padding-bottom: 4vw;
+    line-height: 3.3vw;
+    font-size: 2.7vw;
+    color: #e2e2e2;
+    right: 13vw;
 }
 
 .nav-links{
@@ -113,6 +134,7 @@
   margin: 0 10px;
   text-decoration: none;
 }
+
 
 .nav-links:hover{
   color: black;
@@ -130,3 +152,13 @@
 .btn-bg.logout:hover{
   background-color: $linkr-orange;
 }
+
+// .hero,.hero2{
+//   padding-left: 20px;
+//   opacity: 100%;
+//   position:absolute;
+// }
+
+// .hero{
+//   color: ;
+// }

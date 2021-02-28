@@ -1,3 +1,4 @@
+import { urlencoded } from 'body-parser';
 import React from 'react';
 import { Link } from 'react-router-dom'
 
@@ -39,7 +40,7 @@ class NavBar extends React.Component {
           <div className='splash-container'>
           <div className='nav-bar'>
             <div className='float-left'>
-              <h1>Linkr</h1>
+                <h1><img src="faviconL.ico"/>Linkr</h1>
             </div>
             <div className='float-right'>
               <nav className="login-signup">
@@ -51,13 +52,13 @@ class NavBar extends React.Component {
           </div>
           <div className='hero'>
             <h1 className='splash-text'>
-              Welcome to your professional community. 
+              Welcome to the world of easy professional networking.
             </h1>
-            <img className='hero-img' src='https://static-exp1.licdn.com/sc/h/dxf91zhqd2z6b0bwg85ktm5s4' />
           </div>
+            <img className='hero-img' src="http://www.metroplexwealth.com/wp-content/uploads/2019/11/young-professional-wealth-building-in-your-20s-metroplex-wealth-southlake-texas.png"/>
           <div className='hero2'>
             <h1 className='splash-text2'>
-              Connect with people in any industry. 
+              Connect with people in any industry with just a simple swipe 
             </h1>
           </div>
         </div>
