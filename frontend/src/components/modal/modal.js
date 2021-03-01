@@ -1,7 +1,8 @@
 import React from 'react';
 
-import LoginFormContainer from '../session/login_form_container'
-import SignupFormContainer from '../session/signup_form_container'
+import LoginFormContainer from '../session/login_form_container';
+import SignupFormContainer from '../session/signup_form_container';
+import NewConnection from '../connections/new_connection';
 
 function Modal({modal, closeModal}) {
     if (!modal) {
@@ -14,6 +15,9 @@ function Modal({modal, closeModal}) {
         break;
       case 'signup':
         component = <SignupFormContainer />;
+        break;
+      case 'connection':
+        component = <NewConnection />
         break;
       default:
         return null;

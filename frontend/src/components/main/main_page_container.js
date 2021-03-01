@@ -3,6 +3,7 @@ import { createConnection, getBlocked, getConnected, getPending } from '../../ac
 import { filterUsersBy, getSelf, removeUserFromState } from '../../actions/user_actions';
 import MainPage from './main_page';
 import {usersToDisplay} from '../../reducers/selectors';
+import {openModal} from '../../actions/modal_actions'
 
 const mSTP = state =>{
   return({
@@ -20,7 +21,8 @@ const mDTP = dispatch =>{
     getConnections: (selfId) => dispatch(getConnected(selfId)),
     getBlocks: (selfId) => dispatch(getBlocked(selfId)),
     getPendings: (selfId) => dispatch(getPending(selfId)),
-    createConnection: (selfId, otherId, status) => dispatch(createConnection(selfId, otherId, status))
+    createConnection: (selfId, otherId, status) => dispatch(createConnection(selfId, otherId, status)),
+    openModal: (modal) => dispatch(openModal(modal))
   })
 }
 
