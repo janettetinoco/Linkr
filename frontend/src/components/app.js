@@ -14,7 +14,7 @@ import FriendDetailContainer from './connections/friend_detail_container';
 import Splash from './splash/splash';
 
 const App = () => (
-  <div>
+  <div id="App">
     <header>
       <Modal />
       <NavBarContainer />
@@ -27,8 +27,6 @@ const App = () => (
         {/* <ProtectedRoute exact path="/profile" component={MyProfileContainer} /> */}
         <ProtectedRoute exact path="/profile/edit" component={CompleteProfileContainer} />
         <ProtectedRoute path="/profile/connections" component={ConnectionsContainer} />
-
-
     </Switch>
   </div>
 );
