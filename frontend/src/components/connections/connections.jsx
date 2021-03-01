@@ -1,8 +1,8 @@
 import React from 'react';
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import FriendDetailContainer from './friend_detail_container'; 
 import FriendIndexItem from './friend_index_item'; 
-import SalarWalkout from '../../background_images/salar_walkout.png';
+
 class Connections extends React.Component{
   constructor(props){
     super(props);
@@ -23,22 +23,18 @@ class Connections extends React.Component{
 
   render(){
     return(
-      <div id="connections-outer-div">
-        <hr id="top-hr" />
-      <div id="connection-div">
-        <section className="connections">
-        {/* <img id="background" src={SalarWalkout} /> */}
 
-        <Route path="profile/connections/:friendId" component={FriendDetailContainer} />
+      <section className="connections">
+        <Switch>
+          <Route path="profile/connections" component={FriendDetailContainer} />
+          <Route path="profile/connections/:friendId" component={FriendDetailContainer} />
+        </Switch>
         <ul id="friend-index">
           {this.props.friends.map( (friend, i)=>{
             return <FriendIndexItem key={i} friend={friend} />
           })}
         </ul>
-
       </section>
-      </div>
-      </div>
     )
 
   }
