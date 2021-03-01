@@ -6,12 +6,11 @@ class Profile extends React.Component{
   constructor(props){
     super(props);
     this.state=this.props.user;
-    console.log(this.props.user);
   }
   render(){
     if(!this.props.user){
       let button = document.getElementById("swipe");
-      // debugger
+      // 
       if(button){
         button.classList.add('disappear');
       }
@@ -24,7 +23,7 @@ class Profile extends React.Component{
       )
     }else{
       let button = document.getElementById("swipe");
-      // debugger
+      // 
       if(button){
         button.classList.remove('disappear');
       }
@@ -33,36 +32,36 @@ class Profile extends React.Component{
             <div className="card">
               <div id="profile-main-info">
                 <div className="user-image-container">
-                  <img id="profile-img"src={this.props.user.imageUrl} />
+                  <img alt="profile" id="profile-img"src={this.props.user.imageUrl} />
                 </div>
                 <h1 id="user-name">{this.props.user.name}</h1>
-                <h1 id="user-location"><img src="https://img.icons8.com/cotton/64/000000/worldwide-location--v2.png" />{this.props.user.city}</h1>
+                <h1 id="user-location"><img alt="profile" src="https://img.icons8.com/cotton/64/000000/worldwide-location--v2.png" />{this.props.user.city}</h1>
                 <span></span>
               </div>
               <div id="body">
                 <div id="stats">
 
                   <div className="details">
-                    <p id="label"><img src="https://img.icons8.com/cotton/64/000000/graduation-cap--v2.png" />Education</p>
+                    <p id="label"><img alt="profile" src="https://img.icons8.com/cotton/64/000000/graduation-cap--v2.png" />Education</p>
                     <p>{this.props.user.education}</p>
                   </div>
 
                   <div className="details">
-                    <p id="label"><img src="https://img.icons8.com/cotton/64/000000/briefcase--v1.png" />Occupation</p>
+                    <p id="label"><img alt="profile" src="https://img.icons8.com/cotton/64/000000/briefcase--v1.png" />Occupation</p>
                     <p>{this.props.user.occupation}</p>
                   </div>
 
                   <div className="details">
-                    <p id="label"><img src="https://img.icons8.com/cotton/64/000000/company.png" />Industry</p>
+                    <p id="label"><img alt="profile" src="https://img.icons8.com/cotton/64/000000/company.png" />Industry</p>
                     <p>{this.props.user.industry}</p>
                   </div>
                   <div className="details">
-                    <p id="label"><img src="https://img.icons8.com/cotton/64/000000/name--v2.png" />About Me</p>
+                    <p id="label"><img alt="profile" src="https://img.icons8.com/cotton/64/000000/name--v2.png" />About Me</p>
                     <p>{this.props.user.aboutMe}</p>
                   </div>
                   <div className="details">
-                    <p id="label-links"><img src="https://img.icons8.com/cotton/64/000000/external-link.png" />Links</p>
-                    <p>{this.props.user.linkedIn ? <Link to={this.props.user.linkedIn}><img id="linkedIn" src="https://img.icons8.com/color/48/000000/linkedin.png" /></Link> : ""}</p>
+                    <p id="label-links"><img alt="profile" src="https://img.icons8.com/cotton/64/000000/external-link.png" />Links</p>
+                    <p>{this.props.user.linkedIn ? <Link to={this.props.user.linkedIn}><img alt="profile" id="linkedIn" src="https://img.icons8.com/color/48/000000/linkedin.png" /></Link> : ""}</p>
                   </div>
                 </div>
               </div>

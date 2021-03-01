@@ -100,7 +100,7 @@ class SignupForm extends React.Component {
   
 
   render() {
-    const preview = this.state.imageUrl ? <img src={this.state.imageUrl} /> : null;
+    const preview = this.state.imageUrl ? <img alt="signup-form" src={this.state.imageUrl} /> : null;
     return (
         <form className="signup-form" onSubmit={this.handleSubmit}>
           <div>
@@ -200,21 +200,3 @@ class SignupForm extends React.Component {
 }
 
 export default withRouter(SignupForm);
-
-
-{/* <div className="recruiter-button">
-                  <input 
-                    type="radio"
-                    value="true"
-                    checked={this.state.recruiterStatus === "true"}
-                    onChange={this.onRecruiterChange}
-                  />Yes
-                </div>
-                <div className="recruiter-button">
-                  <input 
-                    type="radio"
-                    value="false"
-                    checked={this.state.recruiterStatus === "false"}
-                    onChange={this.onRecruiterChange}
-                  />No
-                </div> */}

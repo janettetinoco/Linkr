@@ -1,6 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
-// import {updateProfile} from '../../util/user_api_util'
 
 class MyProfile extends React.Component{
   constructor(props){
@@ -52,9 +50,11 @@ class MyProfile extends React.Component{
   handleSubmit(e) {
 
     e.preventDefault();
+    
     Object.keys(this.state).forEach(field =>{
       if (this.state[field] === ''){
         this.state[field] = this.props.self[field]
+
       }
     })
 
@@ -71,8 +71,6 @@ class MyProfile extends React.Component{
       return null;
     }
     
-    
-
     return(
    
       <div className='profile-page'>
@@ -80,9 +78,9 @@ class MyProfile extends React.Component{
           <div className='card'>
             <div className="flip-card-front">
               <div className='image-container'>
-                <img id='img-main' src={this.props.self.imageUrl} />
+                <img alt="profile" id='img-main' src={this.props.self.imageUrl} />
                 <div className='edit-b'>
-                  <button onClick={this.handleEditButton}><img id='edit' className='user-icon' src="https://img.icons8.com/ultraviolet/40/000000/edit.png" /></button>
+                  <button onClick={this.handleEditButton}><img alt="profile" id='edit' className='user-icon' src="https://img.icons8.com/ultraviolet/40/000000/edit.png" /></button>
                   <h1>Edit Profile</h1>
                 </div>
               </div>
@@ -90,37 +88,37 @@ class MyProfile extends React.Component{
                 <h1>{this.props.self.name}</h1>
               </div>
               <div className='user-details'>
-                <p className='user-info loc' ><img className='user-icon' src="https://img.icons8.com/cotton/64/000000/worldwide-location--v2.png" />{this.props.self.city}</p>
+                <p className='user-info loc' ><img alt="profile" className='user-icon' src="https://img.icons8.com/cotton/64/000000/worldwide-location--v2.png" />{this.props.self.city}</p>
               </div>
               <div className='user-details'>
-                <p className='user-info' >Education<img className='user-icon' src="https://img.icons8.com/cotton/64/000000/graduation-cap--v2.png" /></p>
+                <p className='user-info' >Education<img alt="profile" className='user-icon' src="https://img.icons8.com/cotton/64/000000/graduation-cap--v2.png" /></p>
                 <h2>{this.props.self.education}</h2>
               </div>
               <div className='user-details'>
-                <p className='user-info' >Occupation<img className='user-icon' src="https://img.icons8.com/cotton/64/000000/briefcase--v1.png" /></p>
+                <p className='user-info' >Occupation<img alt="profile" className='user-icon' src="https://img.icons8.com/cotton/64/000000/briefcase--v1.png" /></p>
                 <h2>{this.props.self.occupation}</h2>
               </div>
               <div className='user-details'>
-                <p className='user-info'  >Industry<img className='user-icon' src="https://img.icons8.com/cotton/64/000000/company.png" /></p>
+                <p className='user-info'  >Industry<img alt="profile" className='user-icon' src="https://img.icons8.com/cotton/64/000000/company.png" /></p>
                 <h2>{this.props.self.industry}</h2>
               </div>
               <div className='user-details'>
-                <p className='user-info' >About Me<img  className='user-icon' src="https://img.icons8.com/cotton/64/000000/name--v2.png" /></p>
+                <p className='user-info' >About Me<img alt="profile"  className='user-icon' src="https://img.icons8.com/cotton/64/000000/name--v2.png" /></p>
                 <h2>{this.props.self.aboutMe}</h2>
               </div>
               <div className='user-details'>
-                <p className='user-info' >Links<img  className='user-icon' src="https://img.icons8.com/cotton/64/000000/external-link.png" /></p>
+                <p className='user-info' >Links<img alt="profile"  className='user-icon' src="https://img.icons8.com/cotton/64/000000/external-link.png" /></p>
                 <div className='links'> 
-                  <img className='links img' src="https://img.icons8.com/color/48/000000/linkedin.png" />
+                  <img alt="profile" className='links img' src="https://img.icons8.com/color/48/000000/linkedin.png" />
                   <h2><a href='http://linkedin.com'>{this.props.self.linkedIn}</a></h2> 
                 </div>
               </div>
             </div>
             <div className='flip-card-back'>
               <div className='image-container'>
-                <img id='img-main' src={this.props.self.imageUrl} />
+                <img alt="profile" id='img-main' src={this.props.self.imageUrl} />
                 <div className='edit-b'>
-                  <button onClick={this.handleEditButton}><img id='edit' className='user-icon' src="https://img.icons8.com/ios-filled/64/000000/left.png" /></button>
+                  <button onClick={this.handleEditButton}><img alt="profile" id='edit' className='user-icon' src="https://img.icons8.com/ios-filled/64/000000/left.png" /></button>
                   <h1>Go back</h1>
                 </div>
               </div>
