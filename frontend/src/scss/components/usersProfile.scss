@@ -77,13 +77,10 @@
 
         .user-image-container{
             justify-content: center;
-            // width:30vw;
             display: flex;
             padding-top: 20px;
             
             #profile-img{
-                // max-width: 15vw;
-                // max-height: 15vw;
                 object-fit: cover;
                 border-radius: 50%;
                 border: .4vw solid white;
