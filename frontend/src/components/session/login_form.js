@@ -8,7 +8,7 @@ class LoginForm extends React.Component {
     this.state = {
       email: '',
       password: '',
-      errors: {}
+      // errors: {}
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -49,6 +49,10 @@ class LoginForm extends React.Component {
         this.props.closeModal();
       }
     }).then(()=>this.props.history.push('/') ); 
+    this.setState({
+      email: "",
+      password: ""
+    })
   }
 
   // Render the session errors if there are any
@@ -72,8 +76,8 @@ class LoginForm extends React.Component {
 
   render() {
     let emailPlaceholder = "Email";
-    let passwordPlaceholder = "Password";
     let emailClassName = "login-input";
+    let passwordPlaceholder = "Password";
     let passwordClassName = "login-input";
     if (this.props.errors.email) {
       emailPlaceholder = this.props.errors.email

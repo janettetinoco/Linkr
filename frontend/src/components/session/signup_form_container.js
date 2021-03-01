@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { closeModal } from '../../actions/modal_actions';
+import { closeModal, openModal } from '../../actions/modal_actions';
 import { signup, resetErrors, login } from '../../actions/session_actions';
 import SignupForm from './signup_form';
 import { uploadImage } from '../../actions/image_actions';
@@ -18,7 +18,13 @@ const mapDispatchToProps = (dispatch) => {
     closeModal: () => dispatch(closeModal()),
     resetErrors: () => dispatch(resetErrors()),
     login: user=> dispatch(login(user)),
-    uploadImage: image => dispatch(uploadImage(image))
+    uploadImage: image => dispatch(uploadImage(image)),
+    loginForm: (
+      <a className="switch-form" onClick={() => dispatch(openModal('login'))}
+      >
+        Sign in here
+      </a>
+    )
   }
 }
 
