@@ -1,12 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+// import {updateProfile} from '../../util/user_api_util'
 
 class MyProfile extends React.Component{
   constructor(props){
     super(props)
-    this.handleEditButton =this.handleEditButton.bind(this)
-    this.update = this.update.bind(this)
     this.state = {
+      id: this.props.myId,
       name: '',
       city: '',
       education: '',
@@ -15,6 +15,9 @@ class MyProfile extends React.Component{
       aboutMe: '',
       industry: '',
     }
+    this.handleEditButton =this.handleEditButton.bind(this)
+    this.update = this.update.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleEditButton(){
@@ -27,7 +30,6 @@ class MyProfile extends React.Component{
   }
 
   update(field) {
-    // debugger
     return e => this.setState({ [field]: e.currentTarget.value })
   }
 
@@ -36,9 +38,12 @@ class MyProfile extends React.Component{
   }
 
   handleSubmit(e) {
+
     e.preventDefault();
-    this.props.submitDesk(this.state)
-    
+    this.props.updateProfile(this.state)
+    let h = document.getElementsByClassName('profile-container')
+    h[0].classList.remove('is-flipped')
+
   }
   
 
@@ -46,12 +51,7 @@ class MyProfile extends React.Component{
     if(!this.props.self){
       return null;
     }
-    //add animation to brand
-    let profile = document.getElementsByClassName('profile-page')
-    let brand = document.getElementsByClassName('float-left')
-    if (profile.length){
-      brand[0].classList.add('anime')
-    }
+    
 
 
     return(
@@ -105,15 +105,29 @@ class MyProfile extends React.Component{
                   <h1>Go back</h1>
                 </div>
               </div>
-                <form onSubmit={this.handleSubmit}>
-                  <input type="text" placeholder={this.props.self.name} onChange={this.update('name')}/>
-                  <input type="text" placeholder={this.props.self.city} onChange={this.update('city')}/>
-                  <input type="text" placeholder={this.props.self.education} onChange={this.update('education')}/>
-                  <input type="text" placeholder={this.props.self.occupation} onChange={this.update('occupation')}/>
-                  <input type="text" placeholder={this.props.self.industry} onChange={this.update('industry')}/>
-                  <input type="text" placeholder={this.props.self.aboutMe} onChange={this.update('aboutMe')}/>
-                  <input type="text" placeholder={this.props.self.linkedIn} onChange={this.update('linkedId')}/>
-                  <button><h1>Update Profile</h1></button>
+                <form className='edit-form' onSubmit={this.handleSubmit}>
+                  <label>Your name
+                    <input type="text" placeholder={this.props.self.name} onChange={this.update('name')}/>
+                  </label>
+                  <label>City
+                    <input type="text" placeholder={this.props.self.city} onChange={this.update('city')}/>
+                  </label>
+                  <label>Education
+                    <input type="text" placeholder={this.props.self.education} onChange={this.update('education')}/>
+                  </label>
+                  <label>Occupation
+                    <input type="text" placeholder={this.props.self.occupation} onChange={this.update('occupation')}/>
+                  </label>
+                  <label>Industry
+                    <input type="text" placeholder={this.props.self.industry} onChange={this.update('industry')}/>
+                  </label>
+                  <label>About me
+                    <input type="text" placeholder={this.props.self.aboutMe} onChange={this.update('aboutMe')}/>
+                  </label>
+                  <label>Links
+                    <input type="text" placeholder={this.props.self.linkedIn} onChange={this.update('linkedIn')}/>
+                  </label>
+                  <button className='update-btn'><h1>Update Profile</h1></button>
                 </form>
             </div>
           </div>

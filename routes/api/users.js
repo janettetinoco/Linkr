@@ -224,8 +224,8 @@ router.patch('/updateProfile', (req, res) => {
   let linkedIn = req.body.linkedIn
   let city = req.body.city
   let name = req.body.name
-  let email = req.body.email
   let industry = req.body.industry
+  // debugger
   
   
   User.findByIdAndUpdate(id, 

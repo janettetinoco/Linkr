@@ -316,3 +316,22 @@
 .profile-container.is-flipped .flip-card-back{
     backface-visibility: visible;
 }
+
+
+.edit-form{
+    label{
+        justify-content: flex-end;
+        display: flex;
+        padding: 5px;
+    }
+}
+
+.update-btn{
+    margin-top: 20px;
+  padding: 8px;
+  border: 2px solid rgb(255, 215, 0);
+  color: rgb(240, 248, 255);
+  border-radius: 21px;
+  background-color: rgb(184, 134, 11);
+  box-shadow: 3px 3px 7px 0px black;
+}

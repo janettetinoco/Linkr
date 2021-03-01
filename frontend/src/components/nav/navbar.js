@@ -6,12 +6,30 @@ class NavBar extends React.Component {
     super(props);
     this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
+    this.animeBrand = this.animeBrand.bind(this);
+    this.offAnime = this.offAnime.bind(this);
   }
 
   logoutUser(e) {
       e.preventDefault();
       
       this.props.logout();
+  }
+
+  animeBrand(){
+    //add animation to brand
+    let brand = document.getElementsByClassName('float-left')
+    if (brand.length){
+      brand[0].classList.add('anime')
+    }
+  }
+
+  offAnime(){
+    //add animation to brand
+    let brand = document.getElementsByClassName('float-left')
+    if (brand.length){
+      brand[0].classList.remove('anime')
+    }
   }
 
   // Selectively render links dependent on whether the user is logged in
@@ -25,10 +43,10 @@ class NavBar extends React.Component {
               </div>
               <div className='float-right'>
                 <div>
-                  <Link className="nav-links" to={'/'}>Home</Link>
-                  <Link className="nav-links" to={'/profile'}>Profile</Link>
-                  <Link className="nav-links" to={'/profile/connections'}>Connections</Link>
-                  <button className="btn-bg logout" onClick={this.logoutUser}>Logout</button>
+                  <Link className="nav-links" to={'/'} onClick={this.offAnime}>Home</Link>
+                  <Link className="nav-links" to={'/profile'} onClick={this.animeBrand}>Profile</Link>
+                  <Link className="nav-links" to={'/profile/connections'} onClick={this.offAnime}>Connections</Link>
+                  <button className="btn-bg logout" onClick={this.logoutUser} onClick={this.offAnime}>Logout</button>
                 </div>
               </div>
             </div>
@@ -66,11 +84,7 @@ class NavBar extends React.Component {
   }
 
   render() {
-     //add animation to brand
-    let brand = document.getElementsByClassName('float-left')
-    if (brand.length){
-      brand[0].classList.remove('anime')
-    }
+     
 
     return (
       <div className='nav-wrap'>
