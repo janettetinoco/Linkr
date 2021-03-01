@@ -9,16 +9,18 @@ class Connections extends React.Component{
     
     this.loadFriends();
     this.state={
-      friends: [],
+      friends: this.props.friends,
       loadingFriends: true, 
     }
     this.loadFriends = this.loadFriends.bind(this); 
   }
   componentDidMount(){
+    
+
+    console.log(this.props.friends);
     if(this.props.friends){
       if(this.props.friends.length>0){
-
-        this.props.history.push(`/profile/connections/${this.props.friends[0]._id}`)
+        this.props.history.push(`/profile/connections/${this.state.friends[0]._id}`)
       }
     }
   }
@@ -26,7 +28,10 @@ class Connections extends React.Component{
   loadFriends(){
     this.props.getConnections(this.props.myId);
     this.props.getConnectionsAsUsers(this.props.myId)
-    .then( ()=>{this.setState({loadingFriends: false, friends: this.props.friends})})
+    .then( ()=>{
+      this.setState({loadingFriends: false, friends: this.props.friends});
+      this.props.history.push(`/profile/connections/${this.state.friends[0]._id}`);
+    })
   }
 
   render(){
@@ -46,10 +51,10 @@ class Connections extends React.Component{
         )
       }
     }
+       
     
-  
     return(
-
+ 
       <section className="connections">
         <Switch>
           <Route path="profile/connections" component={FriendDetailContainer} />
