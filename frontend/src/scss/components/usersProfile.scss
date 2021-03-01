@@ -1,18 +1,19 @@
 #main-page{
-    // background: linear-gradient(to bottom, #dc6240 0%, #ffffff 99%);
-    background-image: linear-gradient(180deg, #FFFFFF 90%, #FFFF00 25%, #0000FF 25%, #0000FF 50%, #FFFF00 50%, #FFFF00 75%, #0000FF 75%, #0000FF 100%); 
-    background-size: 20.00px 6.00px;
+    height: 100vh;
+    width:100vw;
     display: flex;
     flex-direction: column;
-    // padding-top: .3vh;
+    z-index: 100;
+    position:relative;
 
     #swipe{
         display:flex;
         justify-content: space-between;
-           position:fixed;
-            bottom: 10px;
-            left:5px;
-            right:5px;
+        position:fixed;
+        bottom: 10px;
+        left:5px;
+        right:5px;
+
         button{
             height:5vh;
             width: 9vw;
@@ -30,19 +31,22 @@
 
     }
 
-    .profile{
+    .profile-container{
         display: flex;
         flex-direction: column;
-        width: 100vw;
-        height: 100vh;
+        width: 43vw;
+        height:90vh;
         font-family: $railway;
+        position: absolute;
+        left:30vw;
+        top:5vh;
 
      #profile-main-info{
         display: flex;
         flex-direction: column;
         align-items: center;
         background-color:transparent;
-        padding: 40px 0px 15px 0px;
+        padding: 10px 0px 15px 0px;
         button{
             display: flex;
             border-radius: 10px;
@@ -51,8 +55,8 @@
             padding: 4px;
             font-size: 12px;
             img{
-                height:12px;
-                width:12px;
+                height:5vh;
+                width:5vw;
             }
         }
          button:hover{
@@ -60,14 +64,14 @@
         }
 
         .image-container{
+            justify-content: center;
             width:30vw;
-            margin-top: 27px;
             #profile-img{
-                max-width: 30vw;
-                max-height: 30vw;
-                object-fit: cover;
-                border-radius: 50%;
-                border: .4vw solid white;
+            max-width: 15vw;
+            max-height: 15vw;
+            object-fit: cover;
+            border-radius: 50%;
+            border: .4vw solid white;
             }
         }
 

@@ -19,9 +19,9 @@ class NavBar extends React.Component {
   getLinks() {
       if (this.props.loggedIn) {
         return (
-          <div>
             <div className='nav-bar'>
               <div className='float-left'>
+                <img src="faviconL.ico" />
                 <h1>Linkr</h1>
               </div>
               <div className='float-right'>
@@ -33,14 +33,13 @@ class NavBar extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
         );
       } else {
         return (
-          <div>
             <div className='nav-bar'>
               <div className='float-left'>
-                  <h1><img src="faviconL.ico"/>Linkr</h1>
+                  <img src="faviconL.ico" />
+                  <h1>Linkr</h1>
               </div>
               <div className='float-right'>
                 <nav className="login-signup">
@@ -50,7 +49,7 @@ class NavBar extends React.Component {
                 </nav>
               </div>
             </div>
-        </div>
+
         );
       }
   }
