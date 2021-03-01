@@ -1,4 +1,9 @@
+@viewport{
+  zoom: 1.0;
+  min-zoom: 0.5;
+  max-zoom: 1.0;
 
+}
 #connections-message{
 
   align-self: center;
@@ -10,6 +15,8 @@ background: linear-gradient(to bottom right, #394da0 0%, #DAA7C5 54%);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;	
 -webkit-text-stroke: 1px black;
+
+
 }
 
 .connections{
@@ -141,7 +148,6 @@ background: linear-gradient(to bottom right, #394da0 0%, #DAA7C5 54%);
 
 .friend-container{
   width:400px;
-
 }
 
 .friend-card{
