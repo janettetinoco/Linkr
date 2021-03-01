@@ -20,7 +20,7 @@ class Profile extends React.Component{
         <div className="profile-container">
           <div className="card">
             <div id="profile-main-info">
-              <div className="image-container">
+              <div className="user-image-container">
                 <img id="profile-img"src={this.props.user.imageUrl} />
               </div>
               <h1 id="user-name">{this.props.user.name}</h1>
@@ -31,26 +31,26 @@ class Profile extends React.Component{
               <div id="stats">
 
                 <div className="details">
-                  <p><img src="https://img.icons8.com/cotton/64/000000/graduation-cap--v2.png" />Education</p>
-                  {this.props.user.education}
+                  <p id="label"><img src="https://img.icons8.com/cotton/64/000000/graduation-cap--v2.png" />Education</p>
+                  <p>{this.props.user.education}</p>
                 </div>
 
                 <div className="details">
-                  <p><img src="https://img.icons8.com/cotton/64/000000/briefcase--v1.png" />Occupation</p>
-                  {this.props.user.occupation}
+                  <p id="label"><img src="https://img.icons8.com/cotton/64/000000/briefcase--v1.png" />Occupation</p>
+                  <p>{this.props.user.occupation}</p>
                 </div>
 
                 <div className="details">
-                  <p><img src="https://img.icons8.com/cotton/64/000000/company.png" />Industry</p>
-                  {this.props.user.industry}
+                  <p id="label"><img src="https://img.icons8.com/cotton/64/000000/company.png" />Industry</p>
+                  <p>{this.props.user.industry}</p>
                 </div>
                 <div className="details">
-                  <p><img src="https://img.icons8.com/cotton/64/000000/name--v2.png" />About Me</p>
-                  {this.props.user.aboutMe}
+                  <p id="label"><img src="https://img.icons8.com/cotton/64/000000/name--v2.png" />About Me</p>
+                  <p>{this.props.user.aboutMe}</p>
                 </div>
                 <div className="details">
-                  <p><img src="https://img.icons8.com/cotton/64/000000/external-link.png" />Links</p>
-                  {this.props.user.linkedIn ? <Link to={this.props.user.linkedIn}><img id="linkedIn" src="https://img.icons8.com/color/48/000000/linkedin.png" /></Link> : ""}
+                  <p id="label-links"><img src="https://img.icons8.com/cotton/64/000000/external-link.png" />Links</p>
+                  <p>{this.props.user.linkedIn ? <Link to={this.props.user.linkedIn}><img id="linkedIn" src="https://img.icons8.com/color/48/000000/linkedin.png" /></Link> : ""}</p>
                 </div>
               </div>
             </div>

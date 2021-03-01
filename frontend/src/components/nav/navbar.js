@@ -41,7 +41,7 @@ class NavBar extends React.Component {
             <div className='nav-bar'>
               <div className='float-left'>
                 <img src="faviconL.ico" />
-                <h1>Linkr</h1>
+                <h1>inkr</h1>
               </div>
               <div className='float-right'>
                 <div>
@@ -58,7 +58,7 @@ class NavBar extends React.Component {
             <div className='nav-bar'>
               <div className='float-left'>
                   <img src="faviconL.ico" />
-                  <h1>Linkr</h1>
+                  <h1>inkr</h1>
               </div>
               <div className='float-right'>
                 <nav className="login-signup">

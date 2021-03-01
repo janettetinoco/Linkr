@@ -5,6 +5,7 @@
     flex-direction: column;
     z-index: 100;
     position:relative;
+    background: url('../../background_images/salar_dry_dusk.jpg');
 
     #swipe{
         display:flex;
@@ -34,19 +35,30 @@
     .profile-container{
         display: flex;
         flex-direction: column;
-        width: 43vw;
-        height:90vh;
+        width: 400px;
+        height:650px;
         font-family: $railway;
         position: absolute;
-        left:30vw;
-        top:5vh;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+
+        .card{
+            text-align: center;
+            font-family: "Raleway", sans-serif;
+            background: linear-gradient(to bottom, #0e3459, #4b82b8 99%);
+            border: 1px;
+            border-radius: 50px;
+            overflow: auto;
+            overflow-wrap: break-word;
+            box-shadow: 0px 1px 10px 5px rgb(105, 99, 99);
+        }
 
      #profile-main-info{
         display: flex;
         flex-direction: column;
         align-items: center;
         background-color:transparent;
-        padding: 10px 0px 15px 0px;
         button{
             display: flex;
             border-radius: 10px;
@@ -63,27 +75,34 @@
             background-color: $light-gray;
         }
 
-        .image-container{
+        .user-image-container{
             justify-content: center;
-            width:30vw;
+            // width:30vw;
+            display: flex;
+            padding-top: 20px;
+            
             #profile-img{
-            max-width: 15vw;
-            max-height: 15vw;
-            object-fit: cover;
-            border-radius: 50%;
-            border: .4vw solid white;
+                // max-width: 15vw;
+                // max-height: 15vw;
+                object-fit: cover;
+                border-radius: 50%;
+                border: .4vw solid white;
+                min-width: 175px;
+                max-width: 190px;
+                min-height: 170px;
+                max-height: 190px;
             }
         }
 
         #user-name{
-            margin-bottom: 5px;
-            font-size: 6vw;
+            font-size: 35px;
             font-family: $railway;
-            color: $darker-linkr-orange;
+            color: #cf9269;
+            padding:5px 0px;
         }
         #user-location{
             display:flex;
-            color: $dark-gray;
+            color: whitesmoke;
             img{
                 height:25px;
                 width:25px;
@@ -95,19 +114,23 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        // background: linear-gradient(to bottom, #dc624079 25%, #ffffff 99%);
+        
 
         #stats{
             .details{
                 font-size: 18px;
-                width:20vw;
+                width:300px;
                 padding: 7px;
                 display: flex;
-                flex-direction: column;
-                justify-content: center;
+                justify-content: space-around;
                 text-align: center;
                 align-items: center;
                 margin-bottom: 5px;
+                border-bottom: 1px solid grey;
+                #label{
+                    border-right: 1px solid gray;
+                    width:175px;
+                }
                 p{
                     width:100%;
                     font-size: 15px;
@@ -115,13 +138,16 @@
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    border-bottom: 1px solid $dark-gray;
                     img{
                         height:30px;
                         width:30px;
                     }
                 }
+                
 
+            }
+            .details:last-child{
+                border-bottom: none;
             }
         }
 

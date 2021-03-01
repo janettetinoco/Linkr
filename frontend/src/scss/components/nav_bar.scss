@@ -18,26 +18,31 @@
    background:
   linear-gradient(
     rgba(0, 0, 0, 0.137),
-    rgba(0, 0, 0, 0.5)
+    rgba(0, 0, 0, 0)
   ),
   url('iStock-1145350457.jpg');
   
  }
+.nav-wrap{
+  z-index: 400;
+  position: absolute;
+  width: 100vw;
+}
 
 .nav-bar{
     background: transparent;
-    position: absolute;
     width: 100vw;
     display: flex;
     justify-content: space-between;
-    z-index: 200;
+    box-sizing: border-box;
+    padding: 10px 15px;
 }
 
 .float-left {
   float: left;
   color: aliceblue;
   background-color: transparent; 
-  font-size: 20px;
+  font-size: 30px;
   width: 130px;
   height: 50px;
   display: flex;
@@ -50,6 +55,7 @@
   img{
     height:4.5vh;
     width:auto;
+    margin-right: 2px;
   }
 }
 
@@ -131,8 +137,9 @@
     right: 13vw;
 }
 
+
 .nav-links{
-  padding: 5px;
+  // padding: 5px;
   color: $dark-gray;
   font-family: $railway;
   margin: 0 10px;
@@ -145,8 +152,8 @@
 }
 
 .btn-bg.logout{
-  width: 65px;
-  height: 18px;
+  width: 90px;
+  height: 30px;
   line-height: 10px;
   font-size: 20px;
   font-family: $railway;
