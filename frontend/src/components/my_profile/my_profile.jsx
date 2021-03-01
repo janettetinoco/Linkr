@@ -120,7 +120,7 @@ class MyProfile extends React.Component{
               <div className='image-container'>
                 <img id='img-main' src={this.props.self.imageUrl} />
                 <div className='edit-b'>
-                  <button onClick={this.handleEditButton}><img id='edit' className='user-icon' src="https://img.icons8.com/wired/64/000000/left.png" /></button>
+                  <button onClick={this.handleEditButton}><img id='edit' className='user-icon' src="https://img.icons8.com/ios-filled/64/000000/left.png" /></button>
                   <h1>Go back</h1>
                 </div>
               </div>
