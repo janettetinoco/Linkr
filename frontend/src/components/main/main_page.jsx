@@ -5,15 +5,19 @@ class MainPage extends React.Component {
 
   constructor(props){
     super(props);
+       this.props.clearUsers();
     this.loadingUsers();
     this.state = {
       usersToDisplay: this.props.usersToDisplay,
       loadingData: true,
+      currentCity: ''
     }
     this.swipe = this.swipe.bind(this); 
     this.loadingUsers = this.loadingUsers.bind(this);
+
   }
   componentDidUpdate(){
+
     if(this.state.loadingData){
       this.loadingUsers();
       this.setState({loadingData: false, usersToDisplay: this.props.usersToDisplay})
@@ -26,7 +30,11 @@ class MainPage extends React.Component {
     }
 
   }
+  componentDidMount(){
+
+  }
 UNSAFE_componentWillMount(){
+
     this.setState({usersToDisplay: this.props.usersToDisplay});
   }
 
@@ -38,12 +46,8 @@ UNSAFE_componentWillMount(){
       }
     })
     .then ( ()=> {
-      // this.props.filterUsersBy('city', this.props.self.city)
-      // this.props.getConnections(this.props.myId);
-      // this.props.getBlocks(this.props.myId);
-      // this.props.getPendings(this.props.myId);
-      this.forceUpdate();
-      this.setState({usersToDisplay: this.props.usersToDisplay});
+      // this.forceUpdate();
+      this.setState({usersToDisplay: this.props.usersToDisplay, currentCity: this.props.self.city});
     });
     this.props.getConnections(this.props.myId);
     this.props.getBlocks(this.props.myId);
