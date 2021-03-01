@@ -27,3 +27,7 @@ export const completeProfile = (data) => {
   // } 
   return axios.patch('/api/users/completeProfile', data)
 }
+
+export const updateProfile = (data) => {
+  return axios.patch('/api/users/updateProfile', data)
+}
