@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, Link} from 'react-router-dom';
 import FriendDetailContainer from './friend_detail_container'; 
 import FriendIndexItem from './friend_index_item'; 
 
@@ -14,6 +14,14 @@ class Connections extends React.Component{
     }
     this.loadFriends = this.loadFriends.bind(this); 
   }
+  componentDidMount(){
+    if(this.props.friends){
+      if(this.props.friends.length>0){
+
+        this.props.history.push(`/profile/connections/${this.props.friends[0]._id}`)
+      }
+    }
+  }
 
   loadFriends(){
     this.props.getConnections(this.props.myId);
@@ -22,6 +30,24 @@ class Connections extends React.Component{
   }
 
   render(){
+
+    if(!this.props.friends){
+      return (
+        <section className="connections">
+          <h1 id="connections-message">Loading your connections! </h1>
+        </section>
+      )
+    }else{
+      if(!this.props.friends.length){
+        return (
+          <section className="connections">
+            <h1 id="connections-message">Keep swiping to make more connections! <Link to="/">Return Home</Link></h1>
+          </section>
+        )
+      }
+    }
+    
+  
     return(
 
       <section className="connections">
