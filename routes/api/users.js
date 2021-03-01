@@ -215,16 +215,45 @@ router.patch('/completeProfile', (req, res) => {
   );
 })
 
-//----------------------potentail route edit
-//// name: name,
-      // email: email,
-      // industry: industry,
-      // let recruiterStatus = req.body.recruiterStatus
-  // let city = req.body.city
-  // let name = req.body.name
-  // let email = req.body.email
-  // let industry = req.body.industry
-  // recruiterStatus: recruiterStatus,
-        // city: city
+
+router.patch('/updateProfile', (req, res) => {
+  let id = req.body.id
+  let occupation = req.body.occupation
+  let education = req.body.education
+  let aboutMe = req.body.aboutMe
+  let linkedIn = req.body.linkedIn
+  let city = req.body.city
+  let name = req.body.name
+  let industry = req.body.industry
+  // debugger
+  
+  
+  User.findByIdAndUpdate(id, 
+    {
+      occupation: occupation,
+      education: education,
+      aboutMe: aboutMe,
+      linkedIn: linkedIn,
+      name: name,
+      industry: industry,
+      city: city
+    },
+    { 
+      new: true 
+    },
+    function(err, response) {
+      if (err) {
+        console.log("we hit an error" + err);
+        return res.json({
+          message: "Database Update Failure"
+        });
+      }
+      return res.send(response);
+    }
+  );
+})
+
+
+ 
 
 module.exports = router;

@@ -38,6 +38,7 @@ class LoginForm extends React.Component {
 
   // Handle form submission
   handleSubmit(e) {
+    e.preventDefault();
     let user = {
       email: this.state.email,
       password: this.state.password
@@ -52,35 +53,62 @@ class LoginForm extends React.Component {
 
   // Render the session errors if there are any
   renderErrors() {
-    return(
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.state.errors[error]}
-          </li>
-        ))}
-      </ul>
-    );
+    console.log(`these are the errors`)
+    console.log(this.props.errors)
+    if (this.props.errors.length === 0) {
+      return null
+    } else {
+      return(
+        <ul className="errors-container">
+          {Object.keys(this.props.errors).map((error, i) => (
+            <li key={`error-${i}`}>
+              {this.props.errors[error]}
+            </li>
+          ))}
+        </ul>
+      );
+    }
   }
 
   render() {
+    let emailPlaceholder = "Email";
+    let passwordPlaceholder = "Password";
+    let emailClassName = "login-input";
+    let passwordClassName = "login-input";
+    if (this.props.errors.email) {
+      emailPlaceholder = this.props.errors.email
+      emailClassName = "login-input-error"
+    }
+    if (this.props.errors.password) {
+      passwordPlaceholder = this.props.errors.password
+      passwordClassName = "login-input-error"
+    }
     return (
         <form className="login-form" onSubmit={this.handleSubmit}>
-          <div>Welcome back to Linkr
+          <div>
+            <p className="header-container">
+              Welcome back to Linkr
+            </p>
+            {/* {this.renderErrors()} */}
               <input 
-                className="login-input"
+                className={emailClassName}
                 type="text"
+                // onFocus={(e) => {
+                //   console.log("Focused on input feild")
+                //   this.state.email="glang"
+                //   console.log(this.state.email)
+                // }}
                 value={this.state.email}
                 onChange={this.update('email')}
-                placeholder="Email"
+                placeholder={emailPlaceholder}
               />
             <br/>
               <input 
-                className="login-input"
+                className={passwordClassName}
                 type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
-                placeholder="Password"
+                placeholder={passwordPlaceholder}
               />
             <br/>
             <input
@@ -88,7 +116,6 @@ class LoginForm extends React.Component {
               type="submit" 
               value="Submit"
             />
-            {this.renderErrors()}
           </div>
         </form>
     );

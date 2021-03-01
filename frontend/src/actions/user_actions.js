@@ -87,8 +87,3 @@ export const getConnections = (myId) => dispatch => {
     ))
 }
 
-// export const getConnected = (user) => dispatch => {
-//     return APIUtil.getConnected(user)
-//         .then(connectedUsers => dispatch(receiveUsers(connectedUsers))) 
-//         .catch(err => dispatch(receiveErrors(err.response.data)))
-// }
