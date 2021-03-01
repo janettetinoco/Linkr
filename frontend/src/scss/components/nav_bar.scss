@@ -140,10 +140,13 @@
 
 .nav-links{
   // padding: 5px;
-  color: $dark-gray;
+  color: rgb(65, 65, 66);
   font-family: $railway;
   margin: 0 10px;
   text-decoration: none;
+  background: #FFFFFF;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 

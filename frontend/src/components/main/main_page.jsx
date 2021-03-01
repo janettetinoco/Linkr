@@ -96,7 +96,12 @@ class MainPage extends React.Component {
         let array = this.state.usersToDisplay.slice(1); 
         this.props.removeUserFromState(remove._id); 
         this.setState({usersToDisplay: array})
-        this.props.createConnection(this.props.myId, remove._id, status);
+        this.props.createConnection(this.props.myId, remove._id, status).then((res)=>{
+          // debugger
+          if(res.data ==="connect"){
+            this.props.openModal('connection');
+          }
+        });
       }
     }
   }
