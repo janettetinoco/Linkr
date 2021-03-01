@@ -11,8 +11,10 @@ class Profile extends React.Component{
   render(){
     if(!this.props.user){
       return(
-        <div className="no-more-users">
-          <img id="logo-users"src="faviconL.ico" />
+        <div className="profile-container-no-users">
+          <div className="card">
+            <h1>Check back later for more users to follow!</h1>
+          </div>
         </div>
       )
     }
