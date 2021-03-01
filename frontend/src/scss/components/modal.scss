@@ -5,7 +5,7 @@
     right: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.7);
-    z-index: 11;
+    z-index: 450;
     
     .modal-child {
         font-size: 1.7vh;
@@ -20,5 +20,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: 500;
     }
 }

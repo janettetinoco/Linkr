@@ -1,6 +1,5 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
-//maybe a loading icon
 
 class FriendDetail extends React.Component{
 
@@ -17,19 +16,11 @@ class FriendDetail extends React.Component{
   componentDidUpdate(prevProps){
     if (prevProps.match.params.friendId !== this.props.match.params.friendId){
       this.setState({friends: this.props.friends});
-      console.log("updated");
-
     }
   }
 
   render(){
-    // if(this.props.loading){
-      // return <section className="profile-detail"><LoadingIcon /></section>;
-    // }
-
     if(!this.props.friend){
-      console.log(this.props); 
-      console.log("none")
       return null; 
     } 
     return (

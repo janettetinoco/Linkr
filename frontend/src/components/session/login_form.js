@@ -57,8 +57,8 @@ class LoginForm extends React.Component {
 
   // Render the session errors if there are any
   renderErrors() {
-    console.log(`these are the errors`)
-    console.log(this.props.errors)
+    (`these are the errors`)
+    (this.props.errors)
     if (this.props.errors.length === 0) {
       return null
     } else {
@@ -93,15 +93,10 @@ class LoginForm extends React.Component {
             <p className="header-container">
               Welcome back to Linkr
             </p>
-            {/* {this.renderErrors()} */}
               <input 
                 className={emailClassName}
                 type="text"
-                // onFocus={(e) => {
-                //   console.log("Focused on input feild")
-                //   this.state.email="glang"
-                //   console.log(this.state.email)
-                // }}
+    
                 value={this.state.email}
                 onChange={this.update('email')}
                 placeholder={emailPlaceholder}

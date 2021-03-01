@@ -13,7 +13,6 @@ export const usersToDisplay = (state) => {
   const display = allUsersInCity.filter( user=> {
     return (user._id !== state.session.user.id && !connections.includes(user._id) && !blocks.includes(user._id) && !pendings.includes(user._id))
   })
-  console.log("display these users", display); 
   return display; 
 }
 
