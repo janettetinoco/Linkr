@@ -13,13 +13,14 @@ class NavBar extends React.Component {
 
   logoutUser(e) {
       e.preventDefault();
-      
+      // debugger
       this.props.logout();
   }
 
   animeBrand(){
     //add animation to brand
     let brand = document.getElementsByClassName('float-left')
+    // debugger
     if (brand.length){
       brand[0].classList.add('anime')
     }
@@ -47,7 +48,7 @@ class NavBar extends React.Component {
                   <Link className="nav-links" to={'/'} onClick={this.offAnime}>Home</Link>
                   <Link className="nav-links" to={'/profile'} onClick={this.animeBrand}>Profile</Link>
                   <Link className="nav-links" to={'/profile/connections'} onClick={this.offAnime}>Connections</Link>
-                  <button className="btn-bg logout" onClick={this.logoutUser} onClick={this.offAnime}>Logout</button>
+                  <button className="btn-bg logout" onClick={this.logoutUser}>Logout</button>
                 </div>
               </div>
             </div>
