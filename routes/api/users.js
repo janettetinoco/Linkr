@@ -50,7 +50,7 @@ router.post('/register', (req, res) => {
                   });
                 });
               })
-              .catch(err => console.log(err));
+              .catch(err => (err));
 
           })
         })
@@ -205,7 +205,6 @@ router.patch('/completeProfile', (req, res) => {
     },
     function(err, response) {
       if (err) {
-        console.log("we hit an error" + err);
         return res.json({
           message: "Database Update Failure"
         });
@@ -225,7 +224,7 @@ router.patch('/updateProfile', (req, res) => {
   let city = req.body.city
   let name = req.body.name
   let industry = req.body.industry
-  // debugger
+  // 
   
   
   User.findByIdAndUpdate(id, 
@@ -243,7 +242,6 @@ router.patch('/updateProfile', (req, res) => {
     },
     function(err, response) {
       if (err) {
-        console.log("we hit an error" + err);
         return res.json({
           message: "Database Update Failure"
         });

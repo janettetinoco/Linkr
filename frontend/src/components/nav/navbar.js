@@ -1,4 +1,4 @@
-import { urlencoded } from 'body-parser';
+
 import React from 'react';
 import { Link } from 'react-router-dom'
 
@@ -13,14 +13,14 @@ class NavBar extends React.Component {
 
   logoutUser(e) {
       e.preventDefault();
-      // debugger
+      // 
       this.props.logout();
   }
 
   animeBrand(){
     //add animation to brand
     let brand = document.getElementsByClassName('float-left')
-    // debugger
+    // 
     if (brand.length){
       brand[0].classList.add('anime')
     }
@@ -39,10 +39,10 @@ class NavBar extends React.Component {
       if (this.props.loggedIn) {
         return (
             <div className='nav-bar'>
-              <div className='float-left'>
-                <img src="faviconL.ico" />
+             <Link to="/"> <div className='float-left'>
+                <img alt="navbar" src="faviconL.ico" />
                 <h1>inkr</h1>
-              </div>
+              </div></Link>
               <div className='float-right'>
                 <div>
                   <Link className="nav-links" to={'/'} onClick={this.offAnime}>Home</Link>
@@ -57,7 +57,7 @@ class NavBar extends React.Component {
         return (
             <div className='nav-bar'>
               <div className='float-left'>
-                  <img src="faviconL.ico" />
+                  <img alt="navbar" src="faviconL.ico" />
                   <h1>inkr</h1>
               </div>
               <div className='float-right'>

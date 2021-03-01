@@ -15,9 +15,6 @@ class Connections extends React.Component{
     this.loadFriends = this.loadFriends.bind(this); 
   }
   componentDidMount(){
-    
-
-    console.log(this.props.friends);
     if(this.props.friends){
       if(this.props.friends.length>0){
         this.props.history.push(`/profile/connections/${this.state.friends[0]._id}`)
