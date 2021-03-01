@@ -27,13 +27,16 @@ class Connections extends React.Component{
     this.props.getConnectionsAsUsers(this.props.myId)
     .then( ()=>{
       this.setState({loadingFriends: false, friends: this.props.friends});
-      this.props.history.push(`/profile/connections/${this.state.friends[0]._id}`);
+      if(this.state.friends[0]){
+        this.props.history.push(`/profile/connections/${this.state.friends[0]._id}`);
+      }
     })
   }
 
   render(){
 
     if(!this.props.friends){
+      this.loadFriends();
       return (
         <section className="connections">
           <h1 id="connections-message">Loading your connections! </h1>
