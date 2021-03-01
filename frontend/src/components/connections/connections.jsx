@@ -24,7 +24,7 @@ class Connections extends React.Component{
   render(){
     return(
       <div id="connections-outer-div">
-        <hr id="top-hr" />
+        {/* <hr id="top-hr" /> */}
       <div id="connection-div">
         <section className="connections">
         {/* <img id="background" src={SalarWalkout} /> */}
