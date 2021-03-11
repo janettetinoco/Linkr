@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { openModal } from '../../actions/modal_actions';
 
 class SignupForm extends React.Component {
 
@@ -66,7 +67,7 @@ class SignupForm extends React.Component {
     this.props.signup(user)
       .then(() => {
         if(this.props.signedIn){
-          this.props.login(user).then( ()=>this.props.closeModal());
+          this.props.login(user).then(this.props.openModal('welcome'));
         }
         this.props.history.push('/');
       });

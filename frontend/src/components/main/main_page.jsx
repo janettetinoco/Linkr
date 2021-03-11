@@ -92,8 +92,8 @@ UNSAFE_componentWillMount(){
       <div id="main-page">
           <ProfileContainer user={nextProfile}/>
           <div id="swipe">
-            <button onClick={this.swipe('left')}>left</button>
-            <button onClick={this.swipe('right')}>right</button>
+            <button onClick={this.swipe('left')}>skip</button>
+            <button onClick={this.swipe('right')}>connect</button>
           </div>
       </div>
     );

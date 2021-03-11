@@ -1,0 +1,292 @@
+// .container{
+//     // heih:300px;
+
+
+//     position: fixed;
+//     top: 0px;
+//     left: 0px;
+//     width: 100%;
+//     height: 100%;
+//     z-index: 0;
+
+//     .content {
+//         position: absolute;
+//         width: 100%;
+//         height: 100%;
+//         left: 0px;
+//         top: 0px;
+//         z-index: 1000;
+//     }
+
+//     h1{
+//         font-family: 'Raleway';
+//         font-size: 40px;
+//         text-align: center;
+//         padding: 7px 0px;
+//         color: white;
+
+//         position: absolute;
+//         top: 50%;
+//         line-height: 100px;
+//         height: 100px;
+//         margin-top: -50px;
+//         width: 100%;
+//         text-align: center;
+//         color: transparent;
+//         animation: blurFadeInOut 3s ease-in backwards;
+//     }
+
+//     .container h1.frame-1 {
+//         animation-delay: 0s;
+//     }
+//     .container h1.frame-2 {
+//         animation-delay: 2.5s;
+//     }
+//     .container h1.frame-3 {
+//         animation-delay: 5s;
+//     }
+//     .container h1.frame-4 {
+//         font-size: 200px;
+//         animation-delay: 7.5s;
+//     }
+//     .container h1.frame-5 {
+//         animation: none;
+//         color: transparent;
+//         text-shadow: 0px 0px 1px #fff;
+//     }
+//     .container h1.frame-5 span {
+//         animation: blurFadeIn 3s ease-in 12s backwards;
+//         color: transparent;
+//         text-shadow: 0px 0px 1px #fff;
+//     }
+//     .container h1.frame-5 span:nth-child(2) {
+//         animation-delay: 13s;
+//     }
+//     .container h1.frame-5 span:nth-child(3) {
+//         animation-delay: 14s;
+//     }
+
+//     @keyframes blurFadeInOut{
+//         0%{
+//             opacity: 0;
+//             text-shadow: 0px 0px 40px #fff;
+//             transform: scale(0.9);
+//         }
+//         20%,75%{
+//             opacity: 1;
+//             text-shadow: 0px 0px 1px #fff;
+//             transform: scale(1);
+//         }
+//         100%{
+//             opacity: 0;
+//             text-shadow: 0px 0px 50px #fff;
+//             transform: scale(0);
+//         }
+//     }
+
+//     @keyframes blurFadeIn{
+//         0%{
+//             opacity: 0;
+//             text-shadow: 0px 0px 40px #fff;
+//             transform: scale(1.3);
+//         }
+//         50%{
+//             opacity: 0.5;
+//             text-shadow: 0px 0px 10px #fff;
+//             transform: scale(1.1);
+//         }
+//         100%{
+//             opacity: 1;
+//             text-shadow: 0px 0px 1px #fff;
+//             transform: scale(1);
+//         }
+//     }
+
+//     @keyframes fadeInBack{
+//         0%{
+//             opacity: 0;
+//             transform: scale(0);
+//         }
+//         50%{
+//             opacity: 0.4;
+//             transform: scale(2);
+//         }
+//         100%{
+//             opacity: 0.2;
+//             transform: scale(5);
+//         }
+//     }
+// }
+
+
+
+.container {
+  width: 300px;
+  height: 300px;
+//   background-color: blue;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  font-family: 'Raleway';
+  color: white;
+}
+
+
+
+@keyframes topFadeOut {
+  0% {
+    position: absolute;
+    top: -3rem;
+    opacity: 0;
+  }
+
+  75% {
+    position: absolute;
+    top: 25%;
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes bottomFadeOut {
+  0% {
+    position: absolute;
+    bottom: -5rem;
+    opacity: 0;
+  }
+
+  75% {
+    position: absolute;
+    bottom: 25%;
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+  
+}
+
+@keyframes topFadeOutVertical {
+  0% {
+    position: absolute;
+    top: -3rem;
+    opacity: 0;
+  }
+
+  75% {
+    position: absolute;
+    top: 45%;
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes rightFadeInOut {
+  0% {
+    position: absolute;
+    right: -3rem;
+    opacity: 0;
+  }
+
+  75% {
+    position: absolute;
+    right: 5rem;
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    right: 10rem;
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+
+  45% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0%;
+  }
+}
+
+.frame-1 {
+  font-size: 50px;
+  position: absolute;
+  left: 2.5rem;
+  top: 5rem;
+  opacity: 0;
+  animation-name: topFadeOut;
+  animation-duration: 5s;
+
+}
+
+.frame-2 {
+  font-size: 40px;
+  position: absolute;
+  top: 8.5rem;
+  opacity: 0;
+  animation-name: fadeInOut;
+  animation-delay: 3s;
+  animation-duration: 6s;
+
+}
+
+.frame-3 {
+  font-size: 40px;
+  position: absolute;
+  left: 5%;
+  top: 25%;
+  opacity: 0;
+  animation-name: fadeInOut;
+  animation-delay: 7.5s;
+  animation-duration: 4s;
+//   white-space: nowrap;
+}
+
+.frame-4 {
+  font-size: 40px;
+  position: absolute;
+  left: 5%;
+  bottom: 25%;
+  opacity: 0;
+  animation-name: bottomFadeOut;
+  animation-delay: 10.5s;
+  animation-duration: 7s;
+}
+
+.frame-5 {
+  font-size: 40px;
+  position: absolute;
+  left: 5%;
+  bottom: 25%;
+  opacity: 0;
+  animation-name: bottomFadeOut;
+  animation-delay: 16s;
+  animation-duration: 9s;
+}
+
+.frame-6 {
+  font-size: 40px;
+  position: absolute;
+  left: 5%;
+  bottom: 25%;
+  opacity: 0;
+  animation-name: bottomFadeOut; 
+  animation-delay: 22s;
+  animation-duration: 9s;
+  animation-fill-mode: forwards;
+}
+
+

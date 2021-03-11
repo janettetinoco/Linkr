@@ -14,6 +14,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    openModal: (modal) => dispatch(openModal(modal)),
     signup: user => dispatch(signup(user)),
     closeModal: () => dispatch(closeModal()),
     resetErrors: () => dispatch(resetErrors()),
