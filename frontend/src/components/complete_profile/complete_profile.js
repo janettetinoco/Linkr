@@ -18,6 +18,7 @@ class CompleteProfile extends React.Component{
       [field]: e.currentTarget.value
     });
   }
+  
 
   handleSubmit(e) {
     e.preventDefault();
