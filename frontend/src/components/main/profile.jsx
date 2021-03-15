@@ -60,7 +60,7 @@ class Profile extends React.Component{
                     <p>{this.props.user.aboutMe}</p>
                   </div>
                   <div className="details">
-                    <p id="label-links"><img alt="profile" src="https://img.icons8.com/cotton/64/000000/external-link.png" />Links</p>
+                    {/* <p id="label-links"><img alt="profile" src="https://img.icons8.com/cotton/64/000000/external-link.png" />Links</p> */}
                     <p>{this.props.user.linkedIn ? <Link to={this.props.user.linkedIn}><img alt="profile" id="linkedIn" src="https://img.icons8.com/color/48/000000/linkedin.png" /></Link> : ""}</p>
                   </div>
                 </div>
