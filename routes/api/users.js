@@ -224,6 +224,7 @@ router.patch('/updateProfile', (req, res) => {
   let city = req.body.city
   let name = req.body.name
   let industry = req.body.industry
+  let imageUrl = req.body.imageUrl
   // 
   
   
@@ -235,7 +236,8 @@ router.patch('/updateProfile', (req, res) => {
       linkedIn: linkedIn,
       name: name,
       industry: industry,
-      city: city
+      city: city,
+      imageUrl: imageUrl,
     },
     { 
       new: true 

@@ -260,11 +260,19 @@
   color: rgb(255, 215, 0);
   margin-top: -100px;
   margin-left: -49px;
-  button{
+    button{
+        height: 30px;
+        width: 30px;
+        // background-color: rgb(139, 0, 0);
+        border: 1px solid rgb(255, 215, 0);
+        border-radius: 15px;
+    }
+    input {
       height: 30px;
-    width: 30px;
-    // background-color: rgb(139, 0, 0);
-    border: 1px solid rgb(255, 215, 0);
-    border-radius: 15px;
-  }
+      width: 30px;
+      // background-color: rgb(139, 0, 0);
+      border: 1px solid rgb(255, 215, 0);
+      border-radius: 15px;
+
+    }
 }
