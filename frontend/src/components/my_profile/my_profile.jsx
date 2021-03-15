@@ -137,6 +137,10 @@ class MyProfile extends React.Component{
             </div>
             <div className='flip-card-back'>
               <div className='image-container'>
+                 <div className='upload-pic'>
+                  <button><img src="https://img.icons8.com/ios/50/ffffff/test-account.png"/></button>
+                  <h1>Upload Picture</h1>
+                </div>
                 <img alt="profile" id='img-main' src={this.props.self.imageUrl} />
                 <div className='edit-b'>
                   <button onClick={this.handleEditButton}><img alt="profile" id='edit' className='user-icon' src="https://img.icons8.com/ios-filled/64/000000/left.png" /></button>
