@@ -3,6 +3,7 @@ import React from 'react';
 import LoginFormContainer from '../session/login_form_container';
 import SignupFormContainer from '../session/signup_form_container';
 import NewConnection from '../connections/new_connection';
+import WelcomeTutorial from '../connections/welcome_tutorial';
 
 function Modal({modal, closeModal}) {
     if (!modal) {
@@ -18,6 +19,9 @@ function Modal({modal, closeModal}) {
         break;
       case 'connection':
         component = <NewConnection />
+        break;
+      case 'welcome':
+        component = <WelcomeTutorial />
         break;
       default:
         return null;

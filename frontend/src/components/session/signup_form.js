@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { openModal } from '../../actions/modal_actions';
 
 class SignupForm extends React.Component {
 
@@ -54,8 +55,9 @@ class SignupForm extends React.Component {
       industry: this.state.industry,
       recruiterStatus: this.state.recruiterStatus,
       city: this.state.city,
-      imageUrl: 'https://linkr-dev.s3-us-west-1.amazonaws.com/isgpp_avatar_placeholder.png'
     }
+    user.imageUrl = this.state.imageUrl ? this.state.imageUrl : "https://linkr-dev.s3-us-west-1.amazonaws.com/isgpp_avatar_placeholder.png";
+    debugger
     if(this.state.imageFile){
       const image = new FormData();
       image.append('image', this.state.imageFile);
@@ -66,7 +68,7 @@ class SignupForm extends React.Component {
     this.props.signup(user)
       .then(() => {
         if(this.props.signedIn){
-          this.props.login(user).then( ()=>this.props.closeModal());
+          this.props.login(user).then(this.props.openModal('welcome'));
         }
         this.props.history.push('/');
       });

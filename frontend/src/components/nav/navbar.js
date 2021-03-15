@@ -56,10 +56,10 @@ class NavBar extends React.Component {
       } else {
         return (
             <div className='nav-bar'>
-              <div className='float-left'>
-                  <img alt="navbar" src="faviconL.ico" />
-                  <h1>inkr</h1>
-              </div>
+            <Link to="/"> <div className='float-left'>
+              <img alt="navbar" src="faviconL.ico" />
+              <h1>inkr</h1>
+            </div></Link>
               <div className='float-right'>
                 <nav className="login-signup">
                   <button className="btn-sm" onClick={() => this.props.openModal('signup')}>Join us</button>
