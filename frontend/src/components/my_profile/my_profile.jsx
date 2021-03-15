@@ -88,7 +88,10 @@ class MyProfile extends React.Component{
                 <h1>{this.props.self.name}</h1>
               </div>
               <div className='user-details'>
-                <p className='user-info loc' ><img alt="profile" className='user-icon' src="https://img.icons8.com/cotton/64/000000/worldwide-location--v2.png" />{this.props.self.city}</p>
+                <div className='user-info loc' >
+                  <img alt="profile" className='user-icon' src="https://img.icons8.com/cotton/64/000000/worldwide-location--v2.png" />
+                  <p>{this.props.self.city}</p>
+                </div>
               </div>
               <div className='user-details'>
                 <div className='details-desc'>
