@@ -12,10 +12,25 @@ class MyProfile extends React.Component{
       linkedIn: '',
       aboutMe: '',
       industry: '',
+      imageFile: '',
+      imageUrl: '',
     }
     this.handleEditButton =this.handleEditButton.bind(this)
     this.update = this.update.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleFile = this.handleFile.bind(this);
+  }
+
+  handleFile(e) {
+    e.preventDefault();
+    const file = e.currentTarget.files[0]
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({ imageFile: file, imageUrl: fileReader.result })
+    }
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   }
 
   handleEditButton(){
@@ -29,6 +44,7 @@ class MyProfile extends React.Component{
       linkedIn: '',
       aboutMe: '',
       industry: '',
+      imageUrl: '',
     })
 
     let h = document.getElementsByClassName('profile-container')
@@ -70,6 +86,13 @@ class MyProfile extends React.Component{
     if(!this.props.self){
       return null;
     }
+    let profPic;
+    if (this.state.imageUrl === ''){
+      profPic = this.props.self.imageUrl
+    } else {
+      profPic = this.state.imageUrl
+      // debugger
+    }
     
     return(
    
@@ -78,7 +101,8 @@ class MyProfile extends React.Component{
           <div className='card'>
             <div className="flip-card-front">
               <div className='image-container'>
-                <img alt="profile" id='img-main' src={this.props.self.imageUrl} />
+                {/* <img alt="profile" id='img-main' src={this.props.self.imageUrl} /> */}
+                <img alt="profile" id='img-main' src={profPic} />
                 <div className='edit-b'>
                   <button onClick={this.handleEditButton}><img alt="profile" id='edit' className='user-icon' src="https://img.icons8.com/ultraviolet/40/000000/edit.png" /></button>
                   <h1>Edit Profile</h1>
@@ -137,6 +161,12 @@ class MyProfile extends React.Component{
             </div>
             <div className='flip-card-back'>
               <div className='image-container'>
+                <div className='upload-pic'>
+                  <input type="file" onChange={this.handleFile} />
+                    {/* <img src="https://img.icons8.com/ios/50/ffffff/test-account.png"/> */}
+                  {/* <button><img src="https://img.icons8.com/ios/50/ffffff/test-account.png"/></button> */}
+                  <h1>Upload Picture</h1>
+                </div>
                 <img alt="profile" id='img-main' src={this.props.self.imageUrl} />
                 <div className='edit-b'>
                   <button onClick={this.handleEditButton}><img alt="profile" id='edit' className='user-icon' src="https://img.icons8.com/ios-filled/64/000000/left.png" /></button>

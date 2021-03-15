@@ -252,3 +252,27 @@
   background-color: rgb(184, 134, 11);
   box-shadow: 3px 3px 7px 0px black;
 }
+
+.upload-pic{
+    font-family: "Raleway", sans-serif;
+  font-size: 15px;
+  text-align: center;
+  color: rgb(255, 215, 0);
+  margin-top: -100px;
+  margin-left: -49px;
+    button{
+        height: 30px;
+        width: 30px;
+        // background-color: rgb(139, 0, 0);
+        border: 1px solid rgb(255, 215, 0);
+        border-radius: 15px;
+    }
+    input {
+      height: 30px;
+      width: 30px;
+      // background-color: rgb(139, 0, 0);
+      border: 1px solid rgb(255, 215, 0);
+      border-radius: 15px;
+
+    }
+}
