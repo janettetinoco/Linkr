@@ -1,4 +1,5 @@
 import React from 'react';
+import { openModal } from '../../actions/modal_actions';
 import ProfileContainer from './profile_container'; 
 
 class MainPage extends React.Component {
@@ -95,6 +96,7 @@ UNSAFE_componentWillMount(){
             <button onClick={this.swipe('left')}>skip</button>
             <button onClick={this.swipe('right')}>connect</button>
           </div>
+        <div id="help-icon" ><img onClick={() => this.props.openModal('welcome')} src="https://img.icons8.com/cotton/64/000000/info--v2.png" /></div>
       </div>
     );
   }
