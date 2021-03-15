@@ -85,16 +85,32 @@
 }
 
 .user-info.loc{
-     display: flex;
+    display: flex;
     justify-content: center;
-    color: brown;
+    color: white;
 }
 
 .user-details{
-    margin: 15px;
+    margin: 7px 15px 0 15px;
     color: orange;
     h2{
         font-size: 15px;
+    }
+    p{
+        color: white;
+        display: flex;
+        justify-content: end;
+    }
+    .details-desc{
+        display: flex;
+        p{
+            padding-top: 5px;
+
+        }
+        img{
+            width: 25px;
+            padding-left: 10px;
+        }
     }
 }
 
@@ -191,8 +207,28 @@
         justify-content: flex-end;
         display: flex;
         padding: 5px;
-        padding-bottom: 8px;
-        padding-right: 15%;
+        // padding-bottom: 8px;
+        // padding-right: 15%;
+        min-width: 85px;
+        height: 30px;
+        padding-top: 10px;
+        border-right: 1px solid rgb(255, 255, 255);
+        border-top: 1px solid rgb(255, 255, 255);
+        border-left: 1px solid rgb(255, 255, 255);
+
+    }
+    .edit-fields{
+        display: flex;
+        padding-left: 30px  
+
+    }
+    input {
+        padding-left: 10px;
+        width: 225px;
+
+    }
+    hr{
+        margin: 0 33px;
     }
 }
 
