@@ -88,29 +88,50 @@ class MyProfile extends React.Component{
                 <h1>{this.props.self.name}</h1>
               </div>
               <div className='user-details'>
-                <p className='user-info loc' ><img alt="profile" className='user-icon' src="https://img.icons8.com/cotton/64/000000/worldwide-location--v2.png" />{this.props.self.city}</p>
+                <div className='user-info loc' >
+                  <img alt="profile" className='user-icon' src="https://img.icons8.com/cotton/64/000000/worldwide-location--v2.png" />
+                  <p>{this.props.self.city}</p>
+                </div>
               </div>
               <div className='user-details'>
-                <p className='user-info' >Education<img alt="profile" className='user-icon' src="https://img.icons8.com/cotton/64/000000/graduation-cap--v2.png" /></p>
+                <div className='details-desc'>
+                  <p className='user-info' >Education</p>
+                  <img alt="profile" className='user-icon' src="https://img.icons8.com/cotton/64/000000/graduation-cap--v2.png" />
+                </div>
                 <h2>{this.props.self.education}</h2>
+                <hr className='Solid'/>
               </div>
               <div className='user-details'>
-                <p className='user-info' >Occupation<img alt="profile" className='user-icon' src="https://img.icons8.com/cotton/64/000000/briefcase--v1.png" /></p>
+                <div className='details-desc'>
+                  <p className='user-info' >Occupation</p>
+                  <img alt="profile" className='user-icon' src="https://img.icons8.com/cotton/64/000000/briefcase--v1.png" />
+                </div>
                 <h2>{this.props.self.occupation}</h2>
+                <hr className='Solid'/>
               </div>
               <div className='user-details'>
-                <p className='user-info'  >Industry<img alt="profile" className='user-icon' src="https://img.icons8.com/cotton/64/000000/company.png" /></p>
+                <div className='details-desc'>
+                  <p className='user-info'  >Industry</p>
+                  <img alt="profile" className='user-icon' src="https://img.icons8.com/cotton/64/000000/company.png" />
+                </div>
                 <h2>{this.props.self.industry}</h2>
+                <hr className='Solid'/>
               </div>
               <div className='user-details'>
-                <p className='user-info' >About Me<img alt="profile"  className='user-icon' src="https://img.icons8.com/cotton/64/000000/name--v2.png" /></p>
+                <div className='details-desc'>
+                  <p className='user-info' >About Me</p>
+                  <img alt="profile"  className='user-icon' src="https://img.icons8.com/cotton/64/000000/name--v2.png" />
+                </div>
                 <h2>{this.props.self.aboutMe}</h2>
+                <hr className='Solid'/>
               </div>
               <div className='user-details'>
-                <p className='user-info' >Links<img alt="profile"  className='user-icon' src="https://img.icons8.com/cotton/64/000000/external-link.png" /></p>
+                <div className='details-desc'>
+                  <p className='user-info' >Links</p>
+                  <img alt="profile"  className='user-icon' src="https://img.icons8.com/cotton/64/000000/external-link.png" />
+                </div>
                 <div className='links'> 
-                  <img alt="profile" className='links img' src="https://img.icons8.com/color/48/000000/linkedin.png" />
-                  <h2><a href='http://linkedin.com'>{this.props.self.linkedIn}</a></h2> 
+                  <h2><a href={this.props.self.linkedIn}><img alt="profile" className='links img' src="https://img.icons8.com/color/48/000000/linkedin.png" /></a></h2> 
                 </div>
               </div>
             </div>
@@ -123,29 +144,42 @@ class MyProfile extends React.Component{
                 </div>
               </div>
                 <form className='edit-form' onSubmit={this.handleSubmit}>
-                  <label>Your name
+                  <div className='edit-fields'>
+                    <label>Your name</label>
                     <input type="text" placeholder={this.props.self.name} onChange={this.update('name')} value={this.state.name}/>
-                  </label>
-                  <label>City
+                  </div>
+                  <hr className='Solid'/>
+                  <div className='edit-fields'>
+                    <label>City</label>
                     <input type="text" placeholder={this.props.self.city} onChange={this.update('city')} value={this.state.city}/>
-                  </label>
-                  <label>Education
+                  </div>
+                  <hr className='Solid'/>
+                  <div className='edit-fields'>
+                    <label>Education</label>
                     <input type="text" placeholder={this.props.self.education} onChange={this.update('education')} value={this.state.education}/>
-                  </label>
-                  <label>Occupation
+                  </div>
+                  <hr className='Solid'/>
+                  <div className='edit-fields'>
+                    <label>Occupation</label>
                     <input type="text" placeholder={this.props.self.occupation} onChange={this.update('occupation')} value={this.state.occupation}/>
-                  </label>
-                  <label>Industry
+                  </div>
+                  <hr className='Solid'/>
+                  <div className='edit-fields'>
+                    <label>Industry</label>
                     <input type="text" placeholder={this.props.self.industry} onChange={this.update('industry')} value={this.state.industry}/>
-                  </label>
-                  <label>About me
-                    <input type="text" placeholder={this.props.self.aboutMe} onChange={this.update('aboutMe')} value={this.state.aboutMe}/>
-                  </label>
-                  <label>Links
+                  </div>
+                  <hr className='Solid'/>
+                  <div className='edit-fields'>
+                    <label>About me</label>
+                    <input type="textarea" placeholder={this.props.self.aboutMe} onChange={this.update('aboutMe')} value={this.state.aboutMe}/>
+                  </div>
+                  <hr className='Solid'/>
+                  <div className='edit-fields'>
+                    <label>Links</label>
                     <input type="text" placeholder={this.props.self.linkedIn} onChange={this.update('linkedIn')} value={this.state.links}/>
-                  </label>
+                  </div>
                   <button className='update-btn'><h1>Update Profile</h1></button>
-                </form>
+                  </form>
             </div>
           </div>
         </div>
