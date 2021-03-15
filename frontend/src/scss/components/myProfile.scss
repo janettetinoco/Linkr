@@ -215,7 +215,7 @@
         border-right: 1px solid rgb(255, 255, 255);
         border-top: 1px solid rgb(255, 255, 255);
         border-left: 1px solid rgb(255, 255, 255);
-
+        border-bottom: 1px solid rgb(255, 255, 255);
     }
     .edit-fields{
         display: flex;
@@ -225,10 +225,14 @@
     input {
         padding-left: 10px;
         width: 225px;
+        border-right: 1px solid rgb(255, 255, 255);
+        border-top: 1px solid rgb(255, 255, 255);
+        border-left: 1px solid rgb(255, 255, 255);
+        border-bottom: 1px solid rgb(255, 255, 255);
 
     }
     hr{
-        margin: 0 33px;
+        margin: 0 45px;
     }
 }
 

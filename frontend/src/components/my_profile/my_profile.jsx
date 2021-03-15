@@ -175,7 +175,6 @@ class MyProfile extends React.Component{
                     <label>Links</label>
                     <input type="text" placeholder={this.props.self.linkedIn} onChange={this.update('linkedIn')} value={this.state.links}/>
                   </div>
-                  <hr className='Solid'/>
                   <button className='update-btn'><h1>Update Profile</h1></button>
                   </form>
             </div>
