@@ -17,13 +17,14 @@
 
 .card{
     text-align: center;
-    font-family: $railway;
-    background: linear-gradient(to bottom,  navy, rgb(167, 27, 27) 99%);
-    border: 1px;
-    border-radius: 50px;  
-    overflow: auto;
-    overflow-wrap: break-word;
-    box-shadow: 0px 1px 10px 5px red;
+  font-family: "Raleway", sans-serif;
+  /* background: linear-gradient(to bottom, rgb(176 176 229), rgb(179 142 142) 99%); */
+  border: 1px;
+  border-radius: 50px;
+  overflow: auto;
+  overflow-wrap: break-word;
+  box-shadow: 0px 1px 0px 0px darkorange;
+  background: rgba(44, 36, 90, 0.83);
 }
 
 .image-container{
@@ -34,16 +35,16 @@
     margin: auto;
     align-items: center;
     #img-main{
-        border: 1px solid gold;
+        // border: 1px solid gold;
         border-radius: 75px;
         padding: 4px;
-        border-color: rgb(194, 173, 64);
+        // border-color: rgb(194, 173, 64);
         border-radius: 97px;
         border: 3px solid;
         background-size: cover;
         margin-left: 15px;
-        background-color: rgb(30, 144, 255);
-        border: outset rgb(255, 0, 0);
+        // background-color: rgb(30, 144, 255);
+        // border: outset rgb(255, 0, 0);
         min-width: 175px;
         max-width: 200px;
         min-height: 170px;
@@ -63,7 +64,7 @@
 #img-main, #edit{
     height: 30px;
     width: 30px;
-    background-color: rgb(139, 0, 0);
+    // background-color: rgb(139, 0, 0);
     border: 1px solid rgb(255, 215, 0);
     border-radius: 15px;
 }
@@ -85,16 +86,38 @@
 }
 
 .user-info.loc{
-     display: flex;
+    display: flex;
     justify-content: center;
-    color: brown;
+    color: white;
+    p{
+        padding-top: 4px;
+    }
+    img{
+        padding-right: 10px;
+    }
 }
 
 .user-details{
-    margin: 15px;
+    margin: 7px 15px 0 15px;
     color: orange;
     h2{
         font-size: 15px;
+    }
+    p{
+        color: white;
+        display: flex;
+        justify-content: end;
+    }
+    .details-desc{
+        display: flex;
+        p{
+            padding-top: 5px;
+
+        }
+        img{
+            width: 25px;
+            padding-left: 10px;
+        }
     }
 }
 
@@ -191,8 +214,32 @@
         justify-content: flex-end;
         display: flex;
         padding: 5px;
-        padding-bottom: 8px;
-        padding-right: 15%;
+        // padding-bottom: 8px;
+        // padding-right: 15%;
+        min-width: 85px;
+        height: 30px;
+        padding-top: 10px;
+        border-right: 1px solid rgb(255, 255, 255);
+        // border-top: 1px solid rgb(255, 255, 255);
+        // border-left: 1px solid rgb(255, 255, 255);
+        // border-bottom: 1px solid rgb(255, 255, 255);
+    }
+    .edit-fields{
+        display: flex;
+        padding-left: 30px  
+
+    }
+    input {
+        padding-left: 10px;
+        width: 225px;
+        // border-right: 1px solid rgb(255, 255, 255);
+        // border-top: 1px solid rgb(255, 255, 255);
+        // border-left: 1px solid rgb(255, 255, 255);
+        // border-bottom: 1px solid rgb(255, 255, 255);
+
+    }
+    hr{
+        margin: 0 45px;
     }
 }
 
