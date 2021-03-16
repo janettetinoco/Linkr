@@ -45,6 +45,7 @@ class NavBar extends React.Component {
               </div></Link>
               <div className='float-right'>
                 <div>
+                  <Link className="nav-links" to={'/about-us'} onClick={this.offAnime}>About Us</Link>
                   <Link className="nav-links" to={'/'} onClick={this.offAnime}>Home</Link>
                   <Link className="nav-links" to={'/profile'} onClick={this.animeBrand}>Profile</Link>
                   <Link className="nav-links" to={'/profile/connections'} onClick={this.offAnime}>Connections</Link>
@@ -62,6 +63,7 @@ class NavBar extends React.Component {
             </div></Link>
               <div className='float-right'>
                 <nav className="login-signup">
+                  <Link className="about-us-link" to={'/about-us'}>About Us</Link>
                   <button className="btn-sm" onClick={() => this.props.openModal('signup')}>Join us</button>
                 &nbsp;
                   <button className="btn-bg" onClick={() => this.props.openModal('login')}>Sign In</button>

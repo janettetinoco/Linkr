@@ -66,21 +66,22 @@
   float: right;
   display: flex;
   align-items: center;
+  font-size: 20px;
   .btn-sm {
-    color: $dark-gray;
+    color: $gray;
     font-weight: 700;
-    padding: 6px 12px;
+    padding: 1vh .5vw;
     transition: background-color 0.5s;
     transition: color 0.5s;
     font-family: sans-serif;
-    font-size: 20px;
+    font-size: 2.2vh;
     border: 1px solid transparent;
   }
   .btn-bg {
-    padding: 6px 12px;
+    padding: 5px 10px;
     border: 1px solid $linkr-blue;
     background-color: $lightest-gray;
-    border-radius: 25px;
+    border-radius: 2.2vh;
     transition: background-color 0.5s;
     font-family: sans-serif;
     font-weight: 700;
@@ -107,9 +108,9 @@
     position: absolute;
     top: 13vh;
     font-family: "Paytone One", sans-serif;
-    width: 45%;
+    width: 50%;
     line-height: 5.0vw;
-    font-size: 4.0vw;
+    font-size: 3.8vw;
     color: #B2D6F9;
     right: 3vw;
     z-index: 5;
@@ -121,24 +122,25 @@
 
 
 .hero-img{
-  bottom: 1vh;
-  left:1vw;
-  z-index: 0;
-  width:35vw;
-  position: absolute;
-  opacity: 9.4;
+    bottom: 1vh;
+    left: 1vw;
+    z-index: 0;
+    position: absolute;
+    opacity: 9.4;
+    height: 51vh;
+    width: auto;
 }
 
 .splash-text2{
-    top: 59vh;
+   top: 47vh;
     position: absolute;
     font-family: "Questrial", sans-serif;
-    width: 41%;
+    width: 44%;
     padding-bottom: 4vw;
     line-height: 3.3vw;
-    font-size: 2.7vw;
+    font-size: 2.5vw;
     color: #e2e2e2;
-    right: 20vw;
+    left: 37vw;
 }
 
 
@@ -171,4 +173,24 @@
 
 .btn-bg.logout:hover{
   background-color: $linkr-orange;
+}
+
+.about-us-link{
+    color: $gray;
+    font-weight: 700;
+    padding: 1vh .5vw;
+    transition: background-color 0.5s;
+    transition: color 0.5s;
+    font-family: sans-serif;
+    font-size:2.2vh;
+    border: 1px solid transparent;
+    text-decoration: none;
+}
+
+.about-us-link:hover{
+    background-color: $light-gray;
+    color: $linkr-blue;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 25px;
 }
