@@ -1,20 +1,34 @@
-.about-us-links{
-  height: 50px; 
-}
-.a-u-linkedIn{
-  height: 50px;
-  width: 50px; 
-}
 
 #about-us{
-  position: relative; 
-  top: 100px;
+  background-image: url("../../background_images/salar_clouds.png");
+  background-size: cover; 
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }
 
+#about-us-wrapper{
+  transform: translateY(100px);
+}
+
+#about-us-header{
+  font-size: 4.5vw;
+  font-family: $railway;
+  text-align: center;
+  color: white;
+}
+.about-us-name{
+  font-size: 2.5vw;
+  font-family: $railway;
+  color: #0e4468;
+}
 .about-us-img-container{
   height: 300px;
   width: 300px; 
-  
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  margin-bottom: 25px; 
 }
 .about-us-img{
   height: 100%;
@@ -25,12 +39,27 @@
   border-radius: 20%;
 }
 
+.about-us-links{
+  height: 50px; 
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+.a-u-link{
+  height: 50px;
+  width: 50px; 
+  float:left;
+  margin: 5px;
+}
+
+
 #about-us-list{
   display: flex;
   flex-direction: row;
   height: 50%;
   justify-content: center;
   li{
+    margin: 50px 30px;
     display: flex;
     flex-direction: column;
     height: 50%;

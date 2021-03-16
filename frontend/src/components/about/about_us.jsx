@@ -7,36 +7,52 @@ class AboutUs extends React.Component{
   render(){
     return (
       <div id="about-us">
-        <ul id="about-us-list">
-          <li>
-            <div className="about-us-header">Alexey Sergeev</div>
-            <div className="about-us-img-container"><img className="about-us-img" src="https://linkr-dev.s3-us-west-1.amazonaws.com/alexey_sergeev.jpg" alt="Alexey Sergeev"/></div>
-            <div className="about-us-links">
-              <Link to=""><img alt="about-us" className="a-u-linkedIn" src="https://img.icons8.com/color/48/000000/linkedin.png" /></Link>
-            </div>
-          </li>
-          <li>
-            <div className="about-us-header">Michael Clayton Noble</div>
-            <div className="about-us-img-container"><img className="about-us-img" src="https://linkr-dev.s3-us-west-1.amazonaws.com/michael-noble.JPG" alt="Michael Noble"/></div>
-            <div className="about-us-links">
-              <Link to=""><img alt="about-us" className="a-u-linkedIn" src="https://img.icons8.com/color/48/000000/linkedin.png" /></Link>
-            </div>
-          </li>
-          <li>
-            <div className="about-us-header">Janette Tinoco</div>
-            <div className="about-us-img-container"><img className="about-us-img" src="https://linkr-dev.s3-us-west-1.amazonaws.com/janette-tinoco.JPG" alt="Janette Tinoco"/></div>
-            <div className="about-us-links">
-              <Link to=""><img alt="about-us" className="a-u-linkedIn" src="https://img.icons8.com/color/48/000000/linkedin.png" /></Link>
-            </div>
-          </li>
-          <li>
-            <div className="about-us-header">Jonathan Diaz</div>
-            <div className="about-us-img-container"><img className="about-us-img" src="https://linkr-dev.s3-us-west-1.amazonaws.com/jonathan-diazjpeg.jpg" alt="Jonathan Diaz"/></div>
-            <div className="about-us-links">
-              <Link to=""><img alt="about-us" className="a-u-linkedIn" src="https://img.icons8.com/color/48/000000/linkedin.png" /></Link>
-            </div>
-          </li>
-        </ul>
+        <div id="about-us-wrapper">
+          <div id="about-us-header">Meet the developers</div>
+
+          <ul id="about-us-list">
+            <li>
+              <div className="about-us-name">Alexey Sergeev</div>
+              <div className="about-us-img-container"><img className="about-us-img" src="https://linkr-dev.s3-us-west-1.amazonaws.com/alexey_sergeev.jpg" alt="Alexey Sergeev"/></div>
+              <div className="about-us-links">
+                <a href="https://www.linkedin.com/in/alexey-sergeev-cm/" target="_blank"><img alt="about-us" className="a-u-link" src="https://img.icons8.com/color/48/000000/linkedin.png" /></a>
+                <a href="https://github.com/alexeysergeev-cm" target="_blank"><img alt="about-us" className="a-u-link" src="https://img.icons8.com/fluent/48/000000/github.png" /></a>
+                <a href="https://angel.co/u/alexey-sergeev-cm" target="_blank"><img alt="about-us" className="a-u-link" src="https://img.icons8.com/ios/50/000000/angelist.png" /></a>
+
+              </div>
+            </li>
+            <li>
+              <div className="about-us-name">Michael Noble</div>
+              <div className="about-us-img-container"><img className="about-us-img" src="https://linkr-dev.s3-us-west-1.amazonaws.com/michael-noble.JPG" alt="Michael Noble"/></div>
+              <div className="about-us-links">
+                <a href="https://www.linkedin.com/in/michaelclaytonnoble/" target="_blank"><img alt="about-us" className="a-u-link" src="https://img.icons8.com/color/48/000000/linkedin.png" /></a>
+                <a href="https://github.com/MichaelClaytonNoble" target="_blank"><img alt="about-us" className="a-u-link" src="https://img.icons8.com/fluent/48/000000/github.png" /></a>
+                <a href="https://angel.co/u/michael-clayton-noble" target="_blank"><img alt="about-us" className="a-u-link" src="https://img.icons8.com/ios/50/000000/angelist.png" /></a>
+
+              </div>
+            </li>
+            <li>
+              <div className="about-us-name">Janette Tinoco</div>
+              <div className="about-us-img-container"><img className="about-us-img" src="https://linkr-dev.s3-us-west-1.amazonaws.com/janette-tinoco.JPG" alt="Janette Tinoco"/></div>
+              <div className="about-us-links">
+                <a href="https://www.linkedin.com/in/janette-tinoco-b15665192/" target="_blank"><img alt="about-us" className="a-u-link" src="https://img.icons8.com/color/48/000000/linkedin.png" /></a>
+                <a href="https://github.com/janettetinoco/" target="_blank"><img alt="about-us" className="a-u-link" src="https://img.icons8.com/fluent/48/000000/github.png" /></a>
+                <a href="https://angel.co/u/janette-tinoco" target="_blank"><img alt="about-us" className="a-u-link" src="https://img.icons8.com/ios/50/000000/angelist.png" /></a>
+
+              </div>
+            </li>
+            <li>
+              <div className="about-us-name">Jonathan Diaz</div>
+              <div className="about-us-img-container"><img className="about-us-img" src="https://linkr-dev.s3-us-west-1.amazonaws.com/jonathan-diazjpeg.jpg" alt="Jonathan Diaz"/></div>
+              <div className="about-us-links">
+                <a href="" target="_blank"><img alt="about-us" className="a-u-link" src="https://img.icons8.com/color/48/000000/linkedin.png" /></a>
+                <a href="" target="_blank"><img alt="about-us" className="a-u-link" src="https://img.icons8.com/fluent/48/000000/github.png" /></a>
+                <a href="" target="_blank"><img alt="about-us" className="a-u-link" src="https://img.icons8.com/ios/50/000000/angelist.png" /></a>
+
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     )
   }
