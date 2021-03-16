@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch, Link} from 'react-router-dom';
+import {Route, Link} from 'react-router-dom';
 import FriendDetailContainer from './friend_detail_container'; 
 import FriendIndexItem from './friend_index_item'; 
 
@@ -52,14 +52,10 @@ class Connections extends React.Component{
       }
     }
        
-    
     return(
- 
       <section className="connections">
-        <Switch>
-          <Route path="profile/connections" component={FriendDetailContainer} />
-          <Route path="profile/connections/:friendId" component={FriendDetailContainer} />
-        </Switch>
+        <Route path="/profile/connections/:friendId" component={FriendDetailContainer} />
+
         <ul id="friend-index">
           {this.props.friends.map( (friend, i)=>{
             return <FriendIndexItem key={i} friend={friend} />
