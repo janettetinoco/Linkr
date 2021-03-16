@@ -71,6 +71,12 @@ socket.on('connection', (socket) => {
     // });
 });
 
+socket.on("chat message", function(msg) {
+  console.log("message: "  +  msg);
+  //broadcast message to everyone in port:5000 except yourself.
+  socket.broadcast.emit("received", { message: msg  });
+});
+
 //now the server is listening on port 500 
 http.listen(chatPort, () => {
   console.log('listening on *:' + chatPort);
