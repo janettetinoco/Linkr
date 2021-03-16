@@ -3,3 +3,4 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /package-lock.json
+/frontend/package-lock.json
