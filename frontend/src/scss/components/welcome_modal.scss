@@ -229,8 +229,11 @@
   opacity: 0;
   animation-name: topFadeOut;
   animation-duration: 3s;
-
+  
 }
+.frame-1 > span{
+    font-size: 30px;
+  }
 
 .frame-2 {
   font-size: 40px;
@@ -283,10 +286,24 @@
   left: 5%;
   bottom: 25%;
   opacity: 0;
-  animation-fill-mode: forwards;
-  animation-name: bottomFadeOut; 
+  animation-name: bottomFadeOut;
   animation-delay: 16s;
-  animation-duration: 9s;
+  // animation-duration: 2s;
+  // animation: move 5s infinite;
+  animation-fill-mode: forwards;
+}
+
+.frame-7 {
+  font-size: 40px;
+  position: absolute;
+  left: 5%;
+  bottom: 25%;
+  opacity: 0;
+  animation-name: none;
+  animation-delay: 18s;
+
+  // animation: move 5s infinite;
+  // animation-fill-mode: forwards;
 }
 
 

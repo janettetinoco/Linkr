@@ -78,11 +78,9 @@ class MyProfile extends React.Component{
       const image = new FormData();
       image.append('image', this.state.imageFile);
       this.props.uploadImage(image).then((res) => {
-        console.log(res.image.data.imageUrl)
         this.state.imageUrl = res.image.data.imageUrl
       })
     }
-    debugger
     this.props.updateProfile(this.state)
    
     let h = document.getElementsByClassName('profile-container')
