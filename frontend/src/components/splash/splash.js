@@ -1,5 +1,5 @@
 import React from 'react';
-import splashimg from '../../scss/components/young-professional-wealth-building-in-your-20s-metroplex-wealth-southlake-texas.png'
+import splashimg from '../../pics/young-professional-wealth-building-in-your-20s-metroplex-wealth-southlake-texas.png'
 class Splash extends React.Component{
     render(){
         return(
