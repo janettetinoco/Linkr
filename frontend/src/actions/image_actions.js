@@ -25,6 +25,7 @@ const receiveImageErrors = (errors) => {
 
 
 export const uploadImage = (data) => (dispatch) => {
+    debugger
     return ImageUtil.uploadImage(data)
      .then((image) => dispatch(receiveImage(image)))
      .catch(err => dispatch(receiveImageErrors(err)));
