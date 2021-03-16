@@ -227,7 +227,6 @@ router.patch('/updateProfile', (req, res) => {
   let imageUrl = req.body.imageUrl
   // 
   
-  
   User.findByIdAndUpdate(id, 
     {
       occupation: occupation,

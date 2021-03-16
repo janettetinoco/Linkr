@@ -26,7 +26,7 @@ mongoose
 .catch(err => (err));
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit:'4MB'}));
 
 app.get("/", (req, res) => res.send("This is the new Linkr"));
 app.use("/api/users", users);
