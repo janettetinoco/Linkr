@@ -130,7 +130,9 @@ class SignupForm extends React.Component {
       <form className="signup-form" onSubmit={this.handleSubmit}>
         <div>
           {/* {this.renderErrors()} */}
-          
+          <p className="welcome-message">
+            Welcome To Linkr!
+          </p>
           <p className="field-errors">
             {this.props.errors.name ? this.props.errors.name : null}
           </p>
@@ -225,11 +227,10 @@ class SignupForm extends React.Component {
                 onClick={()=>this.setState({recruiterStatus: "false"})}
               >No</button>
             </div> */}
-            {this.state.imageUrl ? <span className="image-preview">{preview}</span> :
-              <div className="choose-file">Upload Profile Image
-                <input type="file" onChange={this.handleFile}/>
-              </div>
-            }
+            <span className="image-preview">{preview}</span>
+            <div className="choose-file">Upload Profile Image
+              <input type="file" onChange={this.handleFile}/>
+            </div>
             <input 
               className="session-submit"
               type="submit"
