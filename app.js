@@ -46,27 +46,27 @@ app.listen(port, () => (`Server is running on port ${port}`));
 
 //messaging feature
 io.on('connection', (socket) => {
+  console.log("user connected"); 
+    // Message.find().sort({createdAtt: -1}).limit(10).exec((err, messages) => {
+    //     if (err) return console.error(err);
 
-    Message.find().sort({createdAtt: -1}).limit(10).exec((err, messages) => {
-        if (err) return console.error(err);
+    //     socket.emit('init', messages)
+    // });
 
-        socket.emit('init', messages)
-    });
+    // socket.on('message', (msg) => {
+    //     const message = new Message({
+    //         content: msg.content,
+    //         name: msg.name,
+    //     });
 
-    socket.on('message', (msg) => {
-        const message = new Message({
-            content: msg.content,
-            name: msg.name,
-        });
+    //     message.save((err) => {
+    //         if (err) return console.error(err)
+    //     });
 
-        message.save((err) => {
-            if (err) return console.error(err)
-        });
-
-        socket.broadcast.emit('push', msg);
-    });
+    //     socket.broadcast.emit('push', msg);
+    // });
 });
 
-// http.listen(port, () => {
-//   console.log('listening on *:' + port);
-// });
+http.listen(500, () => {
+  console.log('listening on *:' + 500);
+});
