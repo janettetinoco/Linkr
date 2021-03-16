@@ -67,9 +67,9 @@
   display: flex;
   align-items: center;
   .btn-sm {
-    color: $dark-gray;
+    color: $gray;
     font-weight: 700;
-    padding: 6px 12px;
+    padding: 5px 10px;
     transition: background-color 0.5s;
     transition: color 0.5s;
     font-family: sans-serif;
@@ -77,7 +77,7 @@
     border: 1px solid transparent;
   }
   .btn-bg {
-    padding: 6px 12px;
+    padding: 5px 10px;
     border: 1px solid $linkr-blue;
     background-color: $lightest-gray;
     border-radius: 25px;
@@ -174,9 +174,9 @@
 }
 
 .about-us-link{
-    color: $dark-gray;
+    color: $gray;
     font-weight: 700;
-    padding: 6px 12px;
+    padding: 5px 10px;
     transition: background-color 0.5s;
     transition: color 0.5s;
     font-family: sans-serif;
@@ -186,12 +186,9 @@
 }
 
 .about-us-link:hover{
-    color: $dark-gray;
-    font-weight: 700;
-    padding: 6px 12px;
-    transition: background-color 0.5s;
-    transition: color 0.5s;
-    font-family: sans-serif;
-    font-size: 20px;
-    border: 1px solid transparent;
+    background-color: $light-gray;
+    color: $linkr-blue;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 25px;
 }
