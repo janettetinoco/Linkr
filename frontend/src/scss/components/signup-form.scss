@@ -1,6 +1,7 @@
 .signup-form {
     color: $linkr-orange;
     background-color: $lightest-gray;
+    width: 100%;
     font-family: $railway;
     border: 1px solid $light-gray;
     border-radius: 7px;
@@ -85,16 +86,16 @@
 
 .choose-file {
     display: flex;
-    font-size: 1.7vh;
-    font-family: $railway;
     text-align: center;
     justify-content: center;
+    align-items: center;
+    font-size: 1.7vh;
+    font-family: $railway;
     background-color: $darker-linkr-blue;
     border-radius: 20px;
     color: white;
     width: 160px;
     height: 27px;
-    // padding-top: 3px;
     position: relative;
     input[type="file"]{
         position: absolute;
@@ -153,6 +154,11 @@
     color: red;
     text-align: center;
     justify-content: center;
+}
+
+.image-preview {
+    width: 50%;
+    height: 50%;
 }
 
 .switch-form-container {
