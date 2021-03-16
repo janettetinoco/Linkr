@@ -172,3 +172,26 @@
 .btn-bg.logout:hover{
   background-color: $linkr-orange;
 }
+
+.about-us-link{
+    color: $dark-gray;
+    font-weight: 700;
+    padding: 6px 12px;
+    transition: background-color 0.5s;
+    transition: color 0.5s;
+    font-family: sans-serif;
+    font-size: 20px;
+    border: 1px solid transparent;
+    text-decoration: none;
+}
+
+.about-us-link:hover{
+    color: $dark-gray;
+    font-weight: 700;
+    padding: 6px 12px;
+    transition: background-color 0.5s;
+    transition: color 0.5s;
+    font-family: sans-serif;
+    font-size: 20px;
+    border: 1px solid transparent;
+}
