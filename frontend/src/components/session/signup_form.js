@@ -57,7 +57,6 @@ class SignupForm extends React.Component {
       city: this.state.city,
     }
     user.imageUrl = this.state.imageUrl ? this.state.imageUrl : "https://linkr-dev.s3-us-west-1.amazonaws.com/isgpp_avatar_placeholder.png";
-    debugger
     if(this.state.imageFile){
       const image = new FormData();
       image.append('image', this.state.imageFile);

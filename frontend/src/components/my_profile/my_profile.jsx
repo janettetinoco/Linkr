@@ -65,7 +65,6 @@ class MyProfile extends React.Component{
   }
 
   handleSubmit(e) {
-    debugger
 
     e.preventDefault();
     
@@ -78,12 +77,11 @@ class MyProfile extends React.Component{
     if (this.state.imageFile !== '') {
       const image = new FormData();
       image.append('image', this.state.imageFile);
+      let that =this;
       this.props.uploadImage(image).then((res) => {
-        debugger
-        this.setState({imageUrl: res.image.data.imageUrl})
+        that.state.imageUrl = res.image.data.imageUrl
       })
     }
-    debugger
 
     this.props.updateProfile(this.state)
    
