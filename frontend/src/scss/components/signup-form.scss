@@ -32,7 +32,12 @@
 }
 
 .session-footer {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // justify-content: space-evenly;
+    // margin-left: auto;
+    // margin-right: auto;
 }
 
 .recruiter-container {
@@ -64,11 +69,12 @@
     background-color: $darker-linkr-orange;
     color: $lightest-gray;
     margin-top: 5px;
-    margin-right: 10px;
+    // margin-right: 10px;
     border-radius: 20px;
     width: 160px;
     height: 27px;
     text-align: center;
+    // justify-content: center;
 }
 
 
@@ -78,15 +84,17 @@
 }
 
 .choose-file {
+    display: flex;
     font-size: 1.7vh;
     font-family: $railway;
     text-align: center;
+    justify-content: center;
     background-color: $darker-linkr-blue;
     border-radius: 20px;
     color: white;
-    width: 110px;
+    width: 160px;
     height: 27px;
-    padding-top: 5px;
+    // padding-top: 3px;
     position: relative;
     input[type="file"]{
         position: absolute;
@@ -140,10 +148,11 @@
     display: none;
 }
 
-.city-industry-errors {
+.field-errors {
     height: 20px;
     color: red;
     text-align: center;
+    justify-content: center;
 }
 
 .switch-form-container {
