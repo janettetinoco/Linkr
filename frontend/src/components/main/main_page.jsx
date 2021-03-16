@@ -44,17 +44,15 @@ UNSAFE_componentWillMount(){
     .then ( ()=>{
       if(this.props.self){
         this.props.filterUsersBy('city', this.props.self.city)
+        .then ( ()=> {
+          // this.forceUpdate();
+          this.setState({usersToDisplay: this.props.usersToDisplay, currentCity: this.props.self.city});
+        });
       }
     })
-    .then ( ()=> {
-      // this.forceUpdate();
-      this.setState({usersToDisplay: this.props.usersToDisplay, currentCity: this.props.self.city});
-    });
     this.props.getConnections(this.props.myId);
     this.props.getBlocks(this.props.myId);
     this.props.getPendings(this.props.myId);
-    // this.forceUpdate();
-    // this.setState({});
   }
 
   swipe(filter){
