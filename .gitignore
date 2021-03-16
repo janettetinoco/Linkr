@@ -2,3 +2,4 @@
 /config/keys_dev.js
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/package-lock.json
