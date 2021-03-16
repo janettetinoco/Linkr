@@ -45,31 +45,6 @@
     // margin-right: auto;
 }
 
-.recruiter-container {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.recruiter-button {
-    border: 1px solid $light-gray;
-    margin-top: 5px;
-    margin-right: 10px;
-    border-radius: 20px;
-    width: 40px;
-    height: 27px;
-    text-align: center;
-}
-
-.recruiter-button:hover {
-    cursor: pointer;
-    filter: brightness(70%);
-}
-
-.recruiter-button:focus {
-    background-color: $other-orange;
-    color: white;
-}
-
 .session-submit {
     background-color: $darker-linkr-orange;
     color: $lightest-gray;
@@ -81,7 +56,6 @@
     text-align: center;
     // justify-content: center;
 }
-
 
 .session-submit:hover {
     cursor: pointer;
@@ -125,33 +99,47 @@
     text-align: center;
 }
 
-.city-industry-icon {
-    width: 100%;
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
 
-
-.city-industry-icon:hover {
-    cursor: pointer;
-    display: block;
-    padding-bottom: inherit;
-    border: 1px solid $light-gray;
-
-    .cit-ind-dropdown {
-        display: block;
-        font-size: 1.2vh;
-        color: $better-linkr-blue;
-        text-align: left;
-        padding-left: 4px;
-
-        .list-item:hover {
-            background-color: $light-gray;
-        }
-    }
-}
-
-.cit-ind-dropdown {
+.dropdown-content {
     display: none;
+    position: absolute;
+    z-index: 1;
 }
+
+.dropdown:hover .dropdown-content { 
+    display: block; 
+}
+
+// .city-industry-icon {
+//     width: 100%;
+// }
+
+// .city-industry-icon:hover {
+//     cursor: pointer;
+//     display: block;
+//     padding-bottom: inherit;
+//     border: 1px solid $light-gray;
+    
+//     .cit-ind-dropdown {
+//         display: block;
+//         font-size: 1.2vh;
+//         color: $better-linkr-blue;
+//         text-align: left;
+//         padding-left: 4px;
+        
+//         .list-item:hover {
+//             background-color: $light-gray;
+//         }
+//     }
+// }
+
+// .cit-ind-dropdown {
+//     display: none;
+// }
 
 .field-errors {
     height: 20px;
@@ -181,3 +169,29 @@
     cursor: pointer;
     filter: brightness(70%);
 }
+
+
+// .recruiter-container {
+//     display: flex;
+//     justify-content: space-evenly;
+// }
+
+// .recruiter-button {
+//     border: 1px solid $light-gray;
+//     margin-top: 5px;
+//     margin-right: 10px;
+//     border-radius: 20px;
+//     width: 40px;
+//     height: 27px;
+//     text-align: center;
+// }
+
+// .recruiter-button:hover {
+//     cursor: pointer;
+//     filter: brightness(70%);
+// }
+
+// .recruiter-button:focus {
+//     background-color: $other-orange;
+//     color: white;
+// }

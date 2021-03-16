@@ -170,8 +170,9 @@ class SignupForm extends React.Component {
             {this.props.errors.industry ? this.props.errors.industry : null}
           </p>
           <div className="city-industry-container">
-            <div className="city-industry-icon">{this.state.city === '' ? "City" : this.state.city}
-              <ul className="cit-ind-dropdown">
+            <div className="dropdown">
+              <p className="city-industry-icon">{this.state.city === '' ? "City" : this.state.city}</p>
+              <ul className="dropdown-content">
                 <li 
                   onClick= {()=>this.setState({city: "San Francisco"})}
                   className="list-item"
@@ -186,8 +187,9 @@ class SignupForm extends React.Component {
                 >New York</li>
               </ul>
             </div>
-            <div className="city-industry-icon">{this.state.industry === '' ? "Industry" : this.state.industry}
-              <ul className="cit-ind-dropdown">
+            <div className="dropdown">
+              <p className="city-industry-icon">{this.state.city === '' ? "Industry" : this.state.industry}</p>
+              <ul className="dropdown-content">
                 <li 
                   onClick={()=>this.setState({industry: "Software Engineering"})}
                   className="list-item"
