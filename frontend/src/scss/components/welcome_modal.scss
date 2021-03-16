@@ -142,7 +142,7 @@
 
   75% {
     position: absolute;
-    top: 25%;
+    top: 20%;
     opacity: 1;
   }
 
@@ -170,43 +170,6 @@
   
 }
 
-@keyframes topFadeOutVertical {
-  0% {
-    position: absolute;
-    top: -3rem;
-    opacity: 0;
-  }
-
-  75% {
-    position: absolute;
-    top: 45%;
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes rightFadeInOut {
-  0% {
-    position: absolute;
-    right: -3rem;
-    opacity: 0;
-  }
-
-  75% {
-    position: absolute;
-    right: 5rem;
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-    right: 10rem;
-  }
-}
-
 @keyframes fadeInOut {
   0% {
     opacity: 0;
@@ -220,12 +183,15 @@
     opacity: 0%;
   }
 }
+.frame-1 span{
+  font-size: 25px;
+}
 
 .frame-1 {
+  text-align: center;
   font-size: 50px;
   position: absolute;
-  left: 2.5rem;
-  top: 5rem;
+  top: 3rem;
   opacity: 0;
   animation-name: topFadeOut;
   animation-duration: 3s;
@@ -288,20 +254,7 @@
   opacity: 0;
   animation-name: bottomFadeOut;
   animation-delay: 16s;
-  // animation-duration: 2s;
-  // animation: move 5s infinite;
-  animation-fill-mode: forwards;
-}
-
-.frame-7 {
-  font-size: 40px;
-  position: absolute;
-  left: 5%;
-  bottom: 25%;
-  opacity: 0;
-  animation-name: none;
-  animation-delay: 18s;
-
+  animation-duration: 2s;
   // animation: move 5s infinite;
   // animation-fill-mode: forwards;
 }
