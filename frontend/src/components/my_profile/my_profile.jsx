@@ -162,9 +162,12 @@ class MyProfile extends React.Component{
             <div className='flip-card-back'>
               <div className='image-container'>
                 <div className='upload-pic'>
-                  <input type="file" onChange={this.handleFile} />
-                    {/* <img src="https://img.icons8.com/ios/50/ffffff/test-account.png"/> */}
-                  {/* <button><img src="https://img.icons8.com/ios/50/ffffff/test-account.png"/></button> */}
+                  {/* <input type="file" onChange={this.handleFile} /> */}
+                    {/* <img src="https://img.icons8.com/ios/50/ffffff/test-account.png" /> */}
+                  <button>
+                    <img src="https://img.icons8.com/ios/50/ffffff/test-account.png"/>
+                    <input type="file" onChange={this.handleFile} />
+                  </button>
                   <h1>Upload Picture</h1>
                 </div>
                 <img alt="profile" id='img-main' src={this.props.self.imageUrl} />
