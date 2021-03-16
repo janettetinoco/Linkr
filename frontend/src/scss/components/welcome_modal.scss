@@ -283,10 +283,10 @@
   left: 5%;
   bottom: 25%;
   opacity: 0;
+  animation-fill-mode: forwards;
   animation-name: bottomFadeOut; 
   animation-delay: 16s;
   animation-duration: 9s;
-  animation-fill-mode: forwards;
 }
 
 

@@ -20,7 +20,7 @@
     rgba(0, 0, 0, 0.137),
     rgba(0, 0, 0, 0)
   ),
-  url('iStock-1145350457.jpg');
+  url('../../pics/iStock-1145350457.jpg');
   
  }
 .nav-wrap{
@@ -47,6 +47,7 @@
   height: 50px;
   display: flex;
   align-items: center;
+  text-decoration: none;
   h1{
   font-family: $railway;
   font-style: bold;
@@ -104,11 +105,11 @@
 
 .splash-text{
     position: absolute;
-    margin-top: 13vh;
+    top: 13vh;
     font-family: "Paytone One", sans-serif;
     width: 45%;
     line-height: 5.0vw;
-    font-size: 4.1vw;
+    font-size: 4.0vw;
     color: #B2D6F9;
     right: 3vw;
     z-index: 5;
@@ -120,15 +121,16 @@
 
 
 .hero-img{
-  bottom: 0;
+  bottom: 1vh;
+  left:1vw;
   z-index: 0;
-  width:45vw;
+  width:35vw;
   position: absolute;
   opacity: 9.4;
 }
 
 .splash-text2{
-    margin-top: 59vh;
+    top: 59vh;
     position: absolute;
     font-family: "Questrial", sans-serif;
     width: 41%;
@@ -136,7 +138,7 @@
     line-height: 3.3vw;
     font-size: 2.7vw;
     color: #e2e2e2;
-    right: 13vw;
+    right: 20vw;
 }
 
 

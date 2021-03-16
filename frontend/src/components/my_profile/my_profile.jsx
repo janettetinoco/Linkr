@@ -45,6 +45,7 @@ class MyProfile extends React.Component{
       aboutMe: '',
       industry: '',
       imageUrl: '',
+      imageFile: '',
     })
 
     let h = document.getElementsByClassName('profile-container')
@@ -68,11 +69,19 @@ class MyProfile extends React.Component{
     e.preventDefault();
     
     Object.keys(this.state).forEach(field =>{
-      if (this.state[field] === ''){
+      if (this.state[field] === '' ){
         this.state[field] = this.props.self[field]
 
       }
     })
+    if (this.state.imageFile !== '') {
+      const image = new FormData();
+      image.append('image', this.state.imageFile);
+      let that =this;
+      this.props.uploadImage(image).then((res) => {
+        that.state.imageUrl = res.image.data.imageUrl
+      })
+    }
 
     this.props.updateProfile(this.state)
    
@@ -87,13 +96,12 @@ class MyProfile extends React.Component{
       return null;
     }
     let profPic;
-    if (this.state.imageUrl === ''){
-      profPic = this.props.self.imageUrl
-    } else {
-      profPic = this.state.imageUrl
-      // debugger
+    if(this.state.imageUrl === ''){
+      profPic = <img alt="profile" id='img-main' src={this.props.self.imageUrl} />
+    }else{
+      profPic = <img alt="profile" id='img-main' src={this.state.imageUrl} />
     }
-    
+
     return(
    
       <div className='profile-page'>
@@ -101,8 +109,7 @@ class MyProfile extends React.Component{
           <div className='card'>
             <div className="flip-card-front">
               <div className='image-container'>
-                {/* <img alt="profile" id='img-main' src={this.props.self.imageUrl} /> */}
-                <img alt="profile" id='img-main' src={profPic} />
+                <img alt="profile" id='img-main' src={this.props.self.imageUrl} />
                 <div className='edit-b'>
                   <button onClick={this.handleEditButton}><img alt="profile" id='edit' className='user-icon' src="https://img.icons8.com/ultraviolet/40/000000/edit.png" /></button>
                   <h1>Edit Profile</h1>
@@ -170,7 +177,7 @@ class MyProfile extends React.Component{
                   </button>
                   <h1>Upload Picture</h1>
                 </div>
-                <img alt="profile" id='img-main' src={this.props.self.imageUrl} />
+                <div>{profPic}</div>
                 <div className='edit-b'>
                   <button onClick={this.handleEditButton}><img alt="profile" id='edit' className='user-icon' src="https://img.icons8.com/ios-filled/64/000000/left.png" /></button>
                   <h1>Go back</h1>
