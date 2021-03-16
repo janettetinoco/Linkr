@@ -11,7 +11,9 @@ const image = require('./routes/api/image');
 
 //socket
 const http = require('http').Server(app);
-const io = require('socket.io')(http);
+//socket io adds event listenenrs to an instance of http.server
+const io = require('socket.io');
+const socket = io(http);
 const Message = require('./models/Message');
 
 
@@ -41,11 +43,13 @@ mongoose
 
 
 const port = process.env.PORT || 5000;
+const chatPort = process.env.PORT || 500; 
+
 app.listen(port, () => (`Server is running on port ${port}`));
 
-
 //messaging feature
-io.on('connection', (socket) => {
+//listening for new connection events
+socket.on('connection', (socket) => {
   console.log("user connected"); 
     // Message.find().sort({createdAtt: -1}).limit(10).exec((err, messages) => {
     //     if (err) return console.error(err);
@@ -67,6 +71,7 @@ io.on('connection', (socket) => {
     // });
 });
 
-http.listen(500, () => {
-  console.log('listening on *:' + 500);
+//now the server is listening on port 500 
+http.listen(chatPort, () => {
+  console.log('listening on *:' + chatPort);
 });
