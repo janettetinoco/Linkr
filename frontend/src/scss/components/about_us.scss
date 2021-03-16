@@ -1,0 +1,38 @@
+.about-us-links{
+  height: 50px; 
+}
+.a-u-linkedIn{
+  height: 50px;
+  width: 50px; 
+}
+
+#about-us{
+  position: relative; 
+  top: 100px;
+}
+
+.about-us-img-container{
+  height: 300px;
+  width: 300px; 
+  
+}
+.about-us-img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border: 5px solid $linkr-blue;
+  border-radius: 20%;
+}
+
+#about-us-list{
+  display: flex;
+  flex-direction: row;
+  height: 50%;
+  justify-content: center;
+  li{
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+  }
+}

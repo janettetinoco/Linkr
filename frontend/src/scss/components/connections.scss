@@ -15,16 +15,28 @@ background: linear-gradient(to bottom right, #394da0 0%, #DAA7C5 54%);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;	
 -webkit-text-stroke: 1px black;
+}
 
-
+@media (min-height: 890px){
+  .connections{
+    background-image: url("../../background_images/salar_cotton_candy.png");
+    height: 100vh
+  }
+}
+@media (max-height: 890px) {
+  .connections{
+    background-image: url("../../background_images/salar_cotton_candy.png");
+    height: 200vh;
+  }
 }
 
 .connections{
   background-image: url("../../background_images/salar_cotton_candy.png");
-  background-size: cover;
+  background-size: cover; 
+  background-repeat: repeat-y;
   display: flex;
   justify-content: center;
-  // align-items: center;
+
 }
 .nav-bar{
   z-index: 5;
@@ -34,8 +46,6 @@ background: linear-gradient(to bottom right, #394da0 0%, #DAA7C5 54%);
   display: flex;
   flex-direction: row-reverse;
   padding: 0;
-  height: 100%;
-
   > ul{
     display: flex;
     flex-direction: row;
@@ -72,7 +82,8 @@ background: linear-gradient(to bottom right, #394da0 0%, #DAA7C5 54%);
 #friend-index{
 
   margin: 0 20px;
-  width: 50%;
+  width: fit-content;
+  min-width: 50%;
   overflow-x:scroll;
   transform:translateY(75px);
   -webkit-box-shadow: -1px 1px 3px 4px rgba(37,92,122,0.62), 1px 2px 3px 5px rgba(67,122,152,0.62), 0px 5px 0px 3px rgba(198,147,177,0.79), inset 0px 0px 11px 1px rgba(192,186,148,0.76), inset 0px 0px 8px 1px rgba(192,186,148,0.76); 
