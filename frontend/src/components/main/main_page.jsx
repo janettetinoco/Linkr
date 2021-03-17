@@ -96,7 +96,7 @@ UNSAFE_componentWillMount(){
           </div>
         <div id="help-icon" ><img onClick={() => {
           this.props.openModal('welcome')
-          setTimeout(() => this.props.closeModal(), 18000)}} src="https://img.icons8.com/cotton/64/000000/info--v2.png" /></div>
+          setTimeout(() => this.props.closeModal(), 14000)}} src="https://img.icons8.com/cotton/64/000000/info--v2.png" /></div>
       </div>
     );
   }

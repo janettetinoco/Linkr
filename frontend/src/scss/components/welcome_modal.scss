@@ -1,12 +1,14 @@
 .welcome-container {
-  width: 100%;
-  height: 50vh;
-//   background-color: blue;
+  min-width: 400px;
+  height: 350px;
+  background-color: rgb(78, 138, 194);
   margin: 0 auto;
   overflow: hidden;
   position: relative;
   font-family: 'Raleway';
   color: white;
+  border-radius: 10%;
+  // box-shadow: 0 0 8px 1px #ccc;
 }
 
 
@@ -80,26 +82,38 @@
   }
 
 .frame-2 {
-  font-size: 40px;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 25px;
   position: absolute;
-  top: 8.5rem;
+  top: 2rem;
   opacity: 0;
   animation-name: fadeInOut;
   animation-delay: 3s;
-  animation-duration: 2s;
-
+  animation-duration: 3s;
+}
+.frame-2 img{
+  margin-top: 1vh;
+  // left:50%;
+  // right:50%;
+  height:150px;
+  width:250px;
 }
 
 .frame-3 {
   text-align: center;
-  font-size: 2vw;
+  font-size: 25px;
   position: absolute;
-  left: 5%;
-  top: 20%;
+  // left:5%;
+  top: 15%;
   opacity: 0;
   animation-name: fadeInOut;
-  animation-delay: 5s;
-  animation-duration: 3s;
+  animation-delay: 6s;
+  animation-duration: 5s;
 //   white-space: nowrap;
 }
 .frame-3 span{
@@ -108,35 +122,35 @@
 }
 
 .frame-4 {
-  font-size: 40px;
+  font-size: 25px;
   position: absolute;
-  left: 5%;
-  bottom: 25%;
+  left: 8%;
+  top: 25%;
   opacity: 0;
   animation-name: bottomFadeOut;
   animation-delay: 8s;
   animation-duration: 4s;
 }
 
-.frame-5 {
-  font-size: 40px;
-  position: absolute;
-  left: 5%;
-  bottom: 25%;
-  opacity: 0;
-  animation-name: bottomFadeOut;
-  animation-delay: 12s;
-  animation-duration: 4s;
-}
+// .frame-5 {
+//   font-size: 40px;
+//   position: absolute;
+//   left: 5%;
+//   bottom: 25%;
+//   opacity: 0;
+//   animation-name: bottomFadeOut;
+//   animation-delay: 12s;
+//   animation-duration: 4s;
+// }
 
 .frame-6 {
   font-size: 40px;
   position: absolute;
   left: 5%;
-  bottom: 25%;
+  top: 10%;
   opacity: 0;
   animation-name: bottomFadeOut;
-  animation-delay: 16s;
+  animation-delay: 12s;
   animation-duration: 2s;
   // animation: move 5s infinite;
   // animation-fill-mode: forwards;
