@@ -35,10 +35,6 @@ const UserSchema = new Schema({
     imageUrl: {
         type: String
     },
-    recruiterStatus: {
-        type: Boolean,
-        required: true
-    },
     city: {
         type: String,
         required: true

@@ -30,7 +30,6 @@ router.post('/register', (req, res) => {
           email: req.body.email.toLowerCase(),
           password: req.body.password,
           industry: req.body.industry,
-          recruiterStatus: req.body.recruiterStatus,
           city: req.body.city,
           imageUrl: req.body.imageUrl
         })
@@ -65,7 +64,6 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
     email: req.body.email,
     password: req.body.password,
     industry: req.body.industry,
-    recruiterStatus: req.body.reqruiterStatus,
     city: req.body.city
   });
 })
