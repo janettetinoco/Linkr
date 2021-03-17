@@ -18,14 +18,22 @@ class SignupForm extends React.Component {
       imageFile: null,
       imageUrl: "https://linkr-dev.s3-us-west-1.amazonaws.com/isgpp_avatar_placeholder.png",
     };
+    // <img alt="signup-form" src="https://linkr-dev.s3-us-west-1.amazonaws.com/isgpp_avatar_placeholder.png" />
     this.industries = ['Healthcare', 'Arts', 'Audio/Video Tech', 'Communications', 'Manufacturing', 'Information Tech', 'Agriculture', 'Education', 'Real Estate', 'Retail', 'Education', 'Government', 'Biological Science', 'Software Engineering', ];
     this.cities = ['New York', 'Dallas', 'San Francisco']; 
     this.handleSubmit = this.handleSubmit.bind(this); 
     this.onRecruiterChange = this.onRecruiterChange.bind(this);
     this.clearedErrors = false;
     this.handleFile = this.handleFile.bind(this);
+    this.clickFile = this.clickFile.bind(this); 
+    this.handleChange = this.handleChange.bind(this); 
   }
 
+  handleChange(field){
+    return (e)=>{
+      this.setState({[field]: e.target.value}); 
+    }
+  }
   handleFile(e) {
     e.preventDefault();
     const file = e.currentTarget.files[0]
@@ -38,6 +46,10 @@ class SignupForm extends React.Component {
     }
   }
 
+  clickFile(e){
+    e.preventDefault();
+    document.getElementById('input-file').click();
+  }
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -46,6 +58,7 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.resetErrors(); 
     let user = {
       name: this.state.name,
       email: this.state.email,
@@ -56,6 +69,7 @@ class SignupForm extends React.Component {
       city: this.state.city,
     }
     user.imageUrl = this.state.imageUrl ? this.state.imageUrl : "https://linkr-dev.s3-us-west-1.amazonaws.com/isgpp_avatar_placeholder.png";
+
     if(this.state.imageFile){
       const image = new FormData();
       image.append('image', this.state.imageFile);
@@ -126,17 +140,38 @@ class SignupForm extends React.Component {
       passwordClassName = "signup-input-error";
     }
 
+    let cityIndustryErrors = 'is required';
+    if(this.props.errors.industry){
+      cityIndustryErrors = "Industry "+cityIndustryErrors;
+      document.getElementById('industry-input').classList.add('signup-input-error');
+    }
+    else{
+      
+      let i = document.getElementById('industry-input')
+      if(i) {i.classList.remove('signup-input-error');}
+    }
+    if(this.props.errors.city){
+      cityIndustryErrors = "City " + cityIndustryErrors;
+      document.getElementById('city-input').classList.add('signup-input-error');
+    }
+    else{
+      let c = document.getElementById('city-input');
+      if(c){c.classList.remove('signup-input-error');}
+
+    }
+    if(this.props.errors.city && this.props.errors.industry){
+      cityIndustryErrors = "City & Industry are required";
+    }
     let industryOptions = this.industries.map( (industry,key)=>{
-      <option key={key} value={industry} id="industry-option">{industry}</option>
+      return <option key={key} value={industry} id="industry-option">{industry}</option>
     });
     let cityOptions = this.cities.map( (city, key)=>{
-      <option key={key} value={city} id="city-option">{city}</option>
+      return <option key={key} value={city} id="city-option">{city}</option>
     })
     return (
       <form className="signup-form" onSubmit={this.handleSubmit}>
         <div>
-          {/* {this.renderErrors()} */}
-          <p className="welcome-message">
+          <p className="welcome-message"> 
             Welcome To Linkr!
           </p>
 
@@ -171,25 +206,26 @@ class SignupForm extends React.Component {
             value={this.state.password}
             onChange={this.update('password')}
           />
+  
           <p className="field-errors">
-            {this.props.errors.city ? this.props.errors.city : null}
-          </p>
-          <p className="field-errors">
-            {this.props.errors.industry ? this.props.errors.industry : null}
+            {this.props.errors.industry || this.props.errors.city ? cityIndustryErrors : null}
           </p>
           <div className="city-industry-container">
-            <select id="city-input" onChange={this.handleChange}>
+            <select className="city-industry-input" id="city-input" onChange={this.handleChange('city')}>
+              <option value='' id="city-option">Select City</option>
               {cityOptions}
             </select>
-            <select id="industry-input" onChange={this.handleChange}>
+            <select className="city-industry-input" id="industry-input" onChange={this.handleChange('industry')}>
+              <option value='' id="industry-option">Select Industry</option>
               {industryOptions}
             </select>
+
           </div>
           <footer className="session-footer">
-
-            <div className="choose-file">Upload Profile Image
-              <input type="file" onChange={this.handleFile}/>
-            </div>
+              <input type="file" id='input-file' onChange={this.handleFile}/>
+              <button className="choose-file" onClick={this.clickFile}>
+                Upload Image
+              </button>
             <input 
               className="session-submit"
               type="submit"

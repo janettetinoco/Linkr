@@ -1,11 +1,42 @@
+@mixin inputStyle{
+  height: 30px;
+  background-color: #fefefe;
+  font-size: 17px;
+  font-family: $railway;
+  text-indent: 10px;
+  z-index: 3;
+  border: 1px solid $light-gray;
+  border-radius: 20px;
+  margin: 4px;
+  }
+  
+  %inputStyle{
+    @include inputStyle;
+  }
+
+.welcome-message {
+    font-size: 24px;
+}
 
 #add-profile-image{
   background-color: black; 
   height: 30px;
   width: 30px; 
 }
-
-
+#image-preview {
+    width: 125px;
+    height: 125px;
+    border: 1px solid $linkr-blue;
+    border-radius: 50%;
+    margin: 10px auto 10px auto;
+    img{
+      height: 100%;
+      width: 100%;
+      object-fit:cover;
+      object-position: center;
+      border-radius: 50%;
+    }
+}
 .signup-form {
     color: $other-orange;
     background-color: $lightest-gray;
@@ -15,25 +46,43 @@
     border-radius: 7px;
     padding: 5%;
 }
-
-.welcome-message {
-    font-size: 24px;
-}
-
+//inputs 
 .signup-input {
-    font-size: 17px;
-    font-family: $railway;
-    text-indent: 10px;
-    width: 100%;
-    height: 30px;
-    z-index: 3;
-    border: 1px solid $light-gray;
-    margin: 4px;
-    border-radius: 20px;
+@extend %inputStyle;
+  width: 100%;
+}
+.city-industry-input{
+  @extend %inputStyle;
+}
+.city-industry-container {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    margin-top: 0 auto 10px auto;
 }
 
+.choose-file {
+  font-family: $railway;
+  font-size: 1.7vh;
+  text-align: center;
+  margin: auto 0;
+  background-color: $better-linkr-blue;
+  border-radius: 20px;
+  color: white;
+  width: 160px;
+  height: 27px;
+  margin: 15px 0 1px 0;
+}
+  input[type="file"]{
+    display: none;
+  }
+
+.choose-file:hover {
+    cursor: pointer;
+    filter: brightness(70%);
+}
+//errors
 .signup-input-error {
-    font-size: 17px;
     font-family: $railway;
     text-indent: 10px;
     width: 100%;
@@ -44,25 +93,22 @@
     border-radius: 20px;
 }
 
+//submit buttons
 .session-footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    // justify-content: space-evenly;
-    // margin-left: auto;
-    // margin-right: auto;
+    justify-content: space-evenly;
 }
 
 .session-submit {
     background-color: $darker-linkr-orange;
     color: $lightest-gray;
     margin-top: 5px;
-    // margin-right: 10px;
     border-radius: 20px;
     width: 160px;
     height: 27px;
     text-align: center;
-    // justify-content: center;
 }
 
 .session-submit:hover {
@@ -70,107 +116,15 @@
     filter: brightness(70%);
 }
 
-.choose-file {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.7vh;
-    font-family: $railway;
-    background-color: $better-linkr-blue;
-    border-radius: 20px;
-    color: white;
-    width: 160px;
-    height: 27px;
-    position: relative;
-    input[type="file"]{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-    }
-}
-
-.choose-file:hover {
-    cursor: pointer;
-    filter: brightness(70%);
-}
-
-.city-industry-container {
-    font-size: 1.4vh;
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 7px;
-    // height: 100px;
-    text-align: center;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    z-index: 1;
-}
-
-.dropdown:hover .dropdown-content { 
-    display: block; 
-}
-
-// .city-industry-icon {
-//     width: 100%;
-// }
-
-// .city-industry-icon:hover {
-//     cursor: pointer;
-//     display: block;
-//     padding-bottom: inherit;
-//     border: 1px solid $light-gray;
-    
-//     .cit-ind-dropdown {
-//         display: block;
-//         font-size: 1.2vh;
-//         color: $better-linkr-blue;
-//         text-align: left;
-//         padding-left: 4px;
-        
-//         .list-item:hover {
-//             background-color: $light-gray;
-//         }
-//     }
-// }
-
-// .cit-ind-dropdown {
-//     display: none;
-// }
-
 .field-errors {
     height: 20px;
     color: red;
     text-align: center;
-    justify-content: center;
-}
+    font-size: 14px;
+  }
+    
 
-#image-preview {
-    width: 125px;
-    height: 125px;
-    border: 1px solid $linkr-blue;
-    border-radius: 50%;
-    margin: 10px auto 0 auto;
-    img{
-      height: 100%;
-      width: 100%;
-      object-fit:cover;
-      object-position: center;
-      border-radius: 50%;
-    }
-}
-
+//footer
 .switch-form-container {
     margin-top: 15px;
     color: $better-linkr-blue;
