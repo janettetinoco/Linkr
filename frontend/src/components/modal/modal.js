@@ -18,7 +18,7 @@ function Modal({modal, closeModal}) {
         component = <SignupFormContainer />;
         break;
       case 'connection':
-        component = <NewConnection />
+        component = <NewConnection closeModal={closeModal}/>
         break;
       case 'welcome':
         component = <WelcomeTutorial />

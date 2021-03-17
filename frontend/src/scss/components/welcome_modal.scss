@@ -8,7 +8,6 @@
   font-family: 'Raleway';
   color: white;
   border-radius: 10%;
-  // box-shadow: 0 0 8px 1px #ccc;
 }
 
 
@@ -98,23 +97,21 @@
 }
 .frame-2 img{
   margin-top: 1vh;
-  // left:50%;
-  // right:50%;
   height:150px;
   width:250px;
+  border-radius: 5px;
+
 }
 
 .frame-3 {
   text-align: center;
   font-size: 25px;
   position: absolute;
-  // left:5%;
   top: 15%;
   opacity: 0;
   animation-name: fadeInOut;
-  animation-delay: 6s;
+  animation-delay: 5s;
   animation-duration: 5s;
-//   white-space: nowrap;
 }
 .frame-3 span{
   font-weight: 1000;
@@ -122,38 +119,34 @@
 }
 
 .frame-4 {
+  display:flex;
   font-size: 25px;
   position: absolute;
-  left: 8%;
-  top: 25%;
+  left: 4%;
+  top: 15%;
   opacity: 0;
   animation-name: bottomFadeOut;
-  animation-delay: 8s;
+  animation-delay: 9s;
   animation-duration: 4s;
+  align-items: center;
 }
 
-// .frame-5 {
-//   font-size: 40px;
-//   position: absolute;
-//   left: 5%;
-//   bottom: 25%;
-//   opacity: 0;
-//   animation-name: bottomFadeOut;
-//   animation-delay: 12s;
-//   animation-duration: 4s;
-// }
+.frame-4 img{
+  height:220px;
+  width:200px;
+  margin-right:5px;
+  border-radius: 5px;
+}
 
-.frame-6 {
+.frame-5 {
   font-size: 40px;
   position: absolute;
   left: 5%;
   top: 10%;
   opacity: 0;
   animation-name: bottomFadeOut;
-  animation-delay: 12s;
+  animation-delay: 13s;
   animation-duration: 2s;
-  // animation: move 5s infinite;
-  // animation-fill-mode: forwards;
 }
 
 

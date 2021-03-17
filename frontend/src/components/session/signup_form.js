@@ -69,6 +69,7 @@ class SignupForm extends React.Component {
         if(this.props.signedIn){
           this.props.login(user).then(this.props.openModal('welcome'));
         }
+        setTimeout(() => this.props.closeModal(), 15000);
         this.props.history.push('/');
       });
 

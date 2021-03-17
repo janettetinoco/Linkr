@@ -1,6 +1,7 @@
 import React from 'react';
 import mainGif from '../../pics/linkr.gif';
 import network from '../../pics/network.png';
+import connection from '../../pics/connection.gif';
 
 
 class WelcomeTutorial extends React.Component {
@@ -17,8 +18,8 @@ class WelcomeTutorial extends React.Component {
                         <br /><br/>and<br/><br/>
                         Swipe <span>left</span> if you want to skip to the next
                     </h1>
-                    <h1 className="frame-4">Form a mutual connection when you and another professional swipe right</h1>
-                    <h1 className="frame-6">Start Connecting!<img src={network}/></h1>
+                    <h1 className="frame-4"><img src={connection} /><span>Form a mutual connection when you and another professional swipe right</span></h1>
+                    <h1 className="frame-5">Start Connecting!<img src={network}/></h1>
                 </div>
             </div>
         )
