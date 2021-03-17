@@ -76,9 +76,7 @@
   height: 27px;
   margin: 15px 0 1px 0;
 }
-  input[type="file"]{
-    display: none;
-  }
+  
 
 .choose-file:hover {
     cursor: pointer;
@@ -103,6 +101,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+
+    input[type="file"]{
+      display: none;
+    }
 }
 
 .session-submit {

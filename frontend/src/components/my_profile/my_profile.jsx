@@ -74,7 +74,7 @@ class MyProfile extends React.Component{
 
       }
     })
-    if (this.state.imageFile !== '') {
+    if (this.state.imageFile) {
       const image = new FormData();
       image.append('image', this.state.imageFile);
       this.props.uploadImage(image).then((res) => {
