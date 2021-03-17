@@ -1,10 +1,15 @@
 .signup-form {
-    color: $linkr-orange;
+    color: $other-orange;
     background-color: $lightest-gray;
+    width: 100%;
     font-family: $railway;
     border: 1px solid $light-gray;
     border-radius: 7px;
     padding: 5%;
+}
+
+.welcome-message {
+    font-size: 24px;
 }
 
 .signup-input {
@@ -32,45 +37,25 @@
 }
 
 .session-footer {
-    text-align: center;
-}
-
-.recruiter-container {
     display: flex;
-    justify-content: space-evenly;
-}
-
-.recruiter-button {
-    border: 1px solid $light-gray;
-    margin-top: 5px;
-    margin-right: 10px;
-    border-radius: 20px;
-    width: 40px;
-    height: 27px;
-    text-align: center;
-}
-
-.recruiter-button:hover {
-    cursor: pointer;
-    filter: brightness(70%);
-}
-
-.recruiter-button:focus {
-    background-color: $linkr-orange;
-    color: white;
+    flex-direction: column;
+    align-items: center;
+    // justify-content: space-evenly;
+    // margin-left: auto;
+    // margin-right: auto;
 }
 
 .session-submit {
     background-color: $darker-linkr-orange;
     color: $lightest-gray;
     margin-top: 5px;
-    margin-right: 10px;
+    // margin-right: 10px;
     border-radius: 20px;
     width: 160px;
     height: 27px;
     text-align: center;
+    // justify-content: center;
 }
-
 
 .session-submit:hover {
     cursor: pointer;
@@ -78,15 +63,17 @@
 }
 
 .choose-file {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
     font-size: 1.7vh;
     font-family: $railway;
-    text-align: center;
-    background-color: $darker-linkr-blue;
+    background-color: $better-linkr-blue;
     border-radius: 20px;
     color: white;
-    width: 110px;
+    width: 160px;
     height: 27px;
-    padding-top: 5px;
     position: relative;
     input[type="file"]{
         position: absolute;
@@ -108,55 +95,103 @@
     display: flex;
     justify-content: space-evenly;
     margin-top: 7px;
-    height: 100px;
+    // height: 100px;
     text-align: center;
 }
 
-.city-industry-icon {
-    width: 100%;
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
 
-
-.city-industry-icon:hover {
-    cursor: pointer;
-    display: block;
-    padding-bottom: inherit;
-    border: 1px solid $light-gray;
-
-    .cit-ind-dropdown {
-        display: block;
-        font-size: 1.2vh;
-        color: $darker-linkr-blue;
-        text-align: left;
-        padding-left: 4px;
-
-        .list-item:hover {
-            background-color: $light-gray;
-        }
-    }
-}
-
-.cit-ind-dropdown {
+.dropdown-content {
     display: none;
+    position: absolute;
+    z-index: 1;
 }
 
-.city-industry-errors {
+.dropdown:hover .dropdown-content { 
+    display: block; 
+}
+
+// .city-industry-icon {
+//     width: 100%;
+// }
+
+// .city-industry-icon:hover {
+//     cursor: pointer;
+//     display: block;
+//     padding-bottom: inherit;
+//     border: 1px solid $light-gray;
+    
+//     .cit-ind-dropdown {
+//         display: block;
+//         font-size: 1.2vh;
+//         color: $better-linkr-blue;
+//         text-align: left;
+//         padding-left: 4px;
+        
+//         .list-item:hover {
+//             background-color: $light-gray;
+//         }
+//     }
+// }
+
+// .cit-ind-dropdown {
+//     display: none;
+// }
+
+.field-errors {
     height: 20px;
     color: red;
     text-align: center;
+    justify-content: center;
+}
+
+.image-preview {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    margin: 4px;
 }
 
 .switch-form-container {
     margin-top: 15px;
-    color: $darker-linkr-blue;
+    color: $better-linkr-blue;
 }
 
 .switch-form {
     cursor: pointer;
-    color: $linkr-orange
+    color: $other-orange
 }
 
 .switch-form:hover {
     cursor: pointer;
     filter: brightness(70%);
 }
+
+
+// .recruiter-container {
+//     display: flex;
+//     justify-content: space-evenly;
+// }
+
+// .recruiter-button {
+//     border: 1px solid $light-gray;
+//     margin-top: 5px;
+//     margin-right: 10px;
+//     border-radius: 20px;
+//     width: 40px;
+//     height: 27px;
+//     text-align: center;
+// }
+
+// .recruiter-button:hover {
+//     cursor: pointer;
+//     filter: brightness(70%);
+// }
+
+// .recruiter-button:focus {
+//     background-color: $other-orange;
+//     color: white;
+// }

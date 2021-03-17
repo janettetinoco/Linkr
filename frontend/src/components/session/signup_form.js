@@ -108,63 +108,71 @@ class SignupForm extends React.Component {
   
   render() {
     const preview = this.state.imageUrl ? <img alt="signup-form" src={this.state.imageUrl} /> : null;
-    let namePlaceholder = "Full Name";
+    // let namePlaceholder = "Full Name";
     let nameClassName = "signup-input"
-    let emailPlaceholder = "Email";
+    // let emailPlaceholder = "Email";
     let emailClassName = "signup-input";
-    let passwordPlaceholder = "Password";
+    // let passwordPlaceholder = "Password";
     let passwordClassName = "signup-input";
     if (this.props.errors.name) {
-      namePlaceholder = this.props.errors.name;
+      // namePlaceholder = this.props.errors.name;
       nameClassName = "signup-input-error";
     }
     if (this.props.errors.email) {
-      emailPlaceholder = this.props.errors.email;
+      // emailPlaceholder = this.props.errors.email;
       emailClassName = "signup-input-error";
     }
     if (this.props.errors.password) {
-      passwordPlaceholder = this.props.errors.password;
+      // passwordPlaceholder = this.props.errors.password;
       passwordClassName = "signup-input-error";
     }
     return (
       <form className="signup-form" onSubmit={this.handleSubmit}>
         <div>
           {/* {this.renderErrors()} */}
-          {this.state.imageUrl ? <span className="image-preview">{preview}</span> :
-          <div className="choose-file">Choose File
-            <input type="file" onChange={this.handleFile}/>
-          </div>
-          }
+          <p className="welcome-message">
+            Welcome To Linkr!
+          </p>
+          <p className="field-errors">
+            {this.props.errors.name ? this.props.errors.name : null}
+          </p>
           <input
             className={nameClassName}
             type="text"
-            placeholder={namePlaceholder}
+            placeholder="Full Name"
             value={this.state.name}
             onChange={this.update('name')}
           />
+          <p className="field-errors">
+            {this.props.errors.email ? this.props.errors.email : null}
+          </p>
           <input
             className={emailClassName}
             type="text"
-            placeholder={emailPlaceholder}
+            placeholder="Email"
             value={this.state.email}
             onChange={this.update('email')}
           />
+          <p className="field-errors">
+            {this.props.errors.password ? this.props.errors.password : null}
+          </p>
           <input
             className={passwordClassName}
             type="password"
-            placeholder={passwordPlaceholder}
+            placeholder="Password"
             value={this.state.password}
             onChange={this.update('password')}
           />
-          <p className="city-industry-errors">
+          <p className="field-errors">
             {this.props.errors.city ? this.props.errors.city : null}
           </p>
-          <p className="city-industry-errors">
+          <p className="field-errors">
             {this.props.errors.industry ? this.props.errors.industry : null}
           </p>
           <div className="city-industry-container">
-            <div className="city-industry-icon">{this.state.city === '' ? "City" : this.state.city}
-              <ul className="cit-ind-dropdown">
+            <div className="dropdown">
+              <p className="city-industry-icon">{this.state.city === '' ? "City" : this.state.city}</p>
+              <ul className="dropdown-content">
                 <li 
                   onClick= {()=>this.setState({city: "San Francisco"})}
                   className="list-item"
@@ -179,8 +187,9 @@ class SignupForm extends React.Component {
                 >New York</li>
               </ul>
             </div>
-            <div className="city-industry-icon">{this.state.industry === '' ? "Industry" : this.state.industry}
-              <ul className="cit-ind-dropdown">
+            <div className="dropdown">
+              <p className="city-industry-icon">{this.state.city === '' ? "Industry" : this.state.industry}</p>
+              <ul className="dropdown-content">
                 <li 
                   onClick={()=>this.setState({industry: "Software Engineering"})}
                   className="list-item"
@@ -205,7 +214,7 @@ class SignupForm extends React.Component {
             </div>
           </div>
           <footer className="session-footer">
-            <h1>Are you a recruiter?</h1>
+            {/* <h1>Are you a recruiter?</h1>
             <div className="recruiter-container">
               <button
                 type="button"
@@ -219,6 +228,10 @@ class SignupForm extends React.Component {
                 value="false"
                 onClick={()=>this.setState({recruiterStatus: "false"})}
               >No</button>
+            </div> */}
+            <span className="image-preview">{preview}</span>
+            <div className="choose-file">Upload Profile Image
+              <input type="file" onChange={this.handleFile}/>
             </div>
             <input 
               className="session-submit"
