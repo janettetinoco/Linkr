@@ -52,6 +52,10 @@ class AboutUs extends React.Component{
               </div>
             </li>
           </ul>
+          <div id="about-us-personal-message">
+            <p>We appreciate you! Our mission is to help professionals expand their business network.<br />
+              Since networking has taken a turn for the digital, Linkr strives to be the intuitive go-to application for meeting new associates.</p>
+          </div>
         </div>
       </div>
     )
