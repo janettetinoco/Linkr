@@ -16,12 +16,9 @@ class SignupForm extends React.Component {
       imageFile: null,
       imageUrl: "https://linkr-dev.s3-us-west-1.amazonaws.com/isgpp_avatar_placeholder.png",
     };
-
     this.industries = ['Healthcare', 'Arts', 'Audio/Video Tech', 'Communications', 'Manufacturing', 'Information Tech', 'Agriculture', 'Education', 'Real Estate', 'Retail', 'Education', 'Government', 'Biological Science', 'Software Engineering', ];
     this.cities = ['New York', 'Dallas', 'San Francisco']; 
-
     this.handleSubmit = this.handleSubmit.bind(this); 
-    this.onRecruiterChange = this.onRecruiterChange.bind(this);
     this.handleFile = this.handleFile.bind(this);
     this.clickFile = this.clickFile.bind(this); 
     this.handleChange = this.handleChange.bind(this); 
@@ -61,7 +58,8 @@ class SignupForm extends React.Component {
       name: this.state.name.trim(),
       email: this.state.email.trim(),
       password: this.state.password.trim(),
-      industry: this.state.industry,
+      industry: this.state.industry.trim(),
+      recruiterStatus: '',
       city: this.state.city,
     }
     user.imageUrl = this.state.imageUrl ? this.state.imageUrl : "https://linkr-dev.s3-us-west-1.amazonaws.com/isgpp_avatar_placeholder.png";
@@ -80,26 +78,13 @@ class SignupForm extends React.Component {
           this.props.login(user).then(this.props.openModal('welcome'));
           // this.props.history.push('/');
         }
-      
-        
-      if(this.props.errors.name){
-        user.name='';
-      }
-      if(this.props.errors.email){
-        user.email='';
-      }
-      if(this.props.errors.password){
-        user.password='';
-      }
-      if(this.props.errors.city){
-        user.city='';
-      }
-      if(this.props.errors.industry){
-        user.industry ='';
-      }
-    this.setState({name:user.name,email:user.email,password:user.password,city:user.city,industry:user.industry});
+        Object.keys(this.state).forEach((field)=>{
+          if(this.props.errors[field]){
+            user[field] =''; 
+          }
+        });
+        this.setState({name:user.name,email:user.email,password:user.password,city:user.city,industry:user.industry});
       });
- 
   };
 
   renderErrors() {
@@ -151,21 +136,21 @@ class SignupForm extends React.Component {
     }
 
     let cityIndustryErrors = 'is required';
+    let i = document.getElementById('industry-input');
     if(this.props.errors.industry){
       cityIndustryErrors = "Industry "+cityIndustryErrors;
-      document.getElementById('industry-input').classList.add('signup-input-error');
+      if(i){document.getElementById('industry-input').classList.add('signup-input-error');}
     }
     else{
       
-      let i = document.getElementById('industry-input')
       if(i) {i.classList.remove('signup-input-error');}
     }
+    let c = document.getElementById('city-input');
     if(this.props.errors.city){
       cityIndustryErrors = "City " + cityIndustryErrors;
-      document.getElementById('city-input').classList.add('signup-input-error');
+      if(c){document.getElementById('city-input').classList.add('signup-input-error');}
     }
     else{
-      let c = document.getElementById('city-input');
       if(c){c.classList.remove('signup-input-error');}
 
     }
