@@ -132,11 +132,14 @@
 .switch-form-container {
     margin-top: 15px;
     color: $better-linkr-blue;
+    font-size: 15px;
+    text-align: center;
 }
 
 .switch-form {
     cursor: pointer;
-    color: $other-orange
+    color: $other-orange;
+    margin:auto;
 }
 
 .switch-form:hover {
