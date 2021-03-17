@@ -59,7 +59,6 @@ class SignupForm extends React.Component {
       email: this.state.email.trim(),
       password: this.state.password.trim(),
       industry: this.state.industry.trim(),
-      recruiterStatus: '',
       city: this.state.city,
     }
     user.imageUrl = this.state.imageUrl ? this.state.imageUrl : "https://linkr-dev.s3-us-west-1.amazonaws.com/isgpp_avatar_placeholder.png";
@@ -99,17 +98,6 @@ class SignupForm extends React.Component {
     );
   }
 
-  handleButton(bool){
-    return ((e) => {
-      e.preventDefault();
-      this.setState({ recruiterStatus: bool })
-    })  
-  }
-
-  onRecruiterChange(e) {
-    this.setState({ recruiterStatus: e.currentTarget.value});
-  }
-  
   componentDidMount() {
     this.props.resetErrors()
   }
