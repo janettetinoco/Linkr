@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { openModal } from '../../actions/modal_actions';
 
 class SignupForm extends React.Component {
 
@@ -17,10 +16,10 @@ class SignupForm extends React.Component {
       recruiterStatus: "false",
       city: '',
       imageFile: null,
-      imageUrl: null,
-      // errors: {}
+      imageUrl: "https://linkr-dev.s3-us-west-1.amazonaws.com/isgpp_avatar_placeholder.png",
     };
-
+    this.industries = ['Healthcare', 'Arts', 'Audio/Video Tech', 'Communications', 'Manufacturing', 'Information Tech', 'Agriculture', 'Education', 'Real Estate', 'Retail', 'Education', 'Government', 'Biological Science', 'Software Engineering', ];
+    this.cities = ['New York', 'Dallas', 'San Francisco']; 
     this.handleSubmit = this.handleSubmit.bind(this); 
     this.onRecruiterChange = this.onRecruiterChange.bind(this);
     this.clearedErrors = false;
@@ -126,6 +125,13 @@ class SignupForm extends React.Component {
       // passwordPlaceholder = this.props.errors.password;
       passwordClassName = "signup-input-error";
     }
+
+    let industryOptions = this.industries.map( (industry,key)=>{
+      <option key={key} value={industry} id="industry-option">{industry}</option>
+    });
+    let cityOptions = this.cities.map( (city, key)=>{
+      <option key={key} value={city} id="city-option">{city}</option>
+    })
     return (
       <form className="signup-form" onSubmit={this.handleSubmit}>
         <div>
@@ -133,6 +139,8 @@ class SignupForm extends React.Component {
           <p className="welcome-message">
             Welcome To Linkr!
           </p>
+
+          <div id="image-preview">{preview}</div>
           <p className="field-errors">
             {this.props.errors.name ? this.props.errors.name : null}
           </p>
@@ -170,66 +178,15 @@ class SignupForm extends React.Component {
             {this.props.errors.industry ? this.props.errors.industry : null}
           </p>
           <div className="city-industry-container">
-            <div className="dropdown">
-              <p className="city-industry-icon">{this.state.city === '' ? "City" : this.state.city}</p>
-              <ul className="dropdown-content">
-                <li 
-                  onClick= {()=>this.setState({city: "San Francisco"})}
-                  className="list-item"
-                >San Francisco</li>
-                <li 
-                  onClick= {()=>this.setState({city: "Dallas"})}
-                  className="list-item"
-                >Dallas</li>
-                <li 
-                  onClick= {()=>this.setState({city: "New York"})}
-                  className="list-item"
-                >New York</li>
-              </ul>
-            </div>
-            <div className="dropdown">
-              <p className="city-industry-icon">{this.state.city === '' ? "Industry" : this.state.industry}</p>
-              <ul className="dropdown-content">
-                <li 
-                  onClick={()=>this.setState({industry: "Software Engineering"})}
-                  className="list-item"
-                  >Software Engineering</li>
-                <li 
-                  onClick={()=>this.setState({industry: "Wood Chopping"})}
-                  className="list-item"
-                  >Wood Chopping</li>
-                <li 
-                  onClick={()=>this.setState({industry: "Political Science"})}
-                  className="list-item"
-                  >Political Science</li>
-                <li 
-                  onClick={()=>this.setState({industry: "Biotech"})}
-                  className="list-item"
-                  >Biotech</li>
-                <li 
-                  onClick={()=>this.setState({industry: "Space Exploration"})}
-                  className="list-item"
-                  >Space Exploration</li>
-              </ul>
-            </div>
+            <select id="city-input" onChange={this.handleChange}>
+              {cityOptions}
+            </select>
+            <select id="industry-input" onChange={this.handleChange}>
+              {industryOptions}
+            </select>
           </div>
           <footer className="session-footer">
-            {/* <h1>Are you a recruiter?</h1>
-            <div className="recruiter-container">
-              <button
-                type="button"
-                className="recruiter-button"
-                value="true"
-                onClick={()=>this.setState({recruiterStatus: "true"})}
-              >Yes</button>
-              <button
-                type="button"
-                className="recruiter-button"
-                value="false"
-                onClick={()=>this.setState({recruiterStatus: "false"})}
-              >No</button>
-            </div> */}
-            <span className="image-preview">{preview}</span>
+
             <div className="choose-file">Upload Profile Image
               <input type="file" onChange={this.handleFile}/>
             </div>
