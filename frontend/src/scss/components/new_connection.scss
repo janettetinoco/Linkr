@@ -1,10 +1,20 @@
 .new-connection-container{
-    height:15vh;
+    min-width: 388px;
+    height: 24vh;
+    background-color: #a1bfdb;
     box-sizing: border-box;
-    font-family: $questrial;
-    font-size: 30px;
-    display:flex;
+    font-family: "Questrial", sans-serif;
+    font-size: 28px;
+    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    flex-direction: column;
+    border-radius: 15px;
+    color: whitesmoke;
+}
+.new-connection-container a#connections-link{
+    text-decoration: none;
+    color: #040477;
+    font-size: 19px;
 }
