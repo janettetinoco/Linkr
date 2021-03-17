@@ -11,19 +11,17 @@ class SignupForm extends React.Component {
       name: '',
       email: '',
       password: '',
-      business: '',
       industry: '',
-      recruiterStatus: "false",
       city: '',
       imageFile: null,
       imageUrl: "https://linkr-dev.s3-us-west-1.amazonaws.com/isgpp_avatar_placeholder.png",
     };
-    // <img alt="signup-form" src="https://linkr-dev.s3-us-west-1.amazonaws.com/isgpp_avatar_placeholder.png" />
+
     this.industries = ['Healthcare', 'Arts', 'Audio/Video Tech', 'Communications', 'Manufacturing', 'Information Tech', 'Agriculture', 'Education', 'Real Estate', 'Retail', 'Education', 'Government', 'Biological Science', 'Software Engineering', ];
     this.cities = ['New York', 'Dallas', 'San Francisco']; 
+
     this.handleSubmit = this.handleSubmit.bind(this); 
     this.onRecruiterChange = this.onRecruiterChange.bind(this);
-    this.clearedErrors = false;
     this.handleFile = this.handleFile.bind(this);
     this.clickFile = this.clickFile.bind(this); 
     this.handleChange = this.handleChange.bind(this); 
@@ -60,12 +58,10 @@ class SignupForm extends React.Component {
     e.preventDefault();
     this.props.resetErrors(); 
     let user = {
-      name: this.state.name,
-      email: this.state.email,
-      password: this.state.password,
-      business: this.state.business,
+      name: this.state.name.trim(),
+      email: this.state.email.trim(),
+      password: this.state.password.trim(),
       industry: this.state.industry,
-      recruiterStatus: this.state.recruiterStatus,
       city: this.state.city,
     }
     user.imageUrl = this.state.imageUrl ? this.state.imageUrl : "https://linkr-dev.s3-us-west-1.amazonaws.com/isgpp_avatar_placeholder.png";
@@ -79,17 +75,31 @@ class SignupForm extends React.Component {
     } 
     this.props.signup(user)
       .then(() => {
+        console.log(this.props.errors);
         if(this.props.signedIn){
           this.props.login(user).then(this.props.openModal('welcome'));
+          // this.props.history.push('/');
         }
-        this.props.history.push('/');
+      
+        
+      if(this.props.errors.name){
+        user.name='';
+      }
+      if(this.props.errors.email){
+        user.email='';
+      }
+      if(this.props.errors.password){
+        user.password='';
+      }
+      if(this.props.errors.city){
+        user.city='';
+      }
+      if(this.props.errors.industry){
+        user.industry ='';
+      }
+    this.setState({name:user.name,email:user.email,password:user.password,city:user.city,industry:user.industry});
       });
-
-    this.setState({
-      name: "",
-      email: "",
-      password: ""
-    })
+ 
   };
 
   renderErrors() {
