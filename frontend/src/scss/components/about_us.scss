@@ -1,11 +1,3 @@
-$top: 4vw;
-$name-size: 3.5vw;
-$picture-size: 3.5vw;
-$perc-height: 100%;
-$perc-width: 100%;
-$img-size: 200px;
-$device: mobile;
-$direction: '';
 
 @mixin box-shadow($inOpacity, $outOpacity){
   box-shadow:
@@ -17,29 +9,21 @@ $direction: '';
   @include box-shadow(.4, .7)
 }
 
-@mixin scaleSize($type, $factor){
-  @if $type == full{
-    height: $perc-height * $factor;
-    width: $perc-width * $factor; 
-  } 
-  @if $type == profile{
-    height: $img-size*$factor;
-    width: $img-size*$factor;
-  }
-}
-
-@mixin flex-direction($media){
-  @if media == mobile {
-    $direction: $column;
-  }
-  @if media == computer{
-    $direction: $row;
-  }
-}
 @media screen and (min-width: 1201px){
     #about-us-list{
       flex-direction: row;
       margin: 50px 30px;
+      li{
+        margin: 30px 2vw;
+        width: fit-content;
+      }
+    }
+    .about-us-name{
+      font-size: 2.5vw;
+    }
+    .about-us-img-container{
+      height: 250px;
+      width: 250px;
     }
     .about-us-img{
       border: 3px solid $linkr-blue;
@@ -56,6 +40,9 @@ $direction: '';
     }
   }
 @media screen and (max-width: 1200px){
+  #about-us-wrapper{
+    transform: translateY(calc(4vw + 5vh));
+  }
   #about-us-list{
     flex-direction: column;
     justify-content: center;
@@ -63,11 +50,21 @@ $direction: '';
     margin-bottom: 30px;
     li{
       width:70vw;
-      margin: 30px auto;
+      margin: 5% auto;
+      margin-bottom: 100px;
+      @include box-shadow(.4, .7)
     }
   }
+  .about-us-name{
+    font-size: 5vw;
+    margin-top: 5%;
+  }
+  .about-us-img-container{
+    height: calc(250px - 2vw);
+    width: calc(250px - 2vw);
+  }
   .about-us-img{
-    border: 3px solid $linkr-blue;
+    border: 1px solid $linkr-blue;
   }
   .a-u-link{
     height: 10vw;
@@ -83,12 +80,12 @@ $direction: '';
 #about-us{
   background-image: url("../../background_images/salar_clouds.png");
   background-size: cover; 
-  @include scaleSize(full,1);
+  height: 100%;
+  width: 100%;
   overflow: auto;
 }
 
 #about-us-wrapper{
-  transform: translateY($top);
 }
 
 #about-us-header{
@@ -98,19 +95,16 @@ $direction: '';
   color: white;
 }
 .about-us-name{
-  font-size: 2.5vw;
   font-family: $railway;
   color: #0e4468;
 }
 .about-us-img-container{
-  @include scaleSize(profile, 1);
   margin-left: auto;
   margin-right: auto;
   margin-top: 25px;
   margin-bottom: 25px; 
 }
 .about-us-img{
-  border: 5px solid $linkr-blue;
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -119,7 +113,6 @@ $direction: '';
 }
 
 .about-us-links{
-  height: 2vw; 
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
