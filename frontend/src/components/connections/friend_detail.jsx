@@ -105,10 +105,3 @@ class FriendDetail extends React.Component{
   }
 }
 export default FriendDetail;
-        // <ul>
-        //   <li><h2>{this.props.friend.name}</h2></li>
-        //   <li>Education: {this.props.friend.education}</li>
-        //   <li>About Me: {this.props.friend.aboutMe}</li>
-        //   <li>LinkedIn: {this.props.friend.linkedIn}</li>
-        //   <li>Recruiter: {this.props.friend.recruiterStatus}</li>
-        // </ul>

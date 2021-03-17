@@ -45,10 +45,6 @@ module.exports = function validateRegisterInput(data) {
         errors.industry = "Industry field is required";
     }
 
-    if (Validator.isEmpty(data.recruiterStatus)) {
-        errors.recruiterStatus = "Recruiter field is required";
-    }
-
     return {
         errors,
         isValid: Object.keys(errors).length === 0

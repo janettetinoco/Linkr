@@ -64,10 +64,6 @@ function doSeeding() {
       "Hello, I am excited.", "Hello, I am not alone :D", "I am feeling good today"]
     user.aboutMe = aboutMe[Math.floor(Math.random() * aboutMe.length)]
 
-    //recruiterStatus
-    let recruiterStatus = [true, false]
-    user.recruiterStatus = recruiterStatus[Math.floor(Math.random() * recruiterStatus.length)]
-
     //imageUrl
     let femaleArr = ["https://linkr-dev.s3-us-west-1.amazonaws.com/michelle-obama.jpg",
       "https://linkr-dev.s3-us-west-1.amazonaws.com/woman-10.gif",
