@@ -10,6 +10,9 @@
 }
 
 @media screen and (min-width: 1201px){
+    #about-us-header{
+      font-size: 4.5vw;
+    }
     #about-us-list{
       flex-direction: row;
       margin: 50px 30px;
@@ -34,14 +37,16 @@
       margin: .3vw;
     }
     #about-us-personal-message{
-      font-size: 1.5vw; 
+      font-size: 1.8vw; 
       height: 20%;
       width: 100%; 
     }
   }
 @media screen and (max-width: 1200px){
-  #about-us-wrapper{
-    transform: translateY(calc(4vw + 5vh));
+  #about-us-header{
+    font-size: 4vh;
+    background-color: $linkr-blue-less-transparent;
+    margin-top: 3%;
   }
   #about-us-list{
     flex-direction: column;
@@ -51,7 +56,6 @@
     li{
       width:70vw;
       margin: 5% auto;
-      margin-bottom: 100px;
       @include box-shadow(.4, .7)
     }
   }
@@ -86,10 +90,12 @@
 }
 
 #about-us-wrapper{
+  transform: translateY(calc(4vw + 5vh));
+}
+#about-us-wrapper{
 }
 
 #about-us-header{
-  font-size: 4.5vw;
   font-family: $railway;
   text-align: center;
   color: white;
