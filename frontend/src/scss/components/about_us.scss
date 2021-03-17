@@ -1,30 +1,110 @@
 
+@mixin box-shadow($inOpacity, $outOpacity){
+  box-shadow:
+  rgba(white, $outOpacity) 0 1px 0, 
+  rgba(black, $inOpacity) 0 1px 0 inset;
+}
+
+%box-shadow{
+  @include box-shadow(.4, .7)
+}
+
+@media screen and (min-width: 1201px){
+    #about-us-header{
+      font-size: 4.5vw;
+    }
+    #about-us-list{
+      flex-direction: row;
+      margin: 50px 30px;
+      li{
+        margin: 30px 2vw;
+        width: fit-content;
+      }
+    }
+    .about-us-name{
+      font-size: 2.5vw;
+    }
+    .about-us-img-container{
+      height: 250px;
+      width: 250px;
+    }
+    .about-us-img{
+      border: 3px solid $linkr-blue;
+    }
+    .a-u-link{
+      height: 2vw;
+      width: 2vw; 
+      margin: .3vw;
+    }
+    #about-us-personal-message{
+      font-size: 1.8vw; 
+      height: 20%;
+      width: 100%; 
+    }
+  }
+@media screen and (max-width: 1200px){
+  #about-us-header{
+    font-size: 4vh;
+    background-color: $linkr-blue-less-transparent;
+    margin-top: 3%;
+  }
+  #about-us-list{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    li{
+      width:70vw;
+      margin: 5% auto;
+      @include box-shadow(.4, .7)
+    }
+  }
+  .about-us-name{
+    font-size: 5vw;
+    margin-top: 5%;
+  }
+  .about-us-img-container{
+    height: calc(250px - 2vw);
+    width: calc(250px - 2vw);
+  }
+  .about-us-img{
+    border: 1px solid $linkr-blue;
+  }
+  .a-u-link{
+    height: 10vw;
+    width: 10vw; 
+    margin: 4vw;
+  }
+  #about-us-personal-message{
+    font-size: 13px; 
+    height: fit-content;
+  }
+}
+
 #about-us{
   background-image: url("../../background_images/salar_clouds.png");
   background-size: cover; 
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
 }
 
 #about-us-wrapper{
-  transform: translateY(100px);
+  transform: translateY(calc(4vw + 5vh));
+}
+#about-us-wrapper{
 }
 
 #about-us-header{
-  font-size: 4.5vw;
   font-family: $railway;
   text-align: center;
   color: white;
 }
 .about-us-name{
-  font-size: 2.5vw;
   font-family: $railway;
   color: #0e4468;
 }
 .about-us-img-container{
-  height: 300px;
-  width: 300px; 
   margin-left: auto;
   margin-right: auto;
   margin-top: 25px;
@@ -35,33 +115,35 @@
   width: 100%;
   object-fit: cover;
   object-position: center;
-  border: 5px solid $linkr-blue;
-  border-radius: 20%;
+  border-radius: 50%;
 }
 
 .about-us-links{
-  height: 50px; 
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
 }
 .a-u-link{
-  height: 50px;
-  width: 50px; 
   float:left;
-  margin: 5px;
 }
 
 
 #about-us-list{
   display: flex;
-  flex-direction: row;
   height: 50%;
   justify-content: center;
+  align-content: center;
   li{
-    margin: 50px 30px;
     display: flex;
     flex-direction: column;
     height: 50%;
   }
+}
+
+#about-us-personal-message{
+  width: 100%;
+  color: white; 
+  background-color: $linkr-blue-less-transparent; 
+  text-align: center;
+  @extend %box-shadow;
 }
