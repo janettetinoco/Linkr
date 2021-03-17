@@ -21,8 +21,7 @@ const mapDispatchToProps = (dispatch) => {
     login: user=> dispatch(login(user)),
     uploadImage: image => dispatch(uploadImage(image)),
     loginForm: (
-      <a className="switch-form" onClick={() => dispatch(openModal('login'))}
-      >
+      <a className="switch-form" onClick={() => dispatch(openModal('login'))}>
         Sign in here
       </a>
     )

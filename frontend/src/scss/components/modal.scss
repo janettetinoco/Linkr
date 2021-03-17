@@ -9,14 +9,13 @@
     
     .modal-child {
         font-size: 1.7vh;
-        background-color: $linkr-blue;
-        padding: 15px;
+        background-color: $linkr-blue-less-transparent;
         position: absolute;
         border-radius: 7px;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 350px;
+        width: 375px;
         display: flex;
         justify-content: center;
         align-items: center;

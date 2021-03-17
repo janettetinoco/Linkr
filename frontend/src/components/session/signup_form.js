@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { openModal } from '../../actions/modal_actions';
 
 class SignupForm extends React.Component {
 
@@ -12,21 +11,24 @@ class SignupForm extends React.Component {
       name: '',
       email: '',
       password: '',
-      business: '',
       industry: '',
-      recruiterStatus: "false",
       city: '',
       imageFile: null,
-      imageUrl: null,
-      // errors: {}
+      imageUrl: "https://linkr-dev.s3-us-west-1.amazonaws.com/isgpp_avatar_placeholder.png",
     };
-
+    this.industries = ['Healthcare', 'Arts', 'Audio/Video Tech', 'Communications', 'Manufacturing', 'Information Tech', 'Agriculture', 'Education', 'Real Estate', 'Retail', 'Education', 'Government', 'Biological Science', 'Software Engineering', ];
+    this.cities = ['New York', 'Dallas', 'San Francisco']; 
     this.handleSubmit = this.handleSubmit.bind(this); 
-    this.onRecruiterChange = this.onRecruiterChange.bind(this);
-    this.clearedErrors = false;
     this.handleFile = this.handleFile.bind(this);
+    this.clickFile = this.clickFile.bind(this); 
+    this.handleChange = this.handleChange.bind(this); 
   }
 
+  handleChange(field){
+    return (e)=>{
+      this.setState({[field]: e.target.value}); 
+    }
+  }
   handleFile(e) {
     e.preventDefault();
     const file = e.currentTarget.files[0]
@@ -39,6 +41,10 @@ class SignupForm extends React.Component {
     }
   }
 
+  clickFile(e){
+    e.preventDefault();
+    document.getElementById('input-file').click();
+  }
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -47,16 +53,17 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.resetErrors(); 
     let user = {
-      name: this.state.name,
-      email: this.state.email,
-      password: this.state.password,
-      business: this.state.business,
-      industry: this.state.industry,
-      recruiterStatus: this.state.recruiterStatus,
+      name: this.state.name.trim(),
+      email: this.state.email.trim(),
+      password: this.state.password.trim(),
+      industry: this.state.industry.trim(),
+      recruiterStatus: '',
       city: this.state.city,
     }
     user.imageUrl = this.state.imageUrl ? this.state.imageUrl : "https://linkr-dev.s3-us-west-1.amazonaws.com/isgpp_avatar_placeholder.png";
+
     if(this.state.imageFile){
       const image = new FormData();
       image.append('image', this.state.imageFile);
@@ -66,17 +73,18 @@ class SignupForm extends React.Component {
     } 
     this.props.signup(user)
       .then(() => {
+        console.log(this.props.errors);
         if(this.props.signedIn){
           this.props.login(user).then(this.props.openModal('welcome'));
+          // this.props.history.push('/');
         }
-        this.props.history.push('/');
+        Object.keys(this.state).forEach((field)=>{
+          if(this.props.errors[field]){
+            user[field] =''; 
+          }
+        });
+        this.setState({name:user.name,email:user.email,password:user.password,city:user.city,industry:user.industry});
       });
-
-    this.setState({
-      name: "",
-      email: "",
-      password: ""
-    })
   };
 
   renderErrors() {
@@ -108,118 +116,111 @@ class SignupForm extends React.Component {
   
   render() {
     const preview = this.state.imageUrl ? <img alt="signup-form" src={this.state.imageUrl} /> : null;
-    let namePlaceholder = "Full Name";
+    // let namePlaceholder = "Full Name";
     let nameClassName = "signup-input"
-    let emailPlaceholder = "Email";
+    // let emailPlaceholder = "Email";
     let emailClassName = "signup-input";
-    let passwordPlaceholder = "Password";
+    // let passwordPlaceholder = "Password";
     let passwordClassName = "signup-input";
     if (this.props.errors.name) {
-      namePlaceholder = this.props.errors.name;
+      // namePlaceholder = this.props.errors.name;
       nameClassName = "signup-input-error";
     }
     if (this.props.errors.email) {
-      emailPlaceholder = this.props.errors.email;
+      // emailPlaceholder = this.props.errors.email;
       emailClassName = "signup-input-error";
     }
     if (this.props.errors.password) {
-      passwordPlaceholder = this.props.errors.password;
+      // passwordPlaceholder = this.props.errors.password;
       passwordClassName = "signup-input-error";
     }
+
+    let cityIndustryErrors = 'is required';
+    let i = document.getElementById('industry-input');
+    if(this.props.errors.industry){
+      cityIndustryErrors = "Industry "+cityIndustryErrors;
+      if(i){document.getElementById('industry-input').classList.add('signup-input-error');}
+    }
+    else{
+      
+      if(i) {i.classList.remove('signup-input-error');}
+    }
+    let c = document.getElementById('city-input');
+    if(this.props.errors.city){
+      cityIndustryErrors = "City " + cityIndustryErrors;
+      if(c){document.getElementById('city-input').classList.add('signup-input-error');}
+    }
+    else{
+      if(c){c.classList.remove('signup-input-error');}
+
+    }
+    if(this.props.errors.city && this.props.errors.industry){
+      cityIndustryErrors = "City & Industry are required";
+    }
+    let industryOptions = this.industries.map( (industry,key)=>{
+      return <option key={key} value={industry} id="industry-option">{industry}</option>
+    });
+    let cityOptions = this.cities.map( (city, key)=>{
+      return <option key={key} value={city} id="city-option">{city}</option>
+    })
     return (
       <form className="signup-form" onSubmit={this.handleSubmit}>
         <div>
-          {/* {this.renderErrors()} */}
-          {this.state.imageUrl ? <span className="image-preview">{preview}</span> :
-          <div className="choose-file">Choose File
-            <input type="file" onChange={this.handleFile}/>
-          </div>
-          }
+          <p className="welcome-message"> 
+            Welcome To Linkr!
+          </p>
+
+          <div id="image-preview">{preview}</div>
+          <p className="field-errors">
+            {this.props.errors.name ? this.props.errors.name : null}
+          </p>
           <input
             className={nameClassName}
             type="text"
-            placeholder={namePlaceholder}
+            placeholder="Full Name"
             value={this.state.name}
             onChange={this.update('name')}
           />
+          <p className="field-errors">
+            {this.props.errors.email ? this.props.errors.email : null}
+          </p>
           <input
             className={emailClassName}
             type="text"
-            placeholder={emailPlaceholder}
+            placeholder="Email"
             value={this.state.email}
             onChange={this.update('email')}
           />
+          <p className="field-errors">
+            {this.props.errors.password ? this.props.errors.password : null}
+          </p>
           <input
             className={passwordClassName}
             type="password"
-            placeholder={passwordPlaceholder}
+            placeholder="Password"
             value={this.state.password}
             onChange={this.update('password')}
           />
-          <p className="city-industry-errors">
-            {this.props.errors.city ? this.props.errors.city : null}
-          </p>
-          <p className="city-industry-errors">
-            {this.props.errors.industry ? this.props.errors.industry : null}
+  
+          <p className="field-errors">
+            {this.props.errors.industry || this.props.errors.city ? cityIndustryErrors : null}
           </p>
           <div className="city-industry-container">
-            <div className="city-industry-icon">{this.state.city === '' ? "City" : this.state.city}
-              <ul className="cit-ind-dropdown">
-                <li 
-                  onClick= {()=>this.setState({city: "San Francisco"})}
-                  className="list-item"
-                >San Francisco</li>
-                <li 
-                  onClick= {()=>this.setState({city: "Dallas"})}
-                  className="list-item"
-                >Dallas</li>
-                <li 
-                  onClick= {()=>this.setState({city: "New York"})}
-                  className="list-item"
-                >New York</li>
-              </ul>
-            </div>
-            <div className="city-industry-icon">{this.state.industry === '' ? "Industry" : this.state.industry}
-              <ul className="cit-ind-dropdown">
-                <li 
-                  onClick={()=>this.setState({industry: "Software Engineering"})}
-                  className="list-item"
-                  >Software Engineering</li>
-                <li 
-                  onClick={()=>this.setState({industry: "Wood Chopping"})}
-                  className="list-item"
-                  >Wood Chopping</li>
-                <li 
-                  onClick={()=>this.setState({industry: "Political Science"})}
-                  className="list-item"
-                  >Political Science</li>
-                <li 
-                  onClick={()=>this.setState({industry: "Biotech"})}
-                  className="list-item"
-                  >Biotech</li>
-                <li 
-                  onClick={()=>this.setState({industry: "Space Exploration"})}
-                  className="list-item"
-                  >Space Exploration</li>
-              </ul>
-            </div>
+            <select className="city-industry-input" id="city-input" onChange={this.handleChange('city')}>
+              <option value='' id="city-option">Select City</option>
+              {cityOptions}
+            </select>
+            <select className="city-industry-input" id="industry-input" onChange={this.handleChange('industry')}>
+              <option value='' id="industry-option">Select Industry</option>
+              {industryOptions}
+            </select>
+
           </div>
           <footer className="session-footer">
-            <h1>Are you a recruiter?</h1>
-            <div className="recruiter-container">
-              <button
-                type="button"
-                className="recruiter-button"
-                value="true"
-                onClick={()=>this.setState({recruiterStatus: "true"})}
-              >Yes</button>
-              <button
-                type="button"
-                className="recruiter-button"
-                value="false"
-                onClick={()=>this.setState({recruiterStatus: "false"})}
-              >No</button>
-            </div>
+              <input type="file" id='input-file' onChange={this.handleFile}/>
+              <button className="choose-file" onClick={this.clickFile}>
+                Upload Image
+              </button>
             <input 
               className="session-submit"
               type="submit"
