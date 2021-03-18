@@ -1,6 +1,5 @@
-
 import React from 'react'; 
-import {Link} from 'react-router-dom';
+
 
 class AboutUs extends React.Component{
 
@@ -45,9 +44,9 @@ class AboutUs extends React.Component{
               <div className="about-us-name">Jonathan Diaz</div>
               <div className="about-us-img-container"><img className="about-us-img" src="https://linkr-dev.s3-us-west-1.amazonaws.com/jonathan-diazjpeg.jpg" alt="Jonathan Diaz"/></div>
               <div className="about-us-links">
-                <a href="" target="_blank"><img alt="about-us" className="a-u-link" src="https://img.icons8.com/color/48/000000/linkedin.png" /></a>
-                <a href="" target="_blank"><img alt="about-us" className="a-u-link" src="https://img.icons8.com/fluent/48/000000/github.png" /></a>
-                <a href="" target="_blank"><img alt="about-us" className="a-u-link" src="https://img.icons8.com/ios/50/000000/angelist.png" /></a>
+                <a href="https://www.linkedin.com/in/jonathan-diaz-72033315/" target="_blank"><img alt="about-us" className="a-u-link" src="https://img.icons8.com/color/48/000000/linkedin.png" /></a>
+                <a href="https://github.com/KingApe714" target="_blank"><img alt="about-us" className="a-u-link" src="https://img.icons8.com/fluent/48/000000/github.png" /></a>
+                <a href="https://angel.co/u/jonathan-diaz-24" target="_blank"><img alt="about-us" className="a-u-link" src="https://img.icons8.com/ios/50/000000/angelist.png" /></a>
 
               </div>
             </li>
