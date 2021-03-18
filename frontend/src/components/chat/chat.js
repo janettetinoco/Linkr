@@ -18,6 +18,9 @@ class Chat extends React.Component {
       content: '',
       name: '',
     };
+
+    this.toggleChat = this.toggleChat.bind(this)
+
   }
 
   componentDidMount() {
@@ -82,30 +85,52 @@ class Chat extends React.Component {
     chat.scrollTop = chat.scrollHeight;
   }
 
+  toggleChat(e){
+    // debugger
+    if (e.currentTarget.children[0].innerText === "Open Chat"){
+      e.currentTarget.children[0].innerText = "Close Chat"
+      document.getElementsByClassName('chat-container')[0].classList.add('open')
+      document.getElementById('chat').classList.add('go')
+      // e.currentTarget.style.boxShadow = 'inset black 0px 2px 3px 0px'
+      e.currentTarget.classList.add('on')
+    } else {
+      e.currentTarget.children[0].innerText = "Open Chat"
+      document.getElementsByClassName('chat-container')[0].classList.remove('open')
+      document.getElementById('chat').classList.remove('go')
+      e.currentTarget.classList.remove('on')
+    }
+
+  }
+
   render() {
     return (
-      <div className="chat-container">
-        <div id="chat">
-          {this.state.chat.map((el, index) => {
-            return (
-              <div key={index} className='msg'>
-                <Typography variant="caption" className="name">
-                  {el.name}
-                </Typography>
-                <Typography variant="body1" className="content">
-                  {el.content}
-                </Typography>
-              </div>
-            );
-          })}
+      <div>
+        <div className="chat-container">
+          <div id="chat">
+            {this.state.chat.map((el, index) => {
+              return (
+                <div key={index} className='msg'>
+                  <Typography variant="caption" className="name">
+                    {el.name}
+                  </Typography>
+                  <Typography variant="body1" className="content">
+                    {el.content}
+                  </Typography>
+                </div>
+              );
+            })}
+          </div>
+          <MyBottomBar 
+            content={this.state.content}
+            handleContent={this.handleContent.bind(this)}
+            handleName={this.handleName.bind(this)}
+            handleSubmit={this.handleSubmit.bind(this)}
+            name={this.state.name}
+          />
         </div>
-        <MyBottomBar 
-          content={this.state.content}
-          handleContent={this.handleContent.bind(this)}
-          handleName={this.handleName.bind(this)}
-          handleSubmit={this.handleSubmit.bind(this)}
-          name={this.state.name}
-        />
+        <div className='o-chat' onClick={this.toggleChat}>
+          <h1>Open Chat</h1>
+        </div>
       </div>
     );
   }

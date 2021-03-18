@@ -2,16 +2,33 @@
 .chat-container{
   // margin-top: 400px;
   position: absolute;
-  bottom: 40px;
+  bottom: 45px;
   width: 300px;
-  display: none;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+
+  background-color: rgb(72, 61, 139);
+  border-radius: 5px;
+  margin-left: 10px;
 }
+
+.open {
+    opacity: 1;
+}
+
+
 
 #chat {
   color: rgb(255, 255, 255);
-  padding-left: 5px;
-  height: 400px;
+  padding: 10px 0 2px 7px;
+  height: 0;
   overflow: scroll;
+  transition: height 1s ease;
+}
+
+#chat.go {
+  height: 400px;
 }
 
 .name {
@@ -28,9 +45,9 @@
 .bottom-container{
   display: flex;
   border: 1px solid rgb(205, 133, 63);
-  background-color: rgb(240, 248, 255);
-  width: 300px;
-  height: 50px;
+  background-color: rgb(176, 196, 222);
+  width: 298px;
+  height: 33px;
   border-radius: 5px;
 }
 
@@ -40,7 +57,7 @@
 
 
   input{
-    padding: 15px 3px;
+    padding: 8px 3px;
     color: rgb(0, 0, 0);
     width: 100px;
   }
@@ -52,7 +69,7 @@
   width: 100%;
 
   input{
-    padding: 15px 3px;
+    padding: 8px 3px;
     color: black;
     width: 150px;
   }
@@ -65,12 +82,34 @@
   display: flex;
   border: 1px solid rgb(255, 255, 255);
   padding: 2px;
-  border-radius: 3px;
-  color: rgb(173, 255, 47);
+  border-radius: 20px;
+  color: black;
   width: 100px;
   margin: 10px;
   justify-content: center;
   z-index: 1;
   cursor: pointer;
+  background-color: white;
+  box-shadow: black 0px 2px 3px 0px;
+  animation: shadowFadeOut 0.2s;
 }
   
+.o-chat.on{
+  box-shadow: inset black 0px 2px 3px 0px;
+  animation: shadowFadeIn 0.2s;
+}
+
+@keyframes shadowFadeIn {
+    0% { box-shadow: 0px 2px 3px 0px black; }
+    25% { box-shadow: 0px 2px 3px 0px grey; }
+    50% { box-shadow: inset 0px 2px 3px 0px darkgrey; }
+    75% { box-shadow: inset 0px 2px 3px 0px darkgray; }
+    100% { box-shadow: inset 0px 2px 3px 0px black; }
+}
+@keyframes shadowFadeOut {
+  0% { box-shadow: inset 0px 2px 3px 0px black; }
+  25% { box-shadow: inset 0px 2px 3px 0px grey; }
+  50% { box-shadow: 0px 2px 3px 0px darkgrey; }
+  75% { box-shadow: 0px 2px 3px 0px darkgray; }
+  100% { box-shadow: 0px 2px 3px 0px black; }
+}
