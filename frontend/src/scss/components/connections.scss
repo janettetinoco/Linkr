@@ -6,16 +6,16 @@
 
 
 //size optimize
-@media (min-height: 890px){
+@media (min-height: 691px){
   .connections{
     background-image: url("../../background_images/salar_cotton_candy.png");
-    height: 100vh
+    height: 120vh
   }
 }
-@media (max-height: 890px) {
+@media (max-height: 690px) {
   .connections{
     background-image: url("../../background_images/salar_cotton_candy.png");
-    height: 130vh;
+    height: 135vh;
   }
 }
 
@@ -91,7 +91,9 @@
   display: flex;
   padding: 0;
 }
-
+.connections .card{
+  background-color: black; 
+}
 #friend-index{
   background-color: rgba(255, 255, 255, 0.294);
 

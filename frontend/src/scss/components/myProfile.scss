@@ -163,7 +163,10 @@
     background-image: url('../../pics/space1.jpg');
     background-size: cover;
     background-position: 50%;
-}
+  }
+  .card{
+    background: rgba(44, 36, 90, 0.83);
+  } 
 
 .card{
   text-align: center;
@@ -173,7 +176,6 @@
   overflow: auto;
   overflow-wrap: break-word;
   box-shadow: 0px 1px 0px 0px darkorange;
-  background: rgba(44, 36, 90, 0.83);
 }
 
 .image-container{
