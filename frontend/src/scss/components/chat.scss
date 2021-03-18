@@ -91,12 +91,12 @@
   cursor: pointer;
   background-color: white;
   box-shadow: black 0px 2px 3px 0px;
-  animation: shadowFadeOut 0.1s;
+  animation: shadowFadeOut 0.2s;
 }
   
 .o-chat.on{
   box-shadow: inset black 0px 2px 3px 0px;
-  animation: shadowFadeIn 0.1s;
+  animation: shadowFadeIn 0.2s;
 }
 
 @keyframes shadowFadeIn {
