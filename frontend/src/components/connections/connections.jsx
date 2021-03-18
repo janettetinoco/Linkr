@@ -65,12 +65,12 @@ class Connections extends React.Component{
     }
     return(
       <section className="connections">
-        <div id="connections-title">Your Connections</div>
+        <div id="connections-title-wrapper"><div id="connections-title">Your Connections</div></div>
         <Route path="/profile/connections/:friendId" component={FriendDetailContainer} />
 
         <div id="friend-index-wrapper">
 
-          <div id="connections-list-title">Your friends</div>
+          {/* <div id="connections-list-title">Your friends</div> */}
         <ul id="friend-index">
           {this.props.friends.map( (friend, i)=>{
             return <FriendIndexItem key={i} friend={friend} />
