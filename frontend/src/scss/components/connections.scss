@@ -4,6 +4,12 @@
   max-zoom: 1.0;
 }
 
+@mixin box-shadow($inOpacity, $outOpacity){
+  box-shadow:
+  rgba(white, $outOpacity) 0 1px 0, 
+  rgba(black, $inOpacity) 0 1px 0 inset;
+}
+
 @mixin connectionsFont{
   align-self: center;
   background: #506CDE;
@@ -14,42 +20,91 @@
   -webkit-text-fill-color: transparent;	
   -webkit-text-stroke: .5px black;
 }
-//size optimize
-@media (min-height: 691px){
+
+@media (max-height: 899px) {
   .connections{
-    background-image: url("../../background_images/salar_cotton_candy.png");
-    height: 120vh
+    height: 125vh;
   }
 }
-@media (max-height: 690px) {
+@media (max-height: 800px) {
   .connections{
-    background-image: url("../../background_images/salar_cotton_candy.png");
     height: 135vh;
   }
 }
+@media (max-height: 700px) {
+  .connections{
+    height: 150vh;
+  }
+}
+@media (max-height: 600px) {
+  .connections{
+    height: 170vh;
+  }
+}
+@media (max-height: 550px) {
+  .connections{
+    height: 185vh;
+  }
+}
+@media (max-height: 500px) {
+  .connections{
+    height: 210vh;
+  }
+}
+@media (max-height: 450px) {
+  .connections{
+    height: 240vh;
+  }
+}
+@media (max-height: 400px) {
+  .connections{
+    height: 270vh;
+  }
+}
+@media (max-height: 350px) {
+  .connections{
+    height: 310vh;
+  }
+}
+@media (max-height: 300px) {
+  .connections{
+    height: 340vh;
+  }
+}
+@media (min-height: 900px) {
+  .connections{
+    height: 100vh;
+  }
+}
 
-@media screen and (max-width: 450px){
+
+@media screen and (min-width: 1500px){
   
 }
+
 @media screen and (min-width: 1260px){
   #connections-title{
-    position: absolute;
-    left: 40%;
-    top: 8%;
     font-size: 50px;
     @include connectionsFont();
     font-family: $railway;
+    @include box-shadow(.4,.7);
+    text-align: center;
+  }
+  #connections-title-wrapper{
+    background-color: $linkr-blue-less-transparent;
+    height: fit-content; 
+    width: 100%;
+    position: absolute;
+    top: 10%;
   }
   .connections{
     justify-content: flex-end;
     flex-direction: row;
     align-items: center;
     margin: auto;
-    height: 100%;
+
   }
-  #friend-index-wrapper{
-    margin: auto 5% auto 0;
-  }
+
   #connections-list-title{
     font-size: 30px;
     @include connectionsFont();
@@ -58,25 +113,34 @@
   }
   #friend-index{
     overflow-y:scroll;
-    width: 470px;
-    height: 450px;
+    position: absolute;
+    width: 370px;
+    height: 390px;
     max-height: 60%;
-    align-self: center;
     display: grid;
     grid-template-columns: 33% 33% 33%;
-    grid-auto-rows: 36%; 
+    grid-auto-rows: 31%; 
+    margin: auto;
+    right: 25px;
+    top: 35%;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
   }
   .friend-index-item {
-    height: 140px;
-    width: 140px;
-    min-height: 140px;
-    min-width: 140px;
+    height: 105px;
+    width: 105px;
+    min-height: 105px;
+    min-width: 105px;
     float:right;
+    margin: 3px;
   }
   .friend-detail {
     position:relative;
-    margin: auto auto;
-    transform: translateX(8vw);
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50px;
   }
 }
 @media screen and (max-width: 1259px){
@@ -90,15 +154,14 @@
   #connections-list-title{
     display: none;
   }
-  #friend-index-wrapper{
+ 
+  #friend-index{
     transform:translateY(95px);
     // margin: 0 20px;
     // margin: 0 auto;
     height: fit-content;
     min-width: 50%;
     margin-bottom: 100px;
-  }
-  #friend-index{
     display: flex; 
     flex-direction: row;
     overflow-x:scroll;
@@ -119,10 +182,21 @@
     transform:translateY(240px);
     height: fit-content;
   }
-
-  
 }
 
+@media screen and (min-width: 1500px){
+    #friend-index{
+    width: 440px;
+    height: 470px;
+    top: 30%;
+  }
+  .friend-index-item {
+    height: 123px;
+    width: 123px;
+    min-height: 123px;
+    min-width: 123px;
+  }
+}
 
 .connections{
   background-image: url("../../background_images/salar_cotton_candy.png");

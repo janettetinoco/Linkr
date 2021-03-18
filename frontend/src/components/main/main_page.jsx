@@ -1,7 +1,6 @@
 import React from 'react';
-import { openModal } from '../../actions/modal_actions';
 import ProfileContainer from './profile_container'; 
-import Chat from '../chat/chat';
+// import Chat from '../chat/chat';
 
 class MainPage extends React.Component {
 
@@ -46,7 +45,6 @@ UNSAFE_componentWillMount(){
       if(this.props.self){
         this.props.filterUsersBy('city', this.props.self.city)
         .then ( ()=> {
-          // this.forceUpdate();
           this.setState({usersToDisplay: this.props.usersToDisplay, currentCity: this.props.self.city});
         });
       }
@@ -75,7 +73,7 @@ UNSAFE_componentWillMount(){
         this.props.removeUserFromState(remove._id); 
         this.setState({usersToDisplay: array})
         this.props.createConnection(this.props.myId, remove._id, status).then((res)=>{
-          // 
+          // debugger
           if(res.data ==="connect"){
             this.props.openModal('connection');
           }
@@ -118,7 +116,7 @@ UNSAFE_componentWillMount(){
             <button onClick={this.swipe('left')}>skip</button>
             <button onClick={this.swipe('right')}>connect</button>
           </div>
-        <div id="help-icon" ><img onClick={() => {
+        <div id="help-icon" ><img alt="info-icon" onClick={() => {
           this.props.openModal('welcome')
           setTimeout(() => this.props.closeModal(), 15000)}} src="https://img.icons8.com/cotton/64/000000/info--v2.png" />
         </div>

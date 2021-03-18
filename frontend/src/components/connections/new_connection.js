@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { closeModal } from '../../actions/modal_actions';
 
 
 class NewConnection extends React.Component{

@@ -2,10 +2,10 @@ import React from 'react';
 // import config from './config';
 import io from 'socket.io-client';
 
-import Paper from '@material-ui/core/Paper';
+// import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
-import BottomBar from './BottomBar';
+// import BottomBar from './BottomBar';
 import MyBottomBar from './my_bottom_bar';
 
 
