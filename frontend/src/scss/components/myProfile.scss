@@ -137,33 +137,6 @@
 .user-details-name{
     font-size: 35px;
     color: orange;
-
-    
-}
-
-.anime{
-    animation-name: animation;
-    animation-duration: 5s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;    
-    animation-play-state: running;
-}
-
-
-@-webkit-keyframes animation {
-    0%     {color:red;}
-    25.0%  {color: $linkr-blue;}
-    50.0%  {color:rgb(255, 215, 0)}
-    75.0%  {color: purple;}
-    100.0% {color:red;}
-}
-
-@keyframes animation {
-    0%     {color:red;}
-    25.0%  {color:$linkr-blue;}
-    50.0%  {color:rgb(255, 215, 0)}
-    75.0%  {color: purple;}
-    100.0% {color:red;}
 }
 
 
@@ -214,15 +187,10 @@
         justify-content: flex-end;
         display: flex;
         padding: 5px;
-        // padding-bottom: 8px;
-        // padding-right: 15%;
         min-width: 85px;
         height: 30px;
         padding-top: 10px;
         border-right: 1px solid rgb(255, 255, 255);
-        // border-top: 1px solid rgb(255, 255, 255);
-        // border-left: 1px solid rgb(255, 255, 255);
-        // border-bottom: 1px solid rgb(255, 255, 255);
     }
     .edit-fields{
         display: flex;
@@ -232,11 +200,6 @@
     input {
         padding-left: 10px;
         width: 225px;
-        // border-right: 1px solid rgb(255, 255, 255);
-        // border-top: 1px solid rgb(255, 255, 255);
-        // border-left: 1px solid rgb(255, 255, 255);
-        // border-bottom: 1px solid rgb(255, 255, 255);
-
     }
     hr{
         margin: 0 45px;
