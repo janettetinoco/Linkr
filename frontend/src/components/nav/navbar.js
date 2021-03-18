@@ -58,7 +58,7 @@ class NavBar extends React.Component {
             </div></Link>
               <div className='float-right'>
                 <nav className="login-signup">
-                  <Link className="btn-sm" id="about-link" to={'/about-us'}>About Us</Link>
+                  <Link className="btn-sm" id="about-link" to={'/about-us'}>About us</Link>
                   <button className="btn-sm" onClick={() => this.props.openModal('signup')}>Join us</button>
                 &nbsp;
                   <button className="btn-bg" onClick={() => this.props.openModal('login')}>Sign In</button>
