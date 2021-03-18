@@ -12,7 +12,7 @@ function doFilledSeeds() {
     { "name": "Janette Tinoco", "email": "janettet@jt.com", "password": "123456", "industry": "Software Engineering", 
       "city": "San Francisco", "imageUrl": "https://linkr-dev.s3-us-west-1.amazonaws.com/janette-tinoco.JPG", "occupation": "SWE at Google", "aboutMe": "Hello, tell me a joke.", "education": "SFSU", "linkedIn": "http://linkedIn.com/some_random_id" },
     { "name": "Michael Noble", "email": "michaeln@mn.com", "password": "123456", "industry": "Software Engineering", 
-      "city": "San Francisco", "imageUrl": "https://linkr-dev.s3-us-west-1.amazonaws.com/michael-noble.JPG", "occupation": "SWE at Facebook", "aboutMe": "Hello, I love running.", "education": "UCLA", "linkedIn": "https://www.linkedin.com/in/michaelclaytonnoble/" },
+      "city": "San Francisco", "imageUrl": "https://linkr-dev.s3-us-west-1.amazonaws.com/michael-noble.JPG", "occupation": "Full Time Stack", "aboutMe": "Hello, I love running.", "education": "UCLA", "linkedIn": "https://www.linkedin.com/in/michaelclaytonnoble/" },
     { "name": "Cierra Vega", "email": "cierrav@cv.com", "password": "123456", "industry": "Software Engineering", 
       "city": "New York", "imageUrl": "https://linkr-dev.s3-us-west-1.amazonaws.com/woman-2.jpg", "occupation": "QA", "aboutMe": "Hello, I am looking for new friends", "education": "Davis", "linkedIn": "http://linkedIn.com/some_random_id" },
     { "name": "Alden Cantrell", "email": "aldenc@ac.com", "password": "123456", "industry": "Minerals", 
