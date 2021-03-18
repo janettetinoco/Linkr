@@ -34,7 +34,7 @@ class NavBar extends React.Component {
       if (this.props.loggedIn) {
         return (
             <div className='nav-bar'>
-             <Link to="/"> <div className='float-left'>
+             <Link to="/"> <div className='float-left' onClick={this.doChat}>
                 <img alt="navbar" src="faviconL.ico" />
                 <h1>inkr</h1>
               </div></Link>
