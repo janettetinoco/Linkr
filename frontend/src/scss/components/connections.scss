@@ -15,13 +15,74 @@
 @media (max-height: 890px) {
   .connections{
     background-image: url("../../background_images/salar_cotton_candy.png");
-    height: 200vh;
+    height: 130vh;
   }
 }
 
 @media screen and (min-width: 1200px){
+  .connections{
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+    margin: auto;
+    height: 100%;
+  }
+  #friend-index{
+    overflow-y:scroll;
+    width: 545px;
+    // width: fit-content;
+    height: 495px;
+    max-height: 60%;
+    align-self: center;
+    margin: auto 5% auto 0;
+    align-self: center;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-auto-rows: 36%; 
+  }
+  .friend-index-item {
+    //on resize 
+    height: 165px;
+    width: 165px;
+    min-height: 165px;
+    min-width: 165px;
+    float:right;
+  }
+  .friend-detail {
+    position:relative;
+    margin: auto auto;
+    transform: translateX(8vw);
+  }
 }
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1199px){
+  .connections{
+    justify-content: center;
+    flex-direction: row;
+  }
+  #friend-index{
+    margin: 0 20px;
+    transform:translateY(75px);
+    display: flex; 
+    flex-direction: row;
+    overflow-x:scroll;
+    width: fit-content;
+    max-width: 90%;
+    height: min-content;
+  }
+  .friend-index-item {
+    //on resize 
+    height: 10vw;
+    width: 10vw;
+    min-height: 80px;
+    min-width: 80px;
+  }
+  .friend-detail {
+    position:absolute;
+    transform:translateY(240px);
+    height: fit-content;
+  }
+
+  
 }
 
 
@@ -30,45 +91,22 @@
   background-size: cover; 
   background-repeat: repeat-y;
   display: flex;
-  justify-content: center;
-}
-
-.connections{
-  display: flex;
-  flex-direction: row;
   padding: 0;
 }
 
-
 #friend-index{
-  display: flex;
-  background-color: rgba(255, 255, 255, 0.83);
-  border: 1px solid black;
-  -webkit-box-shadow: -1px 1px 3px 4px rgba(37,92,122,0.62), 1px 2px 3px 5px rgba(67,122,152,0.62), 0px 5px 0px 3px rgba(198,147,177,0.79), inset 0px 0px 11px 1px rgba(192,186,148,0.76), inset 0px 0px 8px 1px rgba(192,186,148,0.76); 
-  box-shadow: -1px 1px 3px 4px rgba(37,92,122,0.62), 1px 2px 3px 5px rgba(67,122,152,0.62), 0px 5px 0px 3px rgba(198,147,177,0.79), inset 0px 0px 11px 1px rgba(192,186,148,0.76), inset 0px 0px 8px 1px rgba(192,186,148,0.76);
+  background-color: rgba(255, 255, 255, 0.294);
+
+  -webkit-box-shadow: -1px 1px 3px 4px rgba(37, 92, 122, 0.459), 1px 2px 3px 5px rgba(67, 122, 152, 0.452), 0px 5px 0px 3px rgba(198,147,177,0.79), inset 0px 0px 11px 1px rgba(192,186,148,0.76), inset 0px 0px 8px 1px rgba(192,186,148,0.76);
+  box-shadow: -1px 1px 3px 4px rgba(37, 92, 122, 0.459), 1px 2px 3px 5px rgba(67, 122, 152, 0.452), 0px 5px 0px 3px rgba(198,147,177,0.79), inset 0px 0px 11px 1px rgba(192,186,148,0.76), inset 0px 0px 8px 1px rgba(192,186,148,0.76);
   
-  //on resize
-  //big
-  margin: 0 20px;
-  transform:translateY(75px);
-  flex-direction: row;
-  overflow-x:scroll;
-  width: fit-content;
-  min-width: 50%;
-  height: min-content;
 }
 
 .friend-index-item {
-  //on resize 
-  height: 120px;
-  width: 120px;
-  min-height: 120px;
-  min-width: 120px;
 
-  /////
   align-self: center; 
   padding: 5px 5px;
-  border-bottom: 1px solid grey;
+
   cursor: pointer;
   img {
     height: 100%;
@@ -82,27 +120,19 @@
     background-color: lightgrey;
   }
   &:active {
-    background-color: grey;
+    background-color:rgba(44, 36, 90, 0.83);;
   }
-
-  //on resize
 }
 
 
 
 //connections profile
 
-.friend-container{
-  max-width:400px;
-  //on resize
-  width:400px;
+.friend-detail {
+    height: fit-content;
+    width: fit-content;
 }
 
-.friend-detail {
-  position:absolute;
-  //on resize 
-  transform:translateY(240px);
-}
 
 #connections-message{
 align-self: center;
@@ -119,7 +149,8 @@ background: linear-gradient(to bottom right, #394da0 0%, #DAA7C5 54%);
 //scroll bar settings 
 #friend-index{
   ::-webkit-scrollbar{
-    height: 20px;
+    width: 10px;
+    height: 10px;
     position: absolute;
     top:100px;
     background: linear-gradient(to bottom, #397090, #daa7c5 93%);
