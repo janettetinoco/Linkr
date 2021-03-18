@@ -11,7 +11,7 @@ import "../App.scss";
 import Modal from './modal/modal_container';
 import Splash from './splash/splash';
 import AboutUs from './about/about_us'; 
-
+import Chat from './chat/chat'
 
 const App = () => (
   <div id="App">
@@ -27,6 +27,7 @@ const App = () => (
         <ProtectedRoute exact path="/profile" component={MyProfileContainer} />
         <ProtectedRoute exact path="/profile/edit" component={CompleteProfileContainer} />
         <ProtectedRoute path="/profile/connections" component={ConnectionsContainer} />
+        <ProtectedRoute path="/profile/chat" component={Chat} />
     </Switch>
   </div>
 );
