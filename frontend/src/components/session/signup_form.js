@@ -68,10 +68,28 @@ class SignupForm extends React.Component {
       image.append('image', this.state.imageFile);
       this.props.uploadImage(image).then((res) => {
         user.imageUrl = res.image.data.imageUrl
+      }).then(() => {
+        debugger
+        this.props.signup(user)
+          .then(() => {
+            if (this.props.signedIn) {
+              this.props.login(user).then(this.props.openModal('welcome'));
+              setTimeout(() => this.props.closeModal(), 15000);
+              this.props.history.push('/');
+            }
+            else {
+
+              Object.keys(this.state).forEach((field) => {
+                if (this.props.errors[field]) {
+                  user[field] = '';
+                }
+              });
+              this.setState({ name: user.name, email: user.email, password: user.password, city: user.city, industry: user.industry });
+            }
+          });
       })
-    } 
-    debugger
-    this.props.signup(user)
+    }else{
+      this.props.signup(user)
       .then(() => {
         if(this.props.signedIn){
           this.props.login(user).then(this.props.openModal('welcome'));
@@ -79,7 +97,7 @@ class SignupForm extends React.Component {
           this.props.history.push('/');
         }
         else{
-
+          
           Object.keys(this.state).forEach((field)=>{
             if(this.props.errors[field]){
               user[field] =''; 
@@ -88,6 +106,7 @@ class SignupForm extends React.Component {
           this.setState({name:user.name,email:user.email,password:user.password,city:user.city,industry:user.industry});
         }
       });
+    }
   };
 
   renderErrors() {
