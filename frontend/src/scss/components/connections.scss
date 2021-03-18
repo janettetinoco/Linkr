@@ -4,7 +4,16 @@
   max-zoom: 1.0;
 }
 
-
+@mixin connectionsFont{
+  align-self: center;
+  background: #506CDE;
+  background: -webkit-linear-gradient(to bottom right, #506CDE 0%, #DAA7C5 54%);
+  background: -moz-linear-gradient(to bottom right, #506CDE 0%, #DAA7C5 54%);
+  background: linear-gradient(to bottom right, #40539c 0%, #da73af 54%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;	
+  -webkit-text-stroke: .5px black;
+}
 //size optimize
 @media (min-height: 691px){
   .connections{
@@ -19,7 +28,18 @@
   }
 }
 
-@media screen and (min-width: 1200px){
+@media screen and (max-width: 450px){
+  
+}
+@media screen and (min-width: 1260px){
+  #connections-title{
+    position: absolute;
+    left: 40%;
+    top: 8%;
+    font-size: 50px;
+    @include connectionsFont();
+    font-family: $railway;
+  }
   .connections{
     justify-content: flex-end;
     flex-direction: row;
@@ -27,23 +47,30 @@
     margin: auto;
     height: 100%;
   }
+  #friend-index-wrapper{
+    margin: auto 5% auto 0;
+  }
+  #connections-list-title{
+    font-size: 30px;
+    @include connectionsFont();
+    text-align: center;
+    font-family: $railway;
+  }
   #friend-index{
     overflow-y:scroll;
-    width: 545px;
-    height: 495px;
+    width: 470px;
+    height: 450px;
     max-height: 60%;
-    align-self: center;
-    margin: auto 5% auto 0;
     align-self: center;
     display: grid;
     grid-template-columns: 33% 33% 33%;
     grid-auto-rows: 36%; 
   }
   .friend-index-item {
-    height: 165px;
-    width: 165px;
-    min-height: 165px;
-    min-width: 165px;
+    height: 140px;
+    width: 140px;
+    min-height: 140px;
+    min-width: 140px;
     float:right;
   }
   .friend-detail {
@@ -52,19 +79,31 @@
     transform: translateX(8vw);
   }
 }
-@media screen and (max-width: 1199px){
+@media screen and (max-width: 1259px){
+  #connections-title{
+    display: none;
+  }
   .connections{
     justify-content: center;
     flex-direction: row;
   }
-  #friend-index{
-    margin: 0 20px;
+  #connections-list-title{
+    display: none;
+  }
+  #friend-index-wrapper{
     transform:translateY(95px);
+    // margin: 0 20px;
+    // margin: 0 auto;
+    height: fit-content;
+    min-width: 50%;
+    margin-bottom: 100px;
+  }
+  #friend-index{
     display: flex; 
     flex-direction: row;
     overflow-x:scroll;
-    width: fit-content;
-    max-width: 90%;
+    // width: fit-content;
+    width: 100%;
     height: min-content;
   }
   .friend-index-item {
@@ -76,6 +115,7 @@
   }
   .friend-detail {
     position:absolute;
+    margin-top: 20px;
     transform:translateY(240px);
     height: fit-content;
   }
@@ -92,7 +132,7 @@
   padding: 0;
 }
 .connections .card{
-  background-color: black; 
+  background-color: rgba(47, 58, 156, 0.83);
 }
 #friend-index{
   background-color: rgba(255, 255, 255, 0.294);
@@ -106,7 +146,7 @@
 
   align-self: center; 
   padding: 5px 5px;
-
+  background-color: rgba(245, 245, 245, 0.424);
   cursor: pointer;
   img {
     height: 100%;
@@ -114,13 +154,13 @@
   }
   a {
     text-decoration: none;
-    color: black;
   }
   &:hover {
     background-color: lightgrey;
   }
   &:active {
-    background-color:rgba(44, 36, 90, 0.83);;
+    background-color:rgba(47, 58, 156, 0.83);;
+    // background-color:rgba(44, 36, 90, 0.83);
   }
 }
 
@@ -135,15 +175,8 @@
 
 
 #connections-message{
-align-self: center;
-font-size: 50px;
-background: #506CDE;
-background: -webkit-linear-gradient(to bottom right, #506CDE 0%, #DAA7C5 54%);
-background: -moz-linear-gradient(to bottom right, #506CDE 0%, #DAA7C5 54%);
-background: linear-gradient(to bottom right, #394da0 0%, #DAA7C5 54%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;	
--webkit-text-stroke: 1px black;
+  font-size: 50px;
+  @include connectionsFont();
 }
 
 //scroll bar settings 
