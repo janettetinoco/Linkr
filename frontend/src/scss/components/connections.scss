@@ -30,7 +30,6 @@
   #friend-index{
     overflow-y:scroll;
     width: 545px;
-    // width: fit-content;
     height: 495px;
     max-height: 60%;
     align-self: center;
@@ -41,7 +40,6 @@
     grid-auto-rows: 36%; 
   }
   .friend-index-item {
-    //on resize 
     height: 165px;
     width: 165px;
     min-height: 165px;
