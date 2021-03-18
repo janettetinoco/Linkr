@@ -1,6 +1,7 @@
 import React from 'react';
 import { openModal } from '../../actions/modal_actions';
 import ProfileContainer from './profile_container'; 
+import Chat from '../chat/chat';
 
 class MainPage extends React.Component {
 
@@ -97,6 +98,7 @@ UNSAFE_componentWillMount(){
         <div id="help-icon" ><img onClick={() => {
           this.props.openModal('welcome')
           setTimeout(() => this.props.closeModal(), 15000)}} src="https://img.icons8.com/cotton/64/000000/info--v2.png" /></div>
+      <Chat />
       </div>
     );
   }

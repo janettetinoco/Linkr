@@ -6,6 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
 import BottomBar from './BottomBar';
+import MyBottomBar from './my_bottom_bar';
 
 
 class Chat extends React.Component {
@@ -83,11 +84,11 @@ class Chat extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <Paper id="chat" elevation={3}>
+      <div className="chat-container">
+        <div id="chat">
           {this.state.chat.map((el, index) => {
             return (
-              <div key={index}>
+              <div key={index} className='msg'>
                 <Typography variant="caption" className="name">
                   {el.name}
                 </Typography>
@@ -97,8 +98,8 @@ class Chat extends React.Component {
               </div>
             );
           })}
-        </Paper>
-        <BottomBar
+        </div>
+        <MyBottomBar 
           content={this.state.content}
           handleContent={this.handleContent.bind(this)}
           handleName={this.handleName.bind(this)}
