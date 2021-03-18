@@ -39,14 +39,25 @@ class LoginForm extends React.Component {
   // Handle form submission
   handleSubmit(e) {
     e.preventDefault();
+    this.props.resetErrors();
     let user = {
       email: this.state.email,
       password: this.state.password
     };
 
-    this.props.login(user).then( ()=>{
+    this.props.login(user)
+    .then( ()=>{
       if(this.props.loggedIn){
         this.props.closeModal();
+      }
+      else{
+
+        Object.keys(this.state).forEach((field)=>{
+          if(this.props.errors[field]){
+            user[field] =''; 
+          }
+        });
+        this.setState({email:user.email,password:user.password});
       }
     }).then(()=>this.props.history.push('/') ); 
     this.setState({
@@ -75,16 +86,15 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    let emailPlaceholder = "Email";
     let emailClassName = "login-input";
-    let passwordPlaceholder = "Password";
     let passwordClassName = "login-input";
+    let emailError, passwordError = '';
     if (this.props.errors.email) {
-      emailPlaceholder = this.props.errors.email
+      emailError = this.props.errors.email
       emailClassName = "login-input-error"
     }
     if (this.props.errors.password) {
-      passwordPlaceholder = this.props.errors.password
+      passwordError = this.props.errors.password
       passwordClassName = "login-input-error"
     }
     return (
@@ -93,21 +103,26 @@ class LoginForm extends React.Component {
             <p className="header-container">
               Welcome back to Linkr
             </p>
+              <div className="field-errors">
+                {emailError}
+              </div>
               <input 
                 className={emailClassName}
                 type="text"
     
                 value={this.state.email}
                 onChange={this.update('email')}
-                placeholder={emailPlaceholder}
+                placeholder="Email"
               />
-            <br/>
+              <div className="field-errors">
+                {passwordError}
+              </div>
               <input 
                 className={passwordClassName}
                 type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
-                placeholder={passwordPlaceholder}
+                placeholder="Password"
               />
             <br/>
             <input
@@ -115,6 +130,9 @@ class LoginForm extends React.Component {
               type="submit" 
               value="Submit"
             />
+          <div className="switch-form-container">
+            Don't already have an account? {this.props.signupForm}
+          </div>
           </div>
         </form>
     );

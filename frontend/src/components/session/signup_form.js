@@ -73,18 +73,20 @@ class SignupForm extends React.Component {
     debugger
     this.props.signup(user)
       .then(() => {
-        console.log(this.props.errors);
         if(this.props.signedIn){
           this.props.login(user).then(this.props.openModal('welcome'));
           setTimeout(() => this.props.closeModal(), 15000);
           this.props.history.push('/');
         }
-        Object.keys(this.state).forEach((field)=>{
-          if(this.props.errors[field]){
-            user[field] =''; 
-          }
-        });
-        this.setState({name:user.name,email:user.email,password:user.password,city:user.city,industry:user.industry});
+        else{
+
+          Object.keys(this.state).forEach((field)=>{
+            if(this.props.errors[field]){
+              user[field] =''; 
+            }
+          });
+          this.setState({name:user.name,email:user.email,password:user.password,city:user.city,industry:user.industry});
+        }
       });
   };
 
@@ -218,7 +220,7 @@ class SignupForm extends React.Component {
             />
           </footer>
           <div className="switch-form-container">
-            Already created an account? {this.props.loginForm}
+            Have an account? {this.props.loginForm}
           </div>
         </div>
       </form>
