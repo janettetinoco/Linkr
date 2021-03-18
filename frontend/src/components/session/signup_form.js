@@ -70,6 +70,7 @@ class SignupForm extends React.Component {
         user.imageUrl = res.image.data.imageUrl
       })
     } 
+    debugger
     this.props.signup(user)
       .then(() => {
         console.log(this.props.errors);

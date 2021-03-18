@@ -7,6 +7,7 @@ const singleUpload = upload.single('image');
 
 
 router.post('/uploadImage', (req, res) => {
+    debugger
     singleUpload(req, res, function (err) {
         if (err) {
             return res.status(422).json({ errors: err.message });
