@@ -54,7 +54,7 @@ UNSAFE_componentWillMount(){
     this.props.getConnections(this.props.myId);
     this.props.getBlocks(this.props.myId);
     this.props.getPendings(this.props.myId);
-    this.toggleChat = this.toggleChat.bind(this)
+    // this.toggleChat = this.toggleChat.bind(this)
   }
 
   swipe(filter){
@@ -120,13 +120,14 @@ UNSAFE_componentWillMount(){
           </div>
         <div id="help-icon" ><img onClick={() => {
           this.props.openModal('welcome')
-          setTimeout(() => this.props.closeModal(), 15000)}} src="https://img.icons8.com/cotton/64/000000/info--v2.png" /></div>
+          setTimeout(() => this.props.closeModal(), 15000)}} src="https://img.icons8.com/cotton/64/000000/info--v2.png" />
+        </div>
 
         {/* <Chat /> */}
 
-        <div className='o-chat' onClick={this.toggleChat}>
+        {/* <div className='o-chat' onClick={this.toggleChat}>
           <h1>Open Chat</h1>
-        </div>
+        </div> */}
       </div>
     );
   }

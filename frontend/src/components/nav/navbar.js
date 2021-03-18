@@ -7,8 +7,8 @@ class NavBar extends React.Component {
     super(props);
     this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
-    this.animeBrand = this.animeBrand.bind(this);
-    this.offAnime = this.offAnime.bind(this);
+
+    this.doChat = this.doChat.bind(this);
   }
 
   logoutUser(e) {
@@ -17,22 +17,17 @@ class NavBar extends React.Component {
       this.props.logout();
   }
 
-  animeBrand(){
-    //add animation to brand
-    let brand = document.getElementsByClassName('float-left')
-    // 
-    if (brand.length){
-      brand[0].classList.add('anime')
+  doChat(e){
+    if (e.currentTarget.innerText === 'About us'){
+      document.getElementsByClassName('o-chat')[0].style.display = 'none'
+      document.getElementsByClassName('chat-container')[0].style.display = 'none'
+    } else {
+      document.getElementsByClassName('o-chat')[0].style.display = 'flex'
+      document.getElementsByClassName('chat-container')[0].style.display = 'block'
     }
   }
 
-  offAnime(){
-    //add animation to brand
-    let brand = document.getElementsByClassName('float-left')
-    if (brand.length){
-      brand[0].classList.remove('anime')
-    }
-  }
+  
 
   // Selectively render links dependent on whether the user is logged in
   getLinks() {
@@ -45,10 +40,10 @@ class NavBar extends React.Component {
               </div></Link>
               <div className='float-right'>
                 <div>
-                  <Link className="nav-links" to={'/about-us'} onClick={this.offAnime}>About us</Link>
-                  <Link className="nav-links" to={'/'} onClick={this.offAnime}>Home</Link>
-                  <Link className="nav-links" to={'/profile'} onClick={this.animeBrand}>Profile</Link>
-                  <Link className="nav-links" to={'/profile/connections'} onClick={this.offAnime}>Connections</Link>
+                  <Link className="nav-links" to={'/about-us'} onClick={this.doChat}>About us</Link>
+                  <Link className="nav-links" to={'/'} onClick={this.doChat}>Home</Link>
+                  <Link className="nav-links" to={'/profile'} onClick={this.doChat}>Profile</Link>
+                  <Link className="nav-links" to={'/profile/connections'} onClick={this.doChat}>Connections</Link>
                   <button className="btn-bg logout" onClick={this.logoutUser}>Logout</button>
                 </div>
               </div>

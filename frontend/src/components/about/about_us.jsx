@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 
 class AboutUs extends React.Component{
 
+
   render(){
     return (
       <div id="about-us">
