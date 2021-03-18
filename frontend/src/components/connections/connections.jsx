@@ -3,6 +3,7 @@ import {Route, Link} from 'react-router-dom';
 import FriendDetailContainer from './friend_detail_container'; 
 import FriendIndexItem from './friend_index_item'; 
 
+
 class Connections extends React.Component{
   constructor(props){
     super(props);

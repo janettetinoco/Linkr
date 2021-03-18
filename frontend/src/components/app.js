@@ -28,6 +28,8 @@ const App = () => (
         <ProtectedRoute exact path="/profile/edit" component={CompleteProfileContainer} />
         <ProtectedRoute path="/profile/connections" component={ConnectionsContainer} />
     </Switch>
+    <ProtectedRoute path="" component={Chat} />
+
     {/* <Chat /> */}
   </div>
 );
