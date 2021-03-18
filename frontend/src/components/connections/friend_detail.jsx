@@ -19,7 +19,7 @@ class FriendDetail extends React.Component{
     }
   }
     handleMoreDetails(){
-    let h = document.getElementsByClassName('friend-container')
+    let h = document.getElementsByClassName('profile-container')
     if (!h[0].classList.contains('is-flipped')){
       h[0].classList.add('is-flipped')
     } else {
@@ -36,68 +36,98 @@ class FriendDetail extends React.Component{
 
     return (
       <div className='friend-detail'>
-        <div className='friend-container'>
-          <div className='friend-card'>
+        <div className='profile-container'>
+          <div className='card'>
             <div className="flip-card-front">
-              <div className='friend-image-container'>
-                <img alt="friend-detail-img"id="friend-image" src={this.props.friend.imageUrl} />
-                  <div className='more-details-b'>
-                    <button onClick={this.handleMoreDetails}><img alt="friend-detail-img"id='more-details' className='friend-user-icon' src="https://img.icons8.com/ultraviolet/40/000000/edit.png" /></button>
-                    <h1>More Details</h1>
+              <div className='image-container'>
+                <img alt="profile" id='img-main' src={this.props.friend.imageUrl} />
+                <div className='edit-b'>
+                  <button onClick={this.handleMoreDetails}><img alt="profile" id='edit' className='user-icon' src="https://img.icons8.com/ultraviolet/40/000000/edit.png" /></button>
+                  <h1>More Details</h1>
                 </div>
               </div>
-              <div className='friend-user-details-name'>
+              <div className='user-details-name'>
                 <h1>{this.props.friend.name}</h1>
               </div>
-              <div className='friend-user-details'>
-                <p className='friend-user-info loc' ><img alt="friend-detail-img"className='friend-user-icon' src="https://img.icons8.com/cotton/64/000000/worldwide-location--v2.png" />{this.props.friend.city}</p>
+              <div className='user-details'>
+                <div className='user-info loc' >
+                  <img alt="profile" className='user-icon' src="https://img.icons8.com/cotton/64/000000/worldwide-location--v2.png" />
+                  <p>{this.props.friend.city}</p>
+                </div>
               </div>
-              <div className='friend-user-details'>
-                <p className='friend-user-info' >Occupation<img alt="friend-detail-img"className='friend-user-icon' src="https://img.icons8.com/cotton/64/000000/briefcase--v1.png" /></p>
+              <br />
+              
+              <div className='user-details'>
+                <div className='details-desc'>
+                  <p className='user-info' >Occupation</p>
+                  <img alt="profile" className='user-icon' src="https://img.icons8.com/cotton/64/000000/briefcase--v1.png" />
+                </div>
                 <h2>{this.props.friend.occupation}</h2>
+                <hr className='Solid'/>
               </div>
-              <div className='friend-user-details'>
-                <p className='friend-user-info'  >Industry<img alt="friend-detail-img"className='friend-user-icon' src="https://img.icons8.com/cotton/64/000000/company.png" /></p>
+              <div className='user-details'>
+                <div className='details-desc'>
+                  <p className='user-info'  >Industry</p>
+                  <img alt="profile" className='user-icon' src="https://img.icons8.com/cotton/64/000000/company.png" />
+                </div>
                 <h2>{this.props.friend.industry}</h2>
+                <hr className='Solid'/>
               </div>
-              <div className='friend-user-details'>
-                <p className='friend-user-info' >Links<img alt="friend-detail-img" className='friend-user-icon' src="https://img.icons8.com/cotton/64/000000/external-link.png" /></p>
-                <div className='friend-links'> 
-                  <img alt="friend-detail-img"className='friend-links img' src="https://img.icons8.com/color/48/000000/linkedin.png" />
-                  <h2>{this.props.friend.linkedIn}</h2> 
+              <div className='user-details'>
+                <div className='details-desc'>
+                  <p className='user-info' >Links</p>
+                  <img alt="profile"  className='user-icon' src="https://img.icons8.com/cotton/64/000000/external-link.png" />
+                </div>
+                <div className='links'> 
+                  <h2><a href={this.props.friend.linkedIn}><img alt="profile" className='links img' src="https://img.icons8.com/color/48/000000/linkedin.png" /></a></h2> 
                 </div>
               </div>
             </div>
             <div className="flip-card-back">
-              <div className='friend-image-container'>
-                <img alt="friend-detail-img"id="friend-image" src={this.props.friend.imageUrl} />
-                  <div className='more-details-b'>
-                    <button onClick={this.handleMoreDetails}><img alt="friend-detail-img"id='more-details' className='friend-user-icon' src="https://img.icons8.com/ultraviolet/40/000000/edit.png" /></button>
-                    <h1>More Details</h1>
+              <div className='image-container'>
+                <img alt="profile" id='img-main' src={this.props.friend.imageUrl} />
+                <div className='edit-b'>
+                  <button onClick={this.handleMoreDetails}><img alt="profile" id='edit' className='user-icon' src="https://img.icons8.com/ultraviolet/40/000000/edit.png" /></button>
+                  <h1>More Details</h1>
                 </div>
               </div>
-              <div className='friend-user-details-name'>
+              <div className='user-details-name'>
                 <h1>{this.props.friend.name}</h1>
               </div>
-              <div className='friend-user-details'>
-                <p className='friend-user-info loc' ><img alt="friend-detail-img"className='friend-user-icon' src="https://img.icons8.com/cotton/64/000000/worldwide-location--v2.png" />{this.props.friend.city}</p>
-              </div>
-              <div className='friend-user-details'>
-                <p className='friend-user-info' >Education<img alt="friend-detail-img"className='friend-user-icon' src="https://img.icons8.com/cotton/64/000000/graduation-cap--v2.png" /></p>
-                <h2>{this.props.friend.education}</h2>
-              </div>
-              <div className='friend-user-details'>
-                <p className='friend-user-info' >About Me<img alt="friend-detail-img" className='friend-user-icon' src="https://img.icons8.com/cotton/64/000000/name--v2.png" /></p>
-                <h2>{this.props.friend.aboutMe}</h2>
-              </div>
-              <div className='friend-user-details'>
-                <p className='friend-user-info' >Links<img alt="friend-detail-img" className='friend-user-icon' src="https://img.icons8.com/cotton/64/000000/external-link.png" /></p>
-                <div className='friend-links'> 
-                  <img alt="friend-detail-img"className='friend-links img' src="https://img.icons8.com/color/48/000000/linkedin.png" />
-                  <h2>{this.props.friend.linkedIn}</h2> 
+              <div className='user-details'>
+                <div className='user-info loc' >
+                  <img alt="profile" className='user-icon' src="https://img.icons8.com/cotton/64/000000/worldwide-location--v2.png" />
+                  <p>{this.props.friend.city}</p>
                 </div>
               </div>
-            </div>
+              <br />
+              <div className='user-details'>
+                <div className='details-desc'>
+                  <p className='user-info' >Education</p>
+                  <img alt="profile" className='user-icon' src="https://img.icons8.com/cotton/64/000000/graduation-cap--v2.png" />
+                </div>
+                <h2>{this.props.friend.education}</h2>
+                <hr className='Solid'/>
+              </div>
+  
+              <div className='user-details'>
+                <div className='details-desc'>
+                  <p className='user-info' >About Me</p>
+                  <img alt="profile"  className='user-icon' src="https://img.icons8.com/cotton/64/000000/name--v2.png" />
+                </div>
+                <h2>{this.props.friend.aboutMe}</h2>
+                <hr className='Solid'/>
+              </div>
+              <div className='user-details'>
+                <div className='details-desc'>
+                  <p className='user-info' >Links</p>
+                  <img alt="profile"  className='user-icon' src="https://img.icons8.com/cotton/64/000000/external-link.png" />
+                </div>
+                <div className='links'> 
+                  <h2><a href={this.props.friend.linkedIn}><img alt="profile" className='links img' src="https://img.icons8.com/color/48/000000/linkedin.png" /></a></h2> 
+                </div>
+              </div>
+              </div>
           </div>
         </div>
       </div>
