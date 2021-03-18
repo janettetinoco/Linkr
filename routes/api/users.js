@@ -25,8 +25,14 @@ router.post('/register', (req, res) => {
         errors.email = 'Email already exists';
         return res.status(400).json(errors);
       } else {
+        // debugger
+        let name = req.body.name.split(' ')[0][0].toUpperCase() + 
+          req.body.name.split(' ')[0].slice(1).toLowerCase() + ' ' + 
+          req.body.name.split(' ')[1][0].toUpperCase() + 
+          req.body.name.split(' ')[1].slice(1).toLowerCase()
+
         const newUser = new User({
-          name: req.body.name,
+          name: name,
           email: req.body.email.toLowerCase(),
           password: req.body.password,
           industry: req.body.industry,
@@ -220,9 +226,18 @@ router.patch('/updateProfile', (req, res) => {
   let aboutMe = req.body.aboutMe
   let linkedIn = req.body.linkedIn
   let city = req.body.city
-  let name = req.body.name
   let industry = req.body.industry
   let imageUrl = req.body.imageUrl
+  // let name = req.body.name
+
+  //upcase the Name (allow middle name)
+  let name = req.body.name.split(' ')
+  let modName = []
+  name.forEach(part => {
+    modName.push(part[0].toUpperCase() + part.slice(1).toLowerCase())
+  })
+  name = modName.join(" ")
+  
   // 
   
   User.findByIdAndUpdate(id, 

@@ -6,6 +6,7 @@ import {usersToDisplay} from '../../reducers/selectors';
 import {openModal, closeModal} from '../../actions/modal_actions'
 
 const mSTP = state =>{
+  // debugger
   return({
     usersToDisplay: usersToDisplay(state),
     self: state.users[state.session.user.id],
