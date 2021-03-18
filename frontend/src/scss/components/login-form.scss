@@ -4,56 +4,51 @@
     background-color: $lightest-gray;
     font-family: $railway;
     border: 1px solid $light-gray;
-    border-radius: 7px;
+    border-radius: 20px;
     padding: 5%;
+    div{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 }
 
 .header-container {
-    text-align: center;
-    font-weight: bold;
-    font-size: 2.2vh;
-    margin-bottom: 20px;;
+  font-size: 27px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-// .errors-container {
-//     height: 60px;
-//     width: 100%;
-//     color: red;
-//     text-align: center;
-//     line-height: 30px;
-// }
-
-.login-input {
+@mixin input-style{
+    background-color: #fefefe;
+    color: black;
     font-size: 17px;
     font-family: $railway;
     text-indent: 10px;
     height: 30px;
     width: 100%;
-    z-index: 3;
-    border: 1px solid $light-gray;
     border-radius: 20px;
-    margin-bottom: 20px;
+    z-index: 3;
+    margin: 5px 0;
+}
+
+.login-input {
+  @include input-style();
+  border: 1px solid $light-gray;
 }
 
 .login-input-error {
-    font-size: 17px;
-    font-family: $railway;
-    text-indent: 10px;
-    height: 30px;
-    width: 100%;
-    z-index: 3;
-    border: 1px solid red;
-    border-radius: 20px;
-    margin-bottom: 20px;
+  @include input-style();
+  border: 1px solid red;
 }
 
 .login-submit {
-    background-color: $darker-linkr-orange;
-    color: $lightest-gray;
-    border-radius: 20px;
-    width: 100%;
-    height: 27px;
-    text-align: center;
+  width: 160px;
+  background-color: $darker-linkr-orange;
+  color: $lightest-gray;
+  border-radius: 20px;
+  height: 27px;
+  text-align: center;
 }
 
 .login-submit:hover {
