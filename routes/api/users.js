@@ -25,8 +25,14 @@ router.post('/register', (req, res) => {
         errors.email = 'Email already exists';
         return res.status(400).json(errors);
       } else {
+        // debugger
+        let name = req.body.name.split(' ')[0][0].toUpperCase() + 
+          req.body.name.split(' ')[0].slice(1).toLowerCase() + ' ' + 
+          req.body.name.split(' ')[1][0].toUpperCase() + 
+          req.body.name.split(' ')[1].slice(1).toLowerCase()
+
         const newUser = new User({
-          name: req.body.name,
+          name: name,
           email: req.body.email.toLowerCase(),
           password: req.body.password,
           industry: req.body.industry,
