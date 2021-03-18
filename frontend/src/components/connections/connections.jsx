@@ -18,7 +18,18 @@ class Connections extends React.Component{
   componentDidMount(){
     if(this.props.friends){
       if(this.props.friends.length>0){
-        this.props.history.push(`/profile/connections/${this.state.friends[0]._id}`)
+        this.props.history.push(`/profile/connections/${this.state.friends[0]._id}`);
+      }
+    }
+  }
+  componentDidUpdate(){
+    if(!this.state.loadingFriends){
+      if(this.props.friends){
+        if(this.props.history.location.pathname==='/profile/connections'){
+          if(this.props.friends.length>0){
+            this.props.history.push(`/profile/connections/${this.state.friends[0]._id}`);
+          }
+        }
       }
     }
   }
@@ -52,16 +63,20 @@ class Connections extends React.Component{
         )
       }
     }
-       
     return(
       <section className="connections">
+        <div id="connections-title">Your Connections</div>
         <Route path="/profile/connections/:friendId" component={FriendDetailContainer} />
 
+        <div id="friend-index-wrapper">
+
+          <div id="connections-list-title">Your friends</div>
         <ul id="friend-index">
           {this.props.friends.map( (friend, i)=>{
             return <FriendIndexItem key={i} friend={friend} />
           })}
         </ul>
+          </div>
       </section>
     )
 

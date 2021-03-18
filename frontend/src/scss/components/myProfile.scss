@@ -1,4 +1,159 @@
 
+@media screen and (min-width: 1100px){
+  .profile-container{
+      width: 400px;
+  }
+  .image-container{
+    padding-top: 15px;
+    width: 200px;
+    height: 225px;
+
+    #img-main{
+        padding: 4px;
+        border: 3px solid;
+        min-width: 175px;
+        max-width: 200px;
+        min-height: 170px;
+        max-height: 200px;
+        object-fit: cover;
+    }
+  }
+  .edit-b,.upload-pic{
+    font-size: 15px;
+  }
+  #img-main, #edit{
+    height: 30px;
+    width: 30px;
+  }
+  .user-info{
+    .user-icon{
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .user-details{
+    h2{
+        font-size: 13px;
+    }
+    .details-desc{
+      img{
+          width: 25px;
+      }
+    }
+  }
+  .links.img{
+      width: 35px;
+  }
+  .user-details-name{
+    font-size: 35px;
+  }
+  .card,.flip-card-front, .flip-card-back{
+    height: 650px;
+  }
+  .edit-form{
+    label{
+      min-width: 85px;
+      height: 30px;
+    }
+    .edit-fields{
+      padding-left: 40px  
+    }
+    input{
+      width: 225px;
+    }
+    hr{
+      margin: 0 40px;
+    }
+  }
+  .upload-pic{
+    button{
+      height: 30px;
+      width: 30px;
+    }
+    input {
+      height: 30px;
+      width: 30px;
+    }
+  }
+}
+@media screen and (max-width: 1099px){
+  .profile-container{
+      width: 330px;
+  }
+  .image-container{
+    padding-top: 15px;
+    width: 165px;
+    height: 190px;
+
+    #img-main{
+        padding: 4px;
+        border: 3px solid;
+        min-width: 140px;
+        max-width: 165px;
+        min-height: 140px;
+        max-height: 165px;
+        object-fit: cover;
+    }
+  }
+  .edit-b,.upload-pic{
+    font-size: 12px;
+  }
+  #img-main, #edit{
+    height: 20px;
+    width: 20px;
+  }
+  .user-info{
+    .user-icon{
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .user-details{
+    h2{
+        font-size: 13px;
+    }
+    .details-desc{
+      img{
+          width: 20px;
+      }
+    }
+  }
+  .links.img{
+    width: 25px;
+  }
+  .user-details-name{
+    font-size: 25px;
+  }
+  .card,.flip-card-front, .flip-card-back{
+    height: 615px;
+  }
+  .edit-form{
+    label{
+      min-width: 85px;
+      height: 25px;
+    }
+    .edit-fields{
+      padding-left: 40px  
+    }
+    input{
+      width: 178px;
+    }
+    hr{
+        margin: 0 35px;
+    }
+  }
+  .upload-pic{
+    button{
+      height: 20px;
+      width: 20px;
+    }
+    input {
+      height: 20px;
+      width: 20px;
+    }
+  }
+}
+
 .profile-page{
     width: 100vw;
     height: 100vh;
@@ -8,63 +163,43 @@
     background-image: url('../../pics/space1.jpg');
     background-size: cover;
     background-position: 50%;
-}
-
-.profile-container{
-      width: 400px;
-
-}
+  }
+  .card{
+    background: rgba(44, 36, 90, 0.83);
+  } 
 
 .card{
-    text-align: center;
+  text-align: center;
   font-family: "Raleway", sans-serif;
-  /* background: linear-gradient(to bottom, rgb(176 176 229), rgb(179 142 142) 99%); */
   border: 1px;
   border-radius: 50px;
   overflow: auto;
   overflow-wrap: break-word;
   box-shadow: 0px 1px 0px 0px darkorange;
-  background: rgba(44, 36, 90, 0.83);
 }
 
 .image-container{
-    padding-top: 15px;
-    width: 200px;
-    height: 225px;
     display: flex;
     margin: auto;
     align-items: center;
     #img-main{
-        // border: 1px solid gold;
+        margin-left: 15px;
         border-radius: 75px;
         padding: 4px;
-        // border-color: rgb(194, 173, 64);
         border-radius: 97px;
-        border: 3px solid;
         background-size: cover;
-        margin-left: 15px;
-        // background-color: rgb(30, 144, 255);
-        // border: outset rgb(255, 0, 0);
-        min-width: 175px;
-        max-width: 200px;
-        min-height: 170px;
-        max-height: 200px;
         object-fit: cover;
     }
 }
 
 .edit-b{
     font-family: $railway;
-    font-size: 15px;
     text-align: center;
     color: rgb(255, 215, 0);
     margin-top: -100px;
     margin-left: 10px;
 }
 #img-main, #edit{
-    height: 30px;
-    width: 30px;
-    // background-color: rgb(139, 0, 0);
     border: 1px solid rgb(255, 215, 0);
     border-radius: 15px;
 }
@@ -74,11 +209,7 @@
     display: flex;
     justify-content: space-between;
     color: $linkr-blue;
-
-
     .user-icon{
-        width: 25px;
-        height: 25px;
         display: flex;
         justify-content: center;
         padding-right: 20px;
@@ -100,9 +231,6 @@
 .user-details{
     margin: 7px 15px 0 15px;
     color: orange;
-    h2{
-        font-size: 15px;
-    }
     p{
         color: white;
         display: flex;
@@ -115,7 +243,6 @@
 
         }
         img{
-            width: 25px;
             padding-left: 10px;
         }
     }
@@ -125,45 +252,10 @@
     display: flex;
     justify-content: center;
     color: gold;
-    h2{
-        font-size: 18px;
-    }
-}
-
-.links.img{
-    width: 25px;
 }
 
 .user-details-name{
-    font-size: 35px;
-    color: orange;
-
-    
-}
-
-.anime{
-    animation-name: animation;
-    animation-duration: 5s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;    
-    animation-play-state: running;
-}
-
-
-@-webkit-keyframes animation {
-    0%     {color:red;}
-    25.0%  {color: $linkr-blue;}
-    50.0%  {color:rgb(255, 215, 0)}
-    75.0%  {color: purple;}
-    100.0% {color:red;}
-}
-
-@keyframes animation {
-    0%     {color:red;}
-    25.0%  {color:$linkr-blue;}
-    50.0%  {color:rgb(255, 215, 0)}
-    75.0%  {color: purple;}
-    100.0% {color:red;}
+  color: orange;
 }
 
 
@@ -172,12 +264,10 @@
 
 .profile-container{
     perspective: 1000px;
-    width: 400px;
 }
 
 .card{
     width: 100%;
-    height: 650px;
     position: relative;
     transition: transform 0.6s;
     transform-style: preserve-3d;
@@ -194,7 +284,6 @@
 .flip-card-front, .flip-card-back {
   position: absolute;
   width: 100%;
-  height: 650px;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
@@ -214,32 +303,14 @@
         justify-content: flex-end;
         display: flex;
         padding: 5px;
-        // padding-bottom: 8px;
-        // padding-right: 15%;
-        min-width: 85px;
-        height: 30px;
         padding-top: 10px;
         border-right: 1px solid rgb(255, 255, 255);
-        // border-top: 1px solid rgb(255, 255, 255);
-        // border-left: 1px solid rgb(255, 255, 255);
-        // border-bottom: 1px solid rgb(255, 255, 255);
     }
     .edit-fields{
         display: flex;
-        padding-left: 30px  
-
     }
     input {
         padding-left: 10px;
-        width: 225px;
-        // border-right: 1px solid rgb(255, 255, 255);
-        // border-top: 1px solid rgb(255, 255, 255);
-        // border-left: 1px solid rgb(255, 255, 255);
-        // border-bottom: 1px solid rgb(255, 255, 255);
-
-    }
-    hr{
-        margin: 0 45px;
     }
 }
 
@@ -255,24 +326,17 @@
 
 .upload-pic{
     font-family: "Raleway", sans-serif;
-  font-size: 15px;
   text-align: center;
   color: rgb(255, 215, 0);
   margin-top: -100px;
   margin-left: -49px;
     button{
-        height: 30px;
-        width: 30px;
-        // background-color: rgb(139, 0, 0);
         border: 1px solid rgb(255, 215, 0);
         border-radius: 15px;
         margin-top: 8px;
         cursor: default;
     }
     input {
-      height: 30px;
-      width: 30px;
-      // background-color: rgb(139, 0, 0);
       border: 1px solid rgb(255, 215, 0);
       border-radius: 15px;
       position: relative;
