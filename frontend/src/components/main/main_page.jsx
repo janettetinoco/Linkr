@@ -1,6 +1,7 @@
 import React from 'react';
 import { openModal } from '../../actions/modal_actions';
 import ProfileContainer from './profile_container'; 
+import Chat from '../chat/chat';
 
 class MainPage extends React.Component {
 
@@ -53,6 +54,7 @@ UNSAFE_componentWillMount(){
     this.props.getConnections(this.props.myId);
     this.props.getBlocks(this.props.myId);
     this.props.getPendings(this.props.myId);
+    this.toggleChat = this.toggleChat.bind(this)
   }
 
   swipe(filter){
@@ -81,6 +83,22 @@ UNSAFE_componentWillMount(){
       }
     }
   }
+
+
+  toggleChat(e){
+    // debugger
+    if (e.currentTarget.children[0].innerText === "Open Chat"){
+      e.currentTarget.children[0].innerText = "Close Chat"
+      e.currentTarget.children[0].style.color ='red'
+      document.getElementsByClassName('chat-container')[0].style.display = 'block'
+    } else {
+      e.currentTarget.children[0].innerText = "Open Chat"
+      e.currentTarget.children[0].style.color ='rgb(173, 255, 47)'
+      document.getElementsByClassName('chat-container')[0].style.display = 'none'
+    }
+
+  }
+
   render(){
 
     let nextProfile = '';
@@ -97,6 +115,12 @@ UNSAFE_componentWillMount(){
         <div id="help-icon" ><img onClick={() => {
           this.props.openModal('welcome')
           setTimeout(() => this.props.closeModal(), 15000)}} src="https://img.icons8.com/cotton/64/000000/info--v2.png" /></div>
+
+        {/* <Chat /> */}
+
+        <div className='o-chat' onClick={this.toggleChat}>
+          <h1>Open Chat</h1>
+        </div>
       </div>
     );
   }
