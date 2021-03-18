@@ -68,7 +68,7 @@ class Connections extends React.Component{
         <div id="connections-title-wrapper"><div id="connections-title">Your Connections</div></div>
         <Route path="/profile/connections/:friendId" component={FriendDetailContainer} />
 
-        <div id="friend-index-wrapper">
+
 
           {/* <div id="connections-list-title">Your friends</div> */}
         <ul id="friend-index">
@@ -76,7 +76,7 @@ class Connections extends React.Component{
             return <FriendIndexItem key={i} friend={friend} />
           })}
         </ul>
-          </div>
+
       </section>
     )
 

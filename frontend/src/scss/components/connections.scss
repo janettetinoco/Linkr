@@ -104,9 +104,7 @@
     margin: auto;
 
   }
-  #friend-index-wrapper{
-    margin: auto 1% auto 0;
-  }
+
   #connections-list-title{
     font-size: 30px;
     @include connectionsFont();
@@ -125,6 +123,9 @@
     margin: auto;
     right: 25px;
     top: 35%;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
   }
   .friend-index-item {
     height: 105px;
@@ -136,11 +137,9 @@
   }
   .friend-detail {
     position:relative;
-    // margin: auto 22.5% auto 0;
     margin: 0;
     margin-left: auto;
     margin-right: auto;
-    // transform: translateX(8vw);
     top: 50px;
   }
 }
@@ -155,15 +154,14 @@
   #connections-list-title{
     display: none;
   }
-  #friend-index-wrapper{
+ 
+  #friend-index{
     transform:translateY(95px);
     // margin: 0 20px;
     // margin: 0 auto;
     height: fit-content;
     min-width: 50%;
     margin-bottom: 100px;
-  }
-  #friend-index{
     display: flex; 
     flex-direction: row;
     overflow-x:scroll;
@@ -189,7 +187,7 @@
 @media screen and (min-width: 1500px){
     #friend-index{
     width: 440px;
-    height: 500px;
+    height: 470px;
     top: 30%;
   }
   .friend-index-item {
