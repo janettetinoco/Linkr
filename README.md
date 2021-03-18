@@ -31,7 +31,7 @@ User profiles are rendered to a user depending on their location, we filter thro
 ![Screen Shot 2021-03-17 at 3 03 02 PM](https://user-images.githubusercontent.com/52670122/111544744-2abbd700-8732-11eb-8f26-ab04656f5126.png)
 
 
-
+###Connections
 The left and right swipes dispatch a Connection action with a status of ```"add"``` or ```"block"```. The  ```add``` status goes through a series of conditionals where we reference both users' connected schema to check if the users have a pending connection, they do then they both get reinstated into the connected array. If a user is new their connection schema is generated on their first swipe. The conditional handling "add" satus is very complicated and one of our biggest challenges, but it is fully funcitonal and plan to refactor to optimize for spce and time.
 
 ![code-snippet-1](https://user-images.githubusercontent.com/52670122/111534489-466cb080-8725-11eb-8bbf-c11eeb147bb5.png)
@@ -40,7 +40,8 @@ When users are connected, they are automatically added to their connections page
 
 <img src="https://user-images.githubusercontent.com/52670122/111555355-7926a100-8745-11eb-9bd7-e603aaf3110b.gif" width="800" />
 
-
+###Chat Messenger
+Users can communicate through a chat feature. It was implemented using
 
 Users are allowed to complete their profile once logged in and add/change their profile picture and add external links. Images are stored by using multer to handle multipart/form-data and then stored into AWS S3. We also gave the users the option to not upload an image and using a placeholder until user decides to change their profile picture.
 
