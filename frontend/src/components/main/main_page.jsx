@@ -90,11 +90,17 @@ UNSAFE_componentWillMount(){
     if (e.currentTarget.children[0].innerText === "Open Chat"){
       e.currentTarget.children[0].innerText = "Close Chat"
       e.currentTarget.children[0].style.color ='red'
-      document.getElementsByClassName('chat-container')[0].style.display = 'block'
+      // document.getElementsByClassName('chat-container')[0].style.display = 'block'
+      document.getElementsByClassName('chat-container')[0].classList.add('open')
+      document.getElementById('chat').classList.add('go')
+
     } else {
       e.currentTarget.children[0].innerText = "Open Chat"
       e.currentTarget.children[0].style.color ='rgb(173, 255, 47)'
-      document.getElementsByClassName('chat-container')[0].style.display = 'none'
+      // document.getElementsByClassName('chat-container')[0].style.display = 'none'
+      document.getElementsByClassName('chat-container')[0].classList.remove('open')
+      document.getElementById('chat').classList.remove('go')
+
     }
 
   }

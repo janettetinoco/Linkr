@@ -4,14 +4,27 @@
   position: absolute;
   bottom: 40px;
   width: 300px;
-  display: none;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
+
+.open {
+    opacity: 1;
+}
+
+
 
 #chat {
   color: rgb(255, 255, 255);
   padding-left: 5px;
-  height: 400px;
+  height: 0;
   overflow: scroll;
+  transition: height 1s ease;
+}
+
+#chat.go {
+  height: 400px;
 }
 
 .name {
