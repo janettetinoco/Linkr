@@ -71,7 +71,7 @@ class MyProfile extends React.Component{
     
     Object.keys(this.state).forEach(field =>{
       if (this.state[field] === '' ){
-        this.state[field] = this.props.self[field]
+        this.state[field]= this.props.self[field]
 
       }
     })
@@ -173,7 +173,7 @@ class MyProfile extends React.Component{
                   {/* <input type="file" onChange={this.handleFile} /> */}
                     {/* <img src="https://img.icons8.com/ios/50/ffffff/test-account.png" /> */}
                   <button>
-                    <img src="https://img.icons8.com/ios/50/ffffff/test-account.png"/>
+                    <img alt="pic-icon" src="https://img.icons8.com/ios/50/ffffff/test-account.png"/>
                     <input type="file" onChange={this.handleFile} />
                   </button>
                   <h1>Upload Picture</h1>
