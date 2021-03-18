@@ -75,14 +75,16 @@ class MyProfile extends React.Component{
 
       }
     })
+    let that = this;
     if (this.state.imageFile) {
       const image = new FormData();
       image.append('image', this.state.imageFile);
       this.props.uploadImage(image).then((res) => {
-        this.state.imageUrl = res.image.data.imageUrl
+        this.setState({imageUrl: res.image.data.imageUrl}, () => that.props.updateProfile(that.state))
       })
+    }else{
+      this.props.updateProfile(this.state)
     }
-    this.props.updateProfile(this.state)
    
     let h = document.getElementsByClassName('profile-container')
     h[0].classList.remove('is-flipped')
