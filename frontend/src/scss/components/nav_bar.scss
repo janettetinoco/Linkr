@@ -27,7 +27,6 @@
     height: 27px;
     line-height: 10px;
     font-size: 2.5vw;
-    padding: 5px 10px;
     position: absolute;
     left: 87vw;
     margin-right: 20px;
@@ -111,6 +110,7 @@
     transition: background-color 0.5s;
     font-family: sans-serif;
     text-align: center;
+    padding: 5px 10px;
   }
   
   .btn-sm:hover {
