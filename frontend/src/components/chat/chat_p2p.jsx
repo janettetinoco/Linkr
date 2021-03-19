@@ -11,6 +11,7 @@ class PeerChat extends React.Component{
       chat: [],
       content: '',
       name: '',
+      friends: this.props.friends,
     };
 
     this.handleContent = this.handleContent.bind(this)
@@ -18,13 +19,17 @@ class PeerChat extends React.Component{
   }
 
   componentDidMount() {
+    this.props.getConnections(this.props.selfId);
+    this.props.getConnectionsAsUsers(this.props.selfId)
+
+
     this.socket = io();
     const p2p = new P2P(this.socket)
 
     p2p.on('ready', function(){
       p2p.usePeerConnection = true;
-      // p2p.emit('peer-obj', { peerId: peerId})
-      p2p.emit('peer-obj', console.log('hello'))
+      p2p.emit('peer-obj', { selfId: "60538404cce8fe1ef8db3af1"})
+      // p2p.emit('peer-obj', console.log('hello'))
     })
 
     p2p.on('peer-msg', function(data){
@@ -72,10 +77,10 @@ class PeerChat extends React.Component{
         {this.state.chat.map((el, index) => {
               return (
                 <div key={index} className='msg'>
-                  <div className="name">
+                  <div className="p2p-name">
                     {el.name}
                   </div>
-                  <div className="content">
+                  <div className="p2p-content">
                     {el.content}
                   </div>
                 </div>
@@ -83,7 +88,7 @@ class PeerChat extends React.Component{
             })}
         </div>
 
-        <div className="chat-message">
+        <div className="p2p-message">
           <form onSubmit={this.handleSubmit}>
             <input 
               type='text'

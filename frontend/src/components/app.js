@@ -13,7 +13,7 @@ import Splash from './splash/splash';
 import AboutUs from './about/about_us'; 
 // import Chat from './chat/chat'
 import ChatContainer from './chat/chat_container'
-import PeerChat from './chat/chat_p2p'
+import PeerContainer from './chat/p2p_container'
 
 const App = () => (
   <div id="App">
@@ -32,7 +32,7 @@ const App = () => (
     </Switch>
     {/* chats  */}
     <ProtectedRoute path="" component={ChatContainer} />
-    <ProtectedRoute path="" component={PeerChat} />
+    <ProtectedRoute path="" component={PeerContainer} />
 
   </div>
 );
