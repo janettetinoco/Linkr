@@ -6,15 +6,14 @@ export default function MyBottomBar(props) {
 
   return (
     <div className='bottom-container'>
-      <div className='chat-name'>
+      {/* <div className='chat-name'>
         <input 
           type='text'
           // onChange={props.handleName}
           value={props.name}
           placeholder="Name"
         />
-      </div>
-      <div>
+      </div> */}
         <div className="chat-message">
           <form onSubmit={props.handleSubmit}>
             <input 
@@ -23,8 +22,7 @@ export default function MyBottomBar(props) {
               value={props.content}
               placeholder="Type your message..."
             />
-          </form>
-        </div>  
+          </form> 
       </div>
     </div>
   );
