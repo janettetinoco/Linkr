@@ -23,7 +23,8 @@ class PeerChat extends React.Component{
 
     p2p.on('ready', function(){
       p2p.usePeerConnection = true;
-      p2p.emit('peer-obj', { peerId: peerId})
+      // p2p.emit('peer-obj', { peerId: peerId})
+      p2p.emit('peer-obj', console.log('hello'))
     })
 
     p2p.on('peer-msg', function(data){
@@ -31,18 +32,43 @@ class PeerChat extends React.Component{
     })
   }
 
-  handleSubmit(){
-
+  handleContent(e) {
+    this.setState({
+      content: e.target.value,
+    });
   }
 
-  handleContent(){
+  handleSubmit(e){
+    e.preventDefault()
 
+    this.socket.emit('message', {
+      name: this.state.name,
+      content: this.state.content,
+    });
+
+    this.setState((state) => {
+      // Update the chat with the user's message and remove the current message.
+      return {
+        chat: [...state.chat, {
+          name: state.name,
+          content: state.content,
+        }],
+        content: '',
+      };
+    }, this.scrollToBottom);
   }
+
+  scrollToBottom() {
+    const chat = document.getElementById('p2p');
+    chat.scrollTop = chat.scrollHeight;
+  }
+
+  
 
   render(){
     return(
-      <div >
-        <div>
+      <div className='theP2P'>
+        <div id='p2p'>
         {this.state.chat.map((el, index) => {
               return (
                 <div key={index} className='msg'>

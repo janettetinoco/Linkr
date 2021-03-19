@@ -13,6 +13,7 @@ import Splash from './splash/splash';
 import AboutUs from './about/about_us'; 
 // import Chat from './chat/chat'
 import ChatContainer from './chat/chat_container'
+import PeerChat from './chat/chat_p2p'
 
 const App = () => (
   <div id="App">
@@ -29,10 +30,10 @@ const App = () => (
         <ProtectedRoute exact path="/profile/edit" component={CompleteProfileContainer} />
         <ProtectedRoute path="/profile/connections" component={ConnectionsContainer} />
     </Switch>
-    {/* <ProtectedRoute path="" component={Chat} /> */}
+    {/* chats  */}
     <ProtectedRoute path="" component={ChatContainer} />
+    <ProtectedRoute path="" component={PeerChat} />
 
-    {/* <Chat /> */}
   </div>
 );
 
