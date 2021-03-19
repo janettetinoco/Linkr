@@ -93,15 +93,18 @@
   float: right;
   display: flex;
   align-items: center;
+  justify-items: center; 
+  align-content: center;
+  justify-content: center;
   .btn-sm {
     text-decoration: none;
     color: $gray;
     font-weight: 700;
-    padding: 1vh .5vw;
+    padding: 5px 8px;
     transition: background-color 0.5s;
     transition: color 0.5s;
     font-family: sans-serif;
-    font-size: 2.2vh;
+    // font-size: 2.2vh;
     border: 1px solid transparent;
   }
   .btn-sm#about-link:hover{
@@ -110,9 +113,11 @@
     height: fit-content;
     width: fit-content;
     border-radius: 25px;
-
+    
   }
   .btn-bg {
+    // font-size: 2.2vh;
+    margin-left: 1px;
     border: 1px solid $linkr-blue;
     background-color: $lightest-gray;
     border-radius: 2.2vh;
@@ -121,7 +126,7 @@
     text-align: center;
     padding: 5px 10px;
   }
-  
+
   .btn-sm:hover {
     background-color: $light-gray;
     color: rgb(230, 144, 32);
