@@ -1,155 +1,57 @@
+$max320: "(max-width: 320px)";
+$max480: "(max-width: 480px)";
+$max764: "(max-width: 764px)";
+$max1024: "(max-width: 1024px)";
+$max1200: "(max-width: 1200px)";
+$max1500: "(max-width: 1500px)";
 
-@media screen and (min-width: 1100px){
-  .profile-container{
-      width: 400px;
-  }
-  .image-container{
-    padding-top: 15px;
-    width: 200px;
-    height: 225px;
+$maxH400: "(max-height: 400px)";
+$maxH500: "(max-height: 500px)";
+$maxH600: "(max-height: 600px)";
+$maxH700: "(max-height: 700px)";
+$maxH800: "(max-height: 800px)";
+$maxH900: "(max-height: 900px)";
+$maxH1000: "(max-height: 1000px)";
 
-    #img-main{
-        padding: 4px;
-        border: 3px solid;
-        min-width: 175px;
-        max-width: 200px;
-        min-height: 170px;
-        max-height: 200px;
-        object-fit: cover;
-    }
-  }
-  .edit-b,.upload-pic{
-    font-size: 15px;
-  }
-  #img-main, #edit{
-    height: 30px;
-    width: 30px;
-  }
-  .user-info{
-    .user-icon{
-      width: 20px;
-      height: 20px;
-    }
-  }
-  .user-details{
-    h2{
-        font-size: 13px;
-    }
-    .details-desc{
-      img{
-          width: 25px;
-      }
-    }
-  }
-  .links.img{
-      width: 35px;
-  }
-  .user-details-name{
-    font-size: 35px;
-  }
-  .card,.flip-card-front, .flip-card-back{
-    height: 650px;
-  }
-  .edit-form{
-    label{
-      min-width: 85px;
-      height: 30px;
-    }
-    .edit-fields{
-      padding-left: 40px  
-    }
-    input{
-      width: 225px;
-    }
-    hr{
-      margin: 0 40px;
-    }
-  }
-  .upload-pic{
-    button{
-      height: 30px;
-      width: 30px;
-    }
-    input {
-      height: 30px;
-      width: 30px;
-    }
-  }
+.profile-container{
+  width: 400px;
+  @media screen and #{$max1200}{width: 360px;transition: width .5s;}
+  @media screen and #{$max1024}{width: 330px;transition: width .5s;}
+  @media screen and #{$max764}{width: 310px;transition: width .5s;}
+  
+  @media screen and #{$maxH900}{transform: translateY(20px);}
+  @media screen and #{$maxH800}{transform: translateY(50px);}
+  @media screen and (max-height: 679px){transform: translateY(60px);}
+  @media screen and #{$maxH600}{transform: translateY(90px)}
+  @media screen and #{$maxH500}{transform: translateY(120px)}
+  @media screen and (max-height: 470px){transform: translateY(170px);}
+  @media screen and #{$maxH400}{transform: translateY(190px)}
 }
-@media screen and (max-width: 1099px){
-  .profile-container{
-      width: 330px;
-  }
-  .image-container{
-    padding-top: 15px;
+
+.image-container{
+  padding-top: 15px;
+  width: 200px;
+  height: 225px;
+  @media screen and (max-width: 1099px){
     width: 165px;
     height: 190px;
+    transition: height .5s;
+    transition: width .5s;
+  }
 
-    #img-main{
-        padding: 4px;
-        border: 3px solid;
-        min-width: 140px;
-        max-width: 165px;
-        min-height: 140px;
-        max-height: 165px;
-        object-fit: cover;
-    }
-  }
-  .edit-b,.upload-pic{
-    font-size: 12px;
-  }
-  #img-main, #edit{
-    height: 20px;
-    width: 20px;
-  }
-  .user-info{
-    .user-icon{
-      width: 20px;
-      height: 20px;
-    }
-  }
-  .user-details{
-    h2{
-        font-size: 13px;
-    }
-    .details-desc{
-      img{
-          width: 20px;
-      }
-    }
-  }
-  .links.img{
-    width: 25px;
-  }
-  .user-details-name{
-    font-size: 25px;
-  }
-  .card,.flip-card-front, .flip-card-back{
-    height: 615px;
-  }
-  .edit-form{
-    label{
-      min-width: 85px;
-      height: 25px;
-    }
-    .edit-fields{
-      padding-left: 40px  
-    }
-    input{
-      width: 178px;
-    }
-    hr{
-        margin: 0 35px;
-    }
-  }
-  .upload-pic{
-    button{
-      height: 20px;
-      width: 20px;
-    }
-    input {
-      height: 20px;
-      width: 20px;
+  #img-main{
+    padding: 4px;
+    border: 3px solid;
+    min-width: 175px;
+    max-width: 200px;
+    min-height: 170px;
+    max-height: 200px;
+    object-fit: cover;
+    @media screen and (max-width: 1099px){
+      min-width: 140px;
+      max-width: 165px;
+      min-height: 140px;
+      max-height: 165px;
     }
   }
 }
@@ -163,6 +65,40 @@
     background-image: url('../../pics/space1.jpg');
     background-size: cover;
     background-position: 50%;
+
+
+    @media screen and (max-height: 750px) and (min-width: 1200px) {height: 110vh;align-items: flex-start;}
+    @media screen and (max-height: 700px) and (min-width: 1200px) {height: 120vh;}
+    @media screen and (max-height: 650px) and (min-width: 1200px) {height: 130vh;}
+    @media screen and (max-height: 600px) and (min-width: 1200px) {height: 160vh;}
+    @media screen and (max-height: 550px) and (min-width: 1200px) {height: 160vh;}
+    @media screen and (max-height: 500px) and (min-width: 1200px) {height: 180vh;}
+    @media screen and (max-height: 470px) and (min-width: 1200px) {height: 210vh;}
+    @media screen and (max-height: 400px) and (min-width: 1200px) {height: 250vh;}
+    @media screen and (max-height: 350px) and (min-width: 1200px) {height: 270vh;}
+    @media screen and (max-height: 315px) and (min-width: 1200px) {height: 295vh;}
+
+    @media screen and (max-height: 750px) and (max-width: 1199px) {height: 110vh;align-items: flex-start;}
+    @media screen and (max-height: 700px) and (max-width: 1199px) {height: 120vh;}
+    @media screen and (max-height: 650px) and (max-width: 1199px) {height: 130vh;}
+    @media screen and (max-height: 600px) and (max-width: 1199px) {height: 130vh;}
+    @media screen and (max-height: 550px) and (max-width: 1199px) {height: 150vh;}
+    @media screen and (max-height: 500px) and (max-width: 1199px) {height: 160vh;}
+    @media screen and (max-height: 470px) and (max-width: 1199px) {height: 190vh;}
+    @media screen and (max-height: 400px) and (max-width: 1199px) {height: 230vh;}
+    @media screen and (max-height: 350px) and (max-width: 1199px) {height: 270vh;}
+    @media screen and (max-height: 315px) and (max-width: 1199px) {height: 295vh;}
+    // @media screen and #{$maxH600}{height: }
+    // @media screen and #{$maxH500}{height: }
+    // @media screen and (max-height: 470px){height: ;}
+    // @media screen and #{$maxH400}{height: }
+    @media screen and #{$maxH1000}{}
+    @media screen and #{$maxH1000}{}
+    @media screen and #{$maxH1000}{}
+    @media screen and #{$maxH1000}{}
+    @media screen and #{$maxH1000}{}
+    @media screen and #{$maxH1000}{}
+    @media screen and #{$maxH1000}{}
   }
   .card{
     background: rgba(44, 36, 90, 0.83);
@@ -192,6 +128,11 @@
     }
 }
 
+
+.edit-b,.upload-pic{
+    font-size: 15px;
+    @media screen and (max-width: 1099px){font-size: 12px;}
+}
 .edit-b{
     font-family: $railway;
     text-align: center;
@@ -202,6 +143,13 @@
 #img-main, #edit{
     border: 1px solid rgb(255, 215, 0);
     border-radius: 15px;
+
+    height: 30px;
+    width: 30px;
+    @media screen and (max-width: 1099px){
+      height: 20px;
+      width: 20px;
+    }
 }
 
 
@@ -213,6 +161,10 @@
         display: flex;
         justify-content: center;
         padding-right: 20px;
+
+        width: 20px;
+        height: 20px;
+  
     }
 }
 
@@ -229,6 +181,10 @@
 }
 
 .user-details{
+    h2{
+      font-size: 14px;
+      @media screen and (max-width: 1099px){font-size: 13px;}
+    }
     margin: 7px 15px 0 15px;
     color: orange;
     p{
@@ -240,10 +196,12 @@
         display: flex;
         p{
             padding-top: 5px;
-
         }
         img{
-            padding-left: 10px;
+          padding-left: 10px;
+          width: 25px;
+          height: 25px;
+          @media screen and (max-width: 1099px){width: 20px; height: 20px;}
         }
     }
 }
@@ -254,8 +212,15 @@
     color: gold;
 }
 
+.links.img{
+  width: 35px;
+  @media screen and (max-width: 1099px){width: 25px;}
+}
+
 .user-details-name{
   color: orange;
+  font-size: 35px;
+  @media screen and (max-width: 1099px){font-size: 25px;}
 }
 
 
@@ -271,6 +236,15 @@
     position: relative;
     transition: transform 0.6s;
     transform-style: preserve-3d;
+}
+.card,.flip-card-front, .flip-card-back{
+    height: 650px;
+    @media screen and #{$max1200}{height: 635px;}
+    @media screen and (max-width: 1099px){height: 625px;}
+    @media screen and #{$max1024}{height: 615px;}
+    @media screen and #{$max764}{height: 605px;}
+    @media screen and #{$max480}{height: 590px;}
+
 }
 
 .profile-container.is-flipped .card{
@@ -305,14 +279,28 @@
         padding: 5px;
         padding-top: 10px;
         border-right: 1px solid rgb(255, 255, 255);
+
+        min-width: 85px;
+        height: 30px;
+        @media screen and (max-width: 1099px){height: 25px;}
     }
     .edit-fields{
         display: flex;
+        padding-left: 35px;
+        @media screen and (max-width: 1099px){padding-left: 40px;}
     }
     input {
         padding-left: 10px;
+
+        width: 225px;
+        @media screen and (max-width: 1099px){width: 178px;}
+    }
+    hr{
+      margin: 0 40px;
+      @media screen and (max-width: 1099px){margin: 0 35px;}
     }
 }
+
 
 .update-btn{
     margin-top: 20px;
@@ -325,27 +313,40 @@
 }
 
 .upload-pic{
-    font-family: "Raleway", sans-serif;
+  font-family: "Raleway", sans-serif;
   text-align: center;
   color: rgb(255, 215, 0);
   margin-top: -100px;
   margin-left: -49px;
-    button{
-        border: 1px solid rgb(255, 215, 0);
-        border-radius: 15px;
-        margin-top: 8px;
-        cursor: default;
-    }
-    input {
-      border: 1px solid rgb(255, 215, 0);
-      border-radius: 15px;
-      position: relative;
-        bottom: 31px;
-        left: -1px;
-        opacity: 0;
-    }
-    h1{
-        margin-top: -15px;
+  button{
+    border: 1px solid rgb(255, 215, 0);
+    border-radius: 15px;
+    margin-top: 8px;
+    cursor: default;
 
+    height: 30px;
+    width: 30px;
+    @media screen and (max-width: 1099px){
+      height: 20px;
+      width: 20px;
     }
+  }
+  input {
+    border: 1px solid rgb(255, 215, 0);
+    border-radius: 15px;
+    position: relative;
+    bottom: 31px;
+    left: -1px;
+    opacity: 0;
+    /////
+    height: 30px;
+    width: 30px;
+    @media screen and (max-width: 1099px){
+      height: 20px;
+      width: 20px;
+    }
+  }
+  h1{
+    margin-top: -15px;
+  }
 }
