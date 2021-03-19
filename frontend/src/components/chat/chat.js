@@ -49,12 +49,12 @@ class Chat extends React.Component {
     });
   }
 
-  //
-  handleName(event) {
-    this.setState({
-      name: event.target.value,
-    });
-  }
+  // no need to change name
+  // handleName(event) {
+  //   this.setState({
+  //     name: event.target.value,
+  //   });
+  // }
 
   handleSubmit(event) {
     // Prevent the form to reload the current page.
@@ -123,7 +123,7 @@ class Chat extends React.Component {
           <MyBottomBar 
             content={this.state.content}
             handleContent={this.handleContent.bind(this)}
-            handleName={this.handleName.bind(this)}
+            // handleName={this.handleName.bind(this)}
             handleSubmit={this.handleSubmit.bind(this)}
             name={this.state.name}
           />

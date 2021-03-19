@@ -9,7 +9,7 @@ export default function MyBottomBar(props) {
       <div className='chat-name'>
         <input 
           type='text'
-          onChange={props.handleName}
+          // onChange={props.handleName}
           value={props.name}
           placeholder="Name"
         />
