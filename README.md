@@ -1,7 +1,7 @@
-# Linkr
-### by Michael Noble, Alexey Sergeev, Jonathan Diaz,and Janette Tinoco
+# [Linkr](http://linkr-mern.herokuapp.com/)
+### by Michael Clayton Noble, Alexey Sergeev, Jonathan Diaz,and Janette Tinoco
 
-Linkr is a professional networking application that allows users to connect in a simplified manner. Users will be given suggested users to connect with given an option to swipe right if they are interested or swipe left if they are not. Users can further their connection once both users show an interest in connecting and it will allow users to see more information about their new connection, such as professional networking sites and portfolios. Since networking has taken a turn for the digital, Linkr strives to be the intuitive go-to application for meeting new associates.
+Linkr is a professional networking application that allows users to connect in a simplified manner. Users are given suggested users to connect with given an option to swipe right if they are interested or swipe left if they are not. Users can further their connection once both users show an interest in connecting and it will allow users to see more information about their new connection, such as professional networking sites and portfolios. Since networking has taken a turn for the digital, Linkr strives to be the intuitive go-to application for meeting new associates.
 
 Explore our app! [Linkr](http://linkr-mern.herokuapp.com/)
 
