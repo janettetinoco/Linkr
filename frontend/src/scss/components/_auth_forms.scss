@@ -19,4 +19,8 @@ $maxWidth450: "(max-width: 450px)";
   border-radius: 20px;
   height: 27px;
   text-align: center;
+  &:hover{
+    cursor: pointer;
+    filter: brightness(70%);
+  }
 }

@@ -61,8 +61,3 @@ $maxWidth450: "(max-width: 450px)";
   @include submit-button-style($better-linkr-blue); 
   margin-bottom: 5px;
 }
-
-.login-submit:hover {
-    cursor: pointer;
-    filter: brightness(70%);
-}
