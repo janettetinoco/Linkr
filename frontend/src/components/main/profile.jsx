@@ -28,40 +28,64 @@ class Profile extends React.Component{
         button.classList.remove('disappear');
       }
       return(
-          <div className="profile-container">
-            <div className="card">
-              <div id="profile-main-info">
-                <div className="user-image-container">
-                  <img alt="profile" id="profile-img"src={this.props.user.imageUrl} />
+          <div className='profile-container'>
+            <div className='card'>
+              <div className="flip-card-front">
+                <div className='image-container'>
+                  <img alt="profile" id='img-main' src={this.props.user.imageUrl} />
+                  <div className='edit-b'>
+                    <button onClick={this.handleEditButton}><img alt="profile" id='edit' className='user-icon' src="https://img.icons8.com/ultraviolet/40/000000/edit.png" /></button>
+                    <h1>Edit Profile</h1>
+                  </div>
                 </div>
-                <h1 id="user-name">{this.props.user.name}</h1>
-                <h1 id="user-location"><img alt="profile" src="https://img.icons8.com/cotton/64/000000/worldwide-location--v2.png" />{this.props.user.city}</h1>
-                <span></span>
-              </div>
-              <div id="body">
-                <div id="stats">
-
-                  <div className="details">
-                    <p id="label"><img alt="profile" src="https://img.icons8.com/cotton/64/000000/graduation-cap--v2.png" />Education</p>
-                    <p>{this.props.user.education}</p>
+                <div className='user-details-name'>
+                  <h1>{this.props.user.name}</h1>
+                </div>
+                <div className='user-details'>
+                  <div className='user-info loc' >
+                    <img alt="profile" className='user-icon' src="https://img.icons8.com/cotton/64/000000/worldwide-location--v2.png" />
+                    <p>{this.props.user.city}</p>
                   </div>
-
-                  <div className="details">
-                    <p id="label"><img alt="profile" src="https://img.icons8.com/cotton/64/000000/briefcase--v1.png" />Occupation</p>
-                    <p>{this.props.user.occupation}</p>
+                </div>
+                <div className='user-details'>
+                  <div className='details-desc'>
+                    <p className='user-info' >Education</p>
+                    <img alt="profile" className='user-icon' src="https://img.icons8.com/cotton/64/000000/graduation-cap--v2.png" />
                   </div>
-
-                  <div className="details">
-                    <p id="label"><img alt="profile" src="https://img.icons8.com/cotton/64/000000/company.png" />Industry</p>
-                    <p>{this.props.user.industry}</p>
+                  <h2>{this.props.user.education}</h2>
+                  <hr className='Solid'/>
+                </div>
+                <div className='user-details'>
+                  <div className='details-desc'>
+                    <p className='user-info' >Occupation</p>
+                    <img alt="profile" className='user-icon' src="https://img.icons8.com/cotton/64/000000/briefcase--v1.png" />
                   </div>
-                  <div className="details">
-                    <p id="label"><img alt="profile" src="https://img.icons8.com/cotton/64/000000/name--v2.png" />About Me</p>
-                    <p>{this.props.user.aboutMe}</p>
+                  <h2>{this.props.user.occupation}</h2>
+                  <hr className='Solid'/>
+                </div>
+                <div className='user-details'>
+                  <div className='details-desc'>
+                    <p className='user-info'  >Industry</p>
+                    <img alt="profile" className='user-icon' src="https://img.icons8.com/cotton/64/000000/company.png" />
                   </div>
-                  <div className="details">
-                    {/* <p id="label-links"><img alt="profile" src="https://img.icons8.com/cotton/64/000000/external-link.png" />Links</p> */}
-                    <p>{this.props.user.linkedIn ? <Link to={this.props.user.linkedIn}><img alt="profile" id="linkedIn" src="https://img.icons8.com/color/48/000000/linkedin.png" /></Link> : ""}</p>
+                  <h2>{this.props.user.industry}</h2>
+                  <hr className='Solid'/>
+                </div>
+                <div className='user-details'>
+                  <div className='details-desc'>
+                    <p className='user-info' >About Me</p>
+                    <img alt="profile"  className='user-icon' src="https://img.icons8.com/cotton/64/000000/name--v2.png" />
+                  </div>
+                  <h2>{this.props.user.aboutMe}</h2>
+                  <hr className='Solid'/>
+                </div>
+                <div className='user-details'>
+                  <div className='details-desc'>
+                    <p className='user-info' >Links</p>
+                    <img alt="profile"  className='user-icon' src="https://img.icons8.com/cotton/64/000000/external-link.png" />
+                  </div>
+                  <div className='links'> 
+                    <h2><a href={this.props.user.linkedIn}><img alt="profile" className='links img' src="https://img.icons8.com/color/48/000000/linkedin.png" /></a></h2> 
                   </div>
                 </div>
               </div>

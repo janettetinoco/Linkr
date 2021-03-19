@@ -1,16 +1,23 @@
+@import "_auth_forms";
+
 $minWidth450: "(min-width: 450px)"; 
 $maxWidth450: "(max-width: 450px)"; 
 
 @mixin inputStyle{
   height: 30px;
   background-color: #fefefe;
-  font-size: 17px;
+  
   font-family: $railway;
   text-indent: 10px;
   z-index: 3;
   border: 1px solid $light-gray;
   border-radius: 20px;
   margin: 4px;
+  font-size: 17px;
+  @media #{$maxWidth450}{
+    font-size: 13px;
+    margin: auto;
+  }
   color: black; 
   }
   
@@ -18,23 +25,28 @@ $maxWidth450: "(max-width: 450px)";
     @include inputStyle;
   }
 
+  .signup-form {
+    @include form_style;
+  }
+
 .welcome-message {
   font-size: 27px;
+  @media #{$maxWidth450}{font-size: 20px;}
   text-align: center;
 }
 
-#add-profile-image{
-  background-color: black; 
-  height: 30px;
-  width: 30px; 
-}
 #image-preview {
     width: 125px;
     height: 125px;
     border: 1px solid $linkr-blue;
     border-radius: 50%;
     margin: 20px auto 10px auto;
-
+    @media #{$maxWidth450}{
+      font-size: 20px;
+      width: 100px;
+      height: 100px;
+      margin: 20px auto auto auto;
+    }
     img{
       height: 100%;
       width: 100%;
@@ -43,48 +55,26 @@ $maxWidth450: "(max-width: 450px)";
       border-radius: 50%;
     }
 }
-.signup-form {
-    color: $other-orange;
-    background-color: $lightest-gray;
-    width: 100%;
-    font-family: $railway;
-    border: 1px solid $light-gray;
-    border-radius: 7px;
-    padding: 5%;
-}
+
 //inputs 
 .signup-input {
-@extend %inputStyle;
+  @extend %inputStyle;
   width: 100%;
 }
 .city-industry-input{
   @extend %inputStyle;
+  overflow-x: hidden;
+  width: 50%;
 }
+
 .city-industry-container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     text-align: center;
-    margin-top: 0 auto 10px auto;
+    margin: 0 auto 10px auto;
+    width: 100%;
 }
 
-.choose-file {
-  font-family: $railway;
-  font-size: 1.7vh;
-  text-align: center;
-  margin: auto 0;
-  background-color: $better-linkr-blue;
-  border-radius: 20px;
-  color: white;
-  width: 160px;
-  height: 27px;
-  margin: 15px 0 1px 0;
-}
-  
-
-.choose-file:hover {
-    cursor: pointer;
-    filter: brightness(70%);
-}
 //errors
 .signup-input-error {
     font-family: $railway;
@@ -104,20 +94,26 @@ $maxWidth450: "(max-width: 450px)";
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-
+    font-size: 15px;
+    @media screen and #{$maxWidth450}{font-size: 11px;}
     input[type="file"]{
       display: none;
     }
 }
 
+.choose-file {
+  font-family: $railway;
+  @include submit-button-style($better-linkr-blue);
+
+  margin: 15px 0 1px 0;
+}
+.choose-file:hover {
+    cursor: pointer;
+    filter: brightness(70%);
+}
 .session-submit {
-    background-color: $darker-linkr-orange;
-    color: $lightest-gray;
     margin-top: 5px;
-    border-radius: 20px;
-    width: 160px;
-    height: 27px;
-    text-align: center;
+    @include submit-button-style($darker-linkr-orange);
 }
 
 .session-submit:hover {
@@ -138,7 +134,7 @@ $maxWidth450: "(max-width: 450px)";
     margin-top: 15px;
     color: $better-linkr-blue;
     font-size: 15px;
-    @media #{$maxWidth450}{font-size: 11px;}
+    @media screen and #{$maxWidth450}{font-size: 11px;}
     text-align: center;
 }
 

@@ -30,33 +30,38 @@ class LoginForm extends React.Component {
     let user;
     if(e.target.value === 'demo'){
       user = {email: 'Michaeln@mn.com', password: '123456'};
+      document.getElementById('email-input')
+      // setTimeout(login.bind(this), 3500);
     }
     else{
       user = {
       email: this.state.email,
       password: this.state.password
       };
+      login.bind(this)();
     }
 
-    this.props.login(user)
-    .then( ()=>{
-      if(this.props.loggedIn){
-        this.props.closeModal();
-      }
-      else{
+    function login(){
+      this.props.login(user)
+      .then( ()=>{
+        if(this.props.loggedIn){
+          this.props.closeModal();
+        }
+        else{
 
-        Object.keys(this.state).forEach((field)=>{
-          if(this.props.errors[field]){
-            user[field] =''; 
-          }
-        });
-        this.setState({email:user.email,password:user.password});
-      }
-    }).then(()=>this.props.history.push('/') ); 
-    this.setState({
-      email: "",
-      password: ""
-    })
+          Object.keys(this.state).forEach((field)=>{
+            if(this.props.errors[field]){
+              user[field] =''; 
+            }
+          });
+          this.setState({email:user.email,password:user.password});
+        }
+      }).then(()=>this.props.history.push('/') ); 
+      this.setState({
+        email: "",
+        password: ""
+      })
+    }
   }
 
   // Render the session errors if there are any
