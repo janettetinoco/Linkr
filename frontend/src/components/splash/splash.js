@@ -1,5 +1,7 @@
 import React from 'react';
 import splashimg from '../../pics/young-professional-wealth-building-in-your-20s-metroplex-wealth-southlake-texas.png'
+import PeerChat from '../chat/chat_p2p'
+
 class Splash extends React.Component{
     render(){
         return(
@@ -15,6 +17,7 @@ class Splash extends React.Component{
                         Connect with people in any industry with just a simple swipe
                     </h1>
                 </div>
+                <PeerChat />
             </div>
         )
     }
