@@ -1,0 +1,137 @@
+
+$max320: "(max-width: 320px)";
+$max480: "(max-width: 480px)";
+$max764: "(max-width: 764px)";
+$max1024: "(max-width: 1024px)";
+$max1200: "(max-width: 1200px)";
+$max1500: "(max-width: 1500px)";
+
+$maxH400: "(max-height: 400px)";
+$maxH500: "(max-height: 500px)";
+$maxH600: "(max-height: 600px)";
+$maxH700: "(max-height: 700px)";
+$maxH800: "(max-height: 800px)";
+$maxH900: "(max-height: 900px)";
+$maxH1000: "(max-height: 1000px)";
+
+
+.disappear{
+    visibility: hidden;
+}
+
+
+#main-page{
+    height: 100vh;
+    width:100vw;
+    display: flex;
+    flex-direction: column;
+    // z-index: 100;
+    position:relative;
+    background: url('../../background_images/salar_dry_dusk.jpg');
+
+    #swipe{
+        display:flex;
+        justify-content: center;
+        position:fixed;
+        bottom: 10px;
+        left:5px;
+        right:5px;
+
+        button{
+            height:5vh;
+            width: 140px;
+            border: 1px solid $linkr-blue;
+            border-radius: 20px;
+            background-color: #c0c1c3d9;
+            text-align: center;
+            font-family: $railway;
+            color:black;
+            font-weight: 500;
+            font-size: 21px;
+            margin:0vw 2vw;
+        }
+        button:hover{
+            background-color: $linkr-blue;
+            color: white;
+        }
+
+    }
+
+    .profile-container{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        .card{
+            background: linear-gradient(to bottom, #0e3459, #4b82b8 99%);
+            box-shadow: 0px 1px 10px 5px rgb(105, 99, 99);
+        }
+
+     #profile-main-info{
+        background-color:transparent;
+        button{
+            border: 1px solid lightblue;
+            align-items: center;
+            padding: 4px;
+            font-size: 12px;
+            img{
+                height:5vh;
+                width:5vw;
+            }
+        }
+         button:hover{
+            background-color: $light-gray;
+        }
+        .user-image-container{
+            #profile-img{
+                border: 2px solid white;
+            }
+        }
+    }
+
+    #body{
+      #stats{
+        .details{
+          border-bottom: 1px solid grey;
+          #label{
+            border-right: 1px solid gray;
+          }
+        }
+      }
+    }
+  }
+}
+
+#help-icon img{
+    position: absolute;
+    right:0;
+    bottom:1vh;
+    height: 5vh;
+    width:auto;
+}
+
+#main-page{
+    @media screen and (max-height: 750px) and (min-width: 1200px) {height: 110vh;align-items: flex-start;}
+    @media screen and (max-height: 700px) and (min-width: 1200px) {height: 120vh;}
+    @media screen and (max-height: 650px) and (min-width: 1200px) {height: 130vh;}
+    @media screen and (max-height: 600px) and (min-width: 1200px) {height: 160vh;}
+    @media screen and (max-height: 550px) and (min-width: 1200px) {height: 160vh;}
+    @media screen and (max-height: 500px) and (min-width: 1200px) {height: 180vh;}
+    @media screen and (max-height: 470px) and (min-width: 1200px) {height: 210vh;}
+    @media screen and (max-height: 400px) and (min-width: 1200px) {height: 250vh;}
+    @media screen and (max-height: 350px) and (min-width: 1200px) {height: 270vh;}
+    @media screen and (max-height: 315px) and (min-width: 1200px) {height: 295vh;}
+
+    @media screen and (max-height: 750px) and (max-width: 1199px) {height: 110vh;align-items: flex-start;}
+    @media screen and (max-height: 700px) and (max-width: 1199px) {height: 120vh;}
+    @media screen and (max-height: 650px) and (max-width: 1199px) {height: 130vh;}
+    @media screen and (max-height: 600px) and (max-width: 1199px) {height: 130vh;}
+    @media screen and (max-height: 550px) and (max-width: 1199px) {height: 150vh;}
+    @media screen and (max-height: 500px) and (max-width: 1199px) {height: 160vh;}
+    @media screen and (max-height: 470px) and (max-width: 1199px) {height: 190vh;}
+    @media screen and (max-height: 400px) and (max-width: 1199px) {height: 230vh;}
+    @media screen and (max-height: 350px) and (max-width: 1199px) {height: 270vh;}
+    @media screen and (max-height: 315px) and (max-width: 1199px) {height: 295vh;}
+}
