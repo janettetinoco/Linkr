@@ -5,7 +5,7 @@ import io from 'socket.io-client';
 // import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
-// import BottomBar from './BottomBar';
+// import MyBottomBar from './my_bottom_bar';
 import MyBottomBar from './my_bottom_bar';
 
 
@@ -16,11 +16,10 @@ class Chat extends React.Component {
     this.state = {
       chat: [],
       content: '',
-      name: '',
+      name: this.props.name,
     };
 
     this.toggleChat = this.toggleChat.bind(this)
-
   }
 
   componentDidMount() {
@@ -50,12 +49,12 @@ class Chat extends React.Component {
     });
   }
 
-  //
-  handleName(event) {
-    this.setState({
-      name: event.target.value,
-    });
-  }
+  // no need to change name
+  // handleName(event) {
+  //   this.setState({
+  //     name: event.target.value,
+  //   });
+  // }
 
   handleSubmit(event) {
     // Prevent the form to reload the current page.
@@ -103,6 +102,7 @@ class Chat extends React.Component {
   }
 
   render() {
+    // debugger
     return (
       <div>
         <div className="chat-container">
@@ -123,7 +123,7 @@ class Chat extends React.Component {
           <MyBottomBar 
             content={this.state.content}
             handleContent={this.handleContent.bind(this)}
-            handleName={this.handleName.bind(this)}
+            // handleName={this.handleName.bind(this)}
             handleSubmit={this.handleSubmit.bind(this)}
             name={this.state.name}
           />
