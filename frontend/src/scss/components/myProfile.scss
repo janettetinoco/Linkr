@@ -15,9 +15,9 @@ $maxH1000: "(max-height: 1000px)";
 
 .profile-container{
   width: 400px;
-  @media screen and #{$max1200}{width: 360px;transition: width .5s;}
-  @media screen and #{$max1024}{width: 330px;transition: width .5s;}
-  @media screen and #{$max764}{width: 310px;transition: width .5s;}
+  @media screen and #{$max1200}{width: 360px;transition: width .7s;}
+  @media screen and #{$max1024}{width: 330px;transition: width .7s;}
+  @media screen and #{$max764}{width: 310px;transition: width .7s;}
   
   @media screen and #{$maxH900}{transform: translateY(20px);}
   @media screen and #{$maxH800}{transform: translateY(50px);}
@@ -35,8 +35,8 @@ $maxH1000: "(max-height: 1000px)";
   @media screen and (max-width: 1099px){
     width: 165px;
     height: 190px;
-    transition: height .5s;
-    transition: width .5s;
+    transition: height .7s;
+    transition: width .7s;
   }
 
   #img-main{
