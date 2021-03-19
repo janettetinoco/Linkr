@@ -69,7 +69,6 @@ class SignupForm extends React.Component {
       this.props.uploadImage(image).then((res) => {
         user.imageUrl = res.image.data.imageUrl
       }).then(() => {
-        debugger
         this.props.signup(user)
           .then(() => {
             if (this.props.signedIn) {

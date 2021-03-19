@@ -70,9 +70,7 @@ class MyProfile extends React.Component{
   }
 
   handleSubmit(e) {
-
     e.preventDefault();
-    
     Object.keys(this.state).forEach(field =>{
       if (this.state[field] === '' ){
         this.state[field]= this.props.self[field]
