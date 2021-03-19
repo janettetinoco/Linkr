@@ -92,10 +92,56 @@ http.listen(port, () => {
   console.log('listening on *:' + port);
 });
 ```
+<img src="https://user-images.githubusercontent.com/52670122/111849902-fe3bc280-88cb-11eb-9458-0b9d31b2f1b1.png" width="800" />
 
 ### Mobile Optimization
-<img src="https://user-images.githubusercontent.com/52670122/111849902-fe3bc280-88cb-11eb-9458-0b9d31b2f1b1.png" />
 
+Since this app was meant to be used as a social networking application, we decided to optimize so that it is mobile friendly. Our app can be easily accessible on your phone so that i can be readily available on whatever device you use.
 
+```scss
+#friend-index{
+  background-color: rgba(255, 255, 255, 0.294);
+
+  -webkit-box-shadow: -1px 1px 3px 4px rgba(37, 92, 122, 0.459), 1px 2px 3px 5px rgba(67, 122, 152, 0.452), 0px 5px 0px 3px rgba(198,147,177,0.79), inset 0px 0px     11px 1px rgba(192,186,148,0.76), inset 0px 0px 8px 1px rgba(192,186,148,0.76);
+  box-shadow: -1px 1px 3px 4px rgba(37, 92, 122, 0.459), 1px 2px 3px 5px rgba(67, 122, 152, 0.452), 0px 5px 0px 3px rgba(198,147,177,0.79), inset 0px 0px 11px 1px rgba(192,186,148,0.76), inset 0px 0px 8px 1px rgba(192,186,148,0.76);
+  @media screen and (min-width: 1259px){
+    overflow-y:scroll;
+    position: absolute;
+    width: 370px;
+    height: 390px;
+    max-height: 60%;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-auto-rows: 31%; 
+    margin: auto;
+    right: 25px;
+    top: 35%;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+  }
+
+  @media screen and (max-width: 1259px){
+    transform:translateY(95px);
+    height: fit-content;
+    min-width: 50%;
+    margin-bottom: 100px;
+    display: flex; 
+    flex-direction: row;
+    overflow-x:scroll;
+    width: 100%;
+    height: min-content;
+  }
+  @media screen and (min-width: 1500px){
+    width: 440px;
+    height: 470px;
+    top: 30%;
+  }
+}
+```
+## Future Features
+1. Swipe Event
+2. Peer to Peer private messaging
+3. Job board
 
 
