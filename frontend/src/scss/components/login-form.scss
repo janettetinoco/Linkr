@@ -1,15 +1,9 @@
+@import "_auth_forms";
+
 $minWidth450: "(min-width: 450px)"; 
 $maxWidth450: "(max-width: 450px)"; 
 
-@mixin login-button-style($bg-color){
-  background-color: $bg-color;
-  width: 160px;
-  @media #{$maxWidth450}{width: 130px;}
-  color: $lightest-gray;
-  border-radius: 20px;
-  height: 27px;
-  text-align: center;
-}
+
 
 @mixin input-style{
     background-color: #fefefe;
@@ -61,10 +55,10 @@ $maxWidth450: "(max-width: 450px)";
 }
 
 .login-submit {
-  @include login-button-style($darker-linkr-orange);
+  @include submit-button-style($darker-linkr-orange);
 }
 .login-demo-submit {
-  @include login-button-style($better-linkr-blue); 
+  @include submit-button-style($better-linkr-blue); 
   margin-bottom: 5px;
 }
 

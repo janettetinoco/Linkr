@@ -1,0 +1,22 @@
+$minWidth450: "(min-width: 450px)"; 
+$maxWidth450: "(max-width: 450px)"; 
+
+@mixin form_style{
+  width: 100%;
+  @media #{$maxWidth450}{width: 55%;}
+  color: $other-orange;
+  background-color: $lightest-gray;
+  font-family: $railway;
+  border: 1px solid $light-gray;
+  border-radius: 20px;
+  padding: 5%;
+}
+@mixin submit-button-style($bg-color){
+  background-color: $bg-color;
+  width: 160px;
+  @media #{$maxWidth450}{width: 130px;}
+  color: $lightest-gray;
+  border-radius: 20px;
+  height: 27px;
+  text-align: center;
+}
