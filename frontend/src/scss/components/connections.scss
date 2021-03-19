@@ -3,6 +3,13 @@
   min-zoom: 0.5;
   max-zoom: 1.0;
 }
+$max320: "(max-width: 320px)";
+$max480: "(max-width: 480px)";
+$max764: "(max-width: 764px)";
+$max1024: "(max-width: 1024px)";
+$max1200: "(max-width: 1200px)";
+$max1500: "(max-width: 1500px)";
+
 
 @mixin box-shadow($inOpacity, $outOpacity){
   box-shadow:
@@ -20,98 +27,67 @@
   -webkit-text-fill-color: transparent;	
   -webkit-text-stroke: .5px black;
 }
-
-@media (max-height: 899px) {
-  .connections{
-    height: 125vh;
-  }
-}
-@media (max-height: 800px) {
-  .connections{
-    height: 135vh;
-  }
-}
-@media (max-height: 700px) {
-  .connections{
-    height: 150vh;
-  }
-}
-@media (max-height: 600px) {
-  .connections{
-    height: 170vh;
-  }
-}
-@media (max-height: 550px) {
-  .connections{
-    height: 185vh;
-  }
-}
-@media (max-height: 500px) {
-  .connections{
-    height: 210vh;
-  }
-}
-@media (max-height: 450px) {
-  .connections{
-    height: 240vh;
-  }
-}
-@media (max-height: 400px) {
-  .connections{
-    height: 270vh;
-  }
-}
-@media (max-height: 350px) {
-  .connections{
-    height: 310vh;
-  }
-}
-@media (max-height: 300px) {
-  .connections{
-    height: 340vh;
-  }
-}
-@media (min-height: 900px) {
-  .connections{
-    height: 100vh;
-  }
+.connections{
+  @media (max-height: 899px) {height: 125vh;};
+  @media (max-height: 800px) {height: 135vh;};
+  @media (max-height: 700px) {height: 150vh;};
+  @media (max-height: 600px) {height: 170vh;};
+  @media (max-height: 550px) {height: 185vh;};
+  @media (max-height: 500px) {height: 210vh;};
+  @media (max-height: 450px) {height: 240vh;};
+  @media (max-height: 400px) {height: 270vh;}
+  @media (max-height: 350px) {height: 310vh;}
+  @media (max-height: 300px) {height: 340vh;}
+  @media (min-height: 900px) {height: 100vh;}
 }
 
-
-@media screen and (min-width: 1500px){
-  
-}
-
-@media screen and (min-width: 1260px){
-  #connections-title{
+#connections-title{
     font-size: 50px;
-    @include connectionsFont();
     font-family: $railway;
-    @include box-shadow(.4,.7);
     text-align: center;
+    @include connectionsFont();
+    margin-top: auto;
+    margin-bottom: auto;
+    height: auto;
   }
   #connections-title-wrapper{
+    display:flex;
+    justify-content: center;
+    @include box-shadow(.4,.7);
+    height: 100px; 
     background-color: $linkr-blue-less-transparent;
-    height: fit-content; 
     width: 100%;
     position: absolute;
     top: 10%;
-  }
-  .connections{
+    @media screen and (max-width: 1259px){
+      display: none;
+    }
+}
+
+.connections{
+  background-image: url("../../background_images/salar_cotton_candy.png");
+  background-size: cover; 
+  background-repeat: repeat-y;
+  display: flex;
+  padding: 0;
+  @media screen and (min-width: 1260px){
     justify-content: flex-end;
     flex-direction: row;
     align-items: center;
     margin: auto;
-
   }
-
-  #connections-list-title{
-    font-size: 30px;
-    @include connectionsFont();
-    text-align: center;
-    font-family: $railway;
+  @media screen and (max-width: 1259px){
+    justify-content: center;
+    flex-direction: row;
   }
-  #friend-index{
+}
+
+#friend-index{
+  background-color: rgba(255, 255, 255, 0.294);
+
+  -webkit-box-shadow: -1px 1px 3px 4px rgba(37, 92, 122, 0.459), 1px 2px 3px 5px rgba(67, 122, 152, 0.452), 0px 5px 0px 3px rgba(198,147,177,0.79), inset 0px 0px 11px 1px rgba(192,186,148,0.76), inset 0px 0px 8px 1px rgba(192,186,148,0.76);
+  box-shadow: -1px 1px 3px 4px rgba(37, 92, 122, 0.459), 1px 2px 3px 5px rgba(67, 122, 152, 0.452), 0px 5px 0px 3px rgba(198,147,177,0.79), inset 0px 0px 11px 1px rgba(192,186,148,0.76), inset 0px 0px 8px 1px rgba(192,186,148,0.76);
+  @media screen and (min-width: 1259px){
     overflow-y:scroll;
     position: absolute;
     width: 370px;
@@ -127,35 +103,8 @@
     justify-items: center;
     align-content: center;
   }
-  .friend-index-item {
-    height: 105px;
-    width: 105px;
-    min-height: 105px;
-    min-width: 105px;
-    float:right;
-    margin: 3px;
-  }
-  .friend-detail {
-    position:relative;
-    margin: 0;
-    margin-left: auto;
-    margin-right: auto;
-    top: 50px;
-  }
-}
-@media screen and (max-width: 1259px){
-  #connections-title{
-    display: none;
-  }
-  .connections{
-    justify-content: center;
-    flex-direction: row;
-  }
-  #connections-list-title{
-    display: none;
-  }
- 
-  #friend-index{
+
+  @media screen and (max-width: 1259px){
     transform:translateY(95px);
     // margin: 0 20px;
     // margin: 0 auto;
@@ -169,52 +118,18 @@
     width: 100%;
     height: min-content;
   }
-  .friend-index-item {
-    //on resize 
-    height: 10vw;
-    width: 10vw;
-    min-height: 80px;
-    min-width: 80px;
-  }
-  .friend-detail {
-    position:absolute;
-    margin-top: 20px;
-    transform:translateY(240px);
-    height: fit-content;
-  }
-}
-
-@media screen and (min-width: 1500px){
-    #friend-index{
+  @media screen and (min-width: 1500px){
     width: 440px;
     height: 470px;
     top: 30%;
   }
-  .friend-index-item {
-    height: 123px;
-    width: 123px;
-    min-height: 123px;
-    min-width: 123px;
-  }
 }
 
-.connections{
-  background-image: url("../../background_images/salar_cotton_candy.png");
-  background-size: cover; 
-  background-repeat: repeat-y;
-  display: flex;
-  padding: 0;
-}
+
 .connections .card{
   background-color: rgba(47, 58, 156, 0.83);
 }
-#friend-index{
-  background-color: rgba(255, 255, 255, 0.294);
 
-  -webkit-box-shadow: -1px 1px 3px 4px rgba(37, 92, 122, 0.459), 1px 2px 3px 5px rgba(67, 122, 152, 0.452), 0px 5px 0px 3px rgba(198,147,177,0.79), inset 0px 0px 11px 1px rgba(192,186,148,0.76), inset 0px 0px 8px 1px rgba(192,186,148,0.76);
-  box-shadow: -1px 1px 3px 4px rgba(37, 92, 122, 0.459), 1px 2px 3px 5px rgba(67, 122, 152, 0.452), 0px 5px 0px 3px rgba(198,147,177,0.79), inset 0px 0px 11px 1px rgba(192,186,148,0.76), inset 0px 0px 8px 1px rgba(192,186,148,0.76);
-  
-}
 
 .friend-index-item {
 
@@ -236,15 +151,51 @@
     background-color:rgba(47, 58, 156, 0.83);;
     // background-color:rgba(44, 36, 90, 0.83);
   }
+  height: 123px;
+  width: 123px;
+  min-height: 123px;
+  min-width: 123px;
+
+  @media screen and (min-width: 1260px){
+    height: 105px;
+    width: 105px;
+    min-height: 105px;
+    min-width: 105px;
+    float:right;
+    margin: 3px;
+  }
+  @media screen and (max-width: 1259px){
+    //on resize 
+    height: 10vw;
+    width: 10vw;
+    min-height: 80px;
+    min-width: 80px;
+  }
+  
 }
-
-
 
 //connections profile
 
 .friend-detail {
+  height: fit-content;
+  width: fit-content;
+
+  position:relative;
+
+  @media screen and (min-width: 1260px){
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50px;
+  }
+
+  @media screen and (max-width: 1259px){
+    position:absolute;
+    margin-top: 20px;
+    transform:translateY(240px);
     height: fit-content;
-    width: fit-content;
+  }
+  @media screen and #{$max764}{transform: translateY(200px);}
 }
 
 
