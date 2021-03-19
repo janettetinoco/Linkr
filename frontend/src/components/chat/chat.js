@@ -110,12 +110,13 @@ class Chat extends React.Component {
             {this.state.chat.map((el, index) => {
               return (
                 <div key={index} className='msg'>
-                  <Typography variant="caption" className="name">
+                  <div className="mssg-author">
                     {el.name}
-                  </Typography>
-                  <Typography variant="body1" className="content">
+                  </div>
+                  <div className="mssg-content">
+                    <div className="arrow-top-left"></div>
                     {el.content}
-                  </Typography>
+                  </div>
                 </div>
               );
             })}

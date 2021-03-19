@@ -7,10 +7,74 @@
   display: block;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
-
-  background-color: rgb(72, 61, 139);
   border-radius: 5px;
   margin-left: 10px;
+  
+}
+.chat-container.main{
+  background-color: rgb(37, 37, 37);
+  .mssg-author{
+    color: rgb(226, 226, 226);
+  }
+
+  .mssg-content{
+    background: linear-gradient(#eceaea 0%, #c4c3c3 10%, #a1a1a1 50%, #848282 100%);
+    color: black;
+    .arrow-top-left{
+      border-color: transparent transparent #dbdada transparent;   
+    }
+  }
+
+  .bottom-container{
+    border: 1px solid black;
+    background-color: #f0f0f0;
+  }
+}
+
+.chat-container.prof{
+  background-color: #999aa2d1;
+  .mssg-author{
+    color: #144063;
+  }
+
+  .mssg-content{
+    background: linear-gradient(#d9e7f1 0%, #d8e8f9 10%, #bfd9f3 50%, #a4cbf3 100%);
+    color: #000000;
+    .arrow-top-left{
+      border-color: transparent transparent #cfe3f7 transparent;
+    }
+  }
+
+  .bottom-container{
+     border: 1px solid #1d5d90;
+    background-color: #b8d0e4;
+  }
+}
+
+.chat-container.conn{
+  background-color: #e6e6e69e;
+  .mssg-author{
+    color: #426577;
+  }
+
+  .mssg-content{
+    background: linear-gradient(#c3ddec 0%, #9ccff3 10%, #70c4fb 50%, #88d1ff 100%);
+    color: #425869;
+    .arrow-top-left{
+      border-color: transparent transparent #a9d2ef transparent;
+    }
+  }
+
+  .bottom-container{
+    border: 1px solid #8a8686;
+    background-color: #e9eef3;
+  }
+}
+
+.mssg-author {
+  font-family: $railway;
+  padding: 3px;
+  font-size: 14px;
 }
 
 .open {
@@ -31,29 +95,38 @@
   height: 400px;
 }
 
-.name {
-  color: rgb(127, 255, 0);
-  border: 1px solid;
-  border-radius: 3px;
-  padding: 3px;
+.mssg-content {
+  font-family: $questrial;
+  font-size: 14px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  position: relative;
+  width: 75%;
+  padding: 7px 6px 7px 9px;
+  border-radius: 10px;
 }
 
-.content {
-  margin-bottom: 8px;
+.arrow-top-left{
+    border-style: solid;
+    position: absolute;
+    border-width: 0px 8px 8px 8px;
+    top: -7px;
+    left:8px;
 }
 
 .bottom-container{
   display: flex;
-  border: 1px solid rgb(205, 133, 63);
-  background-color: rgb(176, 196, 222);
   width: 298px;
   height: 33px;
-  border-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .chat-name{
   margin-left: 5px;
   position: relative;
+  font-family: $railway;
+  font-size: 14px;
 
 
   input{
@@ -67,16 +140,19 @@
   margin-left: 5px;
   position: relative;
   width: 100%;
+  font-family: $questrial;
 
   input{
     padding: 8px 3px;
     color: black;
-    width: 150px;
+    width: 100%;
+    overflow-wrap: anywhere;
   }
 }
 
 
 .o-chat{
+  font-family: $railway;
   position: absolute;
   bottom: 0;
   display: flex;

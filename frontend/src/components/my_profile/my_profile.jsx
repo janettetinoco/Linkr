@@ -62,6 +62,10 @@ class MyProfile extends React.Component{
   }
 
   componentDidMount(){
+    document.getElementsByClassName('chat-container')[0].classList.remove('main')
+    document.getElementsByClassName('chat-container')[0].classList.remove('conn')
+    document.getElementsByClassName('chat-container')[0].classList.add('prof')
+
     this.props.getSelf(this.props.myId)
   }
 
