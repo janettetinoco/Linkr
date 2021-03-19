@@ -8,24 +8,11 @@ class LoginForm extends React.Component {
     this.state = {
       email: '',
       password: '',
-      // errors: {}
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
   }
-
-  // // Once the user has been authenticated, redirect to the Tweets page
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.currentUser === true) {
-  //     this.props.history.push('/');
-  //   }
-
-  //   // Set or clear errors
-  //   this.setState({errors: nextProps.errors})
-  // }
-
-  // Handle field updates (called in the render method)
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -40,10 +27,16 @@ class LoginForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.resetErrors();
-    let user = {
+    let user;
+    if(e.target.value === 'demo'){
+      user = {email: 'Michaeln@mn.com', password: '123456'};
+    }
+    else{
+      user = {
       email: this.state.email,
       password: this.state.password
-    };
+      };
+    }
 
     this.props.login(user)
     .then( ()=>{
@@ -100,9 +93,9 @@ class LoginForm extends React.Component {
     return (
         <form className="login-form" onSubmit={this.handleSubmit}>
           <div>
-            <p className="header-container">
-              Welcome back to Linkr
-            </p>
+              <p className="header-container">
+                Welcome back to Linkr
+              </p>
               <div className="field-errors">
                 {emailError}
               </div>
@@ -124,15 +117,16 @@ class LoginForm extends React.Component {
                 onChange={this.update('password')}
                 placeholder="Password"
               />
-            <br/>
-            <input
-              className="login-submit" 
-              type="submit" 
-              value="Submit"
-            />
-          <div className="switch-form-container">
-            Don't already have an account? {this.props.signupForm}
-          </div>
+              <br/>
+              <button className="login-demo-submit" value="demo" onClick={this.handleSubmit}>Demo User</button>
+              <input
+                className="login-submit" 
+                type="submit" 
+                value="Submit"
+              />
+              <div className="switch-form-container">
+                Don't already have an account? {this.props.signupForm}
+              </div>
           </div>
         </form>
     );
