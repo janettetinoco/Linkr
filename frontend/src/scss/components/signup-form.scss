@@ -94,7 +94,8 @@ $maxWidth450: "(max-width: 450px)";
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-
+    font-size: 15px;
+    @media screen and #{$maxWidth450}{font-size: 11px;}
     input[type="file"]{
       display: none;
     }
@@ -133,7 +134,7 @@ $maxWidth450: "(max-width: 450px)";
     margin-top: 15px;
     color: $better-linkr-blue;
     font-size: 15px;
-    @media #{$maxWidth450}{font-size: 11px;}
+    @media screen and #{$maxWidth450}{font-size: 11px;}
     text-align: center;
 }
 
