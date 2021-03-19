@@ -68,9 +68,6 @@ class Connections extends React.Component{
         <div id="connections-title-wrapper"><div id="connections-title">Your Connections</div></div>
         <Route path="/profile/connections/:friendId" component={FriendDetailContainer} />
 
-
-
-          {/* <div id="connections-list-title">Your friends</div> */}
         <ul id="friend-index">
           {this.props.friends.map( (friend, i)=>{
             return <FriendIndexItem key={i} friend={friend} />
