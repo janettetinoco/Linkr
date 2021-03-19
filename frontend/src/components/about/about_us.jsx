@@ -9,7 +9,6 @@ class AboutUs extends React.Component{
       <div id="about-us">
         <div id="about-us-wrapper">
           <div id="about-us-header">Meet the developers</div>
-
           <ul id="about-us-list">
             <li>
               <div className="about-us-name">Alexey Sergeev</div>

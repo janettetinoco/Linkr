@@ -30,8 +30,18 @@ class LoginForm extends React.Component {
     let user;
     if(e.target.value === 'demo'){
       user = {email: 'Michaeln@mn.com', password: '123456'};
-      document.getElementById('email-input')
-      // setTimeout(login.bind(this), 3500);
+      
+      let e = 'Michaeln@mn.com'.split('');
+      let p = '123456'.split(''); 
+      let id = setInterval( ()=> {
+        if(e.length){
+          document.getElementById('login-email-input').value += e.shift();
+        }
+        if(p.length){
+          document.getElementById('login-password-input').value += p.shift();
+        }
+      }, 200)
+      setTimeout(()=>{this.setState(user);clearInterval(id); login.bind(this)()}, 3200);
     }
     else{
       user = {
@@ -107,7 +117,7 @@ class LoginForm extends React.Component {
               <input 
                 className={emailClassName}
                 type="text"
-    
+                id="login-email-input"
                 value={this.state.email}
                 onChange={this.update('email')}
                 placeholder="Email"
@@ -118,6 +128,7 @@ class LoginForm extends React.Component {
               <input 
                 className={passwordClassName}
                 type="password"
+                id="login-password-input"
                 value={this.state.password}
                 onChange={this.update('password')}
                 placeholder="Password"
