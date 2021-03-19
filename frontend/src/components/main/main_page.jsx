@@ -32,7 +32,9 @@ class MainPage extends React.Component {
 
   }
   componentDidMount(){
-
+    document.getElementsByClassName('chat-container')[0].classList.remove('prof')
+    document.getElementsByClassName('chat-container')[0].classList.remove('conn')
+    document.getElementsByClassName('chat-container')[0].classList.add('main')
   }
 UNSAFE_componentWillMount(){
 
