@@ -76,10 +76,6 @@ class Connections extends React.Component{
 
       </section>
     )
-
   }
 }
-
 export default Connections; 
-
-// [img] Michael noble  student

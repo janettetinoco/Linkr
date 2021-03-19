@@ -3,12 +3,13 @@
   min-zoom: 0.5;
   max-zoom: 1.0;
 }
-$max320: "(max-height: 320px)";
-$max480: "(max-height: 480px)";
-$max764: "(max-height: 764px)";
-$max1024: "(max-height: 1024px)";
-$max1200: "(max-height: 1200px)";
-$max1500: "(max-height: 1500px)";
+$max320: "(max-width: 320px)";
+$max480: "(max-width: 480px)";
+$max764: "(max-width: 764px)";
+$max1024: "(max-width: 1024px)";
+$max1200: "(max-width: 1200px)";
+$max1500: "(max-width: 1500px)";
+
 
 @mixin box-shadow($inOpacity, $outOpacity){
   box-shadow:
@@ -42,25 +43,26 @@ $max1500: "(max-height: 1500px)";
 
 #connections-title{
     font-size: 50px;
-    @include connectionsFont();
     font-family: $railway;
-    @include box-shadow(.4,.7);
     text-align: center;
+    @include connectionsFont();
+    margin-top: auto;
+    margin-bottom: auto;
+    height: auto;
+  }
+  #connections-title-wrapper{
+    display:flex;
+    justify-content: center;
+    @include box-shadow(.4,.7);
+    height: 100px; 
+    background-color: $linkr-blue-less-transparent;
+    width: 100%;
+    position: absolute;
+    top: 10%;
     @media screen and (max-width: 1259px){
       display: none;
     }
 }
-#connections-title-wrapper{
-  @media screen and (min-width: 1260px){
-    background-color: $linkr-blue-less-transparent;
-    height: fit-content; 
-    width: 100%;
-    position: absolute;
-    top: 10%;
-  }
-}
-
-
 
 .connections{
   background-image: url("../../background_images/salar_cotton_candy.png");
@@ -187,13 +189,13 @@ $max1500: "(max-height: 1500px)";
     top: 50px;
   }
 
-
   @media screen and (max-width: 1259px){
     position:absolute;
     margin-top: 20px;
     transform:translateY(240px);
     height: fit-content;
   }
+  @media screen and #{$max764}{transform: translateY(200px);}
 }
 
 
