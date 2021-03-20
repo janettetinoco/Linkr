@@ -33,10 +33,6 @@ class Profile extends React.Component{
               <div className="flip-card-front">
                 <div className='image-container'>
                   <img alt="profile" id='img-main' src={this.props.user.imageUrl} />
-                  <div className='edit-b'>
-                    <button onClick={this.handleEditButton}><img alt="profile" id='edit' className='user-icon' src="https://img.icons8.com/ultraviolet/40/000000/edit.png" /></button>
-                    <h1>Edit Profile</h1>
-                  </div>
                 </div>
                 <div className='user-details-name'>
                   <h1>{this.props.user.name}</h1>
