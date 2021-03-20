@@ -1,7 +1,7 @@
 
 .chat-container{
   // margin-top: 400px;
-  position: absolute;
+  position: fixed;
   bottom: 45px;
   width: 300px;
   display: block;
@@ -137,9 +137,8 @@
 }
 
 .chat-message{
-  margin-left: 5px;
   position: relative;
-  width: 100%;
+  width: 97%;
   font-family: $questrial;
 
   input{
@@ -153,7 +152,7 @@
 
 .o-chat{
   font-family: $railway;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   display: flex;
   border: 1px solid rgb(255, 255, 255);

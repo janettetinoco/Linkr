@@ -24,7 +24,7 @@ const upload = multer({
     storage: multerS3({
         acl: 'public-read',
         s3,
-        bucket: "linkr-dev",
+        bucket: "linkr-dev-preimages",
         contentType: multerS3.AUTO_CONTENT_TYPE,
         metadata: function (req, file, cb) {
             cb(null, { fieldName: file.fieldname });
