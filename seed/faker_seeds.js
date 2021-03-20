@@ -90,7 +90,7 @@ function doSeeding() {
       "https://linkr-dev.s3-us-west-1.amazonaws.com/man-5.jpg",
       "https://linkr-dev.s3-us-west-1.amazonaws.com/man-6.jpg",
       "https://linkr-dev.s3-us-west-1.amazonaws.com/man-7.jpg",
-      "https://linkr-dev.s3-us-west-1.amazonaws.com/man8.jpg]",
+      "https://linkr-dev.s3-us-west-1.amazonaws.com/man8.jpg",
     ]
 
 

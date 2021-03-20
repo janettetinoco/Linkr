@@ -28,7 +28,7 @@ class LoginForm extends React.Component {
     e.preventDefault();
     this.props.resetErrors();
     let user;
-    if(e.target.value === 'demo'){
+    if(e.target.value === 'demo' && !(e.which === 13)){
       user = {email: 'Michaeln@mn.com', password: '123456'};
       
       let e = 'Michaeln@mn.com'.split('');
