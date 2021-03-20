@@ -1,7 +1,9 @@
 # [Linkr](http://linkr-mern.herokuapp.com/)
 ### by Michael Clayton Noble, Alexey Sergeev, Jonathan Diaz,and Janette Tinoco
 
-Linkr is a professional networking application that allows users to connect in a simplified manner. Users are given suggested users to connect with given an option to swipe right if they are interested or swipe left if they are not. Users can further their connection once both users show an interest in connecting and it will allow users to see more information about their new connection, such as professional networking sites and portfolios. Since networking has taken a turn for the digital, Linkr strives to be the intuitive go-to application for meeting new associates.
+Linkr is a professional networking application that allows users to connect in a simplified manner. Users are presented with several users in their city that they can choose to connect with or reject. The idea is centered around users forming connections based on whether or not they find someones business interests or occupation attractive. Users can connect or reject potential associates with a swipe. Users can swipe right to form a connection with another user or swipe left if they don't want to form a connection with a user. Forming a connection allows both users to view more intimate details about their professional lives like their linkedIn profile link, professional networking sites, or portfolios. Skipping or rejecting a user means they will not appear as a potential suggestion in the future. 
+
+Since networking has taken a turn for the digital, Linkr strives to be the intuitive go-to application for meeting new associates.
 
 Explore our app! [Linkr](http://linkr-mern.herokuapp.com/)
 
@@ -26,7 +28,7 @@ Explore our app! [Linkr](http://linkr-mern.herokuapp.com/)
 * socket.io
 
 ## Development
-This app is centered around creating a mutual connection. We implemented a schema that would allow our backend to keep track of users' **blocked**, **pending**, and **connected** user id's. Swiping left would automatically block the other user and swiping right would add users to either the pending or connected user's list. Getting a mutual swipe right would result in a successful connection adding the users to each others connected array. Once users are mutual connections they are allowed to access more of our features.
+Linkr is centered around user interaction so we implemented a schema that would allow our backend to keep track of users' interactions. When users interact with another profile, the user tags the other profile as either **blocked**, **pending**, or **connected** and stores this information as arrays in the user's document. Swiping is how the user interacts other profiles. Swiping left will skip the other profile and adds their profile to the user's blocked list. Swiping right would add the other profile to the user's pending list or if the other profile has swiped right on the user's profile to the user's connected user's list. Getting a mutual swipe right would result in a successful connection adding the users to each others connected array. 
 
 User profiles are rendered to a user depending on their location, we filter through all the users in the database to only show users near their area. In the future we plan to not only render users within the area, but give users the option to filter through other parameters.
 
