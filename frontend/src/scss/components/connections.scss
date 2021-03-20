@@ -202,6 +202,7 @@ $max1500: "(max-width: 1500px)";
 #connections-message{
   font-size: 50px;
   @include connectionsFont();
+  align-self: center;
 }
 
 //scroll bar settings 
