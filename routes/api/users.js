@@ -7,8 +7,9 @@ const keys = require('../../config/keys');
 const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
-const doFilledSeeds = require('../../seed/seed_complete_users')
-const doSeeding = require('../../seed/faker_seeds')
+const doFilledSeeds = require('../../seed/seed_complete_users');
+const doSeeding = require('../../seed/faker_seeds');
+const Connection = require("../../models/Connection");
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
@@ -176,8 +177,28 @@ router.get('/connections', (req, res) => {
 
 router.get('/seed', (req, res) => {
   doFilledSeeds()
+  
+  let allUsers = User.find()
+    .then(users => res.json(users))
+  let connection = new Connection({ connected: [], pending: [], blocked: [] })
+  User.findOne({ name: "Michael Noble" }).then(demoUser => {
+    demoUser.connection = connection
+    let demoPending = demoUser.connection.pending
+    let demoConnected = demoUser.connection.connected
+    //adding 5 pending 3 connected
+    for(let i = 0; i < 9; i++){
+      if(allUsers[i].name !== "Michael Noble"){
+        if(i % 2 === 0){
+          demoPending.push(allUsers[i]._id)
+        }else{
+          demoConnected.push(allUsers[i]._id)
+        }
+      }
+    }
+    demoUser.save()
+  })
   doSeeding()
-  res.json('Seeding successful!');
+  res.json('Seeding Successful');
 })
 
 //filled seeds
