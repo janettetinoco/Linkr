@@ -157,57 +157,41 @@ router.get('/connections', (req, res) => {
     })
 })
 
-//async Function  === to router above
-// router.get('/connections', async (req, res) => {
-//   let ListConnectedUsers = [];
 
-//   let user = await User.findOne({_id: req.query.id})
-//   if (user.connection) {
-//     for (let i = 0; i < user.connection.connected.length; i++) {
-//       let connectedUser = await User.findOne({_id: user.connection.connected[i]})
-//       ListConnectedUsers.push(connectedUser);
-//     }
-//   }
-//   res.json(ListConnectedUsers)
-// })
+async function appendConnections() {
+  const allUsers = await User.find()
 
-
-//route to -> run seeds!
-//use console`s browser on localhost:3000 & axios this route...
-
-router.get('/seed', (req, res) => {
-  doFilledSeeds()
-  
-  let allUsers = User.find()
-    .then(users => res.json(users))
-  let connection = new Connection({ connected: [], pending: [], blocked: [] })
-  User.findOne({ name: "Michael Noble" }).then(demoUser => {
+  await User.findOne({ name: "Michael Noble" }).then(demoUser => {
+    const connection = new Connection({ connected: [], pending: [], blocked: [] })
     demoUser.connection = connection
-    let demoPending = demoUser.connection.pending
-    let demoConnected = demoUser.connection.connected
-    //adding 5 pending 3 connected
-    for(let i = 0; i < 9; i++){
+    for(let i = 0; i < 15; i++){
       if(allUsers[i].name !== "Michael Noble"){
-        if(i % 2 === 0){
-          demoPending.push(allUsers[i]._id)
-        }else{
-          demoConnected.push(allUsers[i]._id)
-        }
+        allUsers[i].connection = connection
+        allUsers[i].connection.pending.push(demoUser.id)
+        allUsers[i].save()
       }
     }
     demoUser.save()
   })
+  console.log('Done')
+}
+
+
+//route to -> run seeds!
+//use console`s browser on localhost:3000 & axios.get this route...
+router.get('/seed', async (req, res) => {
+  doFilledSeeds()
   doSeeding()
+
+  //I do this loop because seeding is slow :( 
+  for (let i = 0; i < 3; i++){
+    await User.find()
+  }
+
+  //this func creates pendings for demo User
+  appendConnections()
   res.json('Seeding Successful');
 })
-
-//filled seeds
-router.get('/filledSeed', (req, res) => {
-  doFilledSeeds()
-  res.json('Mode: Complete-Profile Seeding... Success!');
-})
-
-
 
 router.patch('/completeProfile', (req, res) => {
   let id = req.body.id
